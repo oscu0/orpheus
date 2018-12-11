@@ -19,7 +19,6 @@
 " ounmap <Esc>[Z
 cnoreabbrev fixTabs "%s/       / "
 let g:vebugger_leader='<Leader>d'
-map gd :bd<cr>
 map gn :bn<cr>
 map gp :bp<cr>
 " nmap <S-Space> <C-b>
@@ -28,6 +27,8 @@ nnoremap <leader>g :GitGutterSignsToggle<CR>
 nnoremap <leader>l :Autoformat<CR>
 nnoremap <leader>m :SignatureToggle<CR>
 nnoremap <leader>p :CtrlP<CR>
-nnoremap <leader>t :TagbarToggle<CR>
+" nnoremap <leader>t :TagbarToggle<CR>
+nnoremap <leader>t :TlistSync<CR>:TlistToggle<CR>
 nnoremap n nzz
 noremap <leader>f :NERDTreeToggle<CR>
+noremap <leader>a :ToggleBool<CR>

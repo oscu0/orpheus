@@ -42,7 +42,9 @@ Plug 'tshirtman/vim-cython', { 'for': ['python', 'cython'] }
 Plug 'tpope/vim-endwise'
 " Plug 'jcf/vim-latex', { 'for': 'latex'}
 Plug 'lervag/vimtex', { 'for': [ 'latex', 'plaintex' ]}
-Plug 'ludovicchabant/vim-gutentags'
+" Plug 'ludovicchabant/vim-gutentags'
+Plug 'majutsushi/tagbar'
+Plug 'vim-scripts/taglist.vim'
 Plug 'andymass/vim-matchup'
 Plug 'tommcdo/vim-lion'
 Plug 'AndrewRadev/splitjoin.vim'
