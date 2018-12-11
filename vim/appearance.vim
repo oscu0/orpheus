@@ -1,20 +1,20 @@
 exec 'source' custom_path . 'base16.vim'
 
-" function! Render_Only_File(...)
-"   let builder = a:1
-"   let context = a:2
+function! Render_Only_File(...)
+  let builder = a:1
+  let context = a:2
 
-"   call builder.add_section('file', '!! %F')
+  call builder.add_section('file', '!! %F')
 
-"   return 0   " the default: draw the rest of the statusline
-"   return -1  " do not modify the statusline
-"   return 1   " modify the statusline with the current contents of the builder
-" endfunction
-" call airline#add_inactive_statusline_func('Render_Only_File')
-" let g:airline#extensions#ale#enabled = 1
-" let g:airline#extensions#tabline#enabled = 1
-" let g:airline#extensions#tabline#show_close_button = 1
-" let g:airline_powerline_fonts = 0
+  return 0   " the default: draw the rest of the statusline
+  return -1  " do not modify the statusline
+  return 1   " modify the statusline with the current contents of the builder
+endfunction
+call airline#add_inactive_statusline_func('Render_Only_File')
+let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_close_button = 1
+let g:airline_powerline_fonts = 0
 
 
 " hi StatusLinePath ctermfg=cterm02 ctermbg=white
@@ -110,7 +110,6 @@ end
 " set clipboard=unnamed
 highlight lCursor guifg=NONE guibg=Cyan
 let g:ycm_autoclose_preview_window_after_completion = 1
-set background=light
 set backspace=indent,eol,start
 set breakindent
 set colorcolumn=80,132

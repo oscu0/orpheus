@@ -1,7 +1,7 @@
 call plug#begin()
 Plug 'VundleVim/Vundle.vim'
 if v:version + has('patch584') >= 704
-    Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --js-completer --go-completer --rust-completer' }
+    Plug 'Valloric/YouCompleteMe', { 'do': 'python3 install.py --clang-completer --js-completer --go-completer --rust-completer' }
 endif
 Plug 'wincent/command-t', {'on' : 'CommandT', 'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make' }
 Plug 'Chiel92/vim-autoformat'
@@ -26,8 +26,9 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'sheerun/vim-polyglot'
 Plug 'bothyhead/delphi', {'for': ['pascal', 'delphi']}
 Plug 'chriskempson/base16-vim'
-" Plug 'bling/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
+Plug 'altercation/vim-colors-solarized'
+Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-dadbod'
 Plug 'vim-scripts/django.vim', {'for': ['python', 'css', 'html']}
 Plug 'JuliaEditorSupport/julia-vim' ", {'for': 'julia'}

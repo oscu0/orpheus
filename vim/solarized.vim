@@ -6,4 +6,4 @@ colorscheme solarized
 set bg=dark
 let g:solarized_termtrans=0
 let g:airline_theme='solarized'
-let g:solarized_termcolors=16
+" let g:solarized_termcolors=256
