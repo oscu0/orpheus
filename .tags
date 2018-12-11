@@ -1,0 +1,15 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	0	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+mand	/Users/aosh/.config/custom/shell/bash/platform.sh	/^	mand() {$/;"	function	line:20
+emacs_mac	/Users/aosh/.config/custom/shell/bash/platform.sh	/^    function emacs_mac {$/;"	function	line:23
+man	/Users/aosh/.config/custom/shell/bash/settings.sh	/^man() {$/;"	function	line:6
+idea_i	/Users/aosh/.config/custom/shell/bash/settings.sh	/^function idea_i () {$/;"	function	line:34
+parse_git_branch	/Users/aosh/.config/custom/shell/bash/prompt.sh	/^    function parse_git_branch() {$/;"	function	line:8
+parse_git_dirty	/Users/aosh/.config/custom/shell/bash/prompt.sh	/^    function parse_git_dirty() {$/;"	function	line:19
+nonzero_return	/Users/aosh/.config/custom/shell/bash/prompt.sh	/^    function nonzero_return() {$/;"	function	line:71
+dash	/Users/aosh/.config/custom/shell/bash/alias.sh	/^dash() {$/;"	function	line:25
+e	/Users/aosh/.config/custom/shell/bash/alias.sh	/^e() {$/;"	function	line:29
