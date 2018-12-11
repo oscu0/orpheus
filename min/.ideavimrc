@@ -1,0 +1,34 @@
+" set timeoutlen=0
+nnoremap N Nzz
+nnoremap n nzz
+set clipboard=unnamed
+set history=1000
+set incsearch
+set scrolloff=2
+set sidescrolloff=2
+set ignorecase
+set smartcase
+set surround
+set undolevels=1000
+set visualbell
+set wrapscan
+map gJ :action EditorJoinLines<CR>
+map gS :action EditorSplitLine<CR>
+" source /Users/aosh/.config/custom/vim/darwin_mapping.vim
+" Readline mapping in insert mode only
+imap <C-a> <C-o>^
+imap <C-b> <C-o>h
+imap <C-d> <C-o>x
+imap <C-e> <C-o>$<C-o>l
+imap <C-f> <C-o>l
+" imap <C-h> <C-o>X
+imap <C-k> <C-o>d$<C-o>l
+imap <C-n> <C-o>j
+imap <C-p> <C-o>b
+imap <D-BS> <C-o>d^
+imap <D-DEL> <C-o>d$
+imap <M-BS> <C-o>db
+imap <M-DEL> <C-o>dw
+imap <M-b> <C-o>b
+imap <M-d> <C-o>dw
+imap <M-f> <C-o>e
