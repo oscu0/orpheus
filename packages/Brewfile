@@ -1,0 +1,160 @@
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
+tap "homebrew/core"
+tap "macvim-dev/macvim"
+tap "railwaycat/emacsmacport"
+tap "rexfuzzle/openmodelica"
+tap "twlz0ne/ccls"
+tap "universal-ctags/universal-ctags"
+cask "xquartz"
+brew "apm-bash-completion"
+brew "openssl"
+brew "aspell", args: ["with-all-langs"]
+brew "python"
+brew "autopep8"
+brew "bash"
+brew "bash-completion"
+brew "boom-completion"
+brew "brew-cask-completion"
+brew "bvi"
+brew "cargo-completion"
+brew "checkbashisms"
+brew "clang-format"
+brew "clisp"
+brew "cmake"
+brew "cowsay"
+brew "curl", args: ["with-openssl"]
+brew "dash"
+brew "django-completion"
+brew "djvu2pdf"
+brew "docker-completion"
+brew "docker-compose", link: false
+brew "docker-compose-completion"
+brew "docker-machine", link: false
+brew "docker-machine-completion"
+brew "dos2unix"
+brew "flake8", link: false
+brew "fortune"
+brew "fpc"
+brew "gcc"
+brew "gdb"
+brew "gem-completion"
+brew "git"
+brew "git-flow"
+brew "global"
+brew "go"
+brew "grc"
+brew "greed"
+brew "hadolint"
+brew "htop"
+brew "hunspell"
+brew "ipython"
+brew "launchctl-completion"
+brew "less"
+brew "llvm"
+brew "lolcat"
+brew "lynx"
+brew "mas"
+brew "midnight-commander"
+brew "mono"
+brew "moon-buggy"
+brew "mosh"
+brew "mysql"
+brew "neofetch"
+brew "nethogs"
+brew "ninvaders"
+brew "nmap"
+brew "node"
+brew "open-completion"
+brew "pandoc"
+brew "php"
+brew "pip-completion"
+brew "rails-completion"
+brew "reattach-to-user-namespace"
+brew "rlwrap"
+brew "rsync"
+brew "ruby", link: true
+brew "ruby-completion"
+brew "rust"
+brew "rustc-completion"
+brew "shellcheck"
+brew "shfmt"
+brew "sl"
+brew "speedtest-cli"
+brew "subversion"
+brew "the_silver_searcher"
+brew "tmux"
+brew "tmuxinator-completion"
+brew "translate-shell"
+brew "tree"
+brew "vim"
+brew "youtube-dl"
+brew "z"
+brew "zsh"
+brew "twlz0ne/ccls/ccls"
+brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
+cask "cakebrew"
+cask "emacs"
+cask "font-computer-modern"
+cask "font-fira-code"
+cask "font-source-code-pro"
+cask "font-source-sans-pro"
+cask "font-source-serif-pro"
+cask "iina"
+cask "keyboard-cleaner"
+cask "lyx"
+cask "mactex"
+cask "michaelvillar-timer"
+cask "provisionql"
+cask "qlcolorcode"
+cask "qlimagesize"
+cask "qlmarkdown"
+cask "qlprettypatch"
+cask "qlstephen"
+cask "qlvideo"
+cask "quicklook-json"
+cask "quicklook-pat"
+cask "quicklookapk"
+cask "quicklookase"
+cask "suspicious-package"
+cask "webpquicklook"
+cask "yt-music"
+mas "1Blocker", id: 1107421413
+mas "Amphetamine", id: 937984704
+mas "Cathode", id: 499233976
+mas "Dark Reader for Safari", id: 1438243180
+mas "Divvy", id: 413857545
+mas "DjVu Reader", id: 733144595
+mas "Expressions", id: 913158085
+mas "Fantastical 2", id: 975937182
+mas "Findings", id: 1361208537
+mas "GeoGebra Classic 6", id: 1182481622
+mas "iStat Mini", id: 927292435
+mas "Jayson", id: 1189824719
+mas "Keynote", id: 409183694
+mas "Kindle", id: 405399194
+mas "LastPass", id: 926036361
+mas "MindNode", id: 1289197285
+mas "Numbers", id: 409203825
+mas "OverPicture", id: 1188020834
+mas "Pages", id: 409201541
+mas "PCalc", id: 403504866
+mas "PDF Squeezer", id: 504700302
+mas "Pixelmator Pro", id: 1289583905
+mas "Pocket", id: 568494494
+mas "Reeder", id: 880001334
+mas "Shazam", id: 897118787
+mas "SIDT", id: 1308724728
+mas "SketchBook", id: 863486266
+mas "Slack", id: 803453959
+mas "Spark", id: 1176895641
+mas "StopTheMadness", id: 1376402589
+mas "Telegram", id: 747648890
+mas "The Unarchiver", id: 425424353
+mas "Touch Pong", id: 1185339859
+mas "VK Messenger", id: 1265763895
+mas "WhatsApp", id: 1147396723
+mas "Workspaces", id: 1219826448
+mas "Xcode", id: 497799835
+mas "Yoink", id: 457622435
