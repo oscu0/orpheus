@@ -102,7 +102,7 @@ if term_program == 'iTerm.app'
   let &t_SR = "\<Esc>]50;CursorShape=2\x7"
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
-set cursorline
+set nocursorline
 if has("mouse")
   set ttyfast
   set mouse=a

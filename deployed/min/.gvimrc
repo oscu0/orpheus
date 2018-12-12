@@ -32,4 +32,4 @@ set guicursor+=a:blinkon500-blinkoff500
 " let g:airline#extensions#tabline#enabled = 0
 let g:pymode_python = 'python3'
 let g:ycm_server_python_interpreter='/usr/local/bin/python3'
-
+set cursorline
