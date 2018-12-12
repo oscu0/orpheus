@@ -15,7 +15,7 @@ if [[ $platform == 'macos' ]]; then
 	alias ls='ls -GFh'
 	alias ll='pwd && grc ls -lGFh'
 	alias la='pwd && grc ls -alGFh'
-	alias cli_update='cd $CUSTOM_PATH && git pull && cd && vim +PlugUpgrade +PlugUpdate +PlugClean! +qall && conda deactivate && cd && echo \Updating\ global\ packages\ && gem update && python -m pip install --upgrade pip && pip-review --local --auto && echo \Updating\ Conda\ && conda update -n base conda -y && conda clean -y --all && conda activate base && conda update anaconda -y && conda deactivate && echo \Updating\ Homebrew\ && brew upgrade && brew cask upgrade && brew cleanup && npm -g install npm && npm -g update && cd' # horrible
+	alias cli_update='cd $CUSTOM_PATH && git pull && cd && vim +PlugUpgrade +PlugUpdate +PlugClean! +qall && conda deactivate && cd && echo \Updating\ global\ packages\ && mas upgrade && gem update && python -m pip install --upgrade pip && pip-review --local --auto && echo \Updating\ Conda\ && conda update -n base conda -y && conda clean -y --all && conda activate base && conda update anaconda -y && conda deactivate && echo \Updating\ Homebrew\ && brew upgrade && brew cask upgrade && brew cleanup && npm -g install npm && npm -g update && cd' # horrible
 	alias ql='qlmanage -p 2>/dev/null'
 	mand() {
 		open "dash://$1"
