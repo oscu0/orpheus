@@ -27,6 +27,7 @@ Plug 'kshenoy/vim-signature', { 'on': 'SignatureToggle' }
 Plug 'lervag/vimtex', { 'for': [ 'latex', 'plaintex' ]}
 Plug 'majutsushi/tagbar'
 Plug 'mxw/vim-jsx', {'for': ['javascript']}
+Plug 'Nopik/vim-nerdtree-direnter', {'on': 'NERDTreeToggle'}
 Plug 'octref/rootignore'
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'rizzatti/dash.vim', {'on': ['Dash', 'DashKeywords']}
