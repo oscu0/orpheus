@@ -7,6 +7,7 @@ alias cli_update='vim +PlugUpgrade +PlugUpdate +PlugClean! +qall && cd ~/.tmux/p
 alias df='grc df -h'
 alias du='grc du -h'
 alias fpc='fpc -Mtp -vewl'
+alias fzfs='mdfind -onlyin ~ "*" | fzf'
 alias gcc='gcc -std=c11 -Wall'
 alias g++='g++ -std=c++11 -Wall'
 alias grep='grep --color=auto'
