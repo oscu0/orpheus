@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 set -o vi
-if [ -f /usr/local/etc/profile.d/z.sh ]; then
-    source /usr/local/etc/profile.d/z.sh
-fi
 man() {
     LESS_TERMCAP_md=$'\e[01;31m' \
         LESS_TERMCAP_me=$'\e[0m' \
@@ -31,9 +28,8 @@ HISTCONTROL=ignoredups:ignorespace
 HISTSIZE=100000
 HISTTIMEFORMAT='%F %T '
 PROMPT_COMMAND='history -a'
-function idea_i () {
-    for i in "$@"
-    do
-        idea "$(pwd)/$i" > /dev/null 2>&1
+function idea_i() {
+    for i in "$@"; do
+        idea "$(pwd)/$i" >/dev/null 2>&1
     done
 }
