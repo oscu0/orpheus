@@ -42,6 +42,7 @@ let g:ycm_enable_diagnostic_signs = 0
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_disable_for_files_larger_than_kb = 0
 let g:ycm_path_to_python_interpreter = 'python3'
+let g:ycm_global_ycm_extra_conf = "~/.ycm_extra_conf.py"
 " let g:gofmt_on_save=0
 set encoding=utf-8
 set fileencoding=utf-8
@@ -53,3 +54,7 @@ filetype plugin indent on
 let g:polyglot_disabled = ['latex']
 let g:matchup_override_vimtex = 1
 set timeoutlen=1000 ttimeoutlen=50
+command! -nargs=1 FZFS call fzf#run(fzf#wrap({
+            \ 'source'  : 'mdfind -onlyin ~ <q-args>',
+            \ 'options' : '--color=16 -m --prompt "Spotlight> "'
+            \ }))
