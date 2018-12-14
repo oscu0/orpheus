@@ -10,6 +10,8 @@ fi
 
 # Sourcing
 if [[ $platform == 'macos' ]]; then
+	alias python=python3 # FIXME
+	alias pip3=pip
 	alias lldb='PATH=/usr/bin lldb' # Homebrew Python strikes again
 	alias egrep='egrep --color=auto'
 	alias ls='ls -GFh'
