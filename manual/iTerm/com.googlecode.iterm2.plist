@@ -3115,17 +3115,17 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>347 536 606 469 0 0 1680 1027 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>381 341 796 486 0 0 1440 877 </string>
+	<string>523 561 928 394 0 0 1680 1027 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>127 443 592 584 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 51 936 825 0 0 1440 877 </string>
+	<string>526 160 936 825 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>345 52 936 825 0 0 1440 877 </string>
+	<string>345 52 936 825 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>13 49 936 825 0 0 1440 877 </string>
+	<string>13 49 936 825 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
-	<string>699 42 936 825 0 0 1680 1027 </string>
+	<string>474 44 936 825 0 0 1440 877 </string>
 	<key>NeverWarnAboutShortLivedSessions_CA0355DD-C2ED-4031-837A-D46C26F87F88</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_CA0355DD-C2ED-4031-837A-D46C26F87F88_selection</key>
@@ -9665,7 +9665,7 @@
 			<key>Screen</key>
 			<integer>-1</integer>
 			<key>Scrollback Lines</key>
-			<integer>1000</integer>
+			<integer>0</integer>
 			<key>Scrollback With Status Bar</key>
 			<true/>
 			<key>Selected Text Color</key>
@@ -9758,6 +9758,10 @@
 	<true/>
 	<key>NoSyncInstallationId</key>
 	<string>D6496488-1A4D-4733-A6E7-6E0EEFAB5BB6</string>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
+	<true/>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
+	<integer>0</integer>
 	<key>NoSyncNewWindowOrTabFromTmuxOpensTmux</key>
 	<true/>
 	<key>NoSyncNewWindowOrTabFromTmuxOpensTmux_selection</key>
