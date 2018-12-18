@@ -104,7 +104,7 @@ if [ -n "$PS1" ] && [ "$TERM" != "dumb" ]; then
     bind Space:magic-space
 fi
 
-if [  TERMINAL_EMULATOR != "JetBrains-JediTerm" ]; then
+if [ $TERMINAL_EMULATOR != "JetBrains-JediTerm" ]; then
     BASE16_SHELL="$HOME/.config/base16-shell/"
     [ -n "$PS1" ] && \
         [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
