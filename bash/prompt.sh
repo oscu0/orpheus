@@ -86,7 +86,7 @@ if [ -n "$PS1" ] && [ "$TERM" != "dumb" ]; then
     PS1="$red\`nonzero_return\`$reset<$yellow\d \t$reset> "
     PS1+="<$magenta\u$reset@$green\h$reset:"
     PS1+="$blue\w$cyan\`parse_git_branch\`$reset>"
-    PS1+="\n$ "
+    PS1+="\n\$ "
     export PS1
     export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 

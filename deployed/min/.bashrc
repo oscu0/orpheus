@@ -299,9 +299,11 @@ if [ -n "$PS1" ] && [ "$TERM" != "dumb" ]; then
     magenta="\001$(tput setaf 5)\002" 
     cyan="\001$(tput setaf 6)\002" 
     
-    PS1="$red\`nonzero_return\`$yellow\t$reset "
-    PS1+="[$magenta\u$reset@$green\h$reset:"
-    PS1+="$blue\w$cyan\`parse_git_branch\`$reset] $ "
+    PS1="$red\`nonzero_return\`$reset<$yellow\d \t$reset> "
+    PS1+="<$magenta\u$reset@$green\h$reset:"
+    PS1+="$blue\w$cyan\`parse_git_branch\`$reset>"
+    PS1+="\n\$ "
+
     export PS1
     export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 
