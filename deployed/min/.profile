@@ -40,4 +40,11 @@ if [ -e "command -v brew" ]; then
     export HOMEBREW_CASK_OPTS=--require-sha
 fi
 export LC_CTYPE=en_US.UTF-8
+
+export PATH=$PATH:/usr/local/Cellar/python/3.7.2/Frameworks/Python.framework/Versions/3.7/bin
+
+if [ -e "command -v perl" ]; then
+    eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib=$HOME/perl5)"
+fi
+
 export LC_ALL=en_US.UTF-8
