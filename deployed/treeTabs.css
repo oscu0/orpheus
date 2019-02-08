@@ -1,0 +1,76 @@
+/* Show title of unread tabs with red and italic font */
+/*
+.tab.unread .label {
+  color: red !important;
+  font-style: italic !important;
+}
+*/
+/* Add private browsing indicator per tab */
+.tab.private-browsing .label:before {
+    content: "🕶";
+}
+
+#tabbar {
+    counter-reset: vtabs atabs tabs;
+    /* vtabs tracks visible tabs, atabs tracks active tabs, tabs tracks all tabs */
+}
+
+.tab:not(.collapsed):not(.discarded) {
+    counter-increment: vtabs atabs tabs;
+}
+
+.tab:not(.collapsed) {
+    counter-increment: vtabs tabs;
+}
+
+.tab:not(.discarded) {
+    counter-increment: atabs tabs;
+}
+
+.tab {
+    counter-increment: tabs;
+}
+
+.tab .burster::after {
+    background: Highlight;
+    color: HighlightText;
+    content: counter(vtabs);
+    font-size: x-small;
+    right: 0.75em;
+    padding: 0.3em;
+    pointer-events: none;
+    position: absolute;
+    bottom: 0.75em;
+    border-radius: 0.5em;
+}
+
+.tab .twisty {
+  margin-right: 3em;
+  /* opacity: 0; */
+  /* z-index: 10000; */
+}
+
+.tab.unread .label-content {
+    font-style: italic;
+}
+
+.contextual-identity-marker {
+    position: absolute !important;
+    pointer-events: none;
+    Full Auto-show/hide Theme z-index: 0;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: 0 !important;
+    width: unset !important;
+    height: unset !important;
+    opacity: 0.5;
+}
+
+:root.left .tab .twisty {
+    order: 10000;
+}
+
+:root.left .tab .closebox {
+    order: -1;
+}

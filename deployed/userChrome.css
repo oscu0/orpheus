@@ -1,0 +1,86 @@
+@namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
+
+@-moz-document url(chrome://browser/content/browser.xul) {
+    #TabsToolbar #tabbrowser-tabs .tabbrowser-tab:not([pinned]) .tab-close-button {
+        -moz-box-ordinal-group: 0 !important;
+        -moz-margin-start: -4px !important;
+        -moz-margin-end: 4px !important;
+    }
+}
+
+@-moz-document url("chrome://browser/content/browser.xul") {
+    .tab-close-button:not([pinned]) {
+        display: -moz-box !important;
+    }
+}
+
+#main-window[tabsintitlebar="true"]:not([extradragspace="true"]) #TabsToolbar {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#main-window:not([tabsintitlebar="true"]) #TabsToolbar {
+    visibility: collapse !important;
+}
+
+#main-window #PersonalToolbar {
+    visibility: collapse !important;
+}
+
+#main-window[title^="about:newtab"] #PersonalToolbar,
+#main-window[title^="New Tab"] #PersonalToolbar,
+#main-window[title^="Nightly"] #PersonalToolbar,
+#main-window[title^="Mozilla Firefox"] #PersonalToolbar,
+#main-window[title^="Firefox"] #PersonalToolbar {
+    visibility: visible !important;
+}
+
+#nav-bar~#PersonalToolbar:not([customizing]) {
+    position: fixed !important;
+    padding: 3px 2px 2px !important;
+    height: auto !important;
+    border-top: 0px solid transparent !important;
+    border-right: 1px solid transparent !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3) !important;
+    border-left: 1px solid transparent !important;
+    box-shadow: 0 0px 2px rgba(0, 0, 0, 0);
+    width: 100%;
+    transform: translateY(-100%);
+    transition: transform 0.2s !important;
+}
+
+#navigator-toolbox:hover>#nav-bar~#PersonalToolbar:not([customizing]) {
+    transform: translateY(0);
+}
+
+#toolbar-menubar:not([inactive="true"])~#nav-bar~#PersonalToolbar:not([customizing]) {
+    transform: translateY(0);
+}
+
+.browserContainer>findbar {
+    -moz-box-ordinal-group: 0;
+    position: fixed !important;
+    right: 1em;
+    border: 1px solid threedshadow !important;
+    /* Hide the "border" at the top by removing the box-shadow and background-image */
+    border-top: none !important;
+    box-shadow: none !important;
+    background-image: none !important;
+    /* Uncomment to add a transition from the top */
+    transition: 400ms !important;
+    z-index: 0 !important;
+}
+
+/* Margin from top when hidden (necessary for the transition to work) */
+/*findbar[hidden]{ margin-top: -2em !important; }*/
+/* Aligns the close button to the center */
+.findbar-closebutton {
+    margin-inline-start: 0.5em !important;
+    vertical-align: middle !important;
+    margin-bottom: 0.25em !important;
+    height: inherit !important;
+}
+
+#sidebar-close {
+    visibility: collapse;
+}
