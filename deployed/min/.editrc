@@ -1,2 +1,2 @@
 bind -v
-# lldb:bind -e
+lldb:bind -e
