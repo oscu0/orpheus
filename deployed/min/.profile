@@ -18,13 +18,15 @@ if [ -d "/Applications/JuliaPro-0.6.2.2.app/" ]; then
     export PATH="/Applications/JuliaPro-0.6.2.2.app/Contents/MacOS:$PATH"
 fi
 # export PATH="$HOME/.roswell/bin:/Applications/calibre.app/Contents/console.app/Contents/MacOS:/Applications/Mathematica.app/Contents/MacOS/:/Applications/JuliaPro-0.6.2.2.app/Contents/Resources/julia/Contents/Resources/julia/bin/:$ORACLE_HOME:/usr/local/sbin:/usr/local/bin:$PATH"
-# if [ -d "$HOME/anaconda3/" ]; then
-    # export PATH="$HOME/anaconda3/bin:$PATH"
-# fi
- if [ -d "/usr/local/anaconda3" ]; then
+
+if [ -d "$HOME/anaconda3/" ]; then
+    source "$HOME/anaconda3/etc/profile.d/conda.sh"
+fi
+
+if [ -d "/usr/local/anaconda3" ]; then
     # export PATH="/usr/local/anaconda3/bin:$PATH"
-    source /usr/local/anaconda3/etc/profile.d/conda.sh
- fi
+    source "/usr/local/anaconda3/etc/profile.d/conda.sh"
+fi
 export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
 export XDG_CONFIG_HOME=$HOME/.config
 export LC_ALL=en_US.UTF-8
@@ -45,6 +47,11 @@ export PATH=$PATH:/usr/local/Cellar/python/3.7.2/Frameworks/Python.framework/Ver
 
 if [ -e "command -v perl" ]; then
     eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib=$HOME/perl5)"
+fi
+
+if [ -e "command -v ruby" ]; then
+    export LDFLAGS="-L/usr/local/opt/ruby/lib"
+    export CPPFLAGS="-I/usr/local/opt/ruby/include"
 fi
 
 export LC_ALL=en_US.UTF-8
