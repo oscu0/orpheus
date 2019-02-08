@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 if [ -n "$PS1" ] && [ "$TERM" != "dumb" ]; then
+    shell_no_background=true
     if [ -d "$HOME/.config/base16-shell" ] && [ -z $VIM ] && [ -z $EMACS ]; then
         BASE16_SHELL="$HOME/.config/base16-shell/"
 #        eval "$("$BASE16_SHELL/profile_helper.sh") && base16_solarized-light"

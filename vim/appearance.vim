@@ -1,4 +1,3 @@
-exec 'source' custom_path . 'base16.vim'
 
 function! Render_Only_File(...)
   let builder = a:1
@@ -147,3 +146,5 @@ set wildmenu
 set wildmode=list:longest,full
 set wrap
 syntax enable
+
+exec 'source' custom_path . 'base16.vim'
