@@ -61,3 +61,4 @@ imap <M-b> <C-o>b
 imap <M-d> <C-o>dw
 imap <M-f> <C-o>e
 imap <M-\<> gg
+startinsert
