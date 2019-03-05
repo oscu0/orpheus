@@ -14,7 +14,7 @@
     }
 }
 
-#main-window[tabsintitlebar="true"]:not([extradragspace="true"]) #TabsToolbar {
+/* #main-window[tabsintitlebar="true"]:not([extradragspace="true"]) #TabsToolbar {
     opacity: 0;
     pointer-events: none;
 }
@@ -33,7 +33,7 @@
 #main-window[title^="Mozilla Firefox"] #PersonalToolbar,
 #main-window[title^="Firefox"] #PersonalToolbar {
     visibility: visible !important;
-}
+} */
 
 #nav-bar~#PersonalToolbar:not([customizing]) {
     position: fixed !important;
@@ -81,6 +81,15 @@
     height: inherit !important;
 }
 
-#sidebar-close {
+/* #sidebar-close {
     visibility: collapse;
+} */
+#sidebar-box {
+  position: relative !important;
+  overflow-x: hidden !important;
+  margin-right: calc(var(--sidebar-hover-width) * -1) !important;
+  left: var(--sidebar-hover-width) !important;
+  min-width: var(--sidebar-hover-width) !important;
+  max-width: var(--sidebar-hover-width) !important;
+  border-right: 1px solid var(--sidebar-border-color);
 }

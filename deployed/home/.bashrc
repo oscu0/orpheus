@@ -1,9 +1,73 @@
-export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
-set -o vi
+iterm_integration=true
+multi_line_prompt=true
+show_return_code=true
 
-if [ -f /usr/local/etc/profile.d/z.sh ]; then
-    source /usr/local/etc/profile.d/z.sh
+if [ -d "/usr/local/instantclient_12_2" ]; then
+    export ORACLE_HOME=/usr/local/instantclient_12_2
+    export TNS_ADMIN=$ORACLE_HOME/network/admin
+    export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:$ORACLE_HOME
+    export CLASSPATH=$CLASSPATH:$ORACLE_HOME
+    export PATH="$ORACLE_HOME:$PATH"
 fi
+if [ -d "$HOME/.roswell" ]; then
+    export PATH="$HOME/.roswell/bin:$PATH"
+fi
+if [ -d "/Applications/calibre.app/" ]; then
+    export PATH="$HOME/Applications/calibre.app/Contents/console.app/Contents/MacOS:$PATH"
+fi
+if [ -d "/Applications/Mathematica.app/" ]; then
+    export PATH="/Applications/Mathematica.app/Contents/MacOS:$PATH"
+fi
+if [ -d "/Applications/JuliaPro-0.6.2.2.app/" ]; then
+    export PATH="/Applications/JuliaPro-0.6.2.2.app/Contents/MacOS:$PATH"
+fi
+# export PATH="$HOME/.roswell/bin:/Applications/calibre.app/Contents/console.app/Contents/MacOS:/Applications/Mathematica.app/Contents/MacOS/:/Applications/JuliaPro-0.6.2.2.app/Contents/Resources/julia/Contents/Resources/julia/bin/:$ORACLE_HOME:/usr/local/sbin:/usr/local/bin:$PATH"
+
+if [ -d "$HOME/anaconda3/" ]; then
+    source "$HOME/anaconda3/etc/profile.d/conda.sh"
+fi
+
+if [ -d "/usr/local/anaconda3" ]; then
+    # export PATH="/usr/local/anaconda3/bin:$PATH"
+    source "/usr/local/anaconda3/etc/profile.d/conda.sh"
+fi
+export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
+export XDG_CONFIG_HOME=$HOME/.config
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+if [ -e "command -v atom" ]; then
+    export VISUAL='/usr/local/bin/atom'
+else
+    export VISUAL='vim'
+fi
+export EDITOR="$VISUAL"
+if [ -x "$(command -v brew)" ]; then
+    export HOMEBREW_NO_INSECURE_REDIRECT=1
+    export HOMEBREW_CASK_OPTS=--require-sha
+fi
+export LC_CTYPE=en_US.UTF-8
+
+export PATH=$PATH:/usr/local/Cellar/python/3.7.2/Frameworks/Python.framework/Versions/3.7/bin
+
+# if [ -x "$(command -v perl)" ]; then
+# eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib=$HOME/perl5)"
+# fi
+
+if [ -x "$(command -v ruby)" ]; then
+    export PATH="/usr/local/opt/ruby/bin:$PATH"
+    export LDFLAGS="-L/usr/local/opt/ruby/lib"
+    export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
+    export CPPFLAGS="-I/usr/local/opt/ruby/include"
+fi
+
+export LC_ALL=en_US.UTF-8
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "$HOME/.iterm2_shell_integration.bash"
+
+
+[[ -f /usr/local/etc/bash_completion ]] && . /usr/local/etc/bash_completion
+
+set -o vi
 man() {
     LESS_TERMCAP_md=$'\e[01;31m' \
         LESS_TERMCAP_me=$'\e[0m' \
@@ -24,45 +88,38 @@ shopt -s dirspell
 shopt -s globstar
 shopt -s histappend
 shopt -s xpg_echo
-alias cp='/bin/cp -i'
-alias mv='/bin/mv -i'
-alias rm='/bin/rm -i'
 # complete -o nospace -F _cd cd
 HISTCONTROL=ignoredups:ignorespace
 HISTSIZE=100000
 HISTTIMEFORMAT='%F %T '
 PROMPT_COMMAND='history -a'
-function idea_i () {
-    for i in "$@"
-    do
-        idea "$(pwd)/$i" > /dev/null 2>&1
+function idea_i() {
+    for i in "$@"; do
+        idea "$(pwd)/$i" >/dev/null 2>&1
     done
 }
 
-
 # alias mvim='open -a /Applications/MacVim.app'
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
-alias clang++='clang++ -std=c++11 -Wall'
-alias clang='clang -std=c11 -Wall'
+#alias clang++='clang++ -std=c++11 -Wall'
+#alias clang='clang -std=c11 -Wall'
 alias cli_update='vim +PlugUpgrade +PlugUpdate +PlugClean! +qall && cd ~/.tmux/plugins/tpm && git pull && conda deactivate && cd && echo \Updating\ global\ packages\ && gem update && python -m pip install --upgrade pip && pip-review --local --auto && echo \Updating\ Conda\ && conda update -n base conda -y && echo \Updating\ Anaconda\ && conda activate anaconda3_env && conda update --all -y && conda deactivate && fish -c omf\ update && echo \Updating\ Homebrew\ && brew upgrade && brew cask upgrade && brew cleanup && brew cask cleanup && npm i npm -g && npm -g update && cd' # horrible
-alias df='grc df -h'
-alias du='grc du -h'
+alias df='df -h'
+alias du='du -h'
 alias fpc='fpc -Mtp -vewl'
+alias fzfs='mdfind -onlyin ~ "*" | fzf'
 alias gcc='gcc -std=c11 -Wall'
 alias g++='g++ -std=c++11 -Wall'
 alias grep='grep --color=auto'
-alias julia='/Applications/JuliaPro-0.6.2.2.app/Contents/Resources/julia/Contents/Resources/julia/bin/julia'
-alias less='less -RiJrq'
 alias ls='ls -GFh'
 alias motd='cat /etc/motd'
-alias nasm-2.13='nasm -Wall'
-alias posix='sh --posix +B && unalias -a && alias vi = vi -u NONE -U NONE -N -i NONE -c "set compatible" && clear && motd'
-alias ql='qlmanage -p 2>/dev/null'
+#alias nasm-2.13='nasm -Wall'
+alias posix_sh='sh --posix +B && unalias -a && alias vi = vi -u NONE -U NONE -N
+ -i NONE -c "set compatible" && clear && motd'
 alias rsync='rsync -Kath --progress'
 alias tmux='tmux -2'
 alias tree='tree -C'
 export LESS="-iMFXR"
-
 if [ -x "$(command -v grc)" ]; then
     # alias grc='grc --colour=on'
     if [ -x "$(command -v ant)" ]; then alias ant='grc ant'; fi
@@ -143,79 +200,10 @@ if [ -x "$(command -v grc)" ]; then
     if [ -x "$(command -v wdiff)" ]; then alias wdiff='grc wdiff'; fi
     if [ -x "$(command -v whois)" ]; then alias whois='grc whois'; fi
 fi
-#!/usr/bin/env bash
-# Determine platform
-platform='unknown'
-unamestr=$(uname)
-if [[ "$unamestr" == 'Linux' ]]; then
-	platform='linux'
-elif [[ "$unamestr" == 'Darwin' ]]; then
-	platform='macos'
-fi
 
-# Sourcing
-if [[ $platform == 'macos' ]]; then
-    # alias vim='/Applications/MacVim.app/Contents/bin/vim'
-    alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
-    math='/Applications/Mathematica.app/Contents/MacOS/WolframKernel'
-    dash() {
-        open "dash://$1"
-    }
-
-    e() {
-        # open -a /Applications/Emacs.app "$@" --args --chdir "$PWD"
-        open -a /Applications/Emacs.app "$@"
-    }
-
-	alias lldb='PATH=/usr/bin lldb' # Homebrew Python strikes again
-	alias egrep='egrep --color=auto'
-	alias ls='ls -GFh'
-	alias ll='pwd && grc ls -lGFh'
-	alias la='pwd && grc ls -alGFh'
-	alias cli_update='cd $CUSTOM_PATH && git pull && cd && vim +PlugUpgrade +PlugUpdate +PlugClean! +qall && conda deactivate && cd && echo \Updating\ global\ packages\ && gem update && python -m pip install --upgrade pip && pip-review --local --auto && echo \Updating\ Conda\ && conda update -n base conda -y && conda clean -y --all && conda activate base && conda update anaconda -y && conda deactivate && echo \Updating\ Homebrew\ && brew upgrade && brew cask upgrade && brew cleanup && npm -g install npm && npm -g update && cd' # horrible
-	alias ql='qlmanage -p 2>/dev/null'
-	mand() {
-		open "dash://$1"
-	}
-    function emacs_mac {
-        t=()
-
-  if [ ${#@} -ne 0 ]; then
-    while IFS= read -r file; do
-      [ ! -f "$file" ] && t+=("$file") && /usr/bin/touch "$file"
-      file=$(echo $(cd $(dirname "$file") && pwd -P)/$(basename "$file"))
-      $(/usr/bin/osascript <<-END
-        if application "Emacs.app" is running then
-          tell application id (id of application "Emacs.app") to open POSIX file "$file"
-        else
-          tell application ((path to applications folder as text) & "Emacs.app")
-            activate
-            open POSIX file "$file"
-          end tell
-        end if
-END
-      ) &  # Note: END on the previous line may be indented with tabs but not spaces
-    done <<<"$(printf '%s\n' "$@")"
-  fi
-
-  if [ ! -z "$t" ]; then
-    $(/bin/sleep 10; for file in "${t[@]}"; do
-      [ ! -s "$file" ] && /bin/rm "$file";
-    done) &
-  fi
-    }
-
-else
-	if [[ -s "/etc/grc.zsh" ]]; then
-		/etc/grc.zsh
-	fi
-	alias ls='ls -Fh'
-	export PATH="$PATH:$HOME/.local/bin"
-	alias cli_update='cd $CUSTOM_PATH && git pull && cd && vim +PlugUpgrade +PlugUpdate +PlugClean! +qall && conda deactivate && cd' # horrible
-
-fi
 
 if [ -n "$PS1" ] && [ "$TERM" != "dumb" ]; then
+    shell_no_background=true
     if [ -d "$HOME/.config/base16-shell" ] && [ -z $VIM ] && [ -z $EMACS ]; then
         BASE16_SHELL="$HOME/.config/base16-shell/"
 #        eval "$("$BASE16_SHELL/profile_helper.sh") && base16_solarized-light"
@@ -290,20 +278,25 @@ if [ -n "$PS1" ] && [ "$TERM" != "dumb" ]; then
     }
 
     # export PS1="\[\e[31m\]\`nonzero_return\`\[\e[m\][\[\e[32m\]\H\[\e[m\]:\[\e[34m\]\w\[\e[m\]\[\e[36m\]\`parse_git_branch\`\[\e[m\]] \[\e[35m\]\u\[\e[m\] \\$ "
-    # export PS1="\e[0m<\[\e[33m\]\t\[\e[m\] \[\e[35m\]\u\[\e[m\]@\[\e[32m\]\h\[\e[m\]:\[\e[34m\]\w\[\e[m\]\[\e[36m\]\`parse_git_branch\`\[\e[m\]> "    
+    # export PS1="\e[0m<\[\e[33m\]\t\[\e[m\] \[\e[35m\]\u\[\e[m\]@\[\e[32m\]\h\[\e[m\]:\[\e[34m\]\w\[\e[m\]\[\e[36m\]\`parse_git_branch\`\[\e[m\]> "
     reset="\001$(tput sgr0)\002"
-    red="\001$(tput setaf 1)\002" 
+    red="\001$(tput setaf 1)\002"
     green="\001$(tput setaf 2)\002"
-    yellow="\001$(tput setaf 3)\002" 
+    yellow="\001$(tput setaf 3)\002"
     blue="\001$(tput setaf 4)\002"
-    magenta="\001$(tput setaf 5)\002" 
-    cyan="\001$(tput setaf 6)\002" 
-    
-    PS1="$red\`nonzero_return\`$reset<$yellow\d \t$reset> "
+    magenta="\001$(tput setaf 5)\002"
+    cyan="\001$(tput setaf 6)\002"
+
+    if [[ ${show_return_code} ]]; then
+        PS1="$red\`nonzero_return\`$reset";
+    fi
+    PS1+="<$yellow\d \t$reset> "
     PS1+="<$magenta\u$reset@$green\h$reset:"
     PS1+="$blue\w$cyan\`parse_git_branch\`$reset>"
-    PS1+="\n\$ "
-
+    if [[ ${multi_line_prompt} ]]; then
+      PS1+="\n";
+    fi
+    PS1+="\$ "
     export PS1
     export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 
@@ -322,7 +315,84 @@ if [ -n "$PS1" ] && [ "$TERM" != "dumb" ]; then
     bind Space:magic-space
 fi
 
-BASE16_SHELL="$HOME/.config/base16-shell/"
-[ -n "$PS1" ] && \
-    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-        eval "$("$BASE16_SHELL/profile_helper.sh")"
+if [[ "$TERMINAL_EMULATOR" != "JetBrains-JediTerm" ]]; then
+    BASE16_SHELL="$HOME/.config/base16-shell/"
+    [[ -n "$PS1" ]] && \
+        [[ -s "$BASE16_SHELL/profile_helper.sh" ]] && \
+            eval "$("$BASE16_SHELL/profile_helper.sh")"
+
+    source "$HOME/.config/base16-fzf/bash/base16-solarized-light.config"
+fi
+
+# Determine platform
+platform='unknown'
+unamestr=$(uname)
+if [[ "$unamestr" == 'Linux' ]]; then
+    platform='linux'
+elif [[ "$unamestr" == 'Darwin' ]]; then
+    platform='macos'
+fi
+
+# Sourcing
+if [[ $platform == 'macos' ]]; then
+    math='/Applications/Mathematica.app/Contents/MacOS/WolframKernel'
+    alias ql='qlmanage -p 2>/dev/null'
+    alias julia='/Applications/JuliaPro-0.6.2.2.app/Contents/Resources/julia/Contents/Resources/julia/bin/julia'
+    alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
+    dash() {
+        open "dash://$1"
+    }
+
+    e() {
+        # open -a /Applications/Emacs.app "$@" --args --chdir "$PWD"
+        open -a /Applications/Emacs.app "$@"
+    }
+    alias lldb='PATH=/usr/bin lldb' # Homebrew Python strikes again
+    alias egrep='egrep --color=auto'
+    alias ls='ls -GFh'
+    alias cli_update='cd $CUSTOM_PATH && git pull && cd && vim +PlugUpgrade +PlugUpdate +PlugClean! +qall && conda deactivate && cd && echo \Updating\ global\ packages\ && mas upgrade && gem update && python -m pip install --upgrade pip && pip-review --local --auto && echo \Updating\ Conda\ && conda update -n base conda -y && conda clean -y --all && conda activate base && conda update anaconda -y && conda deactivate && echo \Updating\ Homebrew\ && brew upgrade && brew cask upgrade && brew cleanup && npm -g install npm && npm -g update && cd' # horrible
+    function emacs_mac {
+        t=()
+
+  if [ ${#@} -ne 0 ]; then
+    while IFS= read -r file; do
+      [ ! -f "$file" ] && t+=("$file") && /usr/bin/touch "$file"
+      file=$(echo $(cd $(dirname "$file") && pwd -P)/$(basename "$file"))
+      $(/usr/bin/osascript <<-END
+        if application "Emacs.app" is running then
+          tell application id (id of application "Emacs.app") to open POSIX file "$file"
+        else
+          tell application ((path to applications folder as text) & "Emacs.app")
+            activate
+            open POSIX file "$file"
+          end tell
+        end if
+END
+      ) &  # Note: END on the previous line may be indented with tabs but not spaces
+    done <<<"$(printf '%s\n' "$@")"
+  fi
+
+  if [ ! -z "$t" ]; then
+    $(/bin/sleep 10; for file in "${t[@]}"; do
+      [ ! -s "$file" ] && /bin/rm "$file";
+    done) &
+  fi
+    }
+
+else
+    if [[ -s "/etc/grc.zsh" ]]; then
+        /etc/grc.zsh
+    fi
+    alias ls='ls -Fh'
+    export PATH="$PATH:$HOME/.local/bin"
+    alias cli_update='cd $CUSTOM_PATH && git pull && cd && vim +PlugUpgrade +PlugUpdate +PlugClean! +qall && conda deactivate && cd' # horrible
+
+fi
+
+if ${iterm_integration}; then
+    if [[ ! -f ~/.iterm2_shell_integration.bash ]]; then
+        curl -L https://iterm2.com/misc/install_shell_integration.sh | bash;
+    fi
+    source ~/.iterm2_shell_integration.bash
+fi
+
