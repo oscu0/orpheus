@@ -34,6 +34,7 @@ silent! set breakindent
 silent! set colorcolumn=80,132
 syntax enable
 set bg=light    
+highlight ColorColumn ctermbg=8 guibg=Yellow
 nnoremap n nzz
 nnoremap N Nzz
 cnoreabbrev fixTabs "%s/       / "
