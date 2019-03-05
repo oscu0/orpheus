@@ -1,3 +1,7 @@
+if $TERM_PROGRAM =~ "iTerm"
+    let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
+    let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
+endif
 " set notermguicolors
 " set wildignorecase
 set backspace=indent,eol,start
@@ -30,7 +34,6 @@ silent! set breakindent
 silent! set colorcolumn=80,132
 syntax enable
 set bg=light    
-
 nnoremap n nzz
 nnoremap N Nzz
 cnoreabbrev fixTabs "%s/       / "
