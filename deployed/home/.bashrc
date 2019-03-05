@@ -1,6 +1,11 @@
+# Do not edit these settings - put desired changes in $override_path
 iterm_integration=true
 multi_line_prompt=true
 show_return_code=true
+override_path="$HOME/.bashrc_local"
+if [[ -f $override_path ]]; then
+    source $override_path
+fi
 
 if [ -d "/usr/local/instantclient_12_2" ]; then
     export ORACLE_HOME=/usr/local/instantclient_12_2
@@ -21,7 +26,6 @@ fi
 if [ -d "/Applications/JuliaPro-0.6.2.2.app/" ]; then
     export PATH="/Applications/JuliaPro-0.6.2.2.app/Contents/MacOS:$PATH"
 fi
-# export PATH="$HOME/.roswell/bin:/Applications/calibre.app/Contents/console.app/Contents/MacOS:/Applications/Mathematica.app/Contents/MacOS/:/Applications/JuliaPro-0.6.2.2.app/Contents/Resources/julia/Contents/Resources/julia/bin/:$ORACLE_HOME:/usr/local/sbin:/usr/local/bin:$PATH"
 
 if [ -d "$HOME/anaconda3/" ]; then
     source "$HOME/anaconda3/etc/profile.d/conda.sh"
@@ -287,13 +291,13 @@ if [ -n "$PS1" ] && [ "$TERM" != "dumb" ]; then
     magenta="\001$(tput setaf 5)\002"
     cyan="\001$(tput setaf 6)\002"
 
-    if [[ ${show_return_code} ]]; then
+    if [[ ${show_return_code} = true ]]; then
         PS1="$red\`nonzero_return\`$reset";
     fi
     PS1+="<$yellow\d \t$reset> "
     PS1+="<$magenta\u$reset@$green\h$reset:"
     PS1+="$blue\w$cyan\`parse_git_branch\`$reset>"
-    if [[ ${multi_line_prompt} ]]; then
+    if [[ ${multi_line_prompt} = true ]]; then
       PS1+="\n";
     fi
     PS1+="\$ "
@@ -337,7 +341,6 @@ fi
 if [[ $platform == 'macos' ]]; then
     math='/Applications/Mathematica.app/Contents/MacOS/WolframKernel'
     alias ql='qlmanage -p 2>/dev/null'
-    alias julia='/Applications/JuliaPro-0.6.2.2.app/Contents/Resources/julia/Contents/Resources/julia/bin/julia'
     alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
     dash() {
         open "dash://$1"
@@ -389,7 +392,7 @@ else
 
 fi
 
-if ${iterm_integration}; then
+if [[ ${iterm_integration} = true ]];  then
     if [[ ! -f ~/.iterm2_shell_integration.bash ]]; then
         curl -L https://iterm2.com/misc/install_shell_integration.sh | bash;
     fi
