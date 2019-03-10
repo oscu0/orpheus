@@ -1,3 +1,4 @@
+export CUSTOM_PATH=~/.config/orpheus
 # Do not edit these settings - put desired changes in $override_path
 iterm_integration=true
 multi_line_prompt=true
@@ -107,7 +108,6 @@ function idea_i() {
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
 #alias clang++='clang++ -std=c++11 -Wall'
 #alias clang='clang -std=c11 -Wall'
-alias cli_update='vim +PlugUpgrade +PlugUpdate +PlugClean! +qall && cd ~/.tmux/plugins/tpm && git pull && conda deactivate && cd && echo \Updating\ global\ packages\ && gem update && python -m pip install --upgrade pip && pip-review --local --auto && echo \Updating\ Conda\ && conda update -n base conda -y && echo \Updating\ Anaconda\ && conda activate anaconda3_env && conda update --all -y && conda deactivate && fish -c omf\ update && echo \Updating\ Homebrew\ && brew upgrade && brew cask upgrade && brew cleanup && brew cask cleanup && npm i npm -g && npm -g update && cd' # horrible
 alias df='df -h'
 alias du='du -h'
 alias fpc='fpc -Mtp -vewl'
@@ -325,8 +325,10 @@ if [[ "$TERMINAL_EMULATOR" != "JetBrains-JediTerm" ]]; then
         [[ -s "$BASE16_SHELL/profile_helper.sh" ]] && \
             eval "$("$BASE16_SHELL/profile_helper.sh")"
 
-    [[ -s "$HOME/.config/base16-fzf/bash/base16-solarized-light.config" ]] && \
-        source "$HOME/.config/base16-fzf/bash/base16-solarized-light.config"
+    if [[ -s "$HOME/.config/base16-fzf/bash/base16-solarized-light.config" ]]; 
+then
+        source "$HOME/.config/base16-fzf/bash/base16-solarized-light.config";
+fi
 fi
 
 # Determine platform
@@ -354,7 +356,7 @@ if [[ $platform == 'macos' ]]; then
     alias lldb='PATH=/usr/bin lldb' # Homebrew Python strikes again
     alias egrep='egrep --color=auto'
     alias ls='ls -GFh'
-    alias cli_update='cd $CUSTOM_PATH && git pull && cd && vim +PlugUpgrade +PlugUpdate +PlugClean! +qall && conda deactivate && cd && echo \Updating\ global\ packages\ && mas upgrade && gem update && python -m pip install --upgrade pip && pip-review --local --auto && echo \Updating\ Conda\ && conda update -n base conda -y && conda clean -y --all && conda activate base && conda update anaconda -y && conda deactivate && echo \Updating\ Homebrew\ && brew upgrade && brew cask upgrade && brew cleanup && npm -g install npm && npm -g update && cd' # horrible
+    alias cli_update='cd $CUSTOM_PATH && git pull && conda deactivate && cd && echo \Updating\ global\ packages\ && mas upgrade && gem update && python -m pip install --upgrade pip && pip-review --local --auto && echo \Updating\ Conda\ && conda update -n base conda -y && conda clean -y --all && conda activate base && conda update anaconda -y && conda deactivate && echo \Updating\ Homebrew\ && brew upgrade && brew cask upgrade && brew cleanup && npm -g install npm && npm -g update && cd' # horrible
     function emacs_mac {
         t=()
 
