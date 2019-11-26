@@ -6,13 +6,13 @@ TAB: menu-complete
 "\e[Z": menu-complete-backward
 set convert-meta on
 Meta-TAB: menu-complete
-# Control-p: menu-complete-backward
-# Control-n: menu-complete
+Control-p: menu-complete-backward
+Control-n: menu-complete
 set show-mode-in-prompt on
 set vi-ins-mode-string "\1\e[5 q\2[ins] "  
 set vi-cmd-mode-string "\1\e[2 q\2[nav] "
-# set vi-cmd-mode-string ": "
-# set vi-ins-mode-string "+ "
+# # set vi-cmd-mode-string ": "
+# # set vi-ins-mode-string "+ "
 "\e[A": history-search-backward
 "\e[B": history-search-forward
 set keymap vi-command

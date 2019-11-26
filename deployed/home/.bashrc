@@ -3,6 +3,7 @@ export CUSTOM_PATH=~/.config/orpheus
 iterm_integration=true
 multi_line_prompt=true
 show_return_code=true
+emacs_override=false
 override_path="$HOME/.bashrc_local"
 if [[ -f $override_path ]]; then
     source $override_path
@@ -32,6 +33,10 @@ if [ -d "$HOME/anaconda3/" ]; then
     source "$HOME/anaconda3/etc/profile.d/conda.sh"
 fi
 
+if [ -e "command -v go" ]; then
+    export GOPATH="~/go"
+fi
+
 if [ -d "/usr/local/anaconda3" ]; then
     # export PATH="/usr/local/anaconda3/bin:$PATH"
     source "/usr/local/anaconda3/etc/profile.d/conda.sh"
@@ -40,12 +45,20 @@ export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
 export XDG_CONFIG_HOME=$HOME/.config
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-if [ -e "command -v atom" ]; then
-    export VISUAL='/usr/local/bin/atom'
-else
-    export VISUAL='vim'
-fi
+if [ -e "/usr/local/bin/bbedit" ]; then
+        export VISUAL='bbedit'
+    else
+        if $emacs_override; then
+           export VISUAL='emacs -nw'
+           set -o emacs
+        else
+                export VISUAL='vim'
+            set -o vi
+        fi
+    fi
 export EDITOR="$VISUAL"
+alias y="open -a Yoink.app"
+alias d="open -a BBEdit.app"
 if [ -x "$(command -v brew)" ]; then
     export HOMEBREW_NO_INSECURE_REDIRECT=1
     export HOMEBREW_CASK_OPTS=--require-sha
@@ -65,14 +78,15 @@ if [ -x "$(command -v ruby)" ]; then
     export CPPFLAGS="-I/usr/local/opt/ruby/include"
 fi
 
-export LC_ALL=en_US.UTF-8
+if [ -x "$(command -v mono)" ]; then
+      export MONO_GAC_PREFIX="/usr/local"
+fi
 
-test -e "${HOME}/.iterm2_shell_integration.bash" && source "$HOME/.iterm2_shell_integration.bash"
+export LC_ALL=en_US.UTF-8
 
 
 [[ -f /usr/local/etc/bash_completion ]] && . /usr/local/etc/bash_completion
 
-set -o vi
 man() {
     LESS_TERMCAP_md=$'\e[01;31m' \
         LESS_TERMCAP_me=$'\e[0m' \
@@ -294,15 +308,16 @@ if [ -n "$PS1" ] && [ "$TERM" != "dumb" ]; then
     if [[ ${show_return_code} = true ]]; then
         PS1="$red\`nonzero_return\`$reset";
     fi
-    PS1+="<$yellow\d \t$reset> "
-    PS1+="<$magenta\u$reset@$green\h$reset:"
-    PS1+="$blue\w$cyan\`parse_git_branch\`$reset>"
+    PS1+="[$yellow\d \t$reset] "
+    PS1+="[$magenta\u$reset@$green\h$reset:"
+    PS1+="$blue\w$cyan\`parse_git_branch\`$reset]"
     if [[ ${multi_line_prompt} = true ]]; then
       PS1+="\n";
     fi
     PS1+="\$ "
     export PS1
     export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
+    export PROMPT_COMMAND='echo -ne "\033]0;$USER@$(hostname -s):$(dirs +0)\007"'
 
     unset reset red green yellow blue magenta
     # PROMPT_DIRTRIM=2
@@ -325,7 +340,7 @@ if [[ "$TERMINAL_EMULATOR" != "JetBrains-JediTerm" ]]; then
         [[ -s "$BASE16_SHELL/profile_helper.sh" ]] && \
             eval "$("$BASE16_SHELL/profile_helper.sh")"
 
-    if [[ -s "$HOME/.config/base16-fzf/bash/base16-solarized-light.config" ]]; 
+    if [[ -s "$HOME/.config/base16-fzf/bash/base16-solarized-light.config" ]];
 then
         source "$HOME/.config/base16-fzf/bash/base16-solarized-light.config";
 fi
@@ -356,7 +371,7 @@ if [[ $platform == 'macos' ]]; then
     alias lldb='PATH=/usr/bin lldb' # Homebrew Python strikes again
     alias egrep='egrep --color=auto'
     alias ls='ls -GFh'
-    alias cli_update='cd $CUSTOM_PATH && git pull && conda deactivate && cd && echo \Updating\ global\ packages\ && mas upgrade && gem update && python -m pip install --upgrade pip && pip-review --local --auto && echo \Updating\ Conda\ && conda update -n base conda -y && conda clean -y --all && conda activate base && conda update anaconda -y && conda deactivate && echo \Updating\ Homebrew\ && brew upgrade && brew cask upgrade && brew cleanup && npm -g install npm && npm -g update && cd' # horrible
+    alias cli_update='cd $CUSTOM_PATH && git pull && conda deactivate && cd && echo \Updating\ global\ packages\ && mas upgrade && gem update && python -m pip install --upgrade pip && echo \Updating\ Conda\ && conda update -n base conda -y && conda clean -y --all && conda activate base && conda update anaconda -y && conda deactivate && echo \Updating\ Homebrew\ && brew upgrade && brew cask upgrade && brew cleanup && npm -g install npm && npm -g update && cd' # horrible
     function emacs_mac {
         t=()
 
@@ -397,8 +412,8 @@ fi
 
 if [[ ${iterm_integration} = true ]];  then
     if [[ ! -f ~/.iterm2_shell_integration.bash ]]; then
-        curl -L https://iterm2.com/misc/install_shell_integration.sh | bash;
+        curl -L https://iterm2.com/shell_integration/install_shell_integration_and_utilities.sh | bash
     fi
     source ~/.iterm2_shell_integration.bash
 fi
-
+# conda activate base
