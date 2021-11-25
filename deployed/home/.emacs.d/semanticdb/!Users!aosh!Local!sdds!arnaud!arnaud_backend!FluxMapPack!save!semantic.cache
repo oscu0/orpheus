@@ -1,0 +1,81 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode python-mode
+      :tags 
+        '( ("__future__" include nil nil [48 85])
+            ("\"\"\"
+Created on Fri May 19 14:02:40 2017
+
+@author: arnaud
+\"\"\"" code nil nil [87 147])
+            ("matplotlib" include nil nil [148 165])
+            ("matplotlib" code nil nil [219 240])
+            ("matplotlib.pyplot" include nil nil [241 272])
+            ("matplotlib.colors" include nil nil [273 307])
+            ("DataStack" include nil nil [308 339])
+            ("SideOn" include nil nil [340 372])
+            ("SideOn" include nil nil [373 408])
+            ("SideOn" include nil nil [409 433])
+            ("SideOn" include nil nil [434 465])
+            ("numpy" include nil nil [466 484])
+            ("time" include nil nil [485 496])
+            ("datetime" include nil nil [497 512])
+            ("os" include nil nil [513 522])
+            ("sys" include nil nil [523 533])
+            ("ast" include nil nil [534 544])
+            ("map_vs_time" function
+               (:documentation "
+        Method to draw a map of some electron flux variables in a
+    P(parameter)/Time 2D space.
+    It can be used to draw several maps of different variables, or different 
+    channels of one variable, or just one map.         
+        
+    DataStacks: Datastack input objects /type: list of DataStacks
+    P: Y-axis parameter of the map /type: str
+    Pmin, Pmax: P minimal and maximal values /type: float
+    variables: Variables to be drawn on the map /type: list
+    klist: Channels to be drawn of the map (if 1 variable) /type: list
+    fmin, fmax: Variables minimal and maximal values /type: float
+    res: Resolution of the scatter plot /type: int
+    timeType: Timewindow type of span 'day' or 'hour' /type: str
+    tickstep: Number of days or hours between ticksteps /type: int
+    dstBool: Wether to draw dst index variations or not /type: Bool
+    aeBool: Wether to draw ae index variations or not /type: Bool
+    solarWindBool: Wether do draw solar wind variations or not /type: Bool
+        "
+                :arguments 
+                  ( ("DataStacks" variable nil (reparse-symbol function_parameters) [562 572])
+                    ("P" variable nil (reparse-symbol function_parameters) [574 575])
+                    ("timeType" variable nil (reparse-symbol function_parameters) [577 585])
+                    ("tickStep" variable nil (reparse-symbol function_parameters) [587 595])
+                    ("variables" variable nil (reparse-symbol function_parameters) [597 606])
+                    ("Pmin" variable nil (reparse-symbol function_parameters) [624 628])
+                    ("Pmax" variable nil (reparse-symbol function_parameters) [635 639])
+                    ("fmin" variable nil (reparse-symbol function_parameters) [646 650])
+                    ("fmax" variable nil (reparse-symbol function_parameters) [657 661])
+                    ("res" variable nil (reparse-symbol function_parameters) [668 671])
+                    ("dstBool" variable nil (reparse-symbol function_parameters) [694 701])
+                    ("aeBool" variable nil (reparse-symbol function_parameters) [709 715])
+                    ("solarWindBool" variable nil (reparse-symbol function_parameters) [723 736])
+                    ("klist" variable nil (reparse-symbol function_parameters) [744 749])
+                    ("plotTitle" variable nil (reparse-symbol function_parameters) [756 765]))                  )
+                nil [546 6165])
+            ("extraction" function (:documentation "Extraction method of all the files in ./Inputs/ folder, creating a list
+    of DataStack objects with the data of 'variables'") nil [6167 6748])
+            ("if" code nil nil [6750 8779]))          
+      :file "MapVsTime.py"
+      :pointmax 8779
+      :fsize 8778
+      :lastmodtime '(23686 20038 988532 371000)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :file "DataStack.py"
+      :fsize 4463
+      :lastmodtime '(23682 46236 484687 983000)))
+  :file "!Users!aosh!Local!sdds!arnaud!arnaud_backend!FluxMapPack!save!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

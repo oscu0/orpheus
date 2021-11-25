@@ -4,8 +4,7 @@
   (setq company-tooltip-align-annotations 't)
   (setq company-idle-delay .3)
   (setq company-begin-commands '(self-insert-command))
-  ;; (global-set-key (kbd "C-c /") 'company-files)
-  (add-hook 'after-init-hook 'global-company-mode)
+  (global-set-key (kbd "C-c /") 'company-files)
   (add-hook 'after-init-hook 'global-company-mode)
   (use-package company-quickhelp
     :config
@@ -17,7 +16,7 @@
   (setq company-tooltip-flip-when-above t)
   (setq company-minimum-prefix-length 2)
   (setq company-idle-delay 0.3)
-  (setq company-backends '(company-ycmd company-yasnippet company-dabbrev))
+  ;; (setq company-backends '(company-ycmd company-yasnippet company-dabbrev))
   )
 
 ;; Code formatting
@@ -103,10 +102,10 @@
   :config
   (yas-global-mode 1)
   (use-package yasnippet-snippets)
-  (use-package helm-c-yasnippet
-    :bind (("S-M-<tab>" . helm-yas-complete))
-    :config
-    (setq helm-yas-space-match-any-greedy t))
+  ;; (use-package helm-c-yasnippet
+  ;;   :bind (("S-M-<tab>" . helm-yas-complete))
+  ;;   :config
+  ;;   (setq helm-yas-space-match-any-greedy t))
   )
 
 ;; Python

@@ -1,11 +1,5 @@
-" colorscheme base16-solarized-light
-set bg=light
-set scrolloff=2
-set sidescrolloff=2
-" set guifont=Source\ Code\ Pro:h13
-" set guifontwide=Source\ Code\ Pro:h13
-set guifont=CMU\ TypeWriter\ Text:h14
-set guifontwide=CMU\ TypeWriter\ Text:h14
+set guifont=Fira\ Code:h12
+set guifontwide=Fira\ Code:h12
 set mouse=a
 " macmenu File.New\ Tab key=<nop>
 " macmenu File.Close key=<nop>
@@ -21,9 +15,11 @@ map <C-Tab> gt<cr>
 imap <C-Tab> gt<cr>
 map <C-S-Tab> gT<cr>
 imap <C-S-Tab> gT<cr>
-if has("gui_macvim")
-    source $CUSTOM_PATH/vim/darwin_mapping.vim
-endif
+" if has("gui_macvim")
+"     source $CUSTOM_PATH/vim/darwin_mapping.vim
+" endif
+
+colorscheme base16-3024
 
 set guioptions=Pgrkme!
 set guicursor+=a:blinkon500-blinkoff500

@@ -1,8 +1,9 @@
 ;; Vim Emulation
-(if EVIL_ENABLED 
+(setq evil-want-integration nil)
+(if EVIL_ENABLED
     (use-package evil
-      :init
-      (setq evil-want-integration nil)
+      ;; :init
+      ;; (setq evil-want-integration nil)
       :config
       (use-package evil-commentary
         :config

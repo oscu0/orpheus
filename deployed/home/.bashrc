@@ -3,7 +3,7 @@ export CUSTOM_PATH=~/.config/orpheus
 iterm_integration=true
 multi_line_prompt=true
 show_return_code=true
-emacs_override=false
+emacs_override=true
 override_path="$HOME/.bashrc_local"
 if [[ -f $override_path ]]; then
     source $override_path
@@ -33,6 +33,16 @@ if [ -d "$HOME/anaconda3/" ]; then
     source "$HOME/anaconda3/etc/profile.d/conda.sh"
 fi
 
+if [ -d "/usr/local/share/android-ndk" ]; then
+    export ANDROID_NDK_HOME="/usr/local/share/android-ndk"
+fi
+
+if [ -d "/usr/local/nvm" ]; then
+export NVM_DIR="/usr/local/nvm";
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh";
+  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm";
+fi
+
 if [ -e "command -v go" ]; then
     export GOPATH="~/go"
 fi
@@ -45,23 +55,34 @@ export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
 export XDG_CONFIG_HOME=$HOME/.config
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-if [ -e "/usr/local/bin/bbedit" ]; then
+set -o vi
+if $emacs_override; then
+    if [ -e "/usr/local/bin/bbedit" ]; then
         export VISUAL='bbedit'
     else
-        if $emacs_override; then
-           export VISUAL='emacs -nw'
-           set -o emacs
-        else
-                export VISUAL='vim'
-            set -o vi
-        fi
+       export VISUAL='emacs -nw'
     fi
+   set -o emacs
+else
+        export VISUAL='vim'
+    set -o vi
+fi
 export EDITOR="$VISUAL"
 alias y="open -a Yoink.app"
-alias d="open -a BBEdit.app"
+alias bb="open -a BBEdit.app"
 if [ -x "$(command -v brew)" ]; then
+    if type brew &>/dev/null; then
+      HOMEBREW_PREFIX="$(brew --prefix)"
+      if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
+        source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
+      else
+        for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*; do
+          [[ -r "$COMPLETION" ]] && source "$COMPLETION"
+        done
+      fi
+    fi
     export HOMEBREW_NO_INSECURE_REDIRECT=1
-    export HOMEBREW_CASK_OPTS=--require-sha
+#     export HOMEBREW_CASK_OPTS=--require-sha
 fi
 export LC_CTYPE=en_US.UTF-8
 
@@ -315,7 +336,7 @@ if [ -n "$PS1" ] && [ "$TERM" != "dumb" ]; then
       PS1+="\n";
     fi
     PS1+="\$ "
-    export PS1
+    # export PS1
     export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
     export PROMPT_COMMAND='echo -ne "\033]0;$USER@$(hostname -s):$(dirs +0)\007"'
 
@@ -371,7 +392,71 @@ if [[ $platform == 'macos' ]]; then
     alias lldb='PATH=/usr/bin lldb' # Homebrew Python strikes again
     alias egrep='egrep --color=auto'
     alias ls='ls -GFh'
-    alias cli_update='cd $CUSTOM_PATH && git pull && conda deactivate && cd && echo \Updating\ global\ packages\ && mas upgrade && gem update && python -m pip install --upgrade pip && echo \Updating\ Conda\ && conda update -n base conda -y && conda clean -y --all && conda activate base && conda update anaconda -y && conda deactivate && echo \Updating\ Homebrew\ && brew upgrade && brew cask upgrade && brew cleanup && npm -g install npm && npm -g update && cd' # horrible
+
+    _nvm_update() {
+        prev_ver=$(nvm current)
+        nvm install node
+        nvm reinstall-packages $prev_ver
+        nvm uninstall $prev_ver
+        nvm cache clear
+        unset reset prev_ver
+    }
+
+    _cust_update() {
+        cd $CUSTOM_PATH
+        git pull
+    }
+
+    _conda_update() {
+        conda update -n base conda -y
+        conda clean -y --all
+        conda activate base
+        conda update anaconda -y
+    }
+
+    _pip_update() {
+        python -m pip install --upgrade pip
+        pip-review --local --interactive --all
+    }
+    _brew_update() {
+         brew upgrade
+         brew cleanup
+    }
+
+    _cli_update() {
+        echo "\e[34mUpdating Ruby\e[39m"
+        gem update
+
+        echo "\e[34mUpdating base16\e[39m"
+        cd $XDG_CONFIG_HOME/base16-shell
+        git pull
+        cd ..
+        cd base16-fzf
+        git pull
+        cd
+
+        echo "\e[34mUpdating Pip\e[39m"
+        _pip_update
+
+        echo "\e[34mUpdating Conda base env\e[39m"
+        _conda_update
+
+        echo "\e[34mUpdating NVM and Node\e[39m"
+        _nvm_update
+
+        echo "\e[34mUpdating Homebrew\e[39m"
+        _brew_update
+
+        echo "\e[34mUpdating TeXLive\e[39m"
+        tlmgr update --self
+        tlmgr update --all
+
+        echo "\e[34mUpdating Mac App Store apps\e[39m"
+        mas upgrade
+    }
+
+
+#     alias cli_update=' && conda deactivate && cd && echo \Updating\ global\ packages\ && mas upgrade && gem update && python -m pip install --upgrade pip && echo \Updating\ Conda\ && conda update -n base conda -y && conda clean -y --all && conda activate base && conda update anaconda -y && conda deactivate && echo \Updating\ Homebrew\ && brew upgrade && brew cask upgrade && brew cleanup && npm -g install npm && npm -g update && cd' # horrible
     function emacs_mac {
         t=()
 
@@ -410,6 +495,12 @@ else
 
 fi
 
+_enable_fingerprint_auth() {
+    if ! grep pam_tid.so /etc/pam.d/sudo; then
+        sudo gsed -i '1i auth sufficient pam_tid.so' /etc/pam.d/sudo
+    fi
+}
+
 if [[ ${iterm_integration} = true ]];  then
     if [[ ! -f ~/.iterm2_shell_integration.bash ]]; then
         curl -L https://iterm2.com/shell_integration/install_shell_integration_and_utilities.sh | bash
@@ -417,3 +508,5 @@ if [[ ${iterm_integration} = true ]];  then
     source ~/.iterm2_shell_integration.bash
 fi
 # conda activate base
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

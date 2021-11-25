@@ -3,3 +3,4 @@ if [ -f $HOME/.bashrc ]; then
 fi
 
 
+export PATH="/usr/local/opt/qt/bin:$PATH"

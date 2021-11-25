@@ -8,7 +8,6 @@
 (setq-default word-wrap t)
 (setq-default truncate-lines t)
 (setq enable-recursive-minibuffers t)
-(define-key process-menu-mode-map (kbd "C-k") 'joaot/delete-process-at-point)
 (defun joaot/delete-process-at-point ()
   (interactive)
   (let ((process (get-text-property (point) 'tabulated-list-id)))
@@ -29,8 +28,8 @@
 (setq mouse-wheel-follow-mouse 't)       ;; scroll window under mouse
 (setq scroll-step 0) ;; keyboard scroll one line at a time
 (setq scroll-error-top-bottom t)
-(global-set-key [mouse-4] 'scroll-down-line)
-(global-set-key [mouse-5] 'scroll-up-line)
+;; (global-set-key [mouse-4] 'scroll-down-line)
+;; (global-set-key [mouse-5] 'scroll-up-line)
 (setq scroll-preserve-screen-position 'always)
 (setq scroll-conservatively 1)
 ;; (desktop-save-mode 1)
@@ -51,9 +50,9 @@
 (setq-default grep-highlight-matches t grep-scroll-output t)
 
 (defun set-code-font ()
-  (set-frame-font "CMU Typewriter Text" nil t)
+  (set-frame-font "Fira Code" nil t)
   (set-face-attribute 'default nil
-                      :height 140)
+                      :height 120)
   )
 (defun set-text-font ()
   (set-frame-font "CMU Sans Serif" nil t)
@@ -77,42 +76,82 @@
   )
 
 ;; Completion and selection narrowing framework
-(use-package helm
+;; (use-package helm
+;;   :config
+;;   (use-package helm-swoop
+;;     :bind (
+;;            ("M-g s" . helm-swoop))
+;;     )
+
+;;   (use-package helm-company
+;;     :config
+;;     (eval-after-load 'company
+;;       '(progn
+;;          (setq company-frontends nil)
+;;          (define-key company-mode-map (kbd "M-<tab>") 'helm-company)
+;;          (define-key company-active-map (kbd "M-<tab>") 'helm-company)))
+;;     )
+;;   (global-set-key (kbd "M-x") #'helm-M-x)
+;;   (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
+;;   (global-set-key (kbd "C-x C-f") #'helm-find-files)
+;;   (global-set-key (kbd "C-x b") #'helm-mini)
+;;   (helm-mode 1)
+;;   (setq helm-ff-skip-boring-buffers t)
+;;   (setq helm-skip-boring-buffers t)
+;;   (helm-autoresize-mode 1)
+;;   (setq helm-autoresize-max-height 25)
+;;   (setq helm-autoresize-min-height 25)
+;;   (setq helm-echo-input-in-header-line t)
+;;   (defun helm-hide-minibuffer-maybe ()
+;;     (when (with-helm-buffer helm-echo-input-in-header-line)
+;;       (let ((ov (make-overlay (point-min) (point-max) nil nil t)))
+;;         (overlay-put ov 'window (selected-window))
+;;         (overlay-put ov 'face (let ((bg-color (face-background 'default nil)))
+;;                                 `(:background ,bg-color :foreground ,bg-color)))
+;;         (setq-local cursor-type nil))))
+;;   (add-hook 'helm-minibuffer-set-up-hook 'helm-hide-minibuffer-maybe)
+;;   )
+
+(use-package ivy
   :config
-  (use-package helm-swoop
-    :bind (
-           ("M-g s" . helm-swoop))
-    )
   (use-package imenu-anywhere
-    :bind (("M-g d" . helm-imenu-anywhere)))
-  (use-package helm-company
+    :bind (("M-g d" . ivy-imenu-anywhere)))
+  (setq ivy-display-style 'fancy)
+  (setq ivy-use-virtual-buffers t)
+  (ivy-mode 1)
+  (setq ivy-use-selectable-prompt t)
+  (setq ivy-use-virtual-buffers t)
+  (setq enable-recursive-minibuffers t)
+  (setq ivy-count-format "%d/%d ")
+  (setq ivy-wrap t)
+  
+  (use-package ivy-dired-history
     :config
-    (eval-after-load 'company
-      '(progn
-         (setq company-frontends nil)
-         (define-key company-mode-map (kbd "M-<tab>") 'helm-company)
-         (define-key company-active-map (kbd "M-<tab>") 'helm-company)))
+    (require 'savehist)
+    (add-to-list 'savehist-additional-variables 'ivy-dired-history-variable)
+    (savehist-mode 1)
+    (with-eval-after-load 'dired
+      (require 'ivy-dired-history)
+      (define-key dired-mode-map "," 'dired)))
+  (use-package ivy-yasnippet
+    :bind ("S-<tab>" . ivy-yasnippet))
+  (use-package ivy-rich
+    :config
+    (ivy-rich-mode 1)
+    (setq ivy-format-function #'ivy-format-function-line)
+    :diminish)
+  (use-package counsel
+    :config
+    (counsel-mode t)
     )
-  (global-set-key (kbd "M-x") #'helm-M-x)
-  (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
-  (global-set-key (kbd "C-x C-f") #'helm-find-files)
-  (global-set-key (kbd "C-x b") #'helm-mini)
-  (helm-mode 1)
-  (setq helm-ff-skip-boring-buffers t)
-  (setq helm-skip-boring-buffers t)
-  (helm-autoresize-mode 1)
-  (setq helm-autoresize-max-height 25)
-  (setq helm-autoresize-min-height 25)
-  (setq helm-echo-input-in-header-line t)
-  (defun helm-hide-minibuffer-maybe ()
-    (when (with-helm-buffer helm-echo-input-in-header-line)
-      (let ((ov (make-overlay (point-min) (point-max) nil nil t)))
-        (overlay-put ov 'window (selected-window))
-        (overlay-put ov 'face (let ((bg-color (face-background 'default nil)))
-                                `(:background ,bg-color :foreground ,bg-color)))
-        (setq-local cursor-type nil))))
-  (add-hook 'helm-minibuffer-set-up-hook 'helm-hide-minibuffer-maybe)
-  )
+  (use-package counsel-dash)
+  (use-package flyspell-correct-ivy
+    )
+  :diminish)
+  (use-package swiper
+    :bind ("C-S-s" . swiper)
+    :bind ("C-S-M-s" . swiper-multi)
+    )
 
 (use-package highlight-symbol
   :bind (
@@ -123,7 +162,7 @@
   (highlight-symbol-mode)
   )
 
-;; Behavior and navigation
+;; Behavior and avigation
 (use-package google-translate
   :bind (
          ("C-c t" . google-translate-at-point)
@@ -198,3 +237,29 @@
 
 (setq make-backup-files nil)          ; stop creating backup~ files
 (setq auto-save-default nil)          ; stop creating #autosave# files
+
+(use-package dumb-jump
+  :bind ("M-g D" . dumb-jump-go)
+  :bind ("M-g M-D" . dumb-jump-back)
+  :config
+  (setq dumb-jump-selector 'ivy)
+  (setq dumb-jump-aggressive nil)
+  )
+
+
+;; (use-package minimap
+;;   :config
+;;   (setq minimap-display-semantic-overlays t)
+;;   (setq mimimap-width-fraction 0.05)
+;;   )
+
+(require 'semantic/ia)
+(defun my-semantic-hook ()
+  (imenu-add-to-menubar "TAGS"))
+(add-hook 'semantic-init-hooks 'my-semantic-hook)
+(global-semantic-idle-completions-mode t)
+(global-semantic-decoration-mode t)
+(global-semantic-highlight-func-mode t)
+(global-semantic-show-unmatched-syntax-mode t)
+(semantic-mode 1)
+(use-package ecb)

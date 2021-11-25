@@ -1,0 +1,16 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode js2-mode
+      :tags nil
+      :file "trajectory.jsx"
+      :pointmax 3855
+      :fsize 4420
+      :lastmodtime '(23787 47555 727151 36000)
+      :unmatched-syntax '((VARIABLE 8 . 13) (VARIABLE 14 . 18) (STRING 19 . 26) (VARIABLE 94 . 100) (VARIABLE 101 . 108) (VARIABLE 109 . 113) (STRING 114 . 130) (VARIABLE 133 . 139) (STRING 140 . 168) (VARIABLE 170 . 175) (VARIABLE 176 . 189) (PAREN_BLOCK 215 . 227))))
+  :file "!Users!aosh!Local!vdnh_80!main!react!subapps!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

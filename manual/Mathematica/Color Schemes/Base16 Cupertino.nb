@@ -1,0 +1,382 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     14747,        374]
+NotebookOptionsPosition[     10833,        330]
+NotebookOutlinePosition[     11189,        345]
+CellTagsIndexPosition[     11146,        342]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[StyleData["StandardForm"],
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ InputAutoReplacements->{
+  "->" -> "\[Rule]", ":>" -> "\[RuleDelayed]", "<=" -> "\[LessEqual]", ">=" -> 
+   "\[GreaterEqual]", "!=" -> "\[NotEqual]", "==" -> "\[Equal]", "@>" -> 
+   "\[InlinePart]", "<->" -> "\[TwoWayRule]", ParentList},
+ CellChangeTimes->{3.744282067502206*^9},
+ LineSpacing->{1.25, 0, 2},
+ SingleLetterItalics->False,
+ StyleMenuListing->None,
+ FontFamily->"CMU Typewriter Text",
+ FontSize->14,
+ FontWeight->"Medium",
+ FontSlant->"Plain",
+ FontVariations->{"StrikeThrough"->False,
+ "Underline"->False},
+ PrivateFontOptions->{"FontPostScriptName"->"Automatic",
+ "OperatorSubstitution"->True},
+ FontColor->RGBColor[
+  0.14425879301136796`, 0.14427405203326465`, 
+   0.14424353398947126`],ExpressionUUID->"c746b705-0964-44ad-a5a9-\
+40d3bc1a082a"],
+
+Cell[StyleData[StyleDefinitions -> "Default.nb"],ExpressionUUID->"86dfe333-a3ec-41f6-b478-30cbac2a426a"]
+}, Open  ]],
+
+Cell[StyleData["Title"],
+ FontFamily->"CMU Serif",
+ FontSize->48,
+ FontWeight->"Medium",
+ FontSlant->"Plain",
+ FontVariations->{"StrikeThrough"->False,
+ "Underline"->False},
+ PrivateFontOptions->{"FontPostScriptName"->"Automatic"},
+ FontColor->RGBColor[0., 0., 0.9960479133287556],
+ Background->RGBColor[
+  0.7059739070725567, 0.7003891050583657, 
+   0.7004654001678492],ExpressionUUID->"13a49187-e33f-4bc2-8930-cb3cec7e1c75"],
+
+Cell[StyleData["Subtitle"],
+ FontFamily->"CMU Serif",
+ FontSize->24,
+ FontWeight->"Medium",
+ FontSlant->"Plain",
+ PrivateFontOptions->{"FontPostScriptName"->"Automatic"},
+ FontColor->RGBColor[
+  0.0030060273136491952`, 0., 
+   0.9983215075913634],ExpressionUUID->"5c3945e9-71dc-41f6-baaa-4c73bef252db"],
+
+Cell[StyleData["Subsubtitle"],
+ FontFamily->"CMU Serif",
+ FontSize->18,
+ FontWeight->"Medium",
+ FontSlant->"Plain",
+ PrivateFontOptions->{"FontPostScriptName"->"Automatic"},
+ FontColor->RGBColor[
+  0.0030060273136491952`, 0., 
+   0.9983215075913634],ExpressionUUID->"ed888213-8a21-4bce-837f-2e083add5f3c"],
+
+Cell[StyleData["Chapter"],
+ FontFamily->"CMU Serif",
+ FontSize->36,
+ FontWeight->"Medium",
+ FontSlant->"Plain",
+ PrivateFontOptions->{"FontPostScriptName"->"Automatic"},
+ FontColor->RGBColor[
+  0.0030060273136491952`, 0., 
+   0.9983215075913634],ExpressionUUID->"b0e67c6b-9de7-4fca-bd77-680e4f7a43cd"],
+
+Cell[StyleData["Subchapter"],
+ FontFamily->"CMU Serif",
+ FontSize->24,
+ FontWeight->"Medium",
+ FontSlant->"Plain",
+ PrivateFontOptions->{"FontPostScriptName"->"Automatic"},
+ FontColor->RGBColor[
+  0.0030060273136491952`, 0., 
+   0.9983215075913634],ExpressionUUID->"199f3b20-0f24-4203-b13d-c8c4ccc35047"],
+
+Cell[StyleData["Section"],
+ FontFamily->"CMU Serif",
+ FontSize->36,
+ FontWeight->"Medium",
+ FontSlant->"Plain",
+ PrivateFontOptions->{"FontPostScriptName"->"Automatic"},
+ FontColor->RGBColor[
+  0.0030060273136491952`, 0., 
+   0.9983215075913634],ExpressionUUID->"df5d840c-4ed9-43b2-a73c-64429431c667"],
+
+Cell[StyleData["Subsection"],
+ FontFamily->"CMU Serif",
+ FontSize->24,
+ FontWeight->"Medium",
+ FontSlant->"Plain",
+ PrivateFontOptions->{"FontPostScriptName"->"Automatic"},
+ FontColor->RGBColor[
+  0.0030060273136491952`, 0., 
+   0.9983215075913634],ExpressionUUID->"4edcd94f-a430-4895-b720-478aca69a490"],
+
+Cell[StyleData["Subsubsection"],
+ FontFamily->"CMU Serif",
+ FontSize->18,
+ FontWeight->"Medium",
+ FontSlant->"Plain",
+ PrivateFontOptions->{"FontPostScriptName"->"Automatic"},
+ FontColor->RGBColor[
+  0.0030060273136491952`, 0., 
+   0.9983215075913634],ExpressionUUID->"7575dfb1-dcd7-4269-86f5-f70b0e89f6d0"],
+
+Cell[StyleData["Text"],
+ FontFamily->"CMU Sans Serif",
+ FontSize->14,
+ FontWeight->"Medium",
+ FontSlant->"Plain",
+ PrivateFontOptions->{"FontPostScriptName"->"Automatic"},
+ FontColor->RGBColor[
+  0.191958495460441, 0.1919890135042344, 
+   0.191958495460441],ExpressionUUID->"a2c98de0-0800-4f42-9ecb-f887ffb33aff"],
+
+Cell[StyleData["Item"],
+ CellDingbat->"\[FilledSmallCircle]",
+ FontFamily->"CMU Sans Serif",
+ FontSize->14,
+ FontWeight->"Medium",
+ FontSlant->"Plain",
+ PrivateFontOptions->{"FontPostScriptName"->"Automatic"},
+ FontColor->RGBColor[
+  0.191958495460441, 0.1919890135042344, 
+   0.191958495460441],ExpressionUUID->"98f829b3-1514-42a1-aa3a-1f7474912cc2"],
+
+Cell[StyleData["ItemParagraph"],
+ FontFamily->"CMU Sans Serif",
+ FontSize->14,
+ FontWeight->"Medium",
+ FontSlant->"Plain",
+ PrivateFontOptions->{"FontPostScriptName"->"Automatic"},
+ FontColor->RGBColor[
+  0.191958495460441, 0.1919890135042344, 
+   0.191958495460441],ExpressionUUID->"cb48de27-5a20-44d8-a5a8-f479c22a7fc2"],
+
+Cell[StyleData["Subitem"],
+ CellDingbat->"\[FilledSmallSquare]",
+ FontFamily->"CMU Sans Serif",
+ FontSize->14,
+ FontWeight->"Medium",
+ FontSlant->"Plain",
+ PrivateFontOptions->{"FontPostScriptName"->"Automatic"},
+ FontColor->RGBColor[
+  0.191958495460441, 0.1919890135042344, 
+   0.191958495460441],ExpressionUUID->"814e1c90-9767-4ceb-a400-bbac6c3a036d"],
+
+Cell[StyleData["SubitemParagraph"],
+ FontFamily->"CMU Sans Serif",
+ FontSize->14,
+ FontWeight->"Medium",
+ FontSlant->"Plain",
+ PrivateFontOptions->{"FontPostScriptName"->"Automatic"},
+ FontColor->RGBColor[
+  0.191958495460441, 0.1919890135042344, 
+   0.191958495460441],ExpressionUUID->"58cc2f19-0b6c-4474-a449-ac8846d19003"],
+
+Cell[StyleData["Subsubitem"],
+ CellDingbat->"\[FilledDiamond]",
+ FontFamily->"CMU Sans Serif",
+ FontSize->14,
+ FontWeight->"Medium",
+ FontSlant->"Plain",
+ PrivateFontOptions->{"FontPostScriptName"->"Automatic"},
+ FontColor->RGBColor[
+  0.191958495460441, 0.1919890135042344, 
+   0.191958495460441],ExpressionUUID->"2a12d5ed-edd6-43a3-9081-7ea755019146"],
+
+Cell[StyleData["SubsubitemParagraph"],
+ FontFamily->"CMU Sans Serif",
+ FontSize->14,
+ FontWeight->"Medium",
+ FontSlant->"Plain",
+ PrivateFontOptions->{"FontPostScriptName"->"Automatic"},
+ FontColor->RGBColor[
+  0.191958495460441, 0.1919890135042344, 
+   0.191958495460441],ExpressionUUID->"263a6dec-9bfe-431c-b0d4-6662f5055dbf"],
+
+Cell[StyleData["ItemNumbered"],
+ FontFamily->"CMU Sans Serif",
+ FontSize->14,
+ FontWeight->"Medium",
+ FontSlant->"Plain",
+ PrivateFontOptions->{"FontPostScriptName"->"Automatic"},
+ FontColor->RGBColor[
+  0.191958495460441, 0.1919890135042344, 
+   0.191958495460441],ExpressionUUID->"9e97bd17-305a-4bde-b2da-661177b44d1d"],
+
+Cell[StyleData["SubitemNumbered"],
+ FontFamily->"CMU Sans Serif",
+ FontSize->14,
+ FontWeight->"Medium",
+ FontSlant->"Plain",
+ PrivateFontOptions->{"FontPostScriptName"->"Automatic"},
+ FontColor->RGBColor[
+  0.191958495460441, 0.1919890135042344, 
+   0.191958495460441],ExpressionUUID->"e06479ee-6e8e-4df9-87f2-02a0aba310d3"],
+
+Cell[StyleData["SubsubitemNumbered"],
+ FontFamily->"CMU Sans Serif",
+ FontSize->14,
+ FontWeight->"Medium",
+ FontSlant->"Plain",
+ PrivateFontOptions->{"FontPostScriptName"->"Automatic"},
+ FontColor->RGBColor[
+  0.191958495460441, 0.1919890135042344, 
+   0.191958495460441],ExpressionUUID->"b3d0d32d-3fff-4b7c-8768-a3e87cc7771c"],
+
+Cell[StyleData["InlineFormula"],
+ FontFamily->"CMU Classical Serif",
+ FontSize->14,
+ FontWeight->"Medium",
+ FontSlant->"Italic",
+ PrivateFontOptions->{"FontPostScriptName"->"Automatic"},
+ FontColor->RGBColor[
+  0.191958495460441, 0.1919890135042344, 
+   0.191958495460441],ExpressionUUID->"756a220c-69f4-400a-a5c2-080e1aab8771"],
+
+Cell[StyleData["DisplayFormula"],
+ FontFamily->"CMU Classical Serif",
+ FontSize->14,
+ FontWeight->"Medium",
+ FontSlant->"Italic",
+ PrivateFontOptions->{"FontPostScriptName"->"Automatic"},
+ FontColor->RGBColor[
+  0.191958495460441, 0.1919890135042344, 
+   0.191958495460441],ExpressionUUID->"bc60d8c4-5243-42aa-8691-bd6ce7ecf8b1"],
+
+Cell[StyleData["DisplayFormulaNumbered"],
+ FontFamily->"CMU Classical Serif",
+ FontSize->14,
+ FontWeight->"Medium",
+ FontSlant->"Italic",
+ PrivateFontOptions->{"FontPostScriptName"->"Automatic"},
+ FontColor->RGBColor[
+  0.191958495460441, 0.1919890135042344, 
+   0.191958495460441],ExpressionUUID->"446a9131-9440-4e04-b5de-a657a1b6f7f3"],
+
+Cell[StyleData["ExternalLanguage"],
+ FontFamily->"CMU Typewriter Text",
+ FontSize->14,
+ FontWeight->"Medium",
+ FontSlant->"Plain",
+ PrivateFontOptions->{"FontPostScriptName"->"Automatic"},
+ FontColor->RGBColor[0.191958495460441, 0.1919890135042344, 0.191958495460441],
+ Background->RGBColor[
+  0.7059739070725567, 0.7003891050583657, 
+   0.7004654001678492],ExpressionUUID->"9a02b6ad-617f-4461-83ef-e90fbb91a4ac"],
+
+Cell[StyleData["Program"],
+ FontFamily->"CMU Typewriter Text",
+ FontSize->14,
+ FontWeight->"Medium",
+ FontSlant->"Plain",
+ PrivateFontOptions->{"FontPostScriptName"->"Automatic"},
+ FontColor->RGBColor[0.191958495460441, 0.1919890135042344, 0.191958495460441],
+ Background->RGBColor[
+  0.7059739070725567, 0.7003891050583657, 
+   0.7004654001678492],ExpressionUUID->"39ea6a0a-32c2-4b8a-a975-e5e783ed194b"],
+
+Cell[StyleData["Code"],
+ FontFamily->"CMU Typewriter Text",
+ FontSize->14,
+ FontWeight->"Medium",
+ FontSlant->"Plain",
+ PrivateFontOptions->{"FontPostScriptName"->"Automatic"},
+ FontColor->RGBColor[0.191958495460441, 0.1919890135042344, 0.191958495460441],
+ Background->RGBColor[
+  0.7059739070725567, 0.7003891050583657, 
+   0.7004654001678492],ExpressionUUID->"635e3bc0-787c-4e31-b658-62aaf5fb1bd3"],
+
+Cell[StyleData["Input"],
+ FontFamily->"CMU Typewriter Text",
+ FontSize->14,
+ FontWeight->"Medium",
+ FontSlant->"Plain",
+ PrivateFontOptions->{"FontPostScriptName"->"Automatic"},
+ FontColor->RGBColor[
+  0.191958495460441, 0.1919890135042344, 
+   0.191958495460441],ExpressionUUID->"56912262-a9bf-4803-978d-a3c70ee93603"],
+
+Cell[StyleData["CodeText"],
+ FontFamily->"CMU Typewriter Text",
+ FontSize->14,
+ FontWeight->"Medium",
+ FontSlant->"Plain",
+ PrivateFontOptions->{"FontPostScriptName"->"Automatic"},
+ FontColor->RGBColor[0.191958495460441, 0.1919890135042344, 0.191958495460441],
+ Background->RGBColor[
+  0.7059739070725567, 0.7003891050583657, 
+   0.7004654001678492],ExpressionUUID->"482ce974-069a-4734-9b17-42d8d5fb7c48"],
+
+Cell[StyleData["Output"],
+ FontFamily->"CMU Typewriter Text",
+ FontSize->14,
+ FontWeight->"Medium",
+ FontSlant->"Plain",
+ PrivateFontOptions->{"FontPostScriptName"->"Automatic"},
+ FontColor->RGBColor[0.191958495460441, 0.1919890135042344, 0.191958495460441],
+ Background->RGBColor[
+  0.7059739070725567, 0.7003891050583657, 
+   0.7004654001678492],ExpressionUUID->"3df9a010-fd2a-4513-a6a7-0540395e4d5f"]
+},
+WindowSize->{808, 810},
+WindowMargins->{{12, Automatic}, {Automatic, 0}},
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->"PrivateStylesheetFormatting.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 842, 22, 39, 31, 0, "StyleData", "StandardForm", "All",ExpressionUUID->"c746b705-0964-44ad-a5a9-40d3bc1a082a",
+ StyleMenuListing->None],
+Cell[1425, 46, 104, 0, 36, 49, 0, "StyleData", "StyleDefinitions", "",ExpressionUUID->"86dfe333-a3ec-41f6-b478-30cbac2a426a"]
+}, Open  ]],
+Cell[1544, 49, 426, 11, 129, 24, 0, "StyleData", "Title", "All",ExpressionUUID->"13a49187-e33f-4bc2-8930-cb3cec7e1c75"],
+Cell[1973, 62, 302, 8, 67, 27, 0, "StyleData", "Subtitle", "All",ExpressionUUID->"5c3945e9-71dc-41f6-baaa-4c73bef252db"],
+Cell[2278, 72, 305, 8, 48, 30, 0, "StyleData", "Subsubtitle", "All",ExpressionUUID->"ed888213-8a21-4bce-837f-2e083add5f3c"],
+Cell[2586, 82, 301, 8, 84, 26, 0, "StyleData", "Chapter", "All",ExpressionUUID->"b0e67c6b-9de7-4fca-bd77-680e4f7a43cd"],
+Cell[2890, 92, 304, 8, 57, 29, 0, "StyleData", "Subchapter", "All",ExpressionUUID->"199f3b20-0f24-4203-b13d-c8c4ccc35047"],
+Cell[3197, 102, 301, 8, 76, 26, 0, "StyleData", "Section", "All",ExpressionUUID->"df5d840c-4ed9-43b2-a73c-64429431c667"],
+Cell[3501, 112, 304, 8, 57, 29, 0, "StyleData", "Subsection", "All",ExpressionUUID->"4edcd94f-a430-4895-b720-478aca69a490"],
+Cell[3808, 122, 307, 8, 50, 32, 0, "StyleData", "Subsubsection", "All",ExpressionUUID->"7575dfb1-dcd7-4269-86f5-f70b0e89f6d0"],
+Cell[4118, 132, 313, 8, 43, 23, 0, "StyleData", "Text", "All",ExpressionUUID->"a2c98de0-0800-4f42-9ecb-f887ffb33aff"],
+Cell[4434, 142, 351, 9, 44, 23, 0, "StyleData", "Item", "All",ExpressionUUID->"98f829b3-1514-42a1-aa3a-1f7474912cc2"],
+Cell[4788, 153, 322, 8, 37, 32, 0, "StyleData", "ItemParagraph", "All",ExpressionUUID->"cb48de27-5a20-44d8-a5a8-f479c22a7fc2"],
+Cell[5113, 163, 354, 9, 40, 26, 0, "StyleData", "Subitem", "All",ExpressionUUID->"814e1c90-9767-4ceb-a400-bbac6c3a036d"],
+Cell[5470, 174, 325, 8, 37, 35, 0, "StyleData", "SubitemParagraph", "All",ExpressionUUID->"58cc2f19-0b6c-4474-a449-ac8846d19003"],
+Cell[5798, 184, 353, 9, 40, 29, 0, "StyleData", "Subsubitem", "All",ExpressionUUID->"2a12d5ed-edd6-43a3-9081-7ea755019146"],
+Cell[6154, 195, 328, 8, 37, 38, 0, "StyleData", "SubsubitemParagraph", "All",ExpressionUUID->"263a6dec-9bfe-431c-b0d4-6662f5055dbf"],
+Cell[6485, 205, 321, 8, 44, 31, 0, "StyleData", "ItemNumbered", "All",ExpressionUUID->"9e97bd17-305a-4bde-b2da-661177b44d1d"],
+Cell[6809, 215, 324, 8, 40, 34, 0, "StyleData", "SubitemNumbered", "All",ExpressionUUID->"e06479ee-6e8e-4df9-87f2-02a0aba310d3"],
+Cell[7136, 225, 327, 8, 40, 37, 0, "StyleData", "SubsubitemNumbered", "All",ExpressionUUID->"b3d0d32d-3fff-4b7c-8768-a3e87cc7771c"],
+Cell[7466, 235, 328, 8, 41, 32, 0, "StyleData", "InlineFormula", "All",ExpressionUUID->"756a220c-69f4-400a-a5c2-080e1aab8771"],
+Cell[7797, 245, 329, 8, 41, 33, 0, "StyleData", "DisplayFormula", "All",ExpressionUUID->"bc60d8c4-5243-42aa-8691-bd6ce7ecf8b1"],
+Cell[8129, 255, 337, 8, 41, 41, 0, "StyleData", "DisplayFormulaNumbered", "All",ExpressionUUID->"446a9131-9440-4e04-b5de-a657a1b6f7f3"],
+Cell[8469, 265, 413, 9, 65, 35, 0, "StyleData", "ExternalLanguage", "All",ExpressionUUID->"9a02b6ad-617f-4461-83ef-e90fbb91a4ac"],
+Cell[8885, 276, 404, 9, 65, 26, 0, "StyleData", "Program", "All",ExpressionUUID->"39ea6a0a-32c2-4b8a-a975-e5e783ed194b"],
+Cell[9292, 287, 401, 9, 67, 23, 0, "StyleData", "Code", "All",ExpressionUUID->"635e3bc0-787c-4e31-b658-62aaf5fb1bd3"],
+Cell[9696, 298, 319, 8, 44, 24, 0, "StyleData", "Input", "All",ExpressionUUID->"56912262-a9bf-4803-978d-a3c70ee93603"],
+Cell[10018, 308, 405, 9, 65, 27, 0, "StyleData", "CodeText", "All",ExpressionUUID->"482ce974-069a-4734-9b17-42d8d5fb7c48"],
+Cell[10426, 319, 403, 9, 64, 25, 0, "StyleData", "Output", "All",ExpressionUUID->"3df9a010-fd2a-4513-a6a7-0540395e4d5f"]
+}
+]
+*)
+

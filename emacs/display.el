@@ -1,20 +1,28 @@
 ;; GUI-specific tweaks
 (if (display-graphic-p)
     (progn
-      ;; n(require 'sublimity)
+      ;; (require 'sublimity)
       ;; (require 'sublimity-scroll)
-      ;; (sublimity-mode t)
-      ;; (setq base16-distinct-fringe-background nil)
-      ;; (setq base16-theme-256-color-source 'base16_shell)
-      ;; (load-theme 'base16-summerfruit-light t)
-      (use-package solarized-theme
-        :init
-        (setq solarized-high-contrast-mode-line t)
-        (setq solarized-use-more-italic nil)
-        (setq solarized-distinct-fringe-background t)
+      (setq base16-distinct-fringe-background t)
+      (setq base16-highlight-mode-line 'box)
+      (setq base16-theme-256-color-source 'base16_shell)
+      (add-to-list 'default-frame-alist '(ns-appearance . dark))
+      (use-package base16-theme
         :config
-        (load-theme 'solarized-light t)
+        (load-theme 'base16-solarized-light t)(setq base16-distinct-fringe-background t)
+
         )
+      ;; (use-package color-theme-sanityinc-tomorrow
+      ;;   :config
+      ;;   (load-theme 'sanityinc-tomorrow-night))
+      ;; (use-package solarized-theme
+      ;;   :init
+      ;;   (setq solarized-high-contrast-mode-line t)
+      ;;   (setq solarized-use-more-italic nil)
+      ;;   (setq solarized-distinct-fringe-background t)
+      ;;   :config
+      ;;   (load-theme 'solarized-light t)
+      ;;   )
       (custom-set-faces '(line-number-current-line ((t :weight bold))))
       (pixel-scroll-mode)
       (set-code-font)
@@ -29,6 +37,7 @@
 (when (memq window-system '(mac ns x))
   (if (display-graphic-p)
       (progn
+        (tool-bar-mode -1)
         (defun iterm ()
           "Open the current directory of the buffer in iTerm."
           (interactive)

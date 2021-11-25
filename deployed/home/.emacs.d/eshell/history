@@ -1,0 +1,75 @@
+pwd
+ls
+cd $CUSTOM_PATH
+ls
+cd .config/custom/emacs
+ls
+cd ..
+mv emacs{,.bak}
+mv emacs emacs.bak
+ls
+npm run build
+npm run build
+npm run build
+npm run build
+echo $PATH
+exit
+npm install
+npm install babel-core
+npm run build 
+grc
+grc npm run build
+npm run build 
+conda activate sdds
+conda init eshell
+npm run build 
+atnpm inst /Users/aosh/Local/sdds/static/arnaud/js/node_modules/babel-core/lib/transformation/file/options/option-manager.js:317:46
+npm install babel=^7
+npx
+npx babel-upgrade --write --install
+npm run build 
+mv ../../../.babelrc .
+mc
+(find-file ".babelrc")
+npm run build 
+pwd
+git status
+git stash
+git checkout -- arnaud
+git checkout arnaud
+git stash pop
+ls
+clear
+npm run build 
+npm install
+npm install --save-dev @babel/core @babel/preset-env
+npm run build 
+echo $SHELL
+echo $EMACS
+echo $ESHELL
+echo $eshell
+npm run build 
+ls
+trash lib
+neofetch 
+babel
+w
+vi
+w
+cd .config/orpheus/
+ls
+conda
+conda activate sdds
+python --version
+python
+which python
+conda
+activate sdds
+which python
+python
+w
+pwd
+git status
+git checkout 
+git log
+ssh smdc@downloader.sinp.msu.ru

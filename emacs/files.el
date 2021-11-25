@@ -7,12 +7,13 @@
                     (setq evil-magit-state 'normal)
                     )
     )
+  (setq magit-completing-read-function 'magit-ido-completing-read)
   (global-set-key (kbd "C-x g") 'magit-status)
   (setq vc-handled-backends (delq 'Git vc-handled-backends))
-  (use-package magithub
-    :config
-    (magithub-feature-autoinject t)
-    )
+  ;; (use-package magithub
+  ;;   :config
+  ;;   (magithub-feature-autoinject t)
+  ;;   )
   )
 
 
@@ -43,9 +44,13 @@
 (use-package projectile
   :config
   (projectile-mode +1)
-  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
-  (use-package helm-projectile
-    :bind (("M-g p" . helm-projectile)))
+  (use-package counsel-projectile
+    :config
+    (counsel-projectile-mode +1)
+    (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+    )
+  ;; (use-package helm-projectile
+  ;; :bind (("M-g p" . helm-projectile)))
   )
 
 ;; (global-whitespace-mode t)
@@ -69,6 +74,16 @@
   (autoload 'wolfram-mode "wolfram-mode" nil t)
   (autoload 'run-wolfram "wolfram-mode" nil t)
   (setq wolfram-program "/Applications/Mathematica.app/Contents/MacOS/MathKernel")
-  (add-to-list 'auto-mode-alist '("\.[nb,m]$" . wolfram-mode))
+  ;; (add-to-list 'auto-mode-alist '("\.[nb,m]$" . wolfram-mode))
   (setq wolfram-path "/Applications")
   )
+
+(use-package ein
+  :config
+  (require 'ein)
+  (require 'ein-notebook)
+  (require 'ein-subpackages)
+  (setq ein:completion-backend 'ein:use-company-backend)
+  )
+
+

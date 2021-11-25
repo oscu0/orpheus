@@ -11,3 +11,5 @@
 (load (concat emacs-custom-path "code.el"))
 
 (load (concat emacs-custom-path "modes.el"))
+
+(load (concat emacs-custom-path "unix.el"))
