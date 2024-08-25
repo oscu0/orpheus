@@ -1,0 +1,2432 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 6.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     68577,       2422]
+NotebookOptionsPosition[     46209,       1714]
+NotebookOutlinePosition[     59769,       2125]
+CellTagsIndexPosition[     59209,       2100]
+WindowFrame->Normal
+ContainsDynamic->False*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[{
+ StyleBox["Exploring Abstract Algebra with Mathematica",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->24],
+ StyleBox["\n",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times"],
+ StyleBox["Al Hibbard and Ken Levasseur",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->14,
+  FontSlant->"Plain"],
+ StyleBox["\n",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times"],
+ StyleBox["\[Copyright] Copyright 1998 Springer-Verlag New York, Inc.",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->10,
+  FontSlant->"Plain"]
+}], "Subsubtitle",
+ ShowCellBracket->True,
+ Evaluatable->False,
+ TextAlignment->Center,
+ TextJustification->0,
+ AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ StyleBox["Chapter 1",
+  FontSize->18],
+ "\nIntroduction to ",
+ StyleBox["AbstractAlgebra",
+  FontFamily->"Courier"]
+}], "Section",
+ ShowCellBracket->True,
+ Evaluatable->False,
+ TextAlignment->Center,
+ TextJustification->0,
+ AspectRatioFixed->True,
+ CellTags->{"Intro", "Contents"}],
+
+Cell[TextData[{
+ "This guide is written with the assumption that the reader has at least \
+minimal familiarity with groups, rings, and homomorphisms; consult an \
+abstract algebra text for details of any unfamiliar algebraic concept. A \
+bibliography in the Appendix contains some suggested references. The purpose \
+of this guide is to provide details for (and illustrations of) many of the \
+structures and functions used in the packages in ",
+ StyleBox["AbstractAlgebra", "MR"],
+ ". Many of these structures and functions are also used in the laboratory \
+notebooks in ",
+ StyleBox["Exploring Abstract Algebra with Mathematica",
+  FontSlant->"Italic"],
+ ". For updates to this guide, updates to the packages, as well as other \
+related resources, the web page ",
+ ButtonBox["http://www.central.edu/eaam.html",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    URL["http://www.central.edu/eaam.html"], None}],
+ " (which is mirrored at ",
+ ButtonBox["http://www.uml.edu/Dept/Math/eaam/eaam.html",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    URL["http://www.uml.edu/Dept/Math/eaam/eaam.html"], None}],
+ ") can be consulted."
+}], "Text",
+ ShowCellBracket->True,
+ Evaluatable->False,
+ AspectRatioFixed->True,
+ CellTags->{"Intro", "i:1"}],
+
+Cell[CellGroupData[{
+
+Cell["1.0 Read me first", "Subsection",
+ ShowCellBracket->True,
+ CellTags->"First"],
+
+Cell[TextData[{
+ "To evaluate any of the ",
+ StyleBox["Input", "MR"],
+ " cells in this chapter, the following cell should be evaluated first."
+}], "Text",
+ ShowCellBracket->True,
+ CellTags->"First"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<AbstractAlgebra`Master`\>\"", "]"}]], "Input",
+ ShowCellBracket->True,
+ CellTags->"First",
+ CellLabel->"In[1]:="],
+
+Cell["\<\
+In this chapter we primarily focus on groups, so we indicate this default \
+structure as follows.\
+\>", "Text",
+ ShowCellBracket->True,
+ CellTags->"First"],
+
+Cell[BoxData[
+ RowBox[{"SwitchStructureTo", "[", "Group", "]"}]], "Input",
+ ShowCellBracket->True,
+ CellTags->"First",
+ CellLabel->"In[2]:="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "1.1 Packages in ",
+ StyleBox["AbstractAlgebra",
+  FontFamily->"Courier"]
+}], "Subsection",
+ ShowCellBracket->True,
+ CellTags->"Packages"],
+
+Cell[TextData[{
+ "Typically, to use a function from ",
+ StyleBox["AbstractAlgebra", "MR"],
+ ", the ",
+ StyleBox["Master", "MR"],
+ " package needs to be evaluated as follows."
+}], "Text",
+ ShowCellBracket->True,
+ CellTags->"Packages"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<AbstractAlgebra`Master`\>\"", "]"}]], "Input",
+ ShowCellBracket->True,
+ CellTags->"Packages",
+ CellLabel->"In[3]:="],
+
+Cell[TextData[{
+ "Reading in the ",
+ StyleBox["Master", "MR"],
+ " package defines all the names used in the packages. (Note that earlier \
+versions of ",
+ StyleBox["AbstractAlgebra", "MR"],
+ " consised of a suite of about 15 packages and then this caused all the \
+names to be recognized but not defined. For backwards compatibility, we \
+retain the same name ",
+ StyleBox["Master", "MR"],
+ ", though it is not a Master package in the technical language of ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ ".) Now any function can be called and used. For example, if we want to know \
+the orders of the elements in the dihedral group ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["D", "3"], TraditionalForm]]],
+ ", we provide as input ",
+ StyleBox["Orders[Dihedral[3]]", "MR"],
+ "."
+}], "Text",
+ ShowCellBracket->True,
+ CellTags->"Packages"],
+
+Cell[BoxData[
+ RowBox[{"Orders", "[", 
+  RowBox[{"Dihedral", "[", "3", "]"}], "]"}]], "Input",
+ ShowCellBracket->True,
+ CellTags->"Packages",
+ CellLabel->"In[4]:="],
+
+Cell[TextData[{
+ "The function to form the dihedral group ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["D", "3"], TraditionalForm]]],
+ " is first found and evaulated and then the function to calculate the orders \
+is called and executed. "
+}], "Text",
+ ShowCellBracket->True,
+ CellTags->"Packages"],
+
+Cell[TextData[{
+ "To learn about the ",
+ StyleBox["Orders", "MR"],
+ " function, use the ? approach (or, of course, read the pertinent portion of \
+this documentation)."
+}], "MathCaption",
+ ShowCellBracket->True,
+ CellTags->"Packages"],
+
+Cell[BoxData[
+ RowBox[{"?", "Orders"}]], "Input",
+ ShowCellBracket->True,
+ CellTags->"Packages",
+ CellLabel->"In[6]:="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "1.2 Basic structures used in ",
+ StyleBox["AbstractAlgebra",
+  FontFamily->"Courier"]
+}], "Subsection",
+ ShowCellBracket->True,
+ Evaluatable->False,
+ CellTags->"Structures"],
+
+Cell[CellGroupData[{
+
+Cell["1.2.1 Overview", "Subsubsection",
+ ShowCellBracket->True,
+ Evaluatable->False,
+ CellTags->"Structures"],
+
+Cell[TextData[{
+ StyleBox["The goal of the packages in ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["AbstractAlgebra",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Courier"],
+ StyleBox[" is to provide an environment for working with groups, rings, \
+fields, and homomorphisms. The fundamental structures are called ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Groupoids", "MR",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox[", ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Ringoids", "MR",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox[", and ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Morphoids", "MR",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox[".",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ " ",
+ StyleBox["These structures need not necessarily represent bona fide groups, \
+rings, or morphisms. A ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Groupoid", "MR",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox[" consists of a set (",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["List", "MR",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox[") of elements followed by an operation, whereas a ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Ringoid", "MR",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox[" consists of a set of elements followed by two operations. A ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Morphoid", "MR",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox[" consists of a function (or list of rules) followed by the domain \
+and codomain, which are either both groupoids or both ringoids. In this \
+guide, we use the term ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["groupoid",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic"],
+ StyleBox[" when referring to the mathematical structure consisting of a set \
+and an operation and use ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Groupoid", "MR",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox[" when we refer to the ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Mathematica",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic"],
+ StyleBox[" structure that embodies the mathematical groupoid. We make a \
+similar distinction between ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["ringoid",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic"],
+ StyleBox[" and ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Ringoid", "MR",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["; the mathematical underpinnings for a ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Morphoid", "MR",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox[" is simply a function between two groupoids or two ringoids. Note \
+that the operations in a ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Groupoid", "MR",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox[" or ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Ringoid", "MR",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox[" need not be binary operations in the usual mathematical sense \
+(where given a pair of inputs from a set, the image also is required to \
+belong to the set).",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}], "Text",
+ ShowCellBracket->True,
+ Evaluatable->False,
+ CellTags->{"Structures", "i:5"}],
+
+Cell[TextData[{
+ StyleBox["For an example of a groupoid, consider the set {2, 3, 4} and the \
+built-in ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Mathematica",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic"],
+ StyleBox[" operator ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Plus", "MR",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox[", which performs addition.",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}], "MathCaption",
+ ShowCellBracket->True,
+ Evaluatable->False,
+ CellTags->"Structures"],
+
+Cell["G = Groupoid[{2, 3, 4}, Plus]", "Input",
+ ShowCellBracket->True,
+ CellTags->"Structures",
+ CellLabel->"In[8]:="],
+
+Cell[TextData[{
+ "This structure, defined as ",
+ Cell[BoxData[
+  FormBox["G", TraditionalForm]]],
+ ", constitutes a groupoid, although it clearly does not form a group. Also, \
+",
+ StyleBox["Plus", "MR"],
+ " is not a binary operation (over this set) in the normal sense of the word, \
+since ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"2", " ", "+", " ", "3"}], " ", "=", " ", "5"}], 
+   TraditionalForm]]],
+ " and 5 is not a member of the underlying set {2, 3, 4}."
+}], "Text",
+ ShowCellBracket->True,
+ Evaluatable->False,
+ CellTags->"Structures"],
+
+Cell[TextData[{
+ "Similarly, we can form a ringoid as follows. Again, the operations in a ",
+ StyleBox["Ringoid", "MR"],
+ " do not need to be binary operations in the normal sense, as illustrated \
+here."
+}], "MathCaption",
+ ShowCellBracket->True,
+ Evaluatable->False,
+ CellTags->"Structures"],
+
+Cell["R = Ringoid[{2, 3, 4}, Plus, Times]", "Input",
+ ShowCellBracket->True,
+ CellTags->"Structures",
+ CellLabel->"In[9]:="],
+
+Cell[TextData[{
+ StyleBox["Consider the function from ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[DoubleStruckCapitalZ]", "12"], TraditionalForm]]],
+ StyleBox[" to ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[DoubleStruckCapitalZ]", "6"], TraditionalForm]]],
+ StyleBox[" by sending ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ Cell[BoxData[
+  FormBox["x", TraditionalForm]]],
+ StyleBox[" to ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"x", " ", "mod", " ", "6"}], TraditionalForm]]],
+ StyleBox[". Here is an example of a ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Morphoid", "MR",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox[" based on this function.",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}], "MathCaption",
+ ShowCellBracket->True,
+ Evaluatable->False,
+ CellTags->"Structures"],
+
+Cell["f = Morphoid[Mod[#, 6]&, Z[12], Z[6]]", "Input",
+ ShowCellBracket->True,
+ CellTags->"Structures",
+ CellLabel->"In[10]:="],
+
+Cell[TextData[{
+ StyleBox["Note that this returns a structure of type ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Morphoid", "MR",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox[" and three arguments consisting of the function and the two \
+groups. (We could have made this a ring morphism by indicating that we \
+intended ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[DoubleStruckCapitalZ]", "12"], TraditionalForm]]],
+ StyleBox[" and ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[DoubleStruckCapitalZ]", "6"], TraditionalForm]]],
+ StyleBox[" to be ringoids.)",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}], "Text",
+ ShowCellBracket->True,
+ Evaluatable->False,
+ CellTags->"Structures"],
+
+Cell[TextData[{
+ "A better (and strongly recommended) mechanism to form either a ",
+ StyleBox["Groupoid", "MR"],
+ ", a ",
+ StyleBox["Ringoid", "MR"],
+ " or a ",
+ StyleBox["Morphoid", "MR"],
+ " is given in ",
+ ButtonBox["section 1.2.2",
+  BaseStyle->"AddOnsLink",
+  ButtonData:>{"How to form Structures", "How to form Structures"}],
+ "."
+}], "Text",
+ ShowCellBracket->True,
+ Evaluatable->False,
+ CellTags->"Structures"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "1.2.2 How to form ",
+ StyleBox["Groupoids",
+  FontFamily->"Courier"],
+ ", ",
+ StyleBox["Ringoids",
+  FontFamily->"Courier"],
+ " and ",
+ StyleBox["Morphoids",
+  FontFamily->"Courier"]
+}], "Subsubsection",
+ ShowCellBracket->True,
+ Evaluatable->False,
+ CellTags->{"i:7", "Form"}],
+
+Cell[TextData[{
+ "In ",
+ ButtonBox["section 1.2.1",
+  BaseStyle->"AddOnsLink",
+  ButtonData:>{"Overview of Structures", "Overview of Structures"}],
+ " we formed the ",
+ StyleBox["Groupoid", "MR"],
+ " ",
+ Cell[BoxData[
+  FormBox["G", TraditionalForm]]],
+ " by"
+}], "Text",
+ ShowCellBracket->True,
+ Evaluatable->False,
+ CellTags->{"i:8", "Form"}],
+
+Cell[BoxData[
+ RowBox[{"G", "=", 
+  RowBox[{"Groupoid", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"2", ",", "3", ",", "4"}], "}"}], ",", "Plus"}], 
+   "]"}]}]], "Input",
+ ShowCellBracket->True,
+ CellTags->"Form",
+ CellLabel->"In[11]:="],
+
+Cell[TextData[{
+ "The recommended method is to use the ",
+ StyleBox["FormGroupoid", "MR"],
+ " function as follows."
+}], "Text",
+ ShowCellBracket->True,
+ Evaluatable->False,
+ CellTags->"Form"],
+
+Cell[BoxData[
+ RowBox[{"G", "=", 
+  RowBox[{"FormGroupoid", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"2", ",", "3", ",", "4"}], "}"}], ",", "Plus"}], 
+   "]"}]}]], "Input",
+ ShowCellBracket->True,
+ CellTags->"Form",
+ CellLabel->"In[12]:="],
+
+Cell[TextData[{
+ "Although the output is often the same (though not quite, in this case), \
+there are some internal steps that are taken when the ",
+ StyleBox["FormGroupoid", "MR"],
+ " function is called that may later prove useful. Additionally, one can add \
+options to the ",
+ StyleBox["FormGroupoid", "MR"],
+ " function that provide information about the groupoid being formed. The \
+syntax for the ",
+ StyleBox["FormGroupoid", "MR"],
+ " function requires the first parameter to be a list of elements and the \
+second parameter to be the (binary) operation used. An optional third \
+parameter indicates the symbol used to represent the operation; the default \
+value is *, if none is given. After these parameters, a variety of options \
+can be added, as indicated in what follows."
+}], "Text",
+ ShowCellBracket->True,
+ Evaluatable->False,
+ CellTags->"Form"],
+
+Cell[BoxData[
+ RowBox[{"?", "FormGroupoid"}]], "Input",
+ ShowCellBracket->True,
+ CellTags->"Form",
+ CellLabel->"In[13]:="],
+
+Cell[TextData[{
+ "Each of the options for ",
+ StyleBox["FormGroupoid", "MR"],
+ " has default values in these packages, but any of them can be overridden \
+with other values, or other default values can be defined. Although we \
+discuss in detail the options and illustrate how they are used in ",
+ ButtonBox["chapter 2",
+  BaseStyle->"AddOnsLink",
+  ButtonData:>{"FormGroupoid", "FormGroupoid"}],
+ ", we now briefly illustrate the use of a few of these options."
+}], "Text",
+ ShowCellBracket->True,
+ Evaluatable->False,
+ CellTags->"Form"],
+
+Cell[BoxData[
+ RowBox[{"Options", "[", "FormGroupoid", "]"}]], "Input",
+ ShowCellBracket->True,
+ CellTags->"Form",
+ CellLabel->"In[14]:="],
+
+Cell[TextData[{
+ "Suppose we want to define the group of integers mod ",
+ Cell[BoxData[
+  FormBox["n", TraditionalForm]]],
+ ", the group denoted ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[DoubleStruckCapitalZ]", "n"], "."}], TraditionalForm]]],
+ " It is already built into the packages, defined under the name ",
+ StyleBox["Z", "MR"],
+ "; here we call our new version ",
+ StyleBox["newZ", "MR"],
+ ". This is how we might define it."
+}], "MathCaption",
+ ShowCellBracket->True,
+ CellTags->"Form"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"newZ", "[", 
+   RowBox[{"n_Integer", "?", "Positive"}], "]"}], " ", ":=", "\n", "\t\t", 
+  RowBox[{"FormGroupoid", "[", 
+   RowBox[{
+    RowBox[{"Range", "[", 
+     RowBox[{"0", ",", 
+      RowBox[{"n", "-", "1"}]}], "]"}], ",", " ", 
+    RowBox[{
+     RowBox[{"Mod", "[", 
+      RowBox[{
+       RowBox[{"#1", " ", "+", " ", "#2"}], ",", "n"}], "]"}], "&"}], ",", 
+    "\"\<+\>\"", ",", 
+    RowBox[{"IsAGroup", " ", "\[Rule]", " ", "True"}], ",", " ", 
+    RowBox[{"FormatOperator", " ", "\[Rule]", "False"}], ",", " ", 
+    RowBox[{"Generators", " ", "\[Rule]", " ", 
+     RowBox[{"{", "1", "}"}]}], ",", "\n", "\t", 
+    RowBox[{
+    "GroupoidDescription", " ", "\[Rule]", " ", 
+     "\"\<Integers under addition mod n\>\""}], ",", 
+    RowBox[{"GroupoidName", " ", "\[Rule]", 
+     RowBox[{"StringJoin", "[", 
+      RowBox[{"\"\<Z[\>\"", ",", 
+       RowBox[{"ToString", "[", "n", "]"}], ",", "\"\<]\>\""}], "]"}]}]}], 
+   "]"}]}]], "Input",
+ ShowCellBracket->True,
+ CellTags->"Form",
+ CellLabel->"In[15]:="],
+
+Cell[TextData[{
+ "To form ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[DoubleStruckCapitalZ]", "5"], ","}], TraditionalForm]]],
+ " we could use the following."
+}], "MathCaption",
+ ShowCellBracket->True,
+ CellTags->"Form"],
+
+Cell[BoxData[
+ RowBox[{"G", " ", "=", " ", 
+  RowBox[{"newZ", "[", "5", "]"}]}]], "Input",
+ ShowCellBracket->True,
+ CellTags->"Form",
+ CellLabel->"In[16]:="],
+
+Cell[TextData[{
+ "Since ",
+ StyleBox["FormatOperator", "MR"],
+ " is set to ",
+ StyleBox["False", "MR"],
+ ", the binary operator ",
+ StyleBox["Mod[#1 + #2, 5]&", "MR"],
+ " is given, instead of hiding behind ",
+ StyleBox["-Operation-", "MR"],
+ ", as seen earlier. The ",
+ StyleBox["IsAGroup", "MR"],
+ " option indicates that any tests to see if it is a group can be skipped and \
+",
+ StyleBox["True", "MR"],
+ " will be immediately returned by ",
+ StyleBox["GroupQ", "MR"],
+ "."
+}], "MathCaption",
+ ShowCellBracket->True,
+ CellTags->"Form"],
+
+Cell[BoxData[
+ RowBox[{"GroupQ", "[", "G", "]"}]], "Input",
+ ShowCellBracket->True,
+ CellTags->"Form",
+ CellLabel->"In[17]:="],
+
+Cell[TextData[{
+ "The value of the option ",
+ StyleBox["GroupoidName", "MR"],
+ " shows up when we view a Cayley table."
+}], "MathCaption",
+ ShowCellBracket->True,
+ CellTags->"Form"],
+
+Cell[BoxData[
+ RowBox[{"CayleyTable", "[", 
+  RowBox[{"G", ",", " ", 
+   RowBox[{"Mode", " ", "\[Rule]", " ", "Visual"}]}], "]"}]], "Input",
+ ShowCellBracket->True,
+ CellTags->"Form",
+ CellLabel->"In[18]:="],
+
+Cell[TextData[{
+ "This name also shows up when asking for information learned about ",
+ Cell[BoxData[
+  FormBox["G", TraditionalForm]]],
+ ", as does the description and the results of some tests performed on ",
+ Cell[BoxData[
+  FormBox["G", TraditionalForm]]],
+ ". We use the ",
+ StyleBox["GroupInfo", "MR"],
+ " command to retrieve this information."
+}], "MathCaption",
+ ShowCellBracket->True,
+ CellTags->"Form"],
+
+Cell[BoxData[
+ RowBox[{"GroupInfo", "[", "G", "]"}]], "Input",
+ ShowCellBracket->True,
+ CellTags->"Form",
+ CellLabel->"In[19]:="],
+
+Cell[TextData[{
+ "There are several other means for forming groupoids, including ",
+ StyleBox["GenerateGroupoid", "MR"],
+ " and ",
+ StyleBox["FormGroupoidByTable", "MR"],
+ ". They are discussed in detail in ",
+ ButtonBox["chapter 2",
+  BaseStyle->"AddOnsLink",
+  ButtonData:>{"GenerateGroupoid", "GenerateGroupoid"}],
+ ", but we give a brief illustration here. ",
+ StyleBox["GenerateGroupoid", "MR"],
+ " is used by giving a set of generators and a binary operator, while ",
+ StyleBox["FormGroupoidByTable", "MR"],
+ " requires a list of elements followed by the Cayley table."
+}], "Text",
+ ShowCellBracket->True,
+ CellTags->"Form"],
+
+Cell[TextData[{
+ "Here is an illustration of ",
+ StyleBox["GenerateGroupoid", "MR"],
+ "."
+}], "MathCaption",
+ ShowCellBracket->True,
+ CellTags->"Form"],
+
+Cell[BoxData[
+ RowBox[{"G2", " ", "=", 
+  RowBox[{"GenerateGroupoid", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"1", ",", " ", "0"}], "}"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", " ", "7"}], "}"}]}], "}"}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"4", ",", " ", "0"}], "}"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", " ", "1"}], "}"}]}], "}"}]}], "}"}], ",", " ", 
+    RowBox[{
+     RowBox[{"Mod", "[", 
+      RowBox[{
+       RowBox[{"#1", " ", ".", " ", "#2"}], ",", " ", "9"}], "]"}], "&"}], 
+    ",", " ", 
+    RowBox[{"WideElements", " ", "\[Rule]", " ", "True"}], ",", " ", 
+    RowBox[{"FormatElements", " ", "\[Rule]", " ", "True"}], ",", " ", 
+    RowBox[{"GroupoidName", " ", "\[Rule]", " ", "\"\<What am I?\>\""}], ",", 
+    "  ", 
+    RowBox[{
+    "GroupoidDescription", " ", "\[Rule]", " ", 
+     "\"\<generated by two 2-by-2 matrices under matrix multiplication mod \
+9\>\""}]}], "]"}]}]], "Input",
+ ShowCellBracket->True,
+ CellTags->"Form",
+ CellLabel->"In[20]:="],
+
+Cell[TextData[{
+ "Here is an example of ",
+ StyleBox["FormGroupoidByTable", "MR"],
+ "."
+}], "MathCaption",
+ ShowCellBracket->True,
+ CellTags->"Form"],
+
+Cell[BoxData[{
+ RowBox[{"Clear", "[", 
+  RowBox[{"a", ",", " ", "b", ",", " ", "c"}], "]"}], "\n", 
+ RowBox[{"G3", " ", "=", " ", 
+  RowBox[{"FormGroupoidByTable", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"a", ",", " ", "b", ",", " ", "c"}], "}"}], ",", " ", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"a", ",", " ", "c", ",", " ", "b"}], "}"}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"b", ",", " ", "a", ",", " ", "c"}], "}"}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"c", ",", " ", "b", ",", "a"}], "}"}]}], "}"}]}], 
+   "]"}]}]}], "Input",
+ ShowCellBracket->True,
+ CellTags->"Form",
+ CellLabel->"In[21]:="],
+
+Cell["\<\
+We can view the Cayley tables of these two groupoids. Are either of these \
+groups?\
+\>", "MathCaption",
+ ShowCellBracket->True,
+ CellTags->"Form"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"CayleyTable", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"G2", ",", " ", "G3"}], "}"}], ",", " ", 
+    RowBox[{"Mode", " ", "\[Rule]", " ", "Visual"}]}], "]"}], ";"}]], "Input",\
+
+ ShowCellBracket->True,
+ CellTags->"Form",
+ CellLabel->"In[23]:="],
+
+Cell[TextData[{
+ "Note that a key is given (for ",
+ StyleBox["G2", "MR"],
+ ") since the option ",
+ StyleBox["WideElements \[Rule] True", "MR"],
+ " indicates that the elements should not be placed in the table. In this \
+case, a key is set up, associating shorter generic labels with the elements \
+in the groupoid. "
+}], "Text",
+ ShowCellBracket->True,
+ CellTags->"Form"],
+
+Cell[TextData[{
+ "Another way of seeing the elements of the first ",
+ StyleBox["Groupoid", "MR"],
+ " is to simply ask for them with the ",
+ StyleBox["Elements", "MR"],
+ " function."
+}], "MathCaption",
+ ShowCellBracket->True,
+ CellTags->"Form"],
+
+Cell[BoxData[
+ RowBox[{"Map", "[", 
+  RowBox[{"MatrixForm", ",", 
+   RowBox[{"Elements", "[", "G2", "]"}]}], "]"}]], "Input",
+ ShowCellBracket->True,
+ CellTags->"Form",
+ CellLabel->"In[24]:="],
+
+Cell[TextData[{
+ "Forming ringoids is very similar to forming groupoids. Analogous to ",
+ StyleBox["FormGroupoid", "MR"],
+ " is ",
+ StyleBox["FormRingoid", "MR"],
+ ". More details can be found in the ",
+ ButtonBox["chapter 3",
+  BaseStyle->"AddOnsLink",
+  ButtonData:>{"FormRingoid", "FormRingoid"}],
+ "."
+}], "Text",
+ ShowCellBracket->True,
+ CellTags->{"i:9", "Form"}],
+
+Cell[BoxData[
+ RowBox[{"?", "FormRingoid"}]], "Input",
+ ShowCellBracket->True,
+ CellTags->"Form",
+ CellLabel->"In[25]:="],
+
+Cell[TextData[{
+ "The default values for the options are similar to those for ",
+ StyleBox["FormGroupoid", "MR"],
+ ", as is the method of using them. Here is an illustration."
+}], "MathCaption",
+ ShowCellBracket->True,
+ CellTags->"Form"],
+
+Cell[BoxData[
+ RowBox[{"R1", " ", "=", " ", 
+  RowBox[{"FormRingoid", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"-", "1"}], ",", " ", "0", ",", " ", "1"}], "}"}], ",", " ", 
+    "Plus", ",", " ", "Times", ",", " ", 
+    RowBox[{"FormatOperator", " ", "\[Rule]", " ", "False"}], ",", " ", 
+    RowBox[{"RingoidName", " ", "\[Rule]", " ", "\"\<Ringoid example\>\""}]}],
+    "]"}]}]], "Input",
+ ShowCellBracket->True,
+ CellTags->"Form",
+ CellLabel->"In[26]:="],
+
+Cell["\<\
+By looking at the Cayley tables, we can try to determine if this is a ring.\
+\>", "MathCaption",
+ ShowCellBracket->True,
+ CellTags->"Form"],
+
+Cell[BoxData[
+ RowBox[{"CayleyTables", "[", 
+  RowBox[{"R1", ",", " ", 
+   RowBox[{"Mode", " ", "\[Rule]", " ", "Visual"}]}], "]"}]], "Input",
+ ShowCellBracket->True,
+ CellTags->"Form",
+ CellLabel->"In[27]:="],
+
+Cell[TextData[{
+ "The ",
+ StyleBox["RingQ", "MR"],
+ " function can confirm our suspicion."
+}], "MathCaption",
+ ShowCellBracket->True,
+ CellTags->"Form"],
+
+Cell[BoxData[
+ RowBox[{"RingQ", "[", "R1", "]"}]], "Input",
+ ShowCellBracket->True,
+ CellTags->"Form",
+ CellLabel->"In[28]:="],
+
+Cell[TextData[{
+ "Similar to ",
+ StyleBox["GroupInfo", "MR"],
+ ", ",
+ StyleBox["RingInfo", "MR"],
+ " returns what has been learned about a ringoid."
+}], "MathCaption",
+ ShowCellBracket->True,
+ CellTags->"Form"],
+
+Cell[BoxData[
+ RowBox[{"RingInfo", "[", "R1", "]"}]], "Input",
+ ShowCellBracket->True,
+ CellTags->"Form",
+ CellLabel->"In[29]:="],
+
+Cell[TextData[{
+ "While individual groups or rings can be studied by examining the set of \
+elements, often additional results can be learned by considering \
+homomorphisms from one group (or ring) to another. In these packages, \
+homomorphisms are simply called morphisms and the ",
+ StyleBox["Morphoid", "MR"],
+ " is the underlying ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " structure for working with these. There are several ways of using the ",
+ StyleBox["FormMorphoid", "MR"],
+ " function, which is the standard means of constructing morphisms."
+}], "Text",
+ ShowCellBracket->True,
+ CellTags->{"i:10", "Form"}],
+
+Cell[BoxData[
+ RowBox[{"?", "FormMorphoid"}]], "Input",
+ ShowCellBracket->True,
+ CellTags->"Form",
+ CellLabel->"In[30]:="],
+
+Cell[TextData[{
+ "The default values of the options for ",
+ StyleBox["FormMorphoid", "MR"],
+ " are as follows."
+}], "MathCaption",
+ ShowCellBracket->True,
+ CellTags->"Form"],
+
+Cell[BoxData[
+ RowBox[{"Options", "[", "FormMorphoid", "]"}]], "Input",
+ ShowCellBracket->True,
+ CellTags->"Form",
+ CellLabel->"In[31]:="],
+
+Cell[TextData[{
+ "In ",
+ ButtonBox["chapter 4",
+  BaseStyle->"AddOnsLink",
+  ButtonData:>{"Forming Morphoids", "Forming Morphoids"}],
+ "  we look at the details of these options as well as the various means of \
+forming ",
+ StyleBox["Morphoids", "MR"],
+ ". Here let\[CloseCurlyQuote]s construct several ",
+ StyleBox["Morphoids", "MR"],
+ " to illustrate the possibilities. If a specific function can be easily \
+specified, then using this function is often the easiest method of forming a \
+",
+ StyleBox["Morphoid", "MR"],
+ ". "
+}], "Text",
+ ShowCellBracket->True,
+ CellTags->"Form"],
+
+Cell[TextData[{
+ "For example, consider the groups ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[DoubleStruckCapitalZ]", "6"], TraditionalForm]]],
+ "and ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[DoubleStruckCapitalZ]", "3"], TraditionalForm]]],
+ ", and the function that takes ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"x", " ", "\[Element]", " ", 
+    SubscriptBox["\[DoubleStruckCapitalZ]", "6"]}], TraditionalForm]]],
+ " and maps it to ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"x", " ", "mod", " ", "3"}], TraditionalForm]]],
+ " in ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[DoubleStruckCapitalZ]", "3"], TraditionalForm]]],
+ "."
+}], "MathCaption",
+ ShowCellBracket->True,
+ CellTags->"Form"],
+
+Cell[BoxData[
+ RowBox[{"f1", " ", "=", " ", 
+  RowBox[{"FormMorphoid", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Mod", "[", 
+      RowBox[{"#", ",", " ", "3"}], "]"}], "&"}], ",", " ", 
+    RowBox[{"Z", "[", 
+     RowBox[{"6", ",", " ", 
+      RowBox[{"Structure", " ", "\[Rule]", " ", "Group"}]}], "]"}], ",", " ", 
+    
+    RowBox[{"Z", "[", 
+     RowBox[{"3", ",", " ", 
+      RowBox[{"Structure", " ", "\[Rule]", " ", "Group"}]}], "]"}]}], 
+   "]"}]}]], "Input",
+ ShowCellBracket->True,
+ CellTags->"Form",
+ CellLabel->"In[32]:="],
+
+Cell[TextData[{
+ "We can specify the same morphism by using a list of rules of the form ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"x", "\[Rule]", "y"}], TraditionalForm]]],
+ ", where ",
+ Cell[BoxData[
+  FormBox["x", TraditionalForm]]],
+ " is in the domain and ",
+ Cell[BoxData[
+  FormBox["y", TraditionalForm]]],
+ " is in the codomain."
+}], "MathCaption",
+ ShowCellBracket->True,
+ CellTags->"Form"],
+
+Cell[BoxData[
+ RowBox[{"f2", " ", "=", " ", 
+  RowBox[{"FormMorphoid", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"0", " ", "\[Rule]", " ", "0"}], ",", " ", 
+      RowBox[{"1", " ", "\[Rule]", " ", "1"}], ",", " ", 
+      RowBox[{"2", " ", "\[Rule]", " ", "2"}], ",", " ", 
+      RowBox[{"3", " ", "\[Rule]", " ", "0"}], ",", " ", 
+      RowBox[{"4", " ", "\[Rule]", " ", "1"}], ",", " ", 
+      RowBox[{"5", " ", "\[Rule]", " ", "2"}]}], "}"}], ",", " ", 
+    RowBox[{"Z", "[", 
+     RowBox[{"6", ",", " ", 
+      RowBox[{"Structure", " ", "\[Rule]", " ", "Group"}]}], "]"}], ",", " ", 
+    
+    RowBox[{"Z", "[", 
+     RowBox[{"3", ",", " ", 
+      RowBox[{"Structure", " ", "\[Rule]", " ", "Group"}]}], "]"}]}], 
+   "]"}]}]], "Input",
+ ShowCellBracket->True,
+ CellTags->"Form",
+ CellLabel->"In[33]:="],
+
+Cell[TextData[{
+ "While the method of defining these ",
+ StyleBox["Morphoids", "MR"],
+ " is different, as ",
+ StyleBox["Morphoids", "MR"],
+ " they are equal."
+}], "MathCaption",
+ ShowCellBracket->True,
+ CellTags->"Form"],
+
+Cell[BoxData[
+ RowBox[{"EqualMorphoidQ", "[", 
+  RowBox[{"f1", ",", " ", "f2"}], "]"}]], "Input",
+ ShowCellBracket->True,
+ CellTags->"Form",
+ CellLabel->"In[34]:="],
+
+Cell[TextData[{
+ "Note that we can convert a ",
+ StyleBox["Morphoid", "MR"],
+ " created by a function to one created by rules."
+}], "MathCaption",
+ ShowCellBracket->True,
+ CellTags->"Form"],
+
+Cell[BoxData[
+ RowBox[{"f3", " ", "=", " ", 
+  RowBox[{"ToRules", "[", "f1", "]"}]}]], "Input",
+ ShowCellBracket->True,
+ CellTags->"Form",
+ CellLabel->"In[35]:="],
+
+Cell[TextData[{
+ "We can also start from scratch in defining a ",
+ StyleBox["Morphoid", "MR"],
+ " by first defining the underlying function."
+}], "MathCaption",
+ ShowCellBracket->True,
+ CellTags->"Form"],
+
+Cell[BoxData[{
+ RowBox[{"Clear", "[", 
+  RowBox[{"g", ",", " ", "x"}], "]"}], "\n", 
+ RowBox[{
+  RowBox[{"g", "[", "x_", "]"}], " ", ":=", " ", 
+  RowBox[{"Mod", "[", 
+   RowBox[{"x", ",", " ", "3"}], "]"}]}]}], "Input",
+ ShowCellBracket->True,
+ CellTags->"Form",
+ CellLabel->"In[36]:="],
+
+Cell[TextData[{
+ "Now we use ",
+ Cell[BoxData[
+  FormBox["g", TraditionalForm]]],
+ " to define the morphism."
+}], "MathCaption",
+ ShowCellBracket->True,
+ CellTags->"Form"],
+
+Cell[BoxData[
+ RowBox[{"f4", " ", "=", " ", 
+  RowBox[{"FormMorphoid", "[", 
+   RowBox[{"g", ",", "  ", 
+    RowBox[{"Z", "[", 
+     RowBox[{"6", ",", " ", 
+      RowBox[{"Structure", " ", "\[Rule]", " ", "Group"}]}], "]"}], ",", " ", 
+    
+    RowBox[{"Z", "[", 
+     RowBox[{"3", ",", " ", 
+      RowBox[{"Structure", " ", "\[Rule]", " ", "Group"}]}], "]"}]}], 
+   "]"}]}]], "Input",
+ ShowCellBracket->True,
+ CellTags->"Form",
+ CellLabel->"In[38]:="],
+
+Cell[TextData[{
+ "Since we know that ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["D", "3"], TraditionalForm]]],
+ " is isomorphic to ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["S", "3"], ","}], TraditionalForm]]],
+ " we may want to set up a specific isomorphism to reflect this. The function \
+",
+ StyleBox["FormMorphoidSetup", "MR"],
+ " helps us do so. (We will see later how to exploit the output of this \
+function to set up a morphism.)"
+}], "MathCaption",
+ ShowCellBracket->True,
+ CellTags->"Form"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   RowBox[{"FormMorphoidSetup", "[", 
+    RowBox[{
+     RowBox[{"Dihedral", "[", "3", "]"}], ",", " ", 
+     RowBox[{"Symmetric", "[", "3", "]"}]}], "]"}], ";"}],
+  FontFamily->"Courier",
+  FontWeight->"Bold"]], "Input",
+ ShowCellBracket->True,
+ CellTags->"Form",
+ CellLabel->"In[39]:="]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "1.3 How to use a ",
+ StyleBox["Mode",
+  FontFamily->"Courier"]
+}], "Subsection",
+ ShowCellBracket->True,
+ Evaluatable->False,
+ CellTags->{"Mode", "i:11"}],
+
+Cell[TextData[{
+ "One common thread that weaves through many of the functions in ",
+ StyleBox["AbstractAlgebra", "MR"],
+ " is the use of the ",
+ StyleBox["Mode", "MR"],
+ " option. By default, functions are set to use the ",
+ StyleBox["Computational", "MR"],
+ " mode (though this can be changed for some functions). This means that the \
+function simply produces the desired computation, with no further \
+elaboration. As has been illustrated, adding ",
+ StyleBox["Mode \[Rule] Visual", "MR"],
+ " to some functions adds a visual or graphical image, as well as the \
+computation. In addition to the ",
+ StyleBox["Visual", "MR"],
+ " mode, there is often a ",
+ StyleBox["Textual", "MR"],
+ " mode and sometimes a ",
+ StyleBox["Visual2", "MR"],
+ " mode. "
+}], "Text",
+ ShowCellBracket->True,
+ CellTags->"Mode"],
+
+Cell[TextData[{
+ "Consider the following example that illustrates the use of the various \
+modes. Here we use the group ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["U", "18"], TraditionalForm]]],
+ ", which consists of the positive integers less than 18 that are relatively \
+prime to 18, under multiplication mod ",
+ "18",
+ ". The group ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["U", "n"], TraditionalForm]]],
+ " can also be considered as the group of units in the ring ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[DoubleStruckCapitalZ]", "n"], TraditionalForm]]],
+ ". "
+}], "MathCaption",
+ ShowCellBracket->True,
+ CellTags->{"Mode", "i:15"}],
+
+Cell[BoxData[
+ RowBox[{"U", "[", "18", "]"}]], "Input",
+ ShowCellBracket->True,
+ CellTags->"Mode",
+ CellLabel->"In[40]:="],
+
+Cell[TextData[{
+ "Here we use the ",
+ StyleBox["Computational", "MR"],
+ " mode (the default) for both forming ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["U", "18"], TraditionalForm]]],
+ " and testing if it is cyclic."
+}], "MathCaption",
+ ShowCellBracket->True,
+ CellTags->"Mode"],
+
+Cell[BoxData[
+ RowBox[{"CyclicQ", "[", " ", 
+  RowBox[{"U", "[", "18", "]"}], " ", "]"}]], "Input",
+ ShowCellBracket->True,
+ CellTags->"Mode",
+ CellLabel->"In[41]:="],
+
+Cell[TextData[{
+ "By specifying the mode to be ",
+ StyleBox["Textual", "MR"],
+ ", we obtain information in addition to the result of the ",
+ StyleBox["Computational", "MR"],
+ " output."
+}], "MathCaption",
+ ShowCellBracket->True,
+ CellTags->"Mode"],
+
+Cell[BoxData[
+ RowBox[{"CyclicQ", "[", " ", 
+  RowBox[{
+   RowBox[{"U", "[", "18", "]"}], ",", " ", 
+   RowBox[{"Mode", " ", "\[Rule]", " ", "Textual"}]}], " ", "]"}]], "Input",
+ ShowCellBracket->True,
+ CellTags->"Mode",
+ CellLabel->"In[42]:="],
+
+Cell[TextData[{
+ "The ",
+ StyleBox["Visual", "MR"],
+ " mode works similarly; both here and with the ",
+ StyleBox["Textual", "MR"],
+ " mode, the output is ",
+ StyleBox["True", "MR"],
+ ", as given in the ",
+ StyleBox["Computational", "MR"],
+ " mode."
+}], "MathCaption",
+ ShowCellBracket->True,
+ CellTags->"Mode"],
+
+Cell[BoxData[
+ RowBox[{"CyclicQ", "[", " ", 
+  RowBox[{
+   RowBox[{"U", "[", "18", "]"}], ",", " ", 
+   RowBox[{"Mode", " ", "\[Rule]", " ", "Visual"}]}], " ", "]"}]], "Input",
+ ShowCellBracket->True,
+ CellTags->"Mode",
+ CellLabel->"In[43]:="],
+
+Cell[TextData[{
+ "If a function does not support a particular mode, the user is notified, \
+either with a message or, as in standard ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " usage, by returning the request."
+}], "MathCaption",
+ ShowCellBracket->True,
+ CellTags->"Mode"],
+
+Cell[BoxData[
+ RowBox[{"MaxTaker", "[", 
+  RowBox[{"5", ",", " ", 
+   RowBox[{"Mode", " ", "\[Rule]", " ", "Visual"}]}], "]"}]], "Input",
+ ShowCellBracket->True,
+ CellTags->"Mode",
+ CellLabel->"In[44]:="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "1.4 Using ",
+ StyleBox["Visual",
+  FontFamily->"Courier"],
+ " mode with \[OpenCurlyDoubleQuote]large\[CloseCurlyDoubleQuote] elements"
+}], "Subsection",
+ ShowCellBracket->True,
+ CellTags->{"Visual", "i:12"}],
+
+Cell[TextData[{
+ "The elements in some groupoids or ringoids are typographically larger than \
+in other structures. For example, when working with permutations in ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["S", "3"], TraditionalForm]]],
+ ", the elements are too large to fit easily into the graphical Cayley table. \
+In such situations, a key is set up to convert from generic elements in the \
+table to the actual elements in the groupoid or ringoid."
+}], "Text",
+ ShowCellBracket->True,
+ CellTags->"Visual"],
+
+Cell[TextData[{
+ "Note the list of rules that define the key, associating generic elements ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["g", "i"], TraditionalForm]]],
+ " with the various permutations."
+}], "MathCaption",
+ ShowCellBracket->True,
+ CellTags->"Visual"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"CayleyTable", "[", 
+   RowBox[{
+    RowBox[{"G", " ", "=", 
+     RowBox[{"Symmetric", "[", "3", "]"}]}], ",", " ", 
+    RowBox[{"Mode", " ", "\[Rule]", " ", "Visual"}]}], "]"}], ";"}]], "Input",\
+
+ ShowCellBracket->True,
+ CellTags->"Visual",
+ CellLabel->"In[45]:="],
+
+Cell[TextData[{
+ "The key corresponding to the permutation {3, 2, 1} is ",
+ StyleBox["g6", "MR"],
+ "."
+}], "MathCaption",
+ ShowCellBracket->True,
+ CellTags->"Visual"],
+
+Cell[BoxData[
+ RowBox[{"ElementToKey", "[", 
+  RowBox[{"G", ",", " ", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", "2", ",", "1"}], "}"}]}], "]"}]], "Input",
+ ShowCellBracket->True,
+ CellTags->"Visual",
+ CellLabel->"In[46]:="],
+
+Cell[TextData[{
+ "To reverse the direction, we can specify the key and obtain the \
+corresponding element. The key can be given as a symbol or a string. Since it \
+is possible that the symbol ",
+ StyleBox["g6", "MR"],
+ " already has a value (from a previous computation), using a string is \
+generally better. Note that if the symbol has already been defined, its value \
+is returned."
+}], "MathCaption",
+ ShowCellBracket->True,
+ CellTags->"Visual"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"KeyToElement", "[", 
+    RowBox[{"G", ",", " ", "g6"}], "]"}], ",", 
+   RowBox[{"KeyToElement", "[", 
+    RowBox[{"G", ",", " ", "\"\<g6\>\""}], "]"}], ",", " ", 
+   RowBox[{"g6", " ", "=", " ", "8"}], ",", " ", 
+   RowBox[{"KeyToElement", "[", 
+    RowBox[{"G", ",", " ", "g6"}], "]"}]}], "}"}]], "Input",
+ ShowCellBracket->True,
+ CellTags->"Visual",
+ CellLabel->"In[47]:="],
+
+Cell[TextData[{
+ "Generally, when the key is displayed, the elements are written using ",
+ StyleBox["InputForm", "MR"],
+ "."
+}], "MathCaption",
+ ShowCellBracket->True,
+ CellTags->"Visual"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"CayleyTables", "[", 
+   RowBox[{
+    RowBox[{"GF", "[", "8", "]"}], ",", " ", 
+    RowBox[{"Mode", " ", "\[Rule]", " ", "Visual"}]}], "]"}], ";"}]], "Input",\
+
+ ShowCellBracket->True,
+ CellTags->"Visual",
+ CellLabel->"In[48]:="],
+
+Cell[TextData[{
+ "We can override this default by using the ",
+ StyleBox["KeyForm", "MR"],
+ " option in ",
+ StyleBox["CayleyTable", "MR"],
+ "."
+}], "MathCaption",
+ ShowCellBracket->True,
+ CellTags->{"Visual", "i:17"}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"CayleyTables", "[", 
+   RowBox[{
+    RowBox[{"GF", "[", "8", "]"}], ",", " ", 
+    RowBox[{"Mode", " ", "\[Rule]", " ", "Visual"}], ",", " ", 
+    RowBox[{"KeyForm", " ", "\[Rule]", " ", "StandardForm"}]}], "]"}], 
+  ";"}]], "Input",
+ ShowCellBracket->True,
+ CellTags->"Visual",
+ CellLabel->"In[3]:="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "1.5 How to change the ",
+ StyleBox["Structure",
+  FontFamily->"Courier"]
+}], "Subsection",
+ ShowCellBracket->True,
+ Evaluatable->False,
+ CellTags->{"How", "i:13"}],
+
+Cell[TextData[{
+ "There are several functions whose usage overlaps both groups and rings. For \
+example, depending on the context, we can view ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[DoubleStruckCapitalZ]", "n"], TraditionalForm]]],
+ " as either a group or a ring. Accordingly, when working with groups, the \
+option ",
+ StyleBox["Structure", "MR"],
+ " defaults to the value ",
+ StyleBox["Group", "MR"],
+ " when defining ",
+ StyleBox["Z", "MR"],
+ ", but defaults to the value ",
+ StyleBox["Ring", "MR"],
+ " when working with rings. At any point, it has a value of either ",
+ StyleBox["Group", "MR"],
+ " or ",
+ StyleBox["Ring", "MR"],
+ ". "
+}], "Text",
+ ShowCellBracket->True,
+ CellTags->"How"],
+
+Cell[TextData[{
+ "The global variable ",
+ StyleBox["DefaultStructure", "MR"],
+ " holds the current value."
+}], "MathCaption",
+ ShowCellBracket->True,
+ CellTags->"How"],
+
+Cell[BoxData["DefaultStructure"], "Input",
+ ShowCellBracket->True,
+ CellTags->"How",
+ CellLabel->"In[50]:="],
+
+Cell[TextData[{
+ "We can change the value of ",
+ StyleBox["DefaultStructure", "MR"],
+ " (as well as some other values) by using the ",
+ StyleBox["SwitchStructureTo", "MR"],
+ " function."
+}], "MathCaption",
+ ShowCellBracket->True,
+ CellTags->"How"],
+
+Cell[BoxData[
+ RowBox[{"SwitchStructureTo", "[", "Ring", "]"}]], "Input",
+ ShowCellBracket->True,
+ CellTags->"How",
+ CellLabel->"In[51]:="],
+
+Cell[TextData[{
+ "If the default value is the desired value, then we can use ",
+ StyleBox["Z", "MR"],
+ " without mention of the intended structure."
+}], "MathCaption",
+ ShowCellBracket->True,
+ CellTags->"How"],
+
+Cell[BoxData[
+ RowBox[{"Z", "[", "5", "]"}]], "Input",
+ ShowCellBracket->True,
+ CellTags->"How",
+ CellLabel->"In[52]:="],
+
+Cell[TextData[{
+ "If, however, we are in the ",
+ StyleBox["Rings", "MR"],
+ " context and wish to use ",
+ StyleBox["Z", "MR"],
+ " to create a group, we simply add the option ",
+ StyleBox["Structure \[Rule] Group", "MR"],
+ "."
+}], "MathCaption",
+ ShowCellBracket->True,
+ CellTags->"How"],
+
+Cell[BoxData[
+ RowBox[{"Z", "[", 
+  RowBox[{"5", ",", " ", 
+   RowBox[{"Structure", " ", "\[Rule]", " ", "Group"}]}], "]"}]], "Input",
+ ShowCellBracket->True,
+ CellTags->"How",
+ CellLabel->"In[53]:="],
+
+Cell[TextData[{
+ "This method is fine for one evaluation, but there are other approaches for \
+multiple evaluations. If only ",
+ StyleBox["Z", "MR"],
+ " (or some other function) is affected, use the ",
+ StyleBox["SetOptions", "MR"],
+ " command. For example, if the default is ",
+ StyleBox["Ring", "MR"],
+ " and we wish to consider the group ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[DoubleStruckCapitalZ]", "n"], TraditionalForm]]],
+ ", we use the following."
+}], "MathCaption",
+ ShowCellBracket->True,
+ CellTags->"How"],
+
+Cell[BoxData[
+ RowBox[{"SetOptions", "[", 
+  RowBox[{"Z", ",", 
+   RowBox[{"Structure", " ", "\[Rule]", " ", "Group"}]}], "]"}]], "Input",
+ ShowCellBracket->True,
+ CellTags->"How",
+ CellLabel->"In[54]:="],
+
+Cell[TextData[{
+ "Now we do not need to add the ",
+ StyleBox["Structure", "MR"],
+ " option to obtain a group."
+}], "MathCaption",
+ ShowCellBracket->True,
+ CellTags->"How"],
+
+Cell[BoxData[
+ RowBox[{"Z", "[", "5", "]"}]], "Input",
+ ShowCellBracket->True,
+ CellTags->"How",
+ CellLabel->"In[55]:="],
+
+Cell[TextData[{
+ "We are still in the ",
+ StyleBox["Rings", "MR"],
+ " environment, however."
+}], "MathCaption",
+ ShowCellBracket->True,
+ CellTags->"How"],
+
+Cell[BoxData["DefaultStructure"], "Input",
+ ShowCellBracket->True,
+ CellTags->"How",
+ CellLabel->"In[56]:="],
+
+Cell[TextData[{
+ "If the focus is to switch from considering rings to considering groups, use \
+the ",
+ StyleBox["SwitchStructureTo", "MR"],
+ " function."
+}], "MathCaption",
+ ShowCellBracket->True,
+ CellTags->"How"],
+
+Cell[BoxData[
+ RowBox[{"SwitchStructureTo", "[", "Group", "]"}]], "Input",
+ ShowCellBracket->True,
+ CellTags->"How",
+ CellLabel->"In[57]:="],
+
+Cell[TextData[{
+ "The ",
+ StyleBox["Structure", "MR"],
+ " option works similarly for variations of the ",
+ StyleBox["Z", "MR"],
+ " function."
+}], "MathCaption",
+ ShowCellBracket->True,
+ CellTags->"How"],
+
+Cell[BoxData[
+ RowBox[{"Z", "[", 
+  RowBox[{"10", ",", " ", "2", ",", " ", 
+   RowBox[{"Structure", " ", "\[Rule]", " ", "Ring"}]}], "]"}]], "Input",
+ ShowCellBracket->True,
+ CellTags->"How",
+ CellLabel->"In[58]:="],
+
+Cell[TextData[{
+ "Although the only acceptable values for the ",
+ StyleBox["Structure", "MR"],
+ " option of ",
+ StyleBox["Z", "MR"],
+ " and other functions are ",
+ StyleBox["Group", "MR"],
+ " and ",
+ StyleBox["Ring", "MR"],
+ ", the ",
+ StyleBox["SwitchStructureTo", "MR"],
+ " function allows the variants ",
+ StyleBox["Groups", "MR"],
+ ", ",
+ StyleBox["Groupoid", "MR"],
+ ", ",
+ StyleBox["Rings", "MR"],
+ ", and ",
+ StyleBox["Ringoid", "MR"],
+ "."
+}], "Text",
+ ShowCellBracket->True,
+ CellTags->{"How", "i:18"}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+ScreenStyleEnvironment->"Working",
+WindowSize->{843, 539},
+WindowMargins->{{27, Automatic}, {Automatic, 42}},
+ShowCellBracket->True,
+ShowGroupOpener->True,
+TaggingRules:>{
+ "NextIndexingNumber" -> 19, 
+  "IndexEntries" -> {{"i:12", "\"Large\" elements and Visual Mode"}, {
+    "i:13", "SwitchStructureTo"}, {"i:16", "ElementToKey"}, {
+    "i:16", "KeyToElement"}, {"i:3", "EAAM packages"}, {
+    "i:4", "Names in a package"}, {"i:5", "Overview of EAAM"}, {
+    "i:7", "Formation of EAAM objects"}, {"i:10", "Morphoid", "formation"}, {
+    "i:11", "Mode", "how to use"}, {
+    "i:13", "DefaultStructure", "how to change"}, {
+    "i:13", "Structure", "how to change"}, {
+    "i:14", "Computational", "value for Mode option"}, {
+    "i:14", "Textual", "value for Mode option"}, {
+    "i:14", "Visual", "value for Mode option"}, {
+    "i:14", "Visual2", "value for Mode option"}, {
+    "i:15", "Mode", "illustration of various values"}, {
+    "i:17", "KeyForm", "illustration"}, {
+    "i:18", "Group", "argument for SwitchStructureTo function"}, {
+    "i:18", "Groupoid", "argument for SwitchStructureTo function"}, {
+    "i:18", "Groups", "argument for SwitchStructureTo function"}, {
+    "i:18", "Ring", "argument for SwitchStructureTo function"}, {
+    "i:18", "Ringoid", "argument for SwitchStructureTo function"}, {
+    "i:18", "Rings", "argument for SwitchStructureTo function"}, {
+    "i:3", "Core", "an AbstractAlgebra package"}, {
+    "i:3", "FiniteFields", "an AbstractAlgebra package"}, {
+    "i:3", "Groupoids", "an AbstractAlgebra package"}, {
+    "i:3", "GroupProperties", "an AbstractAlgebra package"}, {
+    "i:3", "Joint", "an AbstractAlgebra package"}, {
+    "i:3", "LabCode", "an AbstractAlgebra package"}, {
+    "i:3", "Matrices", "an AbstractAlgebra package"}, {
+    "i:3", "Morphisms", "an AbstractAlgebra package"}, {
+    "i:3", "Packages", "EAAM"}, {
+    "i:3", "Permutations", "an AbstractAlgebra package"}, {
+    "i:3", "RingExtensions", "an AbstractAlgebra package"}, {
+    "i:3", "Ringoids", "an AbstractAlgebra package"}, {
+    "i:3", "RingProperties", "an AbstractAlgebra package"}, {
+    "i:3", "Zd", "an AbstractAlgebra package"}, {
+    "i:8", "Groupoid", "formation"}, {"i:9", "Ringoid", "formation"}, {
+    "i:1", "web site URL"}}},
+FrontEndVersion->"6.0 for Mac OS X x86 (32-bit) (March 13, 2008)",
+StyleDefinitions->"HelpBrowser.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "Intro"->{
+  Cell[1420, 58, 298, 12, 78, "Section",
+   Evaluatable->False,
+   CellTags->{"Intro", "Contents"}],
+  Cell[1721, 72, 1233, 28, 85, "Text",
+   Evaluatable->False,
+   CellTags->{"Intro", "i:1"}]},
+ "Contents"->{
+  Cell[1420, 58, 298, 12, 78, "Section",
+   Evaluatable->False,
+   CellTags->{"Intro", "Contents"}]},
+ "i:1"->{
+  Cell[1721, 72, 1233, 28, 85, "Text",
+   Evaluatable->False,
+   CellTags->{"Intro", "i:1"}]},
+ "First"->{
+  Cell[2979, 104, 83, 2, 34, "Subsection",
+   CellTags->"First"],
+  Cell[3065, 108, 198, 6, 20, "Text",
+   CellTags->"First"],
+  Cell[3266, 116, 155, 4, 23, "Input",
+   CellTags->"First"],
+  Cell[3424, 122, 165, 5, 20, "Text",
+   CellTags->"First"],
+  Cell[3592, 129, 141, 4, 23, "Input",
+   CellTags->"First"]},
+ "Packages"->{
+  Cell[3770, 138, 155, 6, 34, "Subsection",
+   CellTags->"Packages"],
+  Cell[3928, 146, 233, 8, 20, "Text",
+   CellTags->"Packages"],
+  Cell[4164, 156, 158, 4, 23, "Input",
+   CellTags->"Packages"],
+  Cell[4325, 162, 844, 23, 59, "Text",
+   CellTags->"Packages"],
+  Cell[5172, 187, 164, 5, 23, "Input",
+   CellTags->"Packages"],
+  Cell[5339, 194, 298, 9, 20, "Text",
+   CellTags->"Packages"],
+  Cell[5640, 205, 234, 7, 36, "MathCaption",
+   CellTags->"Packages"],
+  Cell[5877, 214, 119, 4, 23, "Input",
+   CellTags->"Packages"]},
+ "Structures"->{
+  Cell[6033, 223, 191, 7, 34, "Subsection",
+   Evaluatable->False,
+   CellTags->"Structures"],
+  Cell[6249, 234, 109, 3, 30, "Subsubsection",
+   Evaluatable->False,
+   CellTags->"Structures"],
+  Cell[6361, 239, 3610, 120, 124, "Text",
+   Evaluatable->False,
+   CellTags->{"Structures", "i:5"}],
+  Cell[9974, 361, 574, 21, 36, "MathCaption",
+   Evaluatable->False,
+   CellTags->"Structures"],
+  Cell[10551, 384, 118, 3, 23, "Input",
+   CellTags->"Structures"],
+  Cell[10672, 389, 557, 18, 33, "Text",
+   Evaluatable->False,
+   CellTags->"Structures"],
+  Cell[11232, 409, 293, 8, 49, "MathCaption",
+   Evaluatable->False,
+   CellTags->"Structures"],
+  Cell[11528, 419, 124, 3, 23, "Input",
+   CellTags->"Structures"],
+  Cell[11655, 424, 982, 36, 36, "MathCaption",
+   Evaluatable->False,
+   CellTags->"Structures"],
+  Cell[12640, 462, 127, 3, 23, "Input",
+   CellTags->"Structures"],
+  Cell[12770, 467, 825, 27, 33, "Text",
+   Evaluatable->False,
+   CellTags->"Structures"],
+  Cell[13598, 496, 418, 15, 20, "Text",
+   Evaluatable->False,
+   CellTags->"Structures"]},
+ "i:5"->{
+  Cell[6361, 239, 3610, 120, 124, "Text",
+   Evaluatable->False,
+   CellTags->{"Structures", "i:5"}]},
+ "i:7"->{
+  Cell[14053, 516, 294, 13, 30, "Subsubsection",
+   Evaluatable->False,
+   CellTags->{"i:7", "Form"}]},
+ "Form"->{
+  Cell[14053, 516, 294, 13, 30, "Subsubsection",
+   Evaluatable->False,
+   CellTags->{"i:7", "Form"}],
+  Cell[14350, 531, 344, 14, 20, "Text",
+   Evaluatable->False,
+   CellTags->{"i:8", "Form"}],
+  Cell[14697, 547, 243, 9, 23, "Input",
+   CellTags->"Form"],
+  Cell[14943, 558, 191, 7, 20, "Text",
+   Evaluatable->False,
+   CellTags->"Form"],
+  Cell[15137, 567, 247, 9, 23, "Input",
+   CellTags->"Form"],
+  Cell[15387, 578, 862, 18, 72, "Text",
+   Evaluatable->False,
+   CellTags->"Form"],
+  Cell[16252, 598, 122, 4, 23, "Input",
+   CellTags->"Form"],
+  Cell[16377, 604, 538, 13, 46, "Text",
+   Evaluatable->False,
+   CellTags->"Form"],
+  Cell[16918, 619, 138, 4, 23, "Input",
+   CellTags->"Form"],
+  Cell[17059, 625, 512, 16, 49, "MathCaption",
+   CellTags->"Form"],
+  Cell[17574, 643, 1047, 28, 84, "Input",
+   CellTags->"Form"],
+  Cell[18624, 673, 237, 9, 38, "MathCaption",
+   CellTags->"Form"],
+  Cell[18864, 684, 157, 5, 23, "Input",
+   CellTags->"Form"],
+  Cell[19024, 691, 537, 19, 62, "MathCaption",
+   CellTags->"Form"],
+  Cell[19564, 712, 126, 4, 23, "Input",
+   CellTags->"Form"],
+  Cell[19693, 718, 181, 6, 36, "MathCaption",
+   CellTags->"Form"],
+  Cell[19877, 726, 207, 6, 23, "Input",
+   CellTags->"Form"],
+  Cell[20087, 734, 412, 12, 49, "MathCaption",
+   CellTags->"Form"],
+  Cell[20502, 748, 129, 4, 23, "Input",
+   CellTags->"Form"],
+  Cell[20634, 754, 630, 16, 46, "Text",
+   CellTags->"Form"],
+  Cell[21267, 772, 151, 6, 36, "MathCaption",
+   CellTags->"Form"],
+  Cell[21421, 780, 1148, 33, 54, "Input",
+   CellTags->"Form"],
+  Cell[22572, 815, 149, 6, 36, "MathCaption",
+   CellTags->"Form"],
+  Cell[22724, 823, 655, 19, 39, "Input",
+   CellTags->"Form"],
+  Cell[23382, 844, 157, 5, 36, "MathCaption",
+   CellTags->"Form"],
+  Cell[23542, 851, 287, 10, 23, "Input",
+   CellTags->"Form"],
+  Cell[23832, 863, 371, 10, 33, "Text",
+   CellTags->"Form"],
+  Cell[24206, 875, 243, 8, 36, "MathCaption",
+   CellTags->"Form"],
+  Cell[24452, 885, 192, 6, 23, "Input",
+   CellTags->"Form"],
+  Cell[24647, 893, 369, 12, 33, "Text",
+   CellTags->{"i:9", "Form"}],
+  Cell[25019, 907, 121, 4, 23, "Input",
+   CellTags->"Form"],
+  Cell[25143, 913, 237, 6, 36, "MathCaption",
+   CellTags->"Form"],
+  Cell[25383, 921, 479, 13, 23, "Input",
+   CellTags->"Form"],
+  Cell[25865, 936, 149, 4, 36, "MathCaption",
+   CellTags->"Form"],
+  Cell[26017, 942, 209, 6, 23, "Input",
+   CellTags->"Form"],
+  Cell[26229, 950, 152, 6, 36, "MathCaption",
+   CellTags->"Form"],
+  Cell[26384, 958, 126, 4, 23, "Input",
+   CellTags->"Form"],
+  Cell[26513, 964, 210, 8, 36, "MathCaption",
+   CellTags->"Form"],
+  Cell[26726, 974, 129, 4, 23, "Input",
+   CellTags->"Form"],
+  Cell[26858, 980, 628, 14, 59, "Text",
+   CellTags->{"i:10", "Form"}],
+  Cell[27489, 996, 122, 4, 23, "Input",
+   CellTags->"Form"],
+  Cell[27614, 1002, 173, 6, 36, "MathCaption",
+   CellTags->"Form"],
+  Cell[27790, 1010, 138, 4, 23, "Input",
+   CellTags->"Form"],
+  Cell[27931, 1016, 582, 17, 33, "Text",
+   CellTags->"Form"],
+  Cell[28516, 1035, 704, 25, 36, "MathCaption",
+   CellTags->"Form"],
+  Cell[29223, 1062, 536, 17, 23, "Input",
+   CellTags->"Form"],
+  Cell[29762, 1081, 396, 14, 36, "MathCaption",
+   CellTags->"Form"],
+  Cell[30161, 1097, 825, 22, 39, "Input",
+   CellTags->"Form"],
+  Cell[30989, 1121, 220, 8, 36, "MathCaption",
+   CellTags->"Form"],
+  Cell[31212, 1131, 164, 5, 23, "Input",
+   CellTags->"Form"],
+  Cell[31379, 1138, 189, 6, 36, "MathCaption",
+   CellTags->"Form"],
+  Cell[31571, 1146, 162, 5, 23, "Input",
+   CellTags->"Form"],
+  Cell[31736, 1153, 203, 6, 36, "MathCaption",
+   CellTags->"Form"],
+  Cell[31942, 1161, 287, 9, 39, "Input",
+   CellTags->"Form"],
+  Cell[32232, 1172, 171, 7, 36, "MathCaption",
+   CellTags->"Form"],
+  Cell[32406, 1181, 452, 14, 23, "Input",
+   CellTags->"Form"],
+  Cell[32861, 1197, 518, 17, 49, "MathCaption",
+   CellTags->"Form"],
+  Cell[33382, 1216, 323, 11, 23, "Input",
+   CellTags->"Form"]},
+ "i:8"->{
+  Cell[14350, 531, 344, 14, 20, "Text",
+   Evaluatable->False,
+   CellTags->{"i:8", "Form"}]},
+ "i:9"->{
+  Cell[24647, 893, 369, 12, 33, "Text",
+   CellTags->{"i:9", "Form"}]},
+ "i:10"->{
+  Cell[26858, 980, 628, 14, 59, "Text",
+   CellTags->{"i:10", "Form"}]},
+ "Mode"->{
+  Cell[33754, 1233, 172, 7, 34, "Subsection",
+   Evaluatable->False,
+   CellTags->{"Mode", "i:11"}],
+  Cell[33929, 1242, 804, 21, 59, "Text",
+   CellTags->"Mode"],
+  Cell[34736, 1265, 649, 20, 49, "MathCaption",
+   CellTags->{"Mode", "i:15"}],
+  Cell[35388, 1287, 122, 4, 23, "Input",
+   CellTags->"Mode"],
+  Cell[35513, 1293, 281, 10, 36, "MathCaption",
+   CellTags->"Mode"],
+  Cell[35797, 1305, 166, 5, 23, "Input",
+   CellTags->"Mode"],
+  Cell[35966, 1312, 247, 8, 36, "MathCaption",
+   CellTags->"Mode"],
+  Cell[36216, 1322, 244, 7, 23, "Input",
+   CellTags->"Mode"],
+  Cell[36463, 1331, 310, 12, 36, "MathCaption",
+   CellTags->"Mode"],
+  Cell[36776, 1345, 243, 7, 23, "Input",
+   CellTags->"Mode"],
+  Cell[37022, 1354, 283, 8, 49, "MathCaption",
+   CellTags->"Mode"],
+  Cell[37308, 1364, 204, 6, 23, "Input",
+   CellTags->"Mode"]},
+ "i:11"->{
+  Cell[33754, 1233, 172, 7, 34, "Subsection",
+   Evaluatable->False,
+   CellTags->{"Mode", "i:11"}]},
+ "i:15"->{
+  Cell[34736, 1265, 649, 20, 49, "MathCaption",
+   CellTags->{"Mode", "i:15"}]},
+ "Visual"->{
+  Cell[37549, 1375, 225, 7, 34, "Subsection",
+   CellTags->{"Visual", "i:12"}],
+  Cell[37777, 1384, 511, 11, 46, "Text",
+   CellTags->"Visual"],
+  Cell[38291, 1397, 265, 8, 36, "MathCaption",
+   CellTags->"Visual"],
+  Cell[38559, 1407, 300, 10, 23, "Input",
+   CellTags->"Visual"],
+  Cell[38862, 1419, 166, 6, 36, "MathCaption",
+   CellTags->"Visual"],
+  Cell[39031, 1427, 221, 7, 23, "Input",
+   CellTags->"Visual"],
+  Cell[39255, 1436, 449, 10, 62, "MathCaption",
+   CellTags->"Visual"],
+  Cell[39707, 1448, 427, 12, 23, "Input",
+   CellTags->"Visual"],
+  Cell[40137, 1462, 188, 6, 36, "MathCaption",
+   CellTags->"Visual"],
+  Cell[40328, 1470, 263, 9, 23, "Input",
+   CellTags->"Visual"],
+  Cell[40594, 1481, 217, 8, 36, "MathCaption",
+   CellTags->{"Visual", "i:17"}],
+  Cell[40814, 1491, 336, 10, 23, "Input",
+   CellTags->"Visual"]},
+ "i:12"->{
+  Cell[37549, 1375, 225, 7, 34, "Subsection",
+   CellTags->{"Visual", "i:12"}]},
+ "i:17"->{
+  Cell[40594, 1481, 217, 8, 36, "MathCaption",
+   CellTags->{"Visual", "i:17"}]},
+ "How"->{
+  Cell[41187, 1506, 181, 7, 34, "Subsection",
+   Evaluatable->False,
+   CellTags->{"How", "i:13"}],
+  Cell[41371, 1515, 701, 22, 46, "Text",
+   CellTags->"How"],
+  Cell[42075, 1539, 167, 6, 36, "MathCaption",
+   CellTags->"How"],
+  Cell[42245, 1547, 108, 3, 23, "Input",
+   CellTags->"How"],
+  Cell[42356, 1552, 247, 8, 36, "MathCaption",
+   CellTags->"How"],
+  Cell[42606, 1562, 139, 4, 23, "Input",
+   CellTags->"How"],
+  Cell[42748, 1568, 209, 6, 36, "MathCaption",
+   CellTags->"How"],
+  Cell[42960, 1576, 120, 4, 23, "Input",
+   CellTags->"How"],
+  Cell[43083, 1582, 285, 10, 36, "MathCaption",
+   CellTags->"How"],
+  Cell[43371, 1594, 200, 6, 23, "Input",
+   CellTags->"How"],
+  Cell[43574, 1602, 526, 15, 49, "MathCaption",
+   CellTags->"How"],
+  Cell[44103, 1619, 204, 6, 23, "Input",
+   CellTags->"How"],
+  Cell[44310, 1627, 171, 6, 36, "MathCaption",
+   CellTags->"How"],
+  Cell[44484, 1635, 120, 4, 23, "Input",
+   CellTags->"How"],
+  Cell[44607, 1641, 153, 6, 36, "MathCaption",
+   CellTags->"How"],
+  Cell[44763, 1649, 108, 3, 23, "Input",
+   CellTags->"How"],
+  Cell[44874, 1654, 215, 7, 36, "MathCaption",
+   CellTags->"How"],
+  Cell[45092, 1663, 140, 4, 23, "Input",
+   CellTags->"How"],
+  Cell[45235, 1669, 202, 8, 36, "MathCaption",
+   CellTags->"How"],
+  Cell[45440, 1679, 215, 6, 23, "Input",
+   CellTags->"How"],
+  Cell[45658, 1687, 511, 22, 33, "Text",
+   CellTags->{"How", "i:18"}]},
+ "i:13"->{
+  Cell[41187, 1506, 181, 7, 34, "Subsection",
+   Evaluatable->False,
+   CellTags->{"How", "i:13"}]},
+ "i:18"->{
+  Cell[45658, 1687, 511, 22, 33, "Text",
+   CellTags->{"How", "i:18"}]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"Intro", 48685, 1765},
+ {"Contents", 48896, 1772},
+ {"i:1", 49008, 1776},
+ {"First", 49115, 1780},
+ {"Packages", 49443, 1791},
+ {"Structures", 49990, 1808},
+ {"i:5", 51065, 1842},
+ {"i:7", 51178, 1846},
+ {"Form", 51293, 1850},
+ {"i:8", 55220, 1972},
+ {"i:9", 55325, 1976},
+ {"i:10", 55408, 1979},
+ {"Mode", 55492, 1982},
+ {"i:11", 56341, 2008},
+ {"i:15", 56454, 2012},
+ {"Visual", 56548, 2015},
+ {"i:12", 57399, 2040},
+ {"i:17", 57491, 2043},
+ {"How", 57583, 2046},
+ {"i:13", 59001, 2090},
+ {"i:18", 59113, 2094}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[590, 23, 805, 31, 87, "Subsubtitle",
+ Evaluatable->False],
+Cell[CellGroupData[{
+Cell[1420, 58, 298, 12, 78, "Section",
+ Evaluatable->False,
+ CellTags->{"Intro", "Contents"}],
+Cell[1721, 72, 1233, 28, 85, "Text",
+ Evaluatable->False,
+ CellTags->{"Intro", "i:1"}],
+Cell[CellGroupData[{
+Cell[2979, 104, 83, 2, 34, "Subsection",
+ CellTags->"First"],
+Cell[3065, 108, 198, 6, 20, "Text",
+ CellTags->"First"],
+Cell[3266, 116, 155, 4, 23, "Input",
+ CellTags->"First"],
+Cell[3424, 122, 165, 5, 20, "Text",
+ CellTags->"First"],
+Cell[3592, 129, 141, 4, 23, "Input",
+ CellTags->"First"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3770, 138, 155, 6, 34, "Subsection",
+ CellTags->"Packages"],
+Cell[3928, 146, 233, 8, 20, "Text",
+ CellTags->"Packages"],
+Cell[4164, 156, 158, 4, 23, "Input",
+ CellTags->"Packages"],
+Cell[4325, 162, 844, 23, 59, "Text",
+ CellTags->"Packages"],
+Cell[5172, 187, 164, 5, 23, "Input",
+ CellTags->"Packages"],
+Cell[5339, 194, 298, 9, 20, "Text",
+ CellTags->"Packages"],
+Cell[5640, 205, 234, 7, 36, "MathCaption",
+ CellTags->"Packages"],
+Cell[5877, 214, 119, 4, 23, "Input",
+ CellTags->"Packages"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6033, 223, 191, 7, 34, "Subsection",
+ Evaluatable->False,
+ CellTags->"Structures"],
+Cell[CellGroupData[{
+Cell[6249, 234, 109, 3, 30, "Subsubsection",
+ Evaluatable->False,
+ CellTags->"Structures"],
+Cell[6361, 239, 3610, 120, 124, "Text",
+ Evaluatable->False,
+ CellTags->{"Structures", "i:5"}],
+Cell[9974, 361, 574, 21, 36, "MathCaption",
+ Evaluatable->False,
+ CellTags->"Structures"],
+Cell[10551, 384, 118, 3, 23, "Input",
+ CellTags->"Structures"],
+Cell[10672, 389, 557, 18, 33, "Text",
+ Evaluatable->False,
+ CellTags->"Structures"],
+Cell[11232, 409, 293, 8, 49, "MathCaption",
+ Evaluatable->False,
+ CellTags->"Structures"],
+Cell[11528, 419, 124, 3, 23, "Input",
+ CellTags->"Structures"],
+Cell[11655, 424, 982, 36, 36, "MathCaption",
+ Evaluatable->False,
+ CellTags->"Structures"],
+Cell[12640, 462, 127, 3, 23, "Input",
+ CellTags->"Structures"],
+Cell[12770, 467, 825, 27, 33, "Text",
+ Evaluatable->False,
+ CellTags->"Structures"],
+Cell[13598, 496, 418, 15, 20, "Text",
+ Evaluatable->False,
+ CellTags->"Structures"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14053, 516, 294, 13, 30, "Subsubsection",
+ Evaluatable->False,
+ CellTags->{"i:7", "Form"}],
+Cell[14350, 531, 344, 14, 20, "Text",
+ Evaluatable->False,
+ CellTags->{"i:8", "Form"}],
+Cell[14697, 547, 243, 9, 23, "Input",
+ CellTags->"Form"],
+Cell[14943, 558, 191, 7, 20, "Text",
+ Evaluatable->False,
+ CellTags->"Form"],
+Cell[15137, 567, 247, 9, 23, "Input",
+ CellTags->"Form"],
+Cell[15387, 578, 862, 18, 72, "Text",
+ Evaluatable->False,
+ CellTags->"Form"],
+Cell[16252, 598, 122, 4, 23, "Input",
+ CellTags->"Form"],
+Cell[16377, 604, 538, 13, 46, "Text",
+ Evaluatable->False,
+ CellTags->"Form"],
+Cell[16918, 619, 138, 4, 23, "Input",
+ CellTags->"Form"],
+Cell[17059, 625, 512, 16, 49, "MathCaption",
+ CellTags->"Form"],
+Cell[17574, 643, 1047, 28, 84, "Input",
+ CellTags->"Form"],
+Cell[18624, 673, 237, 9, 38, "MathCaption",
+ CellTags->"Form"],
+Cell[18864, 684, 157, 5, 23, "Input",
+ CellTags->"Form"],
+Cell[19024, 691, 537, 19, 62, "MathCaption",
+ CellTags->"Form"],
+Cell[19564, 712, 126, 4, 23, "Input",
+ CellTags->"Form"],
+Cell[19693, 718, 181, 6, 36, "MathCaption",
+ CellTags->"Form"],
+Cell[19877, 726, 207, 6, 23, "Input",
+ CellTags->"Form"],
+Cell[20087, 734, 412, 12, 49, "MathCaption",
+ CellTags->"Form"],
+Cell[20502, 748, 129, 4, 23, "Input",
+ CellTags->"Form"],
+Cell[20634, 754, 630, 16, 46, "Text",
+ CellTags->"Form"],
+Cell[21267, 772, 151, 6, 36, "MathCaption",
+ CellTags->"Form"],
+Cell[21421, 780, 1148, 33, 54, "Input",
+ CellTags->"Form"],
+Cell[22572, 815, 149, 6, 36, "MathCaption",
+ CellTags->"Form"],
+Cell[22724, 823, 655, 19, 39, "Input",
+ CellTags->"Form"],
+Cell[23382, 844, 157, 5, 36, "MathCaption",
+ CellTags->"Form"],
+Cell[23542, 851, 287, 10, 23, "Input",
+ CellTags->"Form"],
+Cell[23832, 863, 371, 10, 33, "Text",
+ CellTags->"Form"],
+Cell[24206, 875, 243, 8, 36, "MathCaption",
+ CellTags->"Form"],
+Cell[24452, 885, 192, 6, 23, "Input",
+ CellTags->"Form"],
+Cell[24647, 893, 369, 12, 33, "Text",
+ CellTags->{"i:9", "Form"}],
+Cell[25019, 907, 121, 4, 23, "Input",
+ CellTags->"Form"],
+Cell[25143, 913, 237, 6, 36, "MathCaption",
+ CellTags->"Form"],
+Cell[25383, 921, 479, 13, 23, "Input",
+ CellTags->"Form"],
+Cell[25865, 936, 149, 4, 36, "MathCaption",
+ CellTags->"Form"],
+Cell[26017, 942, 209, 6, 23, "Input",
+ CellTags->"Form"],
+Cell[26229, 950, 152, 6, 36, "MathCaption",
+ CellTags->"Form"],
+Cell[26384, 958, 126, 4, 23, "Input",
+ CellTags->"Form"],
+Cell[26513, 964, 210, 8, 36, "MathCaption",
+ CellTags->"Form"],
+Cell[26726, 974, 129, 4, 23, "Input",
+ CellTags->"Form"],
+Cell[26858, 980, 628, 14, 59, "Text",
+ CellTags->{"i:10", "Form"}],
+Cell[27489, 996, 122, 4, 23, "Input",
+ CellTags->"Form"],
+Cell[27614, 1002, 173, 6, 36, "MathCaption",
+ CellTags->"Form"],
+Cell[27790, 1010, 138, 4, 23, "Input",
+ CellTags->"Form"],
+Cell[27931, 1016, 582, 17, 33, "Text",
+ CellTags->"Form"],
+Cell[28516, 1035, 704, 25, 36, "MathCaption",
+ CellTags->"Form"],
+Cell[29223, 1062, 536, 17, 23, "Input",
+ CellTags->"Form"],
+Cell[29762, 1081, 396, 14, 36, "MathCaption",
+ CellTags->"Form"],
+Cell[30161, 1097, 825, 22, 39, "Input",
+ CellTags->"Form"],
+Cell[30989, 1121, 220, 8, 36, "MathCaption",
+ CellTags->"Form"],
+Cell[31212, 1131, 164, 5, 23, "Input",
+ CellTags->"Form"],
+Cell[31379, 1138, 189, 6, 36, "MathCaption",
+ CellTags->"Form"],
+Cell[31571, 1146, 162, 5, 23, "Input",
+ CellTags->"Form"],
+Cell[31736, 1153, 203, 6, 36, "MathCaption",
+ CellTags->"Form"],
+Cell[31942, 1161, 287, 9, 39, "Input",
+ CellTags->"Form"],
+Cell[32232, 1172, 171, 7, 36, "MathCaption",
+ CellTags->"Form"],
+Cell[32406, 1181, 452, 14, 23, "Input",
+ CellTags->"Form"],
+Cell[32861, 1197, 518, 17, 49, "MathCaption",
+ CellTags->"Form"],
+Cell[33382, 1216, 323, 11, 23, "Input",
+ CellTags->"Form"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[33754, 1233, 172, 7, 34, "Subsection",
+ Evaluatable->False,
+ CellTags->{"Mode", "i:11"}],
+Cell[33929, 1242, 804, 21, 59, "Text",
+ CellTags->"Mode"],
+Cell[34736, 1265, 649, 20, 49, "MathCaption",
+ CellTags->{"Mode", "i:15"}],
+Cell[35388, 1287, 122, 4, 23, "Input",
+ CellTags->"Mode"],
+Cell[35513, 1293, 281, 10, 36, "MathCaption",
+ CellTags->"Mode"],
+Cell[35797, 1305, 166, 5, 23, "Input",
+ CellTags->"Mode"],
+Cell[35966, 1312, 247, 8, 36, "MathCaption",
+ CellTags->"Mode"],
+Cell[36216, 1322, 244, 7, 23, "Input",
+ CellTags->"Mode"],
+Cell[36463, 1331, 310, 12, 36, "MathCaption",
+ CellTags->"Mode"],
+Cell[36776, 1345, 243, 7, 23, "Input",
+ CellTags->"Mode"],
+Cell[37022, 1354, 283, 8, 49, "MathCaption",
+ CellTags->"Mode"],
+Cell[37308, 1364, 204, 6, 23, "Input",
+ CellTags->"Mode"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[37549, 1375, 225, 7, 34, "Subsection",
+ CellTags->{"Visual", "i:12"}],
+Cell[37777, 1384, 511, 11, 46, "Text",
+ CellTags->"Visual"],
+Cell[38291, 1397, 265, 8, 36, "MathCaption",
+ CellTags->"Visual"],
+Cell[38559, 1407, 300, 10, 23, "Input",
+ CellTags->"Visual"],
+Cell[38862, 1419, 166, 6, 36, "MathCaption",
+ CellTags->"Visual"],
+Cell[39031, 1427, 221, 7, 23, "Input",
+ CellTags->"Visual"],
+Cell[39255, 1436, 449, 10, 62, "MathCaption",
+ CellTags->"Visual"],
+Cell[39707, 1448, 427, 12, 23, "Input",
+ CellTags->"Visual"],
+Cell[40137, 1462, 188, 6, 36, "MathCaption",
+ CellTags->"Visual"],
+Cell[40328, 1470, 263, 9, 23, "Input",
+ CellTags->"Visual"],
+Cell[40594, 1481, 217, 8, 36, "MathCaption",
+ CellTags->{"Visual", "i:17"}],
+Cell[40814, 1491, 336, 10, 23, "Input",
+ CellTags->"Visual"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[41187, 1506, 181, 7, 34, "Subsection",
+ Evaluatable->False,
+ CellTags->{"How", "i:13"}],
+Cell[41371, 1515, 701, 22, 46, "Text",
+ CellTags->"How"],
+Cell[42075, 1539, 167, 6, 36, "MathCaption",
+ CellTags->"How"],
+Cell[42245, 1547, 108, 3, 23, "Input",
+ CellTags->"How"],
+Cell[42356, 1552, 247, 8, 36, "MathCaption",
+ CellTags->"How"],
+Cell[42606, 1562, 139, 4, 23, "Input",
+ CellTags->"How"],
+Cell[42748, 1568, 209, 6, 36, "MathCaption",
+ CellTags->"How"],
+Cell[42960, 1576, 120, 4, 23, "Input",
+ CellTags->"How"],
+Cell[43083, 1582, 285, 10, 36, "MathCaption",
+ CellTags->"How"],
+Cell[43371, 1594, 200, 6, 23, "Input",
+ CellTags->"How"],
+Cell[43574, 1602, 526, 15, 49, "MathCaption",
+ CellTags->"How"],
+Cell[44103, 1619, 204, 6, 23, "Input",
+ CellTags->"How"],
+Cell[44310, 1627, 171, 6, 36, "MathCaption",
+ CellTags->"How"],
+Cell[44484, 1635, 120, 4, 23, "Input",
+ CellTags->"How"],
+Cell[44607, 1641, 153, 6, 36, "MathCaption",
+ CellTags->"How"],
+Cell[44763, 1649, 108, 3, 23, "Input",
+ CellTags->"How"],
+Cell[44874, 1654, 215, 7, 36, "MathCaption",
+ CellTags->"How"],
+Cell[45092, 1663, 140, 4, 23, "Input",
+ CellTags->"How"],
+Cell[45235, 1669, 202, 8, 36, "MathCaption",
+ CellTags->"How"],
+Cell[45440, 1679, 215, 6, 23, "Input",
+ CellTags->"How"],
+Cell[45658, 1687, 511, 22, 33, "Text",
+ CellTags->{"How", "i:18"}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

@@ -1,0 +1,2488 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     84640,       2478]
+NotebookOptionsPosition[     48822,       1481]
+NotebookOutlinePosition[     72938,       2136]
+CellTagsIndexPosition[     72490,       2116]
+WindowTitle->Automatic
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["Table of Contents for GroupLabs", "ContentsTitle"],
+
+Cell[CellGroupData[{
+
+Cell["READ ME FIRST", "Subsection",
+ CellTags->"gtoc0"],
+
+Cell[TextData[{
+ "Note that what is given below is a table of contents for all of the group \
+labs in the text ",
+ StyleBox["Exploring Abstract Algebra with Mathematica",
+  FontSlant->"Italic"],
+ ". For users of this book, the links are operative and will take you \
+directly to the portion of the lab selected if the directory \
+\[OpenCurlyDoubleQuote]GroupLabs\[CloseCurlyDoubleQuote] is inside \
+\[OpenCurlyDoubleQuote]AbstractAlgebra\[CloseCurlyDoubleQuote]; for those who \
+have only downloaded the packages, the links will not work without the files \
+that accompany the book."
+}], "Text",
+ CellTags->{"gtoc", "gtoc0"}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Group Lab 1", "Subsection",
+ CellTags->"gtoc1"],
+
+Cell[TextData[ButtonBox["Group Lab 1. Using Symmetry to Uncover a Group",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab01.nb"}], 
+   "a:1.1"}]], "ContentsSection",
+ CellTags->{"gtoc", "gtoc1"}],
+
+Cell[TextData[ButtonBox["1.0 Note regarding Exploring Abstract Algebra with \
+Mathematica",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab01.nb"}], "a:1.2.1"}]], "Contents",\
+
+ CellTags->{"gtoc", "gtoc1"}],
+
+Cell[TextData[ButtonBox["1.1 Prerequisites",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab01.nb"}], "a:1.3.1"}]], "Contents",\
+
+ CellTags->{"gtoc", "gtoc1"}],
+
+Cell[TextData[ButtonBox["1.2 Goals for this lab",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab01.nb"}], "a:1.4.1"}]], "Contents",\
+
+ CellTags->{"gtoc", "gtoc1"}],
+
+Cell[TextData[ButtonBox["1.3 Getting started? - Begin here",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab01.nb"}], "a:1.5.1"}]], "Contents",\
+
+ CellTags->{"gtoc", "gtoc1"}],
+
+Cell[TextData[ButtonBox["1.4 A symmetry of an equilateral triangle",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab01.nb"}], "a:1.6.1"}]], "Contents",\
+
+ CellTags->{"gtoc", "gtoc1"}],
+
+Cell[TextData[ButtonBox["1.5 Are there other symmetries?",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab01.nb"}], "a:1.7.1"}]], "Contents",\
+
+ CellTags->{"gtoc", "gtoc1"}],
+
+Cell[TextData[ButtonBox["1.6 Multiplying the transformations",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab01.nb"}], "a:1.8.1"}]], "Contents",\
+
+ CellTags->{"gtoc", "gtoc1"}],
+
+Cell[TextData[ButtonBox["1.7 Are there any commuters?",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab01.nb"}], "a:1.9.1"}]], "Contents",\
+
+ CellTags->{"gtoc", "gtoc1"}],
+
+Cell[TextData[ButtonBox["1.8 Is it always bad to be closed-minded?",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab01.nb"}], 
+   "a:1.10.1"}]], "Contents",
+ CellTags->{"gtoc", "gtoc1"}],
+
+Cell[TextData[ButtonBox["1.9 We should try to find our identity",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab01.nb"}], 
+   "a:1.11.1"}]], "Contents",
+ CellTags->{"gtoc", "gtoc1"}],
+
+Cell[TextData[ButtonBox["1.10 Is it perverse to not have an inverse?",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab01.nb"}], 
+   "a:1.12.1"}]], "Contents",
+ CellTags->{"gtoc", "gtoc1"}],
+
+Cell[TextData[ButtonBox["1.11 Should we associate together?",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab01.nb"}], 
+   "a:1.13.1"}]], "Contents",
+ CellTags->{"gtoc", "gtoc1"}],
+
+Cell[TextData[ButtonBox["Test every possibility",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab01.nb"}], "a:1.13.2.1"}]], "Index",\
+
+ CellTags->{"gtoc", "gtoc1"}],
+
+Cell[TextData[ButtonBox["Test a random number of times",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab01.nb"}], "a:1.13.3.1"}]], "Index",\
+
+ CellTags->{"gtoc", "gtoc1"}],
+
+Cell[TextData[ButtonBox["Now the question",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab01.nb"}], "a:1.13.4.1"}]], "Index",\
+
+ CellTags->{"gtoc", "gtoc1"}],
+
+Cell[TextData[ButtonBox["1.12 What else?",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab01.nb"}], 
+   "a:1.14.1"}]], "Contents",
+ CellTags->{"gtoc", "gtoc1"}],
+
+Cell[TextData[{
+ ButtonBox["1.13 Let",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+      "AbstractAlgebra", "GroupLabs", "GrpLab01.nb"}], "a:1.15.1"}],
+ ButtonBox["\[CloseCurlyQuote]",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+      "AbstractAlgebra", "GroupLabs", "GrpLab01.nb"}], "a:1.15.1"}],
+ ButtonBox["s group it all together",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+      "AbstractAlgebra", "GroupLabs", "GrpLab01.nb"}], "a:1.15.1"}]
+}], "Contents",
+ CellTags->{"gtoc", "gtoc1"}],
+
+Cell[TextData[ButtonBox["1.14 Mathematica commands used in this lab",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab01.nb"}], 
+   "a:1.16.1"}]], "Contents",
+ CellTags->{"gtoc", "gtoc1"}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Group Lab 2", "Subsection",
+ CellTags->"gtoc2"],
+
+Cell[TextData[ButtonBox["Group Lab 2. Determining the Symmetry Group of a \
+Given Figure",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab02.nb"}], 
+   None}]], "ContentsSection",
+ CellTags->{"gtoc", "gtoc2"}],
+
+Cell[TextData[ButtonBox["2.0 Note regarding Exploring Abstract Algebra with \
+Mathematica",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab02.nb"}], None}]], "Contents",
+ CellTags->{"gtoc", "gtoc2"}],
+
+Cell[TextData[ButtonBox["2.1 Prerequisites",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab02.nb"}], "a:2.4.2"}]], "Contents",\
+
+ CellTags->{"gtoc", "gtoc2"}],
+
+Cell[TextData[ButtonBox["2.2 Goals for this lab",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab02.nb"}], "a:2.5.2"}]], "Contents",\
+
+ CellTags->{"gtoc", "gtoc2"}],
+
+Cell[TextData[ButtonBox["2.3 Symmetries and how to find them",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab02.nb"}], "a:2.6.2"}]], "Contents",\
+
+ CellTags->{"gtoc", "gtoc2"}],
+
+Cell[TextData[ButtonBox["2.3.1 Getting started",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab02.nb"}], "a:2.6.3.2"}]], "Index",\
+
+ CellTags->{"gtoc", "gtoc2"}],
+
+Cell[TextData[ButtonBox["2.3.2 Functions/variables to use in this lab",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab02.nb"}], "a:2.6.4.2"}]], "Index",\
+
+ CellTags->{"gtoc", "gtoc2"}],
+
+Cell[TextData[ButtonBox["2.4 Your turn",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab02.nb"}], "a:2.7.2"}]], "Contents",\
+
+ CellTags->{"gtoc", "gtoc2"}],
+
+Cell[TextData[ButtonBox["2.5 Mathematica commands used in this lab",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab02.nb"}], "a:2.8.2"}]], "Contents",\
+
+ CellTags->{"gtoc", "gtoc2"}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Group Lab 3", "Subsection",
+ CellTags->"gtoc3"],
+
+Cell[TextData[ButtonBox["Group Lab 3. Is This a Group?",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab03.nb"}], 
+   "a:3.3"}]], "ContentsSection",
+ CellTags->{"gtoc", "gtoc3"}],
+
+Cell[TextData[ButtonBox["3.0 Note regarding Exploring Abstract Algebra with \
+Mathematica",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab03.nb"}], "a:3.4.3"}]], "Contents",\
+
+ CellTags->{"gtoc", "gtoc3"}],
+
+Cell[TextData[ButtonBox["3.1 Prerequisites",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab03.nb"}], "a:3.5.3"}]], "Contents",\
+
+ CellTags->{"gtoc", "gtoc3"}],
+
+Cell[TextData[ButtonBox["3.2 Goals for this lab",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab03.nb"}], "a:3.6.3"}]], "Contents",\
+
+ CellTags->{"gtoc", "gtoc3"}],
+
+Cell[TextData[ButtonBox["3.3 When do we have a group?",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab03.nb"}], "a:3.7.3"}]], "Contents",\
+
+ CellTags->{"gtoc", "gtoc3"}],
+
+Cell[TextData[ButtonBox["3.4 Your turn",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab03.nb"}], "a:3.8.3"}]], "Contents",\
+
+ CellTags->{"gtoc", "gtoc3"}],
+
+Cell[TextData[ButtonBox["3.5 Mathematica commands used in this lab",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab03.nb"}], "a:3.9.3"}]], "Contents",\
+
+ CellTags->{"gtoc", "gtoc3"}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Group Lab 4", "Subsection",
+ CellTags->"gtoc4"],
+
+Cell[TextData[{
+ ButtonBox["Group Lab 4. Let",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+      "AbstractAlgebra", "GroupLabs", "GrpLab04.nb"}], "a:4.4"}],
+ ButtonBox["\[CloseCurlyQuote]",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+      "AbstractAlgebra", "GroupLabs", "GrpLab04.nb"}], "a:4.4"}],
+ ButtonBox["s Get These Orders Straight",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+      "AbstractAlgebra", "GroupLabs", "GrpLab04.nb"}], "a:4.4"}]
+}], "ContentsSection",
+ CellTags->{"gtoc", "gtoc4"}],
+
+Cell[TextData[ButtonBox["4.0 Note regarding Exploring Abstract Algebra with \
+Mathematica",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab04.nb"}], "a:4.5.4"}]], "Contents",\
+
+ CellTags->{"gtoc", "gtoc4"}],
+
+Cell[TextData[ButtonBox["4.1 Prerequisites",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab04.nb"}], "a:4.6.4"}]], "Contents",\
+
+ CellTags->{"gtoc", "gtoc4"}],
+
+Cell[TextData[ButtonBox["4.2 Goals for this lab",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab04.nb"}], "a:4.7.4"}]], "Contents",\
+
+ CellTags->{"gtoc", "gtoc4"}],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  ButtonBox[
+   StyleBox[
+    RowBox[{
+     RowBox[{"4.3", " ", "Order", " ", "of", " "}], 
+     FormBox["g",
+      TraditionalForm], 
+     RowBox[{" ", 
+      RowBox[{"and", " ", "its", " ", "inverse"}]}]}],
+    SingleLetterItalics->False],
+   Active->True,
+   Appearance->{Automatic, None},
+   Background->GrayLevel[1],
+   BaseStyle->"Hyperlink",
+   ButtonData:>{
+     FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+       "AbstractAlgebra", "GroupLabs", "GrpLab04.nb"}], "a:4.8.4"},
+   ButtonFunction:>(FrontEndExecute[{
+      FrontEnd`NotebookLocate[#2]}]& ),
+   ButtonNote->ButtonData], TraditionalForm]]]], "Contents",
+ CellTags->{"gtoc", "gtoc4"}],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  ButtonBox[
+   StyleBox[
+    RowBox[{
+     RowBox[{
+     "4.4", " ", "Distribution", " ", "of", " ", "the", " ", "orders", " ", 
+      "of", " ", "elements", " ", "in", " "}], 
+     FormBox[
+      SubscriptBox["\[DoubleStruckCapitalZ]", "n"],
+      TraditionalForm]}],
+    SingleLetterItalics->False],
+   Active->True,
+   Appearance->{Automatic, None},
+   Background->GrayLevel[1],
+   BaseStyle->"Hyperlink",
+   ButtonData:>{
+     FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+       "AbstractAlgebra", "GroupLabs", "GrpLab04.nb"}], "a:4.9.4"},
+   ButtonFunction:>(FrontEndExecute[{
+      FrontEnd`NotebookLocate[#2]}]& ),
+   ButtonNote->ButtonData], TraditionalForm]]]], "Contents",
+ CellTags->{"gtoc", "gtoc4"}],
+
+Cell[TextData[ButtonBox["4.5 Another look at orders",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab04.nb"}], 
+   "a:4.10.4"}]], "Contents",
+ CellTags->{"gtoc", "gtoc4"}],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  ButtonBox[
+   StyleBox[
+    RowBox[{
+     RowBox[{"4.6", " ", "What", " ", "is", " "}], 
+     FormBox[
+      RowBox[{"P", "(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"|", "g"}], "|"}], "=", "n"}], ")"}],
+      TraditionalForm], 
+     RowBox[{" ", "for", " "}], 
+     FormBox["g",
+      TraditionalForm], 
+     RowBox[{" ", 
+      RowBox[{"\[Element]", " "}]}], 
+     FormBox[
+      SubscriptBox["\[DoubleStruckCapitalZ]", "n"],
+      TraditionalForm], "?"}],
+    SingleLetterItalics->False],
+   Active->True,
+   Appearance->{Automatic, None},
+   Background->GrayLevel[1],
+   BaseStyle->"Hyperlink",
+   ButtonData:>{
+     FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+       "AbstractAlgebra", "GroupLabs", "GrpLab04.nb"}], "a:4.11.4"},
+   ButtonFunction:>(FrontEndExecute[{
+      FrontEnd`NotebookLocate[#2]}]& ),
+   ButtonNote->ButtonData], TraditionalForm]]]], "Contents",
+ CellTags->{"gtoc", "gtoc4"}],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  ButtonBox[
+   StyleBox[
+    RowBox[{
+     RowBox[{"4.7", " ", "More", " ", "questions", " ", "about", " "}], 
+     FormBox[
+      SubscriptBox["U", "n"],
+      TraditionalForm]}],
+    SingleLetterItalics->False],
+   Active->True,
+   Appearance->{Automatic, None},
+   Background->GrayLevel[1],
+   BaseStyle->"Hyperlink",
+   ButtonData:>{
+     FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+       "AbstractAlgebra", "GroupLabs", "GrpLab04.nb"}], "a:4.12.4"},
+   ButtonFunction:>(FrontEndExecute[{
+      FrontEnd`NotebookLocate[#2]}]& ),
+   ButtonNote->ButtonData], TraditionalForm]]]], "Contents",
+ CellTags->{"gtoc", "gtoc4"}],
+
+Cell[TextData[ButtonBox["4.8 Mathematica commands used in this lab",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab04.nb"}], 
+   "a:4.13.4"}]], "Contents",
+ CellTags->{"gtoc", "gtoc4"}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Group Lab 5", "Subsection",
+ CellTags->"gtoc5"],
+
+Cell[TextData[ButtonBox["Group Lab 5. Subversively Grouping Our Elements",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab05.nb"}], 
+   "a:5.5"}]], "ContentsSection",
+ CellTags->{"gtoc", "gtoc5"}],
+
+Cell[TextData[ButtonBox["5.0 Note regarding Exploring Abstract Algebra with \
+Mathematica",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab05.nb"}], "a:5.6.5"}]], "Contents",\
+
+ CellTags->{"gtoc", "gtoc5"}],
+
+Cell[TextData[ButtonBox["5.1 Prerequisites",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab05.nb"}], "a:5.7.5"}]], "Contents",\
+
+ CellTags->{"gtoc", "gtoc5"}],
+
+Cell[TextData[ButtonBox["5.2 Goals for this lab",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab05.nb"}], "a:5.8.5"}]], "Contents",\
+
+ CellTags->{"gtoc", "gtoc5"}],
+
+Cell[TextData[ButtonBox["5.3 When do we have a subgroup?",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab05.nb"}], "a:5.9.5"}]], "Contents",\
+
+ CellTags->{"gtoc", "gtoc5"}],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  ButtonBox[
+   StyleBox[
+    RowBox[{
+     RowBox[{"5.4", " ", "Subgroups", " ", "of", " "}], 
+     FormBox[
+      SubscriptBox["\[DoubleStruckCapitalZ]", "n"],
+      TraditionalForm]}],
+    SingleLetterItalics->False],
+   Active->True,
+   Appearance->{Automatic, None},
+   Background->GrayLevel[1],
+   BaseStyle->"Hyperlink",
+   ButtonData:>{
+     FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+       "AbstractAlgebra", "GroupLabs", "GrpLab05.nb"}], "a:5.10.5"},
+   ButtonFunction:>(FrontEndExecute[{
+      FrontEnd`NotebookLocate[#2]}]& ),
+   ButtonNote->ButtonData], TraditionalForm]]]], "Contents",
+ CellTags->{"gtoc", "gtoc5"}],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  ButtonBox[
+   StyleBox[
+    RowBox[{
+     RowBox[{"5.5", " "}], 
+     FormBox[
+      RowBox[{"P", "(", 
+       RowBox[{"H", "<", "G"}], ")"}],
+      TraditionalForm], 
+     RowBox[{" ", 
+      RowBox[{"for", " ", "a", " ", "random", " ", "subset", " "}]}], 
+     FormBox["H",
+      TraditionalForm], 
+     RowBox[{" ", "of", " "}], 
+     FormBox[
+      RowBox[{"G", "=", 
+       SubscriptBox["\[DoubleStruckCapitalZ]", "n"]}],
+      TraditionalForm]}],
+    SingleLetterItalics->False],
+   Active->True,
+   Appearance->{Automatic, None},
+   Background->GrayLevel[1],
+   BaseStyle->"Hyperlink",
+   ButtonData:>{
+     FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+       "AbstractAlgebra", "GroupLabs", "GrpLab05.nb"}], "a:5.11.5"},
+   ButtonFunction:>(FrontEndExecute[{
+      FrontEnd`NotebookLocate[#2]}]& ),
+   ButtonNote->ButtonData], TraditionalForm]]]], "Contents",
+ CellTags->{"gtoc", "gtoc5"}],
+
+Cell[TextData[ButtonBox["5.6 Necessary elements for full closure",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab05.nb"}], 
+   "a:5.12.5"}]], "Contents",
+ CellTags->{"gtoc", "gtoc5"}],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  ButtonBox[
+   StyleBox[
+    RowBox[{
+     RowBox[{"5.7", " ", "Subgroups", " ", "of", " "}], 
+     FormBox[
+      SubscriptBox["U", "n"],
+      TraditionalForm]}],
+    SingleLetterItalics->False],
+   Active->True,
+   Appearance->{Automatic, None},
+   Background->GrayLevel[1],
+   BaseStyle->"Hyperlink",
+   ButtonData:>{
+     FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+       "AbstractAlgebra", "GroupLabs", "GrpLab05.nb"}], "a:5.13.5"},
+   ButtonFunction:>(FrontEndExecute[{
+      FrontEnd`NotebookLocate[#2]}]& ),
+   ButtonNote->ButtonData], TraditionalForm]]]], "Contents",
+ CellTags->{"gtoc", "gtoc5"}],
+
+Cell[TextData[ButtonBox["5.8 Mathematica commands used in this lab",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab05.nb"}], 
+   "a:5.14.5"}]], "Contents",
+ CellTags->{"gtoc", "gtoc5"}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Group Lab 6", "Subsection",
+ CellTags->"gtoc6"],
+
+Cell[TextData[ButtonBox["Group Lab 6. Cycling Through the Groups",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab06.nb"}], 
+   "a:6.6"}]], "ContentsSection",
+ CellTags->{"gtoc", "gtoc6"}],
+
+Cell[TextData[ButtonBox["6.0 Note regarding Exploring Abstract Algebra with \
+Mathematica",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab06.nb"}], "a:6.7.6"}]], "Contents",\
+
+ CellTags->{"gtoc", "gtoc6"}],
+
+Cell[TextData[ButtonBox["6.1 Prerequisites",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab06.nb"}], "a:6.8.6"}]], "Contents",\
+
+ CellTags->{"gtoc", "gtoc6"}],
+
+Cell[TextData[ButtonBox["6.2 Goals for this lab",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab06.nb"}], "a:6.9.6"}]], "Contents",\
+
+ CellTags->{"gtoc", "gtoc6"}],
+
+Cell[TextData[ButtonBox["6.3 What, when, how, and why about cyclic groups",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab06.nb"}], 
+   "a:6.10.6"}]], "Contents",
+ CellTags->{"gtoc", "gtoc6"}],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  ButtonBox[
+   StyleBox[
+    RowBox[{
+     RowBox[{"6.4", " ", "Cyclicity", " ", "of", " "}], 
+     FormBox[
+      RowBox[{
+       SubscriptBox["\[DoubleStruckCapitalZ]", "m"], "\[CirclePlus]", 
+       SubscriptBox["\[DoubleStruckCapitalZ]", "n"]}],
+      TraditionalForm]}],
+    SingleLetterItalics->False],
+   Active->True,
+   Appearance->{Automatic, None},
+   Background->GrayLevel[1],
+   BaseStyle->"Hyperlink",
+   ButtonData:>{
+     FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+       "AbstractAlgebra", "GroupLabs", "GrpLab06.nb"}], "a:6.11.6"},
+   ButtonFunction:>(FrontEndExecute[{
+      FrontEnd`NotebookLocate[#2]}]& ),
+   ButtonNote->ButtonData], TraditionalForm]]]], "Contents",
+ CellTags->{"gtoc", "gtoc6"}],
+
+Cell[TextData[{
+ ButtonBox["6.5 Structure of intersections of subgroups of ",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+      "AbstractAlgebra", "GroupLabs", "GrpLab06.nb"}], "a:6.12.6"}],
+ ButtonBox["\[DoubleStruckCapitalZ]",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+      "AbstractAlgebra", "GroupLabs", "GrpLab06.nb"}], "a:6.12.6"}]
+}], "Contents",
+ CellTags->{"gtoc", "gtoc6"}],
+
+Cell[TextData[ButtonBox["6.6 Mathematica commands used in this lab",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab06.nb"}], 
+   "a:6.13.6"}]], "Contents",
+ CellTags->{"gtoc", "gtoc6"}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Group Lab 7", "Subsection",
+ CellTags->"gtoc7"],
+
+Cell[TextData[ButtonBox["Group Lab 7. Permutations",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab07.nb"}], 
+   "a:7.7"}]], "ContentsSection",
+ CellTags->{"gtoc", "gtoc7"}],
+
+Cell[TextData[ButtonBox["7.0 Note regarding Exploring Abstract Algebra with \
+Mathematica",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab07.nb"}], "a:7.8.7"}]], "Contents",\
+
+ CellTags->{"gtoc", "gtoc7"}],
+
+Cell[TextData[ButtonBox["7.1 Prerequisites",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab07.nb"}], "a:7.9.7"}]], "Contents",\
+
+ CellTags->{"gtoc", "gtoc7"}],
+
+Cell[TextData[ButtonBox["7.2 Goals for this lab",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab07.nb"}], 
+   "a:7.10.7"}]], "Contents",
+ CellTags->{"gtoc", "gtoc7"}],
+
+Cell[TextData[ButtonBox["7.3 What is a permutation?",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab07.nb"}], 
+   "a:7.11.7"}]], "Contents",
+ CellTags->{"gtoc", "gtoc7"}],
+
+Cell[TextData[ButtonBox["7.4 Computations with permutations",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab07.nb"}], 
+   "a:7.12.7"}]], "Contents",
+ CellTags->{"gtoc", "gtoc7"}],
+
+Cell[TextData[ButtonBox["7.5 Applications of permutations",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab07.nb"}], 
+   "a:7.13.7"}]], "Contents",
+ CellTags->{"gtoc", "gtoc7"}],
+
+Cell[TextData[ButtonBox["7.6 Questions about permutations",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab07.nb"}], 
+   "a:7.14.7"}]], "Contents",
+ CellTags->{"gtoc", "gtoc7"}],
+
+Cell[TextData[ButtonBox["7.7 Mathematica commands used in this lab",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab07.nb"}], 
+   "a:7.15.7"}]], "Contents",
+ CellTags->{"gtoc", "gtoc7"}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Group Lab 8", "Subsection",
+ CellTags->"gtoc8"],
+
+Cell[TextData[ButtonBox["Group Lab 8. Isomorphisms",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab08.nb"}], 
+   "a:8.8"}]], "ContentsSection",
+ CellTags->{"gtoc", "gtoc8"}],
+
+Cell[TextData[ButtonBox["8.0 Note regarding Exploring Abstract Algebra with \
+Mathematica",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab08.nb"}], "a:8.9.8"}]], "Contents",\
+
+ CellTags->{"gtoc", "gtoc8"}],
+
+Cell[TextData[ButtonBox["8.1 Prerequisites",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab08.nb"}], 
+   "a:8.10.8"}]], "Contents",
+ CellTags->{"gtoc", "gtoc8"}],
+
+Cell[TextData[ButtonBox["8.2 Goals for this lab",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab08.nb"}], 
+   "a:8.11.8"}]], "Contents",
+ CellTags->{"gtoc", "gtoc8"}],
+
+Cell[TextData[ButtonBox["8.3 What is an isomorphism?",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab08.nb"}], 
+   "a:8.12.8"}]], "Contents",
+ CellTags->{"gtoc", "gtoc8"}],
+
+Cell[TextData[ButtonBox["8.4 Creating Morphoids",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab08.nb"}], 
+   "a:8.13.8"}]], "Contents",
+ CellTags->{"gtoc", "gtoc8"}],
+
+Cell[TextData[ButtonBox["8.5 Seeing isomorphisms",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab08.nb"}], 
+   "a:8.14.8"}]], "Contents",
+ CellTags->{"gtoc", "gtoc8"}],
+
+Cell[TextData[ButtonBox["8.5.1 Example 1",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab08.nb"}], "a:8.14.9.8"}]], "Index",\
+
+ CellTags->{"gtoc", "gtoc8"}],
+
+Cell[TextData[ButtonBox["8.5.2 Example 2",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab08.nb"}], 
+   "a:8.14.10.8"}]], "Index",
+ CellTags->{"gtoc", "gtoc8"}],
+
+Cell[TextData[ButtonBox["8.5.3 Example 3",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab08.nb"}], 
+   "a:8.14.11.8"}]], "Index",
+ CellTags->{"gtoc", "gtoc8"}],
+
+Cell[TextData[ButtonBox["8.5.4 Example 4",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab08.nb"}], 
+   "a:8.14.12.8"}]], "Index",
+ CellTags->{"gtoc", "gtoc8"}],
+
+Cell[TextData[ButtonBox["8.6 Mathematica commands used in this lab",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab08.nb"}], 
+   "a:8.15.8"}]], "Contents",
+ CellTags->{"gtoc", "gtoc8"}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Group Lab 9", "Subsection",
+ CellTags->"gtoc9"],
+
+Cell[TextData[ButtonBox["Group Lab 9. Automorphisms",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab09.nb"}], 
+   "a:9.9"}]], "ContentsSection",
+ CellTags->{"gtoc", "gtoc9"}],
+
+Cell[TextData[ButtonBox["9.0 Note regarding Exploring Abstract Algebra with \
+Mathematica",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab09.nb"}], 
+   "a:9.10.9"}]], "Contents",
+ CellTags->{"gtoc", "gtoc9"}],
+
+Cell[TextData[ButtonBox["9.1 Prerequisites",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab09.nb"}], 
+   "a:9.11.9"}]], "Contents",
+ CellTags->{"gtoc", "gtoc9"}],
+
+Cell[TextData[ButtonBox["9.2 Goals for this lab",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab09.nb"}], 
+   "a:9.12.9"}]], "Contents",
+ CellTags->{"gtoc", "gtoc9"}],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  ButtonBox[
+   StyleBox[
+    RowBox[{
+     StyleBox[
+      RowBox[{"9.3", " ", "Automorphisms", " ", "on", " "}],
+      AspectRatioFixed->True], 
+     FormBox[
+      SubscriptBox["\[DoubleStruckCapitalZ]", "n"],
+      TraditionalForm]}],
+    SingleLetterItalics->False],
+   Active->True,
+   Appearance->{Automatic, None},
+   Background->GrayLevel[1],
+   BaseStyle->"Hyperlink",
+   ButtonData:>{
+     FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+       "AbstractAlgebra", "GroupLabs", "GrpLab09.nb"}], "a:9.13.9"},
+   ButtonFunction:>(FrontEndExecute[{
+      FrontEnd`NotebookLocate[#2]}]& ),
+   ButtonNote->ButtonData], TraditionalForm]]]], "Contents",
+ CellTags->{"gtoc", "gtoc9"}],
+
+Cell[TextData[ButtonBox["9.4 Inner automorphisms",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab09.nb"}], 
+   "a:9.14.9"}]], "Contents",
+ CellTags->{"gtoc", "gtoc9"}],
+
+Cell[TextData[ButtonBox["9.5 Mathematica commands used in this lab",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab09.nb"}], 
+   "a:9.15.9"}]], "Contents",
+ CellTags->{"gtoc", "gtoc9"}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Group Lab 10", "Subsection",
+ CellTags->"gtoc10"],
+
+Cell[TextData[ButtonBox["Group Lab 10. Direct products",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab10.nb"}], 
+   "a:10.10"}]], "ContentsSection",
+ CellTags->{"gtoc", "gtoc10"}],
+
+Cell[TextData[ButtonBox["10.0 Note regarding Exploring Abstract Algebra with \
+Mathematica",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab10.nb"}], 
+   "a:10.11.10"}]], "Contents",
+ CellTags->{"gtoc", "gtoc10"}],
+
+Cell[TextData[ButtonBox["10.1 Prerequisites",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab10.nb"}], 
+   "a:10.12.10"}]], "Contents",
+ CellTags->{"gtoc", "gtoc10"}],
+
+Cell[TextData[ButtonBox["10.2 Goals for this lab",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab10.nb"}], 
+   "a:10.13.10"}]], "Contents",
+ CellTags->{"gtoc", "gtoc10"}],
+
+Cell[TextData[ButtonBox["10.3 What is a direct product?",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab10.nb"}], 
+   "a:10.14.10"}]], "Contents",
+ CellTags->{"gtoc", "gtoc10"}],
+
+Cell[TextData[ButtonBox["10.4 Order of an element in a direct product",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab10.nb"}], 
+   "a:10.15.10"}]], "Contents",
+ CellTags->{"gtoc", "gtoc10"}],
+
+Cell[TextData[ButtonBox["10.5 When is a direct product of cyclic groups \
+cyclic?",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab10.nb"}], 
+   "a:10.16.10"}]], "Contents",
+ CellTags->{"gtoc", "gtoc10"}],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  ButtonBox[
+   StyleBox[
+    RowBox[{
+     RowBox[{"10.6", " ", "Isomorphisms", " ", "among", " "}], 
+     FormBox[
+      SubscriptBox["U", "n"],
+      TraditionalForm], 
+     RowBox[{" ", "groups"}]}],
+    SingleLetterItalics->False],
+   Active->True,
+   Appearance->{Automatic, None},
+   Background->GrayLevel[1],
+   BaseStyle->"Hyperlink",
+   ButtonData:>{
+     FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+       "AbstractAlgebra", "GroupLabs", "GrpLab10.nb"}], "a:10.17.10"},
+   ButtonFunction:>(FrontEndExecute[{
+      FrontEnd`NotebookLocate[#2]}]& ),
+   ButtonNote->ButtonData], TraditionalForm]]]], "Contents",
+ CellTags->{"gtoc", "gtoc10"}],
+
+Cell[TextData[ButtonBox["10.7 Mathematica commands used in this lab",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab10.nb"}], 
+   "a:10.18.10"}]], "Contents",
+ CellTags->{"gtoc", "gtoc10"}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Group Lab 11", "Subsection",
+ CellTags->"gtoc11"],
+
+Cell[TextData[ButtonBox["Group Lab 11. Cosets",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab11.nb"}], 
+   "a:11.11"}]], "ContentsSection",
+ CellTags->{"gtoc", "gtoc11"}],
+
+Cell[TextData[ButtonBox["11.0 Note regarding Exploring Abstract Algebra with \
+Mathematica",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab11.nb"}], 
+   "a:11.12.11"}]], "Contents",
+ CellTags->{"gtoc", "gtoc11"}],
+
+Cell[TextData[ButtonBox["11.1 Prerequisites",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab11.nb"}], 
+   "a:11.13.11"}]], "Contents",
+ CellTags->{"gtoc", "gtoc11"}],
+
+Cell[TextData[ButtonBox["11.2 Goals for this lab",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab11.nb"}], 
+   "a:11.14.11"}]], "Contents",
+ CellTags->{"gtoc", "gtoc11"}],
+
+Cell[TextData[ButtonBox["11.3 Cosets, left and right",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab11.nb"}], 
+   "a:11.15.11"}]], "Contents",
+ CellTags->{"gtoc", "gtoc11"}],
+
+Cell[TextData[ButtonBox["11.4 Properties of cosets",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab11.nb"}], 
+   "a:11.16.11"}]], "Contents",
+ CellTags->{"gtoc", "gtoc11"}],
+
+Cell[TextData[ButtonBox["11.5 Mathematica commands used in this lab",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab11.nb"}], 
+   "a:11.17.11"}]], "Contents",
+ CellTags->{"gtoc", "gtoc11"}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Group Lab 12", "Subsection",
+ CellTags->"gtoc12"],
+
+Cell[TextData[ButtonBox["Group Lab 12. Normality and Factor Groups",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab12.nb"}], 
+   "a:12.12"}]], "ContentsSection",
+ CellTags->{"gtoc", "gtoc12"}],
+
+Cell[TextData[ButtonBox["12.0 Note regarding Exploring Abstract Algebra with \
+Mathematica",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab12.nb"}], 
+   "a:12.13.12"}]], "Contents",
+ CellTags->{"gtoc", "gtoc12"}],
+
+Cell[TextData[ButtonBox["12.1 Prerequisites",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab12.nb"}], 
+   "a:12.14.12"}]], "Contents",
+ CellTags->{"gtoc", "gtoc12"}],
+
+Cell[TextData[ButtonBox["12.2 Goals for this lab",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab12.nb"}], 
+   "a:12.15.12"}]], "Contents",
+ CellTags->{"gtoc", "gtoc12"}],
+
+Cell[TextData[ButtonBox["12.3 Normal subgroups",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab12.nb"}], 
+   "a:12.16.12"}]], "Contents",
+ CellTags->{"gtoc", "gtoc12"}],
+
+Cell[TextData[ButtonBox["12.4 Making a new group",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab12.nb"}], 
+   "a:12.17.12"}]], "Contents",
+ CellTags->{"gtoc", "gtoc12"}],
+
+Cell[TextData[ButtonBox["12.5 Factor groups",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab12.nb"}], 
+   "a:12.18.12"}]], "Contents",
+ CellTags->{"gtoc", "gtoc12"}],
+
+Cell[TextData[ButtonBox["12.6 Mathematica commands used in this lab",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab12.nb"}], 
+   "a:12.19.12"}]], "Contents",
+ CellTags->{"gtoc", "gtoc12"}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Group Lab 13", "Subsection",
+ CellTags->"gtoc13"],
+
+Cell[TextData[ButtonBox["Group Lab 13. Group Homomorphisms",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab13.nb"}], 
+   "a:13.13"}]], "ContentsSection",
+ CellTags->{"gtoc", "gtoc13"}],
+
+Cell[TextData[ButtonBox["13.0 Note regarding Exploring Abstract Algebra with \
+Mathematica",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab13.nb"}], 
+   "a:13.14.13"}]], "Contents",
+ CellTags->{"gtoc", "gtoc13"}],
+
+Cell[TextData[ButtonBox["13.1 Prerequisites",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab13.nb"}], 
+   "a:13.15.13"}]], "Contents",
+ CellTags->{"gtoc", "gtoc13"}],
+
+Cell[TextData[ButtonBox["13.2 Goals for this lab",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab13.nb"}], 
+   "a:13.16.13"}]], "Contents",
+ CellTags->{"gtoc", "gtoc13"}],
+
+Cell[TextData[ButtonBox["13.3 What is a group homomorphism?",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab13.nb"}], 
+   "a:13.17.13"}]], "Contents",
+ CellTags->{"gtoc", "gtoc13"}],
+
+Cell[TextData[ButtonBox["13.4 The kernel and image",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab13.nb"}], 
+   "a:13.18.13"}]], "Contents",
+ CellTags->{"gtoc", "gtoc13"}],
+
+Cell[TextData[ButtonBox["13.4.1 The kernel",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab13.nb"}], 
+   "a:13.18.14.13"}]], "Index",
+ CellTags->{"gtoc", "gtoc13"}],
+
+Cell[TextData[ButtonBox["13.4.2 The image",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab13.nb"}], 
+   "a:13.18.15.13"}]], "Index",
+ CellTags->{"gtoc", "gtoc13"}],
+
+Cell[TextData[ButtonBox["13.5 Properties that are preserved by homomorphisms",
+ 
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab13.nb"}], 
+   "a:13.19.13"}]], "Contents",
+ CellTags->{"gtoc", "gtoc13"}],
+
+Cell[TextData[ButtonBox["13.6 The kernel is normal",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab13.nb"}], 
+   "a:13.20.13"}]], "Contents",
+ CellTags->{"gtoc", "gtoc13"}],
+
+Cell[TextData[ButtonBox["13.7 The First Homomorphism Theorem",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab13.nb"}], 
+   "a:13.21.13"}]], "Contents",
+ CellTags->{"gtoc", "gtoc13"}],
+
+Cell[TextData[ButtonBox["13.7.1 Example 2",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab13.nb"}], 
+   "a:13.21.14.13"}]], "Index",
+ CellTags->{"gtoc", "gtoc13"}],
+
+Cell[TextData[ButtonBox["13.7.2 Example 3",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab13.nb"}], 
+   "a:13.21.15.13"}]], "Index",
+ CellTags->{"gtoc", "gtoc13"}],
+
+Cell[TextData[{
+ ButtonBox["13.8 The alternating group",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+      "AbstractAlgebra", "GroupLabs", "GrpLab13.nb"}], "a:13.22.13"}],
+ ButtonBox["\[LongDash]",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+      "AbstractAlgebra", "GroupLabs", "GrpLab13.nb"}], "a:13.22.13"}],
+ ButtonBox["parity as a morphism",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+      "AbstractAlgebra", "GroupLabs", "GrpLab13.nb"}], "a:13.22.13"}]
+}], "Contents",
+ CellTags->{"gtoc", "gtoc13"}],
+
+Cell[TextData[ButtonBox["13.9 Mathematica commands used in this lab",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab13.nb"}], 
+   "a:13.23.13"}]], "Contents",
+ CellTags->{"gtoc", "gtoc13"}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Group Lab 14", "Subsection",
+ CellTags->"gtoc14"],
+
+Cell[TextData[ButtonBox["Group Lab 14: Rotational Groups of Regular Polyhedra",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab14.nb"}], 
+   "a:14.14"}]], "ContentsSection",
+ CellTags->{"gtoc", "gtoc14"}],
+
+Cell[TextData[ButtonBox["14.0 Note regarding Exploring Abstract Algebra with \
+Mathematica",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab14.nb"}], 
+   "a:14.15.14"}]], "Contents",
+ CellTags->{"gtoc", "gtoc14"}],
+
+Cell[TextData[ButtonBox["14.1 Prerequisites",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab14.nb"}], 
+   "a:14.16.14"}]], "Contents",
+ CellTags->{"gtoc", "gtoc14"}],
+
+Cell[TextData[ButtonBox["14.2 Goals for this lab",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab14.nb"}], 
+   "a:14.17.14"}]], "Contents",
+ CellTags->{"gtoc", "gtoc14"}],
+
+Cell[TextData[ButtonBox["14.3 The rotational group of the tetrahedron",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab14.nb"}], 
+   "a:14.18.14"}]], "Contents",
+ CellTags->{"gtoc", "gtoc14"}],
+
+Cell[TextData[ButtonBox["14.3.1 Statement of the problem, first rotation",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab14.nb"}], 
+   "a:14.18.15.14"}]], "Index",
+ CellTags->{"gtoc", "gtoc14"}],
+
+Cell[TextData[ButtonBox["14.3.2 Generation of more rotations",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab14.nb"}], 
+   "a:14.18.16.14"}]], "Index",
+ CellTags->{"gtoc", "gtoc14"}],
+
+Cell[TextData[ButtonBox["14.3.3 Procedure for finding more complicated \
+rotations",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab14.nb"}], 
+   "a:14.18.17.14"}]], "Index",
+ CellTags->{"gtoc", "gtoc14"}],
+
+Cell[TextData[ButtonBox["14.3.4 Verification that we have the complete \
+rotational group",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab14.nb"}], 
+   "a:14.18.18.14"}]], "Index",
+ CellTags->{"gtoc", "gtoc14"}],
+
+Cell[TextData[ButtonBox["14.4 Further exercises",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab14.nb"}], 
+   "a:14.19.14"}]], "Contents",
+ CellTags->{"gtoc", "gtoc14"}],
+
+Cell[TextData[ButtonBox["14.5 Mathematica commands used in this lab",
+ BaseStyle->"Hyperlink",
+ ButtonData:>{
+   FrontEnd`FileName[{$TopDirectory, "AddOns", "Applications", 
+     "AbstractAlgebra", "GroupLabs", "GrpLab14.nb"}], 
+   "a:14.20.14"}]], "Contents",
+ CellTags->{"gtoc", "gtoc14"}]
+}, Closed]]
+},
+ScreenStyleEnvironment->"AllBrackets",
+WindowSize->{547, 334},
+WindowMargins->{{17, Automatic}, {Automatic, 30}},
+WindowTitle->Automatic,
+ShowGroupOpener->True,
+TaggingRules:>{"TOCNotebook" -> True},
+MacintoshSystemPageSetup -> \
+"00<00018050000000_02P?oLon`2m0:D0@85:0?l00400018050000000_02P01@\n\
+0202P0b001P00@4100000BL?00410@00000000000000000000000@0000000000\n\
+00000000000000000000000000000000",
+FrontEndVersion->"7.0 for Mac OS X x86 (32-bit) (November 11, 2008)",
+StyleDefinitions->"Manual.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "gtoc0"->{
+  Cell[649, 25, 55, 1, 34, "Subsection",
+   CellTags->"gtoc0"],
+  Cell[707, 28, 625, 12, 82, "Text",
+   CellTags->{"gtoc", "gtoc0"}]},
+ "gtoc"->{
+  Cell[707, 28, 625, 12, 82, "Text",
+   CellTags->{"gtoc", "gtoc0"}],
+  Cell[1425, 48, 296, 6, 37, "ContentsSection",
+   CellTags->{"gtoc", "gtoc1"}],
+  Cell[1724, 56, 307, 7, 22, "Contents",
+   CellTags->{"gtoc", "gtoc1"}],
+  Cell[2034, 65, 260, 6, 22, "Contents",
+   CellTags->{"gtoc", "gtoc1"}],
+  Cell[2297, 73, 265, 6, 22, "Contents",
+   CellTags->{"gtoc", "gtoc1"}],
+  Cell[2565, 81, 276, 6, 22, "Contents",
+   CellTags->{"gtoc", "gtoc1"}],
+  Cell[2844, 89, 284, 6, 22, "Contents",
+   CellTags->{"gtoc", "gtoc1"}],
+  Cell[3131, 97, 274, 6, 22, "Contents",
+   CellTags->{"gtoc", "gtoc1"}],
+  Cell[3408, 105, 278, 6, 22, "Contents",
+   CellTags->{"gtoc", "gtoc1"}],
+  Cell[3689, 113, 271, 6, 22, "Contents",
+   CellTags->{"gtoc", "gtoc1"}],
+  Cell[3963, 121, 287, 6, 22, "Contents",
+   CellTags->{"gtoc", "gtoc1"}],
+  Cell[4253, 129, 284, 6, 22, "Contents",
+   CellTags->{"gtoc", "gtoc1"}],
+  Cell[4540, 137, 289, 6, 22, "Contents",
+   CellTags->{"gtoc", "gtoc1"}],
+  Cell[4832, 145, 280, 6, 22, "Contents",
+   CellTags->{"gtoc", "gtoc1"}],
+  Cell[5115, 153, 265, 6, 14, "Index",
+   CellTags->{"gtoc", "gtoc1"}],
+  Cell[5383, 161, 272, 6, 14, "Index",
+   CellTags->{"gtoc", "gtoc1"}],
+  Cell[5658, 169, 259, 6, 14, "Index",
+   CellTags->{"gtoc", "gtoc1"}],
+  Cell[5920, 177, 261, 6, 22, "Contents",
+   CellTags->{"gtoc", "gtoc1"}],
+  Cell[6184, 185, 682, 17, 22, "Contents",
+   CellTags->{"gtoc", "gtoc1"}],
+  Cell[6869, 204, 288, 6, 22, "Contents",
+   CellTags->{"gtoc", "gtoc1"}],
+  Cell[7250, 218, 310, 7, 49, "ContentsSection",
+   CellTags->{"gtoc", "gtoc2"}],
+  Cell[7563, 227, 300, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc2"}],
+  Cell[7866, 235, 260, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc2"}],
+  Cell[8129, 243, 265, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc2"}],
+  Cell[8397, 251, 278, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc2"}],
+  Cell[8678, 259, 263, 6, 26, "Index",
+   CellTags->{"gtoc", "gtoc2"}],
+  Cell[8944, 267, 286, 6, 26, "Index",
+   CellTags->{"gtoc", "gtoc2"}],
+  Cell[9233, 275, 256, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc2"}],
+  Cell[9492, 283, 284, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc2"}],
+  Cell[9869, 297, 279, 6, 49, "ContentsSection",
+   CellTags->{"gtoc", "gtoc3"}],
+  Cell[10151, 305, 307, 7, 34, "Contents",
+   CellTags->{"gtoc", "gtoc3"}],
+  Cell[10461, 314, 260, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc3"}],
+  Cell[10724, 322, 265, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc3"}],
+  Cell[10992, 330, 271, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc3"}],
+  Cell[11266, 338, 256, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc3"}],
+  Cell[11525, 346, 284, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc3"}],
+  Cell[11902, 360, 692, 17, 49, "ContentsSection",
+   CellTags->{"gtoc", "gtoc4"}],
+  Cell[12597, 379, 307, 7, 34, "Contents",
+   CellTags->{"gtoc", "gtoc4"}],
+  Cell[12907, 388, 260, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc4"}],
+  Cell[13170, 396, 265, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc4"}],
+  Cell[13438, 404, 706, 21, 32, "Contents",
+   CellTags->{"gtoc", "gtoc4"}],
+  Cell[14147, 427, 767, 22, 33, "Contents",
+   CellTags->{"gtoc", "gtoc4"}],
+  Cell[14917, 451, 272, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc4"}],
+  Cell[15192, 459, 971, 31, 33, "Contents",
+   CellTags->{"gtoc", "gtoc4"}],
+  Cell[16166, 492, 680, 20, 33, "Contents",
+   CellTags->{"gtoc", "gtoc4"}],
+  Cell[16849, 514, 287, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc4"}],
+  Cell[17229, 528, 297, 6, 49, "ContentsSection",
+   CellTags->{"gtoc", "gtoc5"}],
+  Cell[17529, 536, 307, 7, 34, "Contents",
+   CellTags->{"gtoc", "gtoc5"}],
+  Cell[17839, 545, 260, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc5"}],
+  Cell[18102, 553, 265, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc5"}],
+  Cell[18370, 561, 274, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc5"}],
+  Cell[18647, 569, 686, 20, 33, "Contents",
+   CellTags->{"gtoc", "gtoc5"}],
+  Cell[19336, 591, 953, 30, 33, "Contents",
+   CellTags->{"gtoc", "gtoc5"}],
+  Cell[20292, 623, 285, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc5"}],
+  Cell[20580, 631, 664, 20, 33, "Contents",
+   CellTags->{"gtoc", "gtoc5"}],
+  Cell[21247, 653, 287, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc5"}],
+  Cell[21627, 667, 289, 6, 49, "ContentsSection",
+   CellTags->{"gtoc", "gtoc6"}],
+  Cell[21919, 675, 307, 7, 34, "Contents",
+   CellTags->{"gtoc", "gtoc6"}],
+  Cell[22229, 684, 260, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc6"}],
+  Cell[22492, 692, 265, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc6"}],
+  Cell[22760, 700, 294, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc6"}],
+  Cell[23057, 708, 775, 22, 33, "Contents",
+   CellTags->{"gtoc", "gtoc6"}],
+  Cell[23835, 732, 512, 12, 34, "Contents",
+   CellTags->{"gtoc", "gtoc6"}],
+  Cell[24350, 746, 287, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc6"}],
+  Cell[24730, 760, 275, 6, 49, "ContentsSection",
+   CellTags->{"gtoc", "gtoc7"}],
+  Cell[25008, 768, 307, 7, 34, "Contents",
+   CellTags->{"gtoc", "gtoc7"}],
+  Cell[25318, 777, 260, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc7"}],
+  Cell[25581, 785, 268, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc7"}],
+  Cell[25852, 793, 272, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc7"}],
+  Cell[26127, 801, 280, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc7"}],
+  Cell[26410, 809, 278, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc7"}],
+  Cell[26691, 817, 278, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc7"}],
+  Cell[26972, 825, 287, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc7"}],
+  Cell[27352, 839, 275, 6, 49, "ContentsSection",
+   CellTags->{"gtoc", "gtoc8"}],
+  Cell[27630, 847, 307, 7, 34, "Contents",
+   CellTags->{"gtoc", "gtoc8"}],
+  Cell[27940, 856, 263, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc8"}],
+  Cell[28206, 864, 268, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc8"}],
+  Cell[28477, 872, 273, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc8"}],
+  Cell[28753, 880, 268, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc8"}],
+  Cell[29024, 888, 269, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc8"}],
+  Cell[29296, 896, 258, 6, 26, "Index",
+   CellTags->{"gtoc", "gtoc8"}],
+  Cell[29557, 904, 261, 6, 26, "Index",
+   CellTags->{"gtoc", "gtoc8"}],
+  Cell[29821, 912, 261, 6, 26, "Index",
+   CellTags->{"gtoc", "gtoc8"}],
+  Cell[30085, 920, 261, 6, 26, "Index",
+   CellTags->{"gtoc", "gtoc8"}],
+  Cell[30349, 928, 287, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc8"}],
+  Cell[30729, 942, 276, 6, 49, "ContentsSection",
+   CellTags->{"gtoc", "gtoc9"}],
+  Cell[31008, 950, 310, 7, 34, "Contents",
+   CellTags->{"gtoc", "gtoc9"}],
+  Cell[31321, 959, 263, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc9"}],
+  Cell[31587, 967, 268, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc9"}],
+  Cell[31858, 975, 737, 22, 33, "Contents",
+   CellTags->{"gtoc", "gtoc9"}],
+  Cell[32598, 999, 269, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc9"}],
+  Cell[32870, 1007, 287, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc9"}],
+  Cell[33252, 1021, 282, 6, 49, "ContentsSection",
+   CellTags->{"gtoc", "gtoc10"}],
+  Cell[33537, 1029, 314, 7, 34, "Contents",
+   CellTags->{"gtoc", "gtoc10"}],
+  Cell[33854, 1038, 267, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc10"}],
+  Cell[34124, 1046, 272, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc10"}],
+  Cell[34399, 1054, 279, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc10"}],
+  Cell[34681, 1062, 293, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc10"}],
+  Cell[34977, 1070, 305, 7, 34, "Contents",
+   CellTags->{"gtoc", "gtoc10"}],
+  Cell[35285, 1079, 705, 21, 33, "Contents",
+   CellTags->{"gtoc", "gtoc10"}],
+  Cell[35993, 1102, 291, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc10"}],
+  Cell[36379, 1116, 273, 6, 49, "ContentsSection",
+   CellTags->{"gtoc", "gtoc11"}],
+  Cell[36655, 1124, 314, 7, 34, "Contents",
+   CellTags->{"gtoc", "gtoc11"}],
+  Cell[36972, 1133, 267, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc11"}],
+  Cell[37242, 1141, 272, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc11"}],
+  Cell[37517, 1149, 276, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc11"}],
+  Cell[37796, 1157, 274, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc11"}],
+  Cell[38073, 1165, 291, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc11"}],
+  Cell[38459, 1179, 294, 6, 49, "ContentsSection",
+   CellTags->{"gtoc", "gtoc12"}],
+  Cell[38756, 1187, 314, 7, 34, "Contents",
+   CellTags->{"gtoc", "gtoc12"}],
+  Cell[39073, 1196, 267, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc12"}],
+  Cell[39343, 1204, 272, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc12"}],
+  Cell[39618, 1212, 270, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc12"}],
+  Cell[39891, 1220, 272, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc12"}],
+  Cell[40166, 1228, 267, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc12"}],
+  Cell[40436, 1236, 291, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc12"}],
+  Cell[40822, 1250, 286, 6, 49, "ContentsSection",
+   CellTags->{"gtoc", "gtoc13"}],
+  Cell[41111, 1258, 314, 7, 34, "Contents",
+   CellTags->{"gtoc", "gtoc13"}],
+  Cell[41428, 1267, 267, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc13"}],
+  Cell[41698, 1275, 272, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc13"}],
+  Cell[41973, 1283, 283, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc13"}],
+  Cell[42259, 1291, 274, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc13"}],
+  Cell[42536, 1299, 266, 6, 26, "Index",
+   CellTags->{"gtoc", "gtoc13"}],
+  Cell[42805, 1307, 265, 6, 26, "Index",
+   CellTags->{"gtoc", "gtoc13"}],
+  Cell[43073, 1315, 302, 7, 34, "Contents",
+   CellTags->{"gtoc", "gtoc13"}],
+  Cell[43378, 1324, 274, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc13"}],
+  Cell[43655, 1332, 284, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc13"}],
+  Cell[43942, 1340, 265, 6, 26, "Index",
+   CellTags->{"gtoc", "gtoc13"}],
+  Cell[44210, 1348, 265, 6, 26, "Index",
+   CellTags->{"gtoc", "gtoc13"}],
+  Cell[44478, 1356, 697, 17, 34, "Contents",
+   CellTags->{"gtoc", "gtoc13"}],
+  Cell[45178, 1375, 291, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc13"}],
+  Cell[45564, 1389, 305, 6, 37, "ContentsSection",
+   CellTags->{"gtoc", "gtoc14"}],
+  Cell[45872, 1397, 314, 7, 22, "Contents",
+   CellTags->{"gtoc", "gtoc14"}],
+  Cell[46189, 1406, 267, 6, 22, "Contents",
+   CellTags->{"gtoc", "gtoc14"}],
+  Cell[46459, 1414, 272, 6, 22, "Contents",
+   CellTags->{"gtoc", "gtoc14"}],
+  Cell[46734, 1422, 293, 6, 22, "Contents",
+   CellTags->{"gtoc", "gtoc14"}],
+  Cell[47030, 1430, 296, 6, 14, "Index",
+   CellTags->{"gtoc", "gtoc14"}],
+  Cell[47329, 1438, 284, 6, 14, "Index",
+   CellTags->{"gtoc", "gtoc14"}],
+  Cell[47616, 1446, 306, 7, 14, "Index",
+   CellTags->{"gtoc", "gtoc14"}],
+  Cell[47925, 1455, 313, 7, 14, "Index",
+   CellTags->{"gtoc", "gtoc14"}],
+  Cell[48241, 1464, 271, 6, 22, "Contents",
+   CellTags->{"gtoc", "gtoc14"}],
+  Cell[48515, 1472, 291, 6, 22, "Contents",
+   CellTags->{"gtoc", "gtoc14"}]},
+ "gtoc1"->{
+  Cell[1369, 45, 53, 1, 26, "Subsection",
+   CellTags->"gtoc1"],
+  Cell[1425, 48, 296, 6, 37, "ContentsSection",
+   CellTags->{"gtoc", "gtoc1"}],
+  Cell[1724, 56, 307, 7, 22, "Contents",
+   CellTags->{"gtoc", "gtoc1"}],
+  Cell[2034, 65, 260, 6, 22, "Contents",
+   CellTags->{"gtoc", "gtoc1"}],
+  Cell[2297, 73, 265, 6, 22, "Contents",
+   CellTags->{"gtoc", "gtoc1"}],
+  Cell[2565, 81, 276, 6, 22, "Contents",
+   CellTags->{"gtoc", "gtoc1"}],
+  Cell[2844, 89, 284, 6, 22, "Contents",
+   CellTags->{"gtoc", "gtoc1"}],
+  Cell[3131, 97, 274, 6, 22, "Contents",
+   CellTags->{"gtoc", "gtoc1"}],
+  Cell[3408, 105, 278, 6, 22, "Contents",
+   CellTags->{"gtoc", "gtoc1"}],
+  Cell[3689, 113, 271, 6, 22, "Contents",
+   CellTags->{"gtoc", "gtoc1"}],
+  Cell[3963, 121, 287, 6, 22, "Contents",
+   CellTags->{"gtoc", "gtoc1"}],
+  Cell[4253, 129, 284, 6, 22, "Contents",
+   CellTags->{"gtoc", "gtoc1"}],
+  Cell[4540, 137, 289, 6, 22, "Contents",
+   CellTags->{"gtoc", "gtoc1"}],
+  Cell[4832, 145, 280, 6, 22, "Contents",
+   CellTags->{"gtoc", "gtoc1"}],
+  Cell[5115, 153, 265, 6, 14, "Index",
+   CellTags->{"gtoc", "gtoc1"}],
+  Cell[5383, 161, 272, 6, 14, "Index",
+   CellTags->{"gtoc", "gtoc1"}],
+  Cell[5658, 169, 259, 6, 14, "Index",
+   CellTags->{"gtoc", "gtoc1"}],
+  Cell[5920, 177, 261, 6, 22, "Contents",
+   CellTags->{"gtoc", "gtoc1"}],
+  Cell[6184, 185, 682, 17, 22, "Contents",
+   CellTags->{"gtoc", "gtoc1"}],
+  Cell[6869, 204, 288, 6, 22, "Contents",
+   CellTags->{"gtoc", "gtoc1"}]},
+ "gtoc2"->{
+  Cell[7194, 215, 53, 1, 26, "Subsection",
+   CellTags->"gtoc2"],
+  Cell[7250, 218, 310, 7, 49, "ContentsSection",
+   CellTags->{"gtoc", "gtoc2"}],
+  Cell[7563, 227, 300, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc2"}],
+  Cell[7866, 235, 260, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc2"}],
+  Cell[8129, 243, 265, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc2"}],
+  Cell[8397, 251, 278, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc2"}],
+  Cell[8678, 259, 263, 6, 26, "Index",
+   CellTags->{"gtoc", "gtoc2"}],
+  Cell[8944, 267, 286, 6, 26, "Index",
+   CellTags->{"gtoc", "gtoc2"}],
+  Cell[9233, 275, 256, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc2"}],
+  Cell[9492, 283, 284, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc2"}]},
+ "gtoc3"->{
+  Cell[9813, 294, 53, 1, 26, "Subsection",
+   CellTags->"gtoc3"],
+  Cell[9869, 297, 279, 6, 49, "ContentsSection",
+   CellTags->{"gtoc", "gtoc3"}],
+  Cell[10151, 305, 307, 7, 34, "Contents",
+   CellTags->{"gtoc", "gtoc3"}],
+  Cell[10461, 314, 260, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc3"}],
+  Cell[10724, 322, 265, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc3"}],
+  Cell[10992, 330, 271, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc3"}],
+  Cell[11266, 338, 256, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc3"}],
+  Cell[11525, 346, 284, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc3"}]},
+ "gtoc4"->{
+  Cell[11846, 357, 53, 1, 26, "Subsection",
+   CellTags->"gtoc4"],
+  Cell[11902, 360, 692, 17, 49, "ContentsSection",
+   CellTags->{"gtoc", "gtoc4"}],
+  Cell[12597, 379, 307, 7, 34, "Contents",
+   CellTags->{"gtoc", "gtoc4"}],
+  Cell[12907, 388, 260, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc4"}],
+  Cell[13170, 396, 265, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc4"}],
+  Cell[13438, 404, 706, 21, 32, "Contents",
+   CellTags->{"gtoc", "gtoc4"}],
+  Cell[14147, 427, 767, 22, 33, "Contents",
+   CellTags->{"gtoc", "gtoc4"}],
+  Cell[14917, 451, 272, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc4"}],
+  Cell[15192, 459, 971, 31, 33, "Contents",
+   CellTags->{"gtoc", "gtoc4"}],
+  Cell[16166, 492, 680, 20, 33, "Contents",
+   CellTags->{"gtoc", "gtoc4"}],
+  Cell[16849, 514, 287, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc4"}]},
+ "gtoc5"->{
+  Cell[17173, 525, 53, 1, 26, "Subsection",
+   CellTags->"gtoc5"],
+  Cell[17229, 528, 297, 6, 49, "ContentsSection",
+   CellTags->{"gtoc", "gtoc5"}],
+  Cell[17529, 536, 307, 7, 34, "Contents",
+   CellTags->{"gtoc", "gtoc5"}],
+  Cell[17839, 545, 260, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc5"}],
+  Cell[18102, 553, 265, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc5"}],
+  Cell[18370, 561, 274, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc5"}],
+  Cell[18647, 569, 686, 20, 33, "Contents",
+   CellTags->{"gtoc", "gtoc5"}],
+  Cell[19336, 591, 953, 30, 33, "Contents",
+   CellTags->{"gtoc", "gtoc5"}],
+  Cell[20292, 623, 285, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc5"}],
+  Cell[20580, 631, 664, 20, 33, "Contents",
+   CellTags->{"gtoc", "gtoc5"}],
+  Cell[21247, 653, 287, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc5"}]},
+ "gtoc6"->{
+  Cell[21571, 664, 53, 1, 26, "Subsection",
+   CellTags->"gtoc6"],
+  Cell[21627, 667, 289, 6, 49, "ContentsSection",
+   CellTags->{"gtoc", "gtoc6"}],
+  Cell[21919, 675, 307, 7, 34, "Contents",
+   CellTags->{"gtoc", "gtoc6"}],
+  Cell[22229, 684, 260, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc6"}],
+  Cell[22492, 692, 265, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc6"}],
+  Cell[22760, 700, 294, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc6"}],
+  Cell[23057, 708, 775, 22, 33, "Contents",
+   CellTags->{"gtoc", "gtoc6"}],
+  Cell[23835, 732, 512, 12, 34, "Contents",
+   CellTags->{"gtoc", "gtoc6"}],
+  Cell[24350, 746, 287, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc6"}]},
+ "gtoc7"->{
+  Cell[24674, 757, 53, 1, 26, "Subsection",
+   CellTags->"gtoc7"],
+  Cell[24730, 760, 275, 6, 49, "ContentsSection",
+   CellTags->{"gtoc", "gtoc7"}],
+  Cell[25008, 768, 307, 7, 34, "Contents",
+   CellTags->{"gtoc", "gtoc7"}],
+  Cell[25318, 777, 260, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc7"}],
+  Cell[25581, 785, 268, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc7"}],
+  Cell[25852, 793, 272, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc7"}],
+  Cell[26127, 801, 280, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc7"}],
+  Cell[26410, 809, 278, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc7"}],
+  Cell[26691, 817, 278, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc7"}],
+  Cell[26972, 825, 287, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc7"}]},
+ "gtoc8"->{
+  Cell[27296, 836, 53, 1, 26, "Subsection",
+   CellTags->"gtoc8"],
+  Cell[27352, 839, 275, 6, 49, "ContentsSection",
+   CellTags->{"gtoc", "gtoc8"}],
+  Cell[27630, 847, 307, 7, 34, "Contents",
+   CellTags->{"gtoc", "gtoc8"}],
+  Cell[27940, 856, 263, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc8"}],
+  Cell[28206, 864, 268, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc8"}],
+  Cell[28477, 872, 273, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc8"}],
+  Cell[28753, 880, 268, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc8"}],
+  Cell[29024, 888, 269, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc8"}],
+  Cell[29296, 896, 258, 6, 26, "Index",
+   CellTags->{"gtoc", "gtoc8"}],
+  Cell[29557, 904, 261, 6, 26, "Index",
+   CellTags->{"gtoc", "gtoc8"}],
+  Cell[29821, 912, 261, 6, 26, "Index",
+   CellTags->{"gtoc", "gtoc8"}],
+  Cell[30085, 920, 261, 6, 26, "Index",
+   CellTags->{"gtoc", "gtoc8"}],
+  Cell[30349, 928, 287, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc8"}]},
+ "gtoc9"->{
+  Cell[30673, 939, 53, 1, 26, "Subsection",
+   CellTags->"gtoc9"],
+  Cell[30729, 942, 276, 6, 49, "ContentsSection",
+   CellTags->{"gtoc", "gtoc9"}],
+  Cell[31008, 950, 310, 7, 34, "Contents",
+   CellTags->{"gtoc", "gtoc9"}],
+  Cell[31321, 959, 263, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc9"}],
+  Cell[31587, 967, 268, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc9"}],
+  Cell[31858, 975, 737, 22, 33, "Contents",
+   CellTags->{"gtoc", "gtoc9"}],
+  Cell[32598, 999, 269, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc9"}],
+  Cell[32870, 1007, 287, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc9"}]},
+ "gtoc10"->{
+  Cell[33194, 1018, 55, 1, 26, "Subsection",
+   CellTags->"gtoc10"],
+  Cell[33252, 1021, 282, 6, 49, "ContentsSection",
+   CellTags->{"gtoc", "gtoc10"}],
+  Cell[33537, 1029, 314, 7, 34, "Contents",
+   CellTags->{"gtoc", "gtoc10"}],
+  Cell[33854, 1038, 267, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc10"}],
+  Cell[34124, 1046, 272, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc10"}],
+  Cell[34399, 1054, 279, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc10"}],
+  Cell[34681, 1062, 293, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc10"}],
+  Cell[34977, 1070, 305, 7, 34, "Contents",
+   CellTags->{"gtoc", "gtoc10"}],
+  Cell[35285, 1079, 705, 21, 33, "Contents",
+   CellTags->{"gtoc", "gtoc10"}],
+  Cell[35993, 1102, 291, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc10"}]},
+ "gtoc11"->{
+  Cell[36321, 1113, 55, 1, 26, "Subsection",
+   CellTags->"gtoc11"],
+  Cell[36379, 1116, 273, 6, 49, "ContentsSection",
+   CellTags->{"gtoc", "gtoc11"}],
+  Cell[36655, 1124, 314, 7, 34, "Contents",
+   CellTags->{"gtoc", "gtoc11"}],
+  Cell[36972, 1133, 267, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc11"}],
+  Cell[37242, 1141, 272, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc11"}],
+  Cell[37517, 1149, 276, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc11"}],
+  Cell[37796, 1157, 274, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc11"}],
+  Cell[38073, 1165, 291, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc11"}]},
+ "gtoc12"->{
+  Cell[38401, 1176, 55, 1, 30, "Subsection",
+   CellTags->"gtoc12"],
+  Cell[38459, 1179, 294, 6, 49, "ContentsSection",
+   CellTags->{"gtoc", "gtoc12"}],
+  Cell[38756, 1187, 314, 7, 34, "Contents",
+   CellTags->{"gtoc", "gtoc12"}],
+  Cell[39073, 1196, 267, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc12"}],
+  Cell[39343, 1204, 272, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc12"}],
+  Cell[39618, 1212, 270, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc12"}],
+  Cell[39891, 1220, 272, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc12"}],
+  Cell[40166, 1228, 267, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc12"}],
+  Cell[40436, 1236, 291, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc12"}]},
+ "gtoc13"->{
+  Cell[40764, 1247, 55, 1, 30, "Subsection",
+   CellTags->"gtoc13"],
+  Cell[40822, 1250, 286, 6, 49, "ContentsSection",
+   CellTags->{"gtoc", "gtoc13"}],
+  Cell[41111, 1258, 314, 7, 34, "Contents",
+   CellTags->{"gtoc", "gtoc13"}],
+  Cell[41428, 1267, 267, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc13"}],
+  Cell[41698, 1275, 272, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc13"}],
+  Cell[41973, 1283, 283, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc13"}],
+  Cell[42259, 1291, 274, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc13"}],
+  Cell[42536, 1299, 266, 6, 26, "Index",
+   CellTags->{"gtoc", "gtoc13"}],
+  Cell[42805, 1307, 265, 6, 26, "Index",
+   CellTags->{"gtoc", "gtoc13"}],
+  Cell[43073, 1315, 302, 7, 34, "Contents",
+   CellTags->{"gtoc", "gtoc13"}],
+  Cell[43378, 1324, 274, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc13"}],
+  Cell[43655, 1332, 284, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc13"}],
+  Cell[43942, 1340, 265, 6, 26, "Index",
+   CellTags->{"gtoc", "gtoc13"}],
+  Cell[44210, 1348, 265, 6, 26, "Index",
+   CellTags->{"gtoc", "gtoc13"}],
+  Cell[44478, 1356, 697, 17, 34, "Contents",
+   CellTags->{"gtoc", "gtoc13"}],
+  Cell[45178, 1375, 291, 6, 34, "Contents",
+   CellTags->{"gtoc", "gtoc13"}]},
+ "gtoc14"->{
+  Cell[45506, 1386, 55, 1, 30, "Subsection",
+   CellTags->"gtoc14"],
+  Cell[45564, 1389, 305, 6, 37, "ContentsSection",
+   CellTags->{"gtoc", "gtoc14"}],
+  Cell[45872, 1397, 314, 7, 22, "Contents",
+   CellTags->{"gtoc", "gtoc14"}],
+  Cell[46189, 1406, 267, 6, 22, "Contents",
+   CellTags->{"gtoc", "gtoc14"}],
+  Cell[46459, 1414, 272, 6, 22, "Contents",
+   CellTags->{"gtoc", "gtoc14"}],
+  Cell[46734, 1422, 293, 6, 22, "Contents",
+   CellTags->{"gtoc", "gtoc14"}],
+  Cell[47030, 1430, 296, 6, 14, "Index",
+   CellTags->{"gtoc", "gtoc14"}],
+  Cell[47329, 1438, 284, 6, 14, "Index",
+   CellTags->{"gtoc", "gtoc14"}],
+  Cell[47616, 1446, 306, 7, 14, "Index",
+   CellTags->{"gtoc", "gtoc14"}],
+  Cell[47925, 1455, 313, 7, 14, "Index",
+   CellTags->{"gtoc", "gtoc14"}],
+  Cell[48241, 1464, 271, 6, 22, "Contents",
+   CellTags->{"gtoc", "gtoc14"}],
+  Cell[48515, 1472, 291, 6, 22, "Contents",
+   CellTags->{"gtoc", "gtoc14"}]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"gtoc0", 49435, 1499},
+ {"gtoc", 49581, 1504},
+ {"gtoc1", 60506, 1789},
+ {"gtoc2", 62001, 1830},
+ {"gtoc3", 62756, 1851},
+ {"gtoc4", 63373, 1868},
+ {"gtoc5", 64225, 1891},
+ {"gtoc6", 65075, 1914},
+ {"gtoc7", 65772, 1933},
+ {"gtoc8", 66543, 1954},
+ {"gtoc9", 67530, 1981},
+ {"gtoc10", 68152, 1998},
+ {"gtoc11", 68945, 2019},
+ {"gtoc12", 69581, 2036},
+ {"gtoc13", 70295, 2055},
+ {"gtoc14", 71544, 2088}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[568, 21, 56, 0, 20, "ContentsTitle"],
+Cell[CellGroupData[{
+Cell[649, 25, 55, 1, 34, "Subsection",
+ CellTags->"gtoc0"],
+Cell[707, 28, 625, 12, 82, "Text",
+ CellTags->{"gtoc", "gtoc0"}]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1369, 45, 53, 1, 26, "Subsection",
+ CellTags->"gtoc1"],
+Cell[1425, 48, 296, 6, 37, "ContentsSection",
+ CellTags->{"gtoc", "gtoc1"}],
+Cell[1724, 56, 307, 7, 22, "Contents",
+ CellTags->{"gtoc", "gtoc1"}],
+Cell[2034, 65, 260, 6, 22, "Contents",
+ CellTags->{"gtoc", "gtoc1"}],
+Cell[2297, 73, 265, 6, 22, "Contents",
+ CellTags->{"gtoc", "gtoc1"}],
+Cell[2565, 81, 276, 6, 22, "Contents",
+ CellTags->{"gtoc", "gtoc1"}],
+Cell[2844, 89, 284, 6, 22, "Contents",
+ CellTags->{"gtoc", "gtoc1"}],
+Cell[3131, 97, 274, 6, 22, "Contents",
+ CellTags->{"gtoc", "gtoc1"}],
+Cell[3408, 105, 278, 6, 22, "Contents",
+ CellTags->{"gtoc", "gtoc1"}],
+Cell[3689, 113, 271, 6, 22, "Contents",
+ CellTags->{"gtoc", "gtoc1"}],
+Cell[3963, 121, 287, 6, 22, "Contents",
+ CellTags->{"gtoc", "gtoc1"}],
+Cell[4253, 129, 284, 6, 22, "Contents",
+ CellTags->{"gtoc", "gtoc1"}],
+Cell[4540, 137, 289, 6, 22, "Contents",
+ CellTags->{"gtoc", "gtoc1"}],
+Cell[4832, 145, 280, 6, 22, "Contents",
+ CellTags->{"gtoc", "gtoc1"}],
+Cell[5115, 153, 265, 6, 14, "Index",
+ CellTags->{"gtoc", "gtoc1"}],
+Cell[5383, 161, 272, 6, 14, "Index",
+ CellTags->{"gtoc", "gtoc1"}],
+Cell[5658, 169, 259, 6, 14, "Index",
+ CellTags->{"gtoc", "gtoc1"}],
+Cell[5920, 177, 261, 6, 22, "Contents",
+ CellTags->{"gtoc", "gtoc1"}],
+Cell[6184, 185, 682, 17, 22, "Contents",
+ CellTags->{"gtoc", "gtoc1"}],
+Cell[6869, 204, 288, 6, 22, "Contents",
+ CellTags->{"gtoc", "gtoc1"}]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[7194, 215, 53, 1, 26, "Subsection",
+ CellTags->"gtoc2"],
+Cell[7250, 218, 310, 7, 49, "ContentsSection",
+ CellTags->{"gtoc", "gtoc2"}],
+Cell[7563, 227, 300, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc2"}],
+Cell[7866, 235, 260, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc2"}],
+Cell[8129, 243, 265, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc2"}],
+Cell[8397, 251, 278, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc2"}],
+Cell[8678, 259, 263, 6, 26, "Index",
+ CellTags->{"gtoc", "gtoc2"}],
+Cell[8944, 267, 286, 6, 26, "Index",
+ CellTags->{"gtoc", "gtoc2"}],
+Cell[9233, 275, 256, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc2"}],
+Cell[9492, 283, 284, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc2"}]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[9813, 294, 53, 1, 26, "Subsection",
+ CellTags->"gtoc3"],
+Cell[9869, 297, 279, 6, 49, "ContentsSection",
+ CellTags->{"gtoc", "gtoc3"}],
+Cell[10151, 305, 307, 7, 34, "Contents",
+ CellTags->{"gtoc", "gtoc3"}],
+Cell[10461, 314, 260, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc3"}],
+Cell[10724, 322, 265, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc3"}],
+Cell[10992, 330, 271, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc3"}],
+Cell[11266, 338, 256, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc3"}],
+Cell[11525, 346, 284, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc3"}]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[11846, 357, 53, 1, 26, "Subsection",
+ CellTags->"gtoc4"],
+Cell[11902, 360, 692, 17, 49, "ContentsSection",
+ CellTags->{"gtoc", "gtoc4"}],
+Cell[12597, 379, 307, 7, 34, "Contents",
+ CellTags->{"gtoc", "gtoc4"}],
+Cell[12907, 388, 260, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc4"}],
+Cell[13170, 396, 265, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc4"}],
+Cell[13438, 404, 706, 21, 32, "Contents",
+ CellTags->{"gtoc", "gtoc4"}],
+Cell[14147, 427, 767, 22, 33, "Contents",
+ CellTags->{"gtoc", "gtoc4"}],
+Cell[14917, 451, 272, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc4"}],
+Cell[15192, 459, 971, 31, 33, "Contents",
+ CellTags->{"gtoc", "gtoc4"}],
+Cell[16166, 492, 680, 20, 33, "Contents",
+ CellTags->{"gtoc", "gtoc4"}],
+Cell[16849, 514, 287, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc4"}]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[17173, 525, 53, 1, 26, "Subsection",
+ CellTags->"gtoc5"],
+Cell[17229, 528, 297, 6, 49, "ContentsSection",
+ CellTags->{"gtoc", "gtoc5"}],
+Cell[17529, 536, 307, 7, 34, "Contents",
+ CellTags->{"gtoc", "gtoc5"}],
+Cell[17839, 545, 260, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc5"}],
+Cell[18102, 553, 265, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc5"}],
+Cell[18370, 561, 274, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc5"}],
+Cell[18647, 569, 686, 20, 33, "Contents",
+ CellTags->{"gtoc", "gtoc5"}],
+Cell[19336, 591, 953, 30, 33, "Contents",
+ CellTags->{"gtoc", "gtoc5"}],
+Cell[20292, 623, 285, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc5"}],
+Cell[20580, 631, 664, 20, 33, "Contents",
+ CellTags->{"gtoc", "gtoc5"}],
+Cell[21247, 653, 287, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc5"}]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[21571, 664, 53, 1, 26, "Subsection",
+ CellTags->"gtoc6"],
+Cell[21627, 667, 289, 6, 49, "ContentsSection",
+ CellTags->{"gtoc", "gtoc6"}],
+Cell[21919, 675, 307, 7, 34, "Contents",
+ CellTags->{"gtoc", "gtoc6"}],
+Cell[22229, 684, 260, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc6"}],
+Cell[22492, 692, 265, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc6"}],
+Cell[22760, 700, 294, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc6"}],
+Cell[23057, 708, 775, 22, 33, "Contents",
+ CellTags->{"gtoc", "gtoc6"}],
+Cell[23835, 732, 512, 12, 34, "Contents",
+ CellTags->{"gtoc", "gtoc6"}],
+Cell[24350, 746, 287, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc6"}]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[24674, 757, 53, 1, 26, "Subsection",
+ CellTags->"gtoc7"],
+Cell[24730, 760, 275, 6, 49, "ContentsSection",
+ CellTags->{"gtoc", "gtoc7"}],
+Cell[25008, 768, 307, 7, 34, "Contents",
+ CellTags->{"gtoc", "gtoc7"}],
+Cell[25318, 777, 260, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc7"}],
+Cell[25581, 785, 268, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc7"}],
+Cell[25852, 793, 272, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc7"}],
+Cell[26127, 801, 280, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc7"}],
+Cell[26410, 809, 278, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc7"}],
+Cell[26691, 817, 278, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc7"}],
+Cell[26972, 825, 287, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc7"}]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[27296, 836, 53, 1, 26, "Subsection",
+ CellTags->"gtoc8"],
+Cell[27352, 839, 275, 6, 49, "ContentsSection",
+ CellTags->{"gtoc", "gtoc8"}],
+Cell[27630, 847, 307, 7, 34, "Contents",
+ CellTags->{"gtoc", "gtoc8"}],
+Cell[27940, 856, 263, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc8"}],
+Cell[28206, 864, 268, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc8"}],
+Cell[28477, 872, 273, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc8"}],
+Cell[28753, 880, 268, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc8"}],
+Cell[29024, 888, 269, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc8"}],
+Cell[29296, 896, 258, 6, 26, "Index",
+ CellTags->{"gtoc", "gtoc8"}],
+Cell[29557, 904, 261, 6, 26, "Index",
+ CellTags->{"gtoc", "gtoc8"}],
+Cell[29821, 912, 261, 6, 26, "Index",
+ CellTags->{"gtoc", "gtoc8"}],
+Cell[30085, 920, 261, 6, 26, "Index",
+ CellTags->{"gtoc", "gtoc8"}],
+Cell[30349, 928, 287, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc8"}]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[30673, 939, 53, 1, 26, "Subsection",
+ CellTags->"gtoc9"],
+Cell[30729, 942, 276, 6, 49, "ContentsSection",
+ CellTags->{"gtoc", "gtoc9"}],
+Cell[31008, 950, 310, 7, 34, "Contents",
+ CellTags->{"gtoc", "gtoc9"}],
+Cell[31321, 959, 263, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc9"}],
+Cell[31587, 967, 268, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc9"}],
+Cell[31858, 975, 737, 22, 33, "Contents",
+ CellTags->{"gtoc", "gtoc9"}],
+Cell[32598, 999, 269, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc9"}],
+Cell[32870, 1007, 287, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc9"}]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[33194, 1018, 55, 1, 26, "Subsection",
+ CellTags->"gtoc10"],
+Cell[33252, 1021, 282, 6, 49, "ContentsSection",
+ CellTags->{"gtoc", "gtoc10"}],
+Cell[33537, 1029, 314, 7, 34, "Contents",
+ CellTags->{"gtoc", "gtoc10"}],
+Cell[33854, 1038, 267, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc10"}],
+Cell[34124, 1046, 272, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc10"}],
+Cell[34399, 1054, 279, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc10"}],
+Cell[34681, 1062, 293, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc10"}],
+Cell[34977, 1070, 305, 7, 34, "Contents",
+ CellTags->{"gtoc", "gtoc10"}],
+Cell[35285, 1079, 705, 21, 33, "Contents",
+ CellTags->{"gtoc", "gtoc10"}],
+Cell[35993, 1102, 291, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc10"}]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[36321, 1113, 55, 1, 26, "Subsection",
+ CellTags->"gtoc11"],
+Cell[36379, 1116, 273, 6, 49, "ContentsSection",
+ CellTags->{"gtoc", "gtoc11"}],
+Cell[36655, 1124, 314, 7, 34, "Contents",
+ CellTags->{"gtoc", "gtoc11"}],
+Cell[36972, 1133, 267, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc11"}],
+Cell[37242, 1141, 272, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc11"}],
+Cell[37517, 1149, 276, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc11"}],
+Cell[37796, 1157, 274, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc11"}],
+Cell[38073, 1165, 291, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc11"}]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[38401, 1176, 55, 1, 30, "Subsection",
+ CellTags->"gtoc12"],
+Cell[38459, 1179, 294, 6, 49, "ContentsSection",
+ CellTags->{"gtoc", "gtoc12"}],
+Cell[38756, 1187, 314, 7, 34, "Contents",
+ CellTags->{"gtoc", "gtoc12"}],
+Cell[39073, 1196, 267, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc12"}],
+Cell[39343, 1204, 272, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc12"}],
+Cell[39618, 1212, 270, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc12"}],
+Cell[39891, 1220, 272, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc12"}],
+Cell[40166, 1228, 267, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc12"}],
+Cell[40436, 1236, 291, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc12"}]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[40764, 1247, 55, 1, 30, "Subsection",
+ CellTags->"gtoc13"],
+Cell[40822, 1250, 286, 6, 49, "ContentsSection",
+ CellTags->{"gtoc", "gtoc13"}],
+Cell[41111, 1258, 314, 7, 34, "Contents",
+ CellTags->{"gtoc", "gtoc13"}],
+Cell[41428, 1267, 267, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc13"}],
+Cell[41698, 1275, 272, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc13"}],
+Cell[41973, 1283, 283, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc13"}],
+Cell[42259, 1291, 274, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc13"}],
+Cell[42536, 1299, 266, 6, 26, "Index",
+ CellTags->{"gtoc", "gtoc13"}],
+Cell[42805, 1307, 265, 6, 26, "Index",
+ CellTags->{"gtoc", "gtoc13"}],
+Cell[43073, 1315, 302, 7, 34, "Contents",
+ CellTags->{"gtoc", "gtoc13"}],
+Cell[43378, 1324, 274, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc13"}],
+Cell[43655, 1332, 284, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc13"}],
+Cell[43942, 1340, 265, 6, 26, "Index",
+ CellTags->{"gtoc", "gtoc13"}],
+Cell[44210, 1348, 265, 6, 26, "Index",
+ CellTags->{"gtoc", "gtoc13"}],
+Cell[44478, 1356, 697, 17, 34, "Contents",
+ CellTags->{"gtoc", "gtoc13"}],
+Cell[45178, 1375, 291, 6, 34, "Contents",
+ CellTags->{"gtoc", "gtoc13"}]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[45506, 1386, 55, 1, 30, "Subsection",
+ CellTags->"gtoc14"],
+Cell[45564, 1389, 305, 6, 37, "ContentsSection",
+ CellTags->{"gtoc", "gtoc14"}],
+Cell[45872, 1397, 314, 7, 22, "Contents",
+ CellTags->{"gtoc", "gtoc14"}],
+Cell[46189, 1406, 267, 6, 22, "Contents",
+ CellTags->{"gtoc", "gtoc14"}],
+Cell[46459, 1414, 272, 6, 22, "Contents",
+ CellTags->{"gtoc", "gtoc14"}],
+Cell[46734, 1422, 293, 6, 22, "Contents",
+ CellTags->{"gtoc", "gtoc14"}],
+Cell[47030, 1430, 296, 6, 14, "Index",
+ CellTags->{"gtoc", "gtoc14"}],
+Cell[47329, 1438, 284, 6, 14, "Index",
+ CellTags->{"gtoc", "gtoc14"}],
+Cell[47616, 1446, 306, 7, 14, "Index",
+ CellTags->{"gtoc", "gtoc14"}],
+Cell[47925, 1455, 313, 7, 14, "Index",
+ CellTags->{"gtoc", "gtoc14"}],
+Cell[48241, 1464, 271, 6, 22, "Contents",
+ CellTags->{"gtoc", "gtoc14"}],
+Cell[48515, 1472, 291, 6, 22, "Contents",
+ CellTags->{"gtoc", "gtoc14"}]
+}, Closed]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

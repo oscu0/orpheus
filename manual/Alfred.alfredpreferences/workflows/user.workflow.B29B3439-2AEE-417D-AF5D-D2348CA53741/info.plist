@@ -10,7 +10,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>7E9E03D0-6775-4181-8F4E-409708A07045</string>
+				<string>72918059-EC5F-48EC-9E23-2A247E544450</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -34,11 +34,11 @@
 			<key>config</key>
 			<dict>
 				<key>acceptsmulti</key>
-				<true/>
+				<integer>1</integer>
 				<key>filetypes</key>
 				<array/>
 				<key>name</key>
-				<string>Add to Yoink</string>
+				<string>Yoink</string>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.trigger.action</string>
@@ -53,20 +53,27 @@
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
-				<integer>127</integer>
+				<integer>68</integer>
 				<key>script</key>
-				<string>open -a Yoink {query}</string>
+				<string>on run argv
+	set pathArray to {}
+	repeat with theString in argv
+		set theFile to POSIX file theString as alias
+		set end of pathArray to theFile
+	end repeat
+	tell application "Yoink" to open pathArray
+end run</string>
 				<key>scriptargtype</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>scriptfile</key>
 				<string></string>
 				<key>type</key>
-				<integer>0</integer>
+				<integer>6</integer>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>7E9E03D0-6775-4181-8F4E-409708A07045</string>
+			<string>72918059-EC5F-48EC-9E23-2A247E544450</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
@@ -78,20 +85,22 @@
 		<key>4D849787-EE89-4427-A454-941182D77049</key>
 		<dict>
 			<key>xpos</key>
-			<integer>100</integer>
+			<real>100</real>
 			<key>ypos</key>
-			<real>10</real>
+			<real>120</real>
 		</dict>
-		<key>7E9E03D0-6775-4181-8F4E-409708A07045</key>
+		<key>72918059-EC5F-48EC-9E23-2A247E544450</key>
 		<dict>
 			<key>xpos</key>
-			<integer>700</integer>
+			<real>430</real>
 			<key>ypos</key>
-			<real>10</real>
+			<real>120</real>
 		</dict>
 	</dict>
+	<key>userconfigurationconfig</key>
+	<array/>
 	<key>version</key>
-	<string>3.3</string>
+	<string>3.5.3</string>
 	<key>webaddress</key>
 	<string>http://eternalstorms.at/yoink</string>
 </dict>

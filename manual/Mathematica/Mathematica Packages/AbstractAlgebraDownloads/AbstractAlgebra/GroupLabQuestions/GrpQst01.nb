@@ -1,0 +1,307 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 6.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[      8559,        297]
+NotebookOptionsPosition[      6544,        227]
+NotebookOutlinePosition[      8102,        279]
+CellTagsIndexPosition[      8059,        276]
+WindowFrame->Normal
+ContainsDynamic->False*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[{
+ StyleBox["Exploring Abstract Algebra with Mathematica\n",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Al Hibbard and Ken Levasseur",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->14,
+  FontSlant->"Plain"],
+ StyleBox["\n",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["\[Copyright] Copyright 1998 Springer-Verlag New York, Inc.",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->10,
+  FontSlant->"Plain"]
+}], "Subsubtitle",
+ Evaluatable->False,
+ AspectRatioFixed->True],
+
+Cell[TextData[{
+ StyleBox["PLEASE NOTE",
+  FontWeight->"Bold"],
+ ": This is ",
+ StyleBox["not",
+  FontSlant->"Italic"],
+ " the set of questions for the lab that you may have been expecting. If you \
+are a user of the book ",
+ StyleBox["Exploring Abstract Algebra with Mathematica",
+  FontSlant->"Italic"],
+ " (EAAM), you should  contact either of us (",
+ ButtonBox["hibbarda@central.edu",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    URL["mailto://hibbarda@central.edu"], None}],
+ " or ",
+ ButtonBox["Kenneth_Levasseur@uml.edu",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    URL["mailto://Kenneth_Levasseur@uml.edu"], None}],
+ ") for the files that contain the actual set of questions for the labs.\n\n\
+If you are not a user of EAAM, we apologize if you find this misleading. This \
+file mainly acts as a target to make the link work that you used to get here, \
+which allows us to have one set of documentation files independent of whether \
+one is a user of EAAM or not. For details about EAAM, you can go to our EAAM \
+",
+ ButtonBox["web page",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    URL["http://www.central.edu/homepages/hibbarda/EAAM/moreEAAM.html"], 
+    None}],
+ "."
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ StyleBox["Note regarding ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Exploring Abstract Algebra with",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic"],
+ StyleBox[" ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Mathematica",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic"]
+}], "Section",
+ Evaluatable->False,
+ AspectRatioFixed->True],
+
+Cell[TextData[{
+ StyleBox["This lab is intended to supplement an abstract algebra course. It \
+is part of a series of labs and packages under the name ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Exploring Abstract Algebra with Mathematica,",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic"],
+ StyleBox[" a joint project by Al Hibbard (Central College) and Ken Levasseur \
+(UMass-Lowell). This is also the title of a book published by TELOS/Springer \
+Verlag that contains this lab. This book includes labs for group theory, labs \
+for ring theory, and a user\[CloseCurlyQuote]s guide with printed and \
+electronic documentation.",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}], "Text",
+ Evaluatable->False],
+
+Cell[TextData[{
+ StyleBox["For more information on the ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Exploring Abstract Algebra with Mathematica",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic"],
+ StyleBox[" project, go to our web site at ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ ButtonBox["http://www.central.edu/eaam.html",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    URL["http://www.central.edu/eaam.html"], None}],
+ StyleBox[". This site is also mirrored at ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ ButtonBox["http://www.uml.edu/Dept/Math/eaam/eaam.html",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    URL["http://www.uml.edu/Dept/Math/eaam/eaam.html"], None}],
+ StyleBox[". There you will find the latest versions of the packages in ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["AbstractAlgebra",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Courier"],
+ StyleBox[", the latest palettes available to supplement ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["AbstractAlgebra",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Courier"],
+ StyleBox[", and other related resources.",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}], "Text",
+ Evaluatable->False],
+
+Cell[TextData[StyleBox["You may also contact either of the authors:",
+ Evaluatable->False,
+ AspectRatioFixed->True]], "Text",
+ Evaluatable->False],
+
+Cell[TextData[{
+ ButtonBox["Al Hibbard",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    URL["http://www.central.edu/homepages/hibbarda/hibbard.html"], None}],
+ StyleBox["\n",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ ButtonBox["Central College",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    URL["http://www.central.edu"], None}],
+ StyleBox["\nPella, IA 50219\n",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ ButtonBox["hibbarda@central.edu",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    URL["mailto://hibbarda@central.edu"], None}]
+}], "Text",
+ Evaluatable->False],
+
+Cell[TextData[{
+ ButtonBox["Ken Levasseur",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    URL["http://www.uml.edu/Dept/Math/LevasseuK.html"], None}],
+ StyleBox["\n",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ ButtonBox["UMass Lowell",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    URL["http://www.uml.edu"], None}],
+ StyleBox["\nLowell, MA",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ " ",
+ StyleBox["01854\n",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ ButtonBox["Kenneth_Levasseur@uml.edu",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    URL["mailto://Kenneth_Levasseur@uml.edu"], None}]
+}], "Text",
+ Evaluatable->False],
+
+Cell[TextData[{
+ StyleBox["Last revision: April 25, 1998\n\n",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["\[Copyright] Copyright 1998 Springer-Verlag New York, Inc.",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->10,
+  FontSlant->"Plain"]
+}], "Text",
+ Evaluatable->False]
+}, Closed]]
+}, Open  ]]
+},
+AutoGeneratedPackage->None,
+WindowToolbars->"EditBar",
+InitializationCellEvaluation->True,
+WindowSize->{628, 433},
+WindowMargins->{{4, Automatic}, {Automatic, 1}},
+PrintingCopies->1,
+PrintingPageRange->{1, Automatic},
+PageHeaders->{{
+   Cell[
+    TextData[{
+      StyleBox[
+       CounterBox["Page"], FontWeight -> "Bold"], "  ", 
+      StyleBox["Groups", FontSlant -> "Italic"]}], "Text"], Inherited, 
+   None}, {None, Inherited, 
+   Cell[
+    TextData[{
+      StyleBox[
+      "Lab 1 Using symmetry to uncover a group", FontSlant -> "Italic"], "  ",
+       
+      StyleBox[
+       CounterBox["Page"], FontWeight -> "Bold"]}], "Text"]}},
+PageHeaderLines->{False, False},
+PrintingOptions->{"FacingPages"->True,
+"FirstPageFooter"->False,
+"FirstPageHeader"->False,
+"PrintCellBrackets"->False,
+"PrintMultipleHorizontalPages"->False,
+"PrintRegistrationMarks"->False,
+"PrintingMargins"->{{54, 54}, {72, 72}}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, -1}},
+ShowGroupOpener->True,
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False},
+MacintoshSystemPageSetup -> \
+"00<0004/0B`000002mT8o?mooh<<HPUi0fL5:0?l0080004/0B`000000]P2:001\n\
+0000I00000400`<300000BL?00400@BbcP000000000006P801T1T00000000000\n\
+00000000000000000000000000000000",
+FrontEndVersion->"6.0 for Mac OS X x86 (32-bit) (June 19, 2007)",
+StyleDefinitions->"EAAM.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[590, 23, 540, 19, 81, "Subsubtitle",
+ Evaluatable->False],
+Cell[1133, 44, 1194, 32, 164, "Text"],
+Cell[CellGroupData[{
+Cell[2352, 80, 431, 17, 50, "Section",
+ Evaluatable->False],
+Cell[2786, 99, 752, 17, 109, "Text",
+ Evaluatable->False],
+Cell[3541, 118, 1295, 40, 109, "Text",
+ Evaluatable->False],
+Cell[4839, 160, 146, 3, 33, "Text",
+ Evaluatable->False],
+Cell[4988, 165, 578, 20, 90, "Text",
+ Evaluatable->False],
+Cell[5569, 187, 642, 24, 90, "Text",
+ Evaluatable->False],
+Cell[6214, 213, 302, 10, 67, "Text",
+ Evaluatable->False]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

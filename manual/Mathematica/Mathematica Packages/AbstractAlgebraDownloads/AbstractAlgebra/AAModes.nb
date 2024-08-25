@@ -1,0 +1,1777 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     78312,       1768]
+NotebookOptionsPosition[     75316,       1665]
+NotebookOutlinePosition[     75755,       1682]
+CellTagsIndexPosition[     75712,       1679]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Modes", "Title",
+ CellChangeTimes->{{3.4448169799525557`*^9, 3.444816980879118*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Computational Mode", "Section",
+ CellChangeTimes->{{3.444816991544198*^9, 3.444816998014907*^9}}],
+
+Cell["\<\
+If you have not already read in the AbstractAlgebra package, do so below (if \
+you will evaluate any of the input cells).\
+\>", "Text",
+ CellChangeTimes->{{3.4448169321503477`*^9, 3.4448169761765003`*^9}, {
+  3.4448568055555153`*^9, 3.444856817247375*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<AbstractAlgebra`Master`\>\"", "]"}]], "Input"],
+
+Cell["\<\
+Many of the functions in the AbstractAlgebra package utilize the Mode option. \
+Most functions have the default value of the Mode option as Computational \
+(except CayleyTable and CayleyTables which have Visual as their default \
+value). Thus,\
+\>", "Text",
+ CellChangeTimes->{{3.4448169321503477`*^9, 3.4448169618486547`*^9}, 
+   3.4448170054138603`*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Z", "[", "5", "]"}]], "Input",
+ CellChangeTimes->{{3.4448169321503477`*^9, 3.4448169618486547`*^9}, {
+  3.4448170054138603`*^9, 3.4448170107658377`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Groupoid", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"0", ",", "1", ",", "2", ",", "3", ",", "4"}], "}"}], ",", 
+   RowBox[{
+    RowBox[{"Mod", "[", 
+     RowBox[{
+      RowBox[{"#1", "+", "#2"}], ",", "5"}], "]"}], "&"}]}], "]"}]], "Output",\
+
+ CellChangeTimes->{3.444817038416621*^9}]
+}, Open  ]],
+
+Cell["and", "Text",
+ CellChangeTimes->{{3.4448169321503477`*^9, 3.4448169618486547`*^9}, {
+  3.4448170054138603`*^9, 3.444817015061886*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Z", "[", 
+  RowBox[{"5", ",", 
+   RowBox[{"Mode", "\[Rule]", "Computational"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.4448169321503477`*^9, 3.4448169618486547`*^9}, {
+  3.4448170054138603`*^9, 3.444817019221846*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Groupoid", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"0", ",", "1", ",", "2", ",", "3", ",", "4"}], "}"}], ",", 
+   RowBox[{
+    RowBox[{"Mod", "[", 
+     RowBox[{
+      RowBox[{"#1", "+", "#2"}], ",", "5"}], "]"}], "&"}]}], "]"}]], "Output",\
+
+ CellChangeTimes->{3.444817042544064*^9}]
+}, Open  ]],
+
+Cell["both accomplish the same task.", "Text",
+ CellChangeTimes->{{3.4448169321503477`*^9, 3.4448169618486547`*^9}, {
+  3.4448170054138603`*^9, 3.444817051742004*^9}}],
+
+Cell["\<\
+There are four other common Modes: Textual, Visual, All, and Interactive.\
+\>", "Text",
+ CellChangeTimes->{{3.4448169321503477`*^9, 3.4448169618486547`*^9}, {
+  3.4448170054138603`*^9, 3.44481705811808*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Textual Mode", "Section",
+ CellChangeTimes->{{3.4448169321503477`*^9, 3.4448169618486547`*^9}, {
+  3.4448170054138603`*^9, 3.444817063654439*^9}}],
+
+Cell["The Textual Mode is incorporated as follows:", "Text",
+ CellChangeTimes->{{3.4448169321503477`*^9, 3.4448169618486547`*^9}, {
+  3.4448170054138603`*^9, 3.4448170882620068`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Z", "[", 
+  RowBox[{"5", ",", 
+   RowBox[{"Mode", "\[Rule]", "Textual"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.4448169321503477`*^9, 3.4448169618486547`*^9}, {
+  3.4448170054138603`*^9, 3.444817096422614*^9}}],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"This groupoid consists of the elements {0, 1, 2, 3, 4} with the \
+operation being addition mod 5. The sum of two elements x and y is given by \
+(x + y) (mod 5), which results in the remainder of (x + y) upon division by \
+5. For example, (7 + 8) (mod 12) = 3 (mod 12) in the same way that 8 hours \
+after 7:00 is 3:00.\"\>"},
+    {
+     TagBox[
+      TooltipBox[
+       ButtonBox[
+        StyleBox["\<\"\[RightArrow]\"\>",
+         StripOnInput->False,
+         FrontFaceColor->GrayLevel[1],
+         BackFaceColor->GrayLevel[1],
+         GraphicsColor->GrayLevel[1],
+         FontSize->Small,
+         FontColor->GrayLevel[1]],
+        Appearance->Automatic,
+        Background->RGBColor[0.6, 0.4, 0.2],
+        BaselinePosition->Bottom,
+        ButtonFunction:>
+         AbstractAlgebra`Master`Private`ChangeModeToComputational[
+         "Textual", 4],
+        Evaluator->Automatic,
+        ImageSize->Tiny,
+        Method->"Preemptive"],
+       "\"In the input, convert \\\"Mode \[RightArrow] Textual\\\" to \
+\\\"Mode \[RightArrow] Computational\\\" and reevaluate\"",
+       LabelStyle->"TextStyling"],
+      Annotation[#, 
+       "In the input, convert \"Mode \[RightArrow] Textual\" to \"Mode \
+\[RightArrow] Computational\" and reevaluate", "Tooltip"]& ]}
+   },
+   GridBoxAlignment->{"Columns" -> {{Center}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Column"]], "Output",
+ CellChangeTimes->{3.444817107920508*^9}]
+}, Open  ]],
+
+Cell["\<\
+As indicated here, the Textual provides a description or information about \
+the function or the result, sometimes giving a general description as well a \
+specific description to the specific instance.\
+\>", "Text",
+ CellChangeTimes->{{3.4448169321503477`*^9, 3.4448169618486547`*^9}, {
+   3.4448170054138603`*^9, 3.4448170906956053`*^9}, 3.4448171258893013`*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"G1", "=", 
+  RowBox[{"FormGroupoid", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"0", ",", "1", ",", "2"}], "}"}], ",", "Plus"}], "]"}]}], "\n", 
+ RowBox[{"InvertibleQ", "[", 
+  RowBox[{"G1", ",", "1", ",", 
+   RowBox[{"Mode", "\[Rule]", "Textual"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.4448169321503477`*^9, 3.4448169618486547`*^9}, {
+  3.4448170054138603`*^9, 3.4448170906956053`*^9}, {3.4448171258893013`*^9, 
+  3.444817129126278*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Groupoid", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"0", ",", "1", ",", "2"}], "}"}], ",", "\<\"-Operation-\"\>"}], 
+  "]"}]], "Output",
+ CellChangeTimes->{3.444817145764722*^9}],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"Given a Groupoid G, we say an element g in G has an inverse h if G \
+has an identity, say e, and g * h = h * g = e (where * indicates the \
+operation). In this case, in TheGroup, \\!\\(TraditionalForm\\`1\\) does not \
+have an inverse.\"\>"},
+    {
+     TagBox[
+      TooltipBox[
+       ButtonBox[
+        StyleBox["\<\"\[RightArrow]\"\>",
+         StripOnInput->False,
+         FrontFaceColor->GrayLevel[1],
+         BackFaceColor->GrayLevel[1],
+         GraphicsColor->GrayLevel[1],
+         FontSize->Small,
+         FontColor->GrayLevel[1]],
+        Appearance->Automatic,
+        Background->RGBColor[0.6, 0.4, 0.2],
+        BaselinePosition->Bottom,
+        ButtonFunction:>
+         AbstractAlgebra`Master`Private`ChangeModeToComputational[
+         "Textual", 6],
+        Evaluator->Automatic,
+        ImageSize->Tiny,
+        Method->"Preemptive"],
+       "\"In the input, convert \\\"Mode \[RightArrow] Textual\\\" to \
+\\\"Mode \[RightArrow] Computational\\\" and reevaluate\"",
+       LabelStyle->"TextStyling"],
+      Annotation[#, 
+       "In the input, convert \"Mode \[RightArrow] Textual\" to \"Mode \
+\[RightArrow] Computational\" and reevaluate", "Tooltip"]& ]}
+   },
+   GridBoxAlignment->{"Columns" -> {{Center}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Column"]], "Output",
+ CellChangeTimes->{3.444817145770501*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ "Note that in both cases there is an arrow within a box after the \
+explanation. If you place your mouse over this, an explanation is given to \
+its purpose. This is useful if you wish to convert this back to just the \
+Computational mode. A context in which this may be useful is as follows. \
+Suppose that you define ",
+ Cell[BoxData[
+  FormBox["G", TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " to be the subgroup Z[5] but you wish to first view its Textual mode:"
+}], "Text",
+ CellChangeTimes->{{3.444817157778754*^9, 3.444817315166719*^9}, 
+   3.444832770420226*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"G", "=", 
+  RowBox[{"Z", "[", 
+   RowBox[{"5", ",", 
+    RowBox[{"Mode", "\[Rule]", "Textual"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.444817316736845*^9, 3.444817328522799*^9}}],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"This groupoid consists of the elements {0, 1, 2, 3, 4} with the \
+operation being addition mod 5. The sum of two elements x and y is given by \
+(x + y) (mod 5), which results in the remainder of (x + y) upon division by \
+5. For example, (7 + 8) (mod 12) = 3 (mod 12) in the same way that 8 hours \
+after 7:00 is 3:00.\"\>"},
+    {
+     TagBox[
+      TooltipBox[
+       ButtonBox[
+        StyleBox["\<\"\[RightArrow]\"\>",
+         StripOnInput->False,
+         FrontFaceColor->GrayLevel[1],
+         BackFaceColor->GrayLevel[1],
+         GraphicsColor->GrayLevel[1],
+         FontSize->Small,
+         FontColor->GrayLevel[1]],
+        Appearance->Automatic,
+        Background->RGBColor[0.6, 0.4, 0.2],
+        BaselinePosition->Bottom,
+        ButtonFunction:>
+         AbstractAlgebra`Master`Private`ChangeModeToComputational[
+         "Textual", 7],
+        Evaluator->Automatic,
+        ImageSize->Tiny,
+        Method->"Preemptive"],
+       "\"In the input, convert \\\"Mode \[RightArrow] Textual\\\" to \
+\\\"Mode \[RightArrow] Computational\\\" and reevaluate\"",
+       LabelStyle->"TextStyling"],
+      Annotation[#, 
+       "In the input, convert \"Mode \[RightArrow] Textual\" to \"Mode \
+\[RightArrow] Computational\" and reevaluate", "Tooltip"]& ]}
+   },
+   GridBoxAlignment->{"Columns" -> {{Center}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Column"]], "Output",
+ CellChangeTimes->{3.444817329796719*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ "If we now wish to see if ",
+ Cell[BoxData[
+  FormBox["G", TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " is cyclic, we may try"
+}], "Text",
+ CellChangeTimes->{{3.4448173350092373`*^9, 3.444817352046838*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"CyclicQ", "[", "G", "]"}]], "Input",
+ CellChangeTimes->{{3.4448173559286137`*^9, 3.4448173587250433`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"CyclicQ", "[", 
+  TagBox[GridBox[{
+     {"\<\"This groupoid consists of the elements {0, 1, 2, 3, 4} with the \
+operation being addition mod 5. The sum of two elements x and y is given by \
+(x + y) (mod 5), which results in the remainder of (x + y) upon division by \
+5. For example, (7 + 8) (mod 12) = 3 (mod 12) in the same way that 8 hours \
+after 7:00 is 3:00.\"\>"},
+     {
+      TagBox[
+       TooltipBox[
+        ButtonBox[
+         StyleBox["\<\"\[RightArrow]\"\>",
+          StripOnInput->False,
+          FrontFaceColor->GrayLevel[1],
+          BackFaceColor->GrayLevel[1],
+          GraphicsColor->GrayLevel[1],
+          FontSize->Small,
+          FontColor->GrayLevel[1]],
+         Appearance->Automatic,
+         Background->RGBColor[0.6, 0.4, 0.2],
+         BaselinePosition->Bottom,
+         ButtonFunction:>
+          AbstractAlgebra`Master`Private`ChangeModeToComputational[
+          "Textual", 7],
+         Evaluator->Automatic,
+         ImageSize->Tiny,
+         Method->"Preemptive"],
+        "\"In the input, convert \\\"Mode \[RightArrow] Textual\\\" to \
+\\\"Mode \[RightArrow] Computational\\\" and reevaluate\"",
+        LabelStyle->"TextStyling"],
+       Annotation[#, 
+        "In the input, convert \"Mode \[RightArrow] Textual\" to \"Mode \
+\[RightArrow] Computational\" and reevaluate", "Tooltip"]& ]}
+    },
+    GridBoxAlignment->{"Columns" -> {{Center}}},
+    GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+   "Column"], "]"}]], "Output",
+ CellChangeTimes->{3.444817361038287*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ "Of course, the way ",
+ Cell[BoxData[
+  FormBox["G", TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " has been defined, it is just the Textual interpretation of Z[5], not the \
+actual Groupoid. Thus, ",
+ StyleBox["CyclicQ",
+  FontFamily->"Courier"],
+ " does not know how to process the request and it is just echoed back. \
+However, if one would go back and click on the \[Rule] where ",
+ Cell[BoxData[
+  FormBox["G", TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " is defined, this will reevaluate the line with Textual being replaced with \
+Computational. This will return a bona fide Groupoid and then the above \
+command, ",
+ StyleBox["CyclicQ[G]",
+  FontFamily->"Courier"],
+ ", will work properly."
+}], "Text",
+ CellChangeTimes->{{3.444817374778153*^9, 3.444817530055172*^9}, {
+  3.444817581422099*^9, 3.444817583951202*^9}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Visual Mode", "Section",
+ CellChangeTimes->{{3.4448169321503477`*^9, 3.4448169618486547`*^9}, {
+  3.4448170054138603`*^9, 3.4448170906956053`*^9}, {3.4448171258893013`*^9, 
+  3.444817132558359*^9}, {3.4448174671013947`*^9, 3.444817468412891*^9}}],
+
+Cell["\<\
+The Visual mode is used by also adding the Mode option with the Visual value:\
+\
+\>", "Text",
+ CellChangeTimes->{{3.4448169321503477`*^9, 3.4448169618486547`*^9}, {
+  3.4448170054138603`*^9, 3.4448170906956053`*^9}, {3.4448171258893013`*^9, 
+  3.444817133510743*^9}, {3.444817630567566*^9, 3.444817665641705*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Z", "[", 
+  RowBox[{"5", ",", 
+   RowBox[{"Mode", "\[Rule]", "Visual"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.4448169321503477`*^9, 3.4448169618486547`*^9}, {
+  3.4448170054138603`*^9, 3.444817096422614*^9}, {3.444817668146151*^9, 
+  3.444817668800693*^9}}],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {
+     GraphicsBox[{{
+        {GrayLevel[1], RectangleBox[{-1.3, -1.3}, {1.3, 1.3}]}, 
+        {RGBColor[0.5, 0, 0.5], CircleBox[{0, 0}]}}, 
+       {RGBColor[0, 0, 1], PointSize[0.055], PointBox[{0., 1.}]}, 
+       {RGBColor[0, 0, 1], PointSize[0.055], 
+        PointBox[{0.9510565162951535, 0.30901699437494745`}]}, 
+       {RGBColor[0, 0, 1], PointSize[0.055], 
+        PointBox[{0.5877852522924731, -0.8090169943749475}]}, 
+       {RGBColor[0, 0, 1], PointSize[0.055], 
+        PointBox[{-0.5877852522924731, -0.8090169943749475}]}, 
+       {RGBColor[0, 0, 1], PointSize[0.055], 
+        PointBox[{-0.9510565162951535, 0.30901699437494745`}]}, {InsetBox[
+         InterpretationBox[
+          StyleBox["0",
+           ShowStringCharacters->True,
+           NumberMarks->True],
+          InputForm[0],
+          AutoDelete->True,
+          Editable->True], {0., 0.75}, {0, 0}], InsetBox[
+         InterpretationBox[
+          StyleBox["1",
+           ShowStringCharacters->True,
+           NumberMarks->True],
+          InputForm[1],
+          AutoDelete->True,
+          Editable->True], {0.7132923872213651, 0.2317627457812106}, {0, 0}], 
+        InsetBox[
+         InterpretationBox[
+          StyleBox["2",
+           ShowStringCharacters->True,
+           NumberMarks->True],
+          InputForm[2],
+          AutoDelete->True,
+          
+          Editable->
+           True], {0.44083893921935485`, -0.6067627457812106}, {0, 0}], 
+        InsetBox[
+         InterpretationBox[
+          StyleBox["3",
+           ShowStringCharacters->True,
+           NumberMarks->True],
+          InputForm[3],
+          AutoDelete->True,
+          
+          Editable->
+           True], {-0.44083893921935485`, -0.6067627457812106}, {0, 0}], 
+        InsetBox[
+         InterpretationBox[
+          StyleBox["4",
+           ShowStringCharacters->True,
+           NumberMarks->True],
+          InputForm[4],
+          AutoDelete->True,
+          Editable->
+           True], {-0.7132923872213651, 0.2317627457812106}, {0, 0}]}},
+      BaseStyle->{"Times", 12},
+      DisplayFunction->Identity,
+      FormatType->StandardForm]},
+    {
+     TagBox[GridBox[{
+        {
+         TagBox[
+          TooltipBox[
+           ButtonBox[
+            StyleBox["\<\"?\"\>",
+             StripOnInput->False,
+             FrontFaceColor->GrayLevel[1],
+             BackFaceColor->GrayLevel[1],
+             GraphicsColor->GrayLevel[1],
+             FontSize->Small,
+             FontColor->GrayLevel[1]],
+            Appearance->Automatic,
+            Background->RGBColor[0.6, 0.4, 0.2],
+            BaseStyle->Small,
+            BaselinePosition->Bottom,
+            ButtonFunction:>AbstractAlgebra`Master`Private`ZGHelp[5],
+            Evaluator->Automatic,
+            ImageSize->Tiny,
+            Method->"Preemptive"],
+           "\"Click for further explanation of the image\"",
+           LabelStyle->"TextStyling"],
+          
+          Annotation[#, "Click for further explanation of the image", 
+           "Tooltip"]& ], 
+         TagBox[
+          TooltipBox[
+           ButtonBox[
+            StyleBox["\<\"\[RightArrow]\"\>",
+             StripOnInput->False,
+             FrontFaceColor->GrayLevel[1],
+             BackFaceColor->GrayLevel[1],
+             GraphicsColor->GrayLevel[1],
+             FontSize->Small,
+             FontColor->GrayLevel[1]],
+            Appearance->Automatic,
+            Background->RGBColor[0.6, 0.4, 0.2],
+            BaselinePosition->Bottom,
+            
+            ButtonFunction:>
+             AbstractAlgebra`Master`Private`ChangeModeToComputational[
+             "Visual", 9],
+            Evaluator->Automatic,
+            ImageSize->Tiny,
+            Method->"Preemptive"],
+           
+           "\"In the input, convert \\\"Mode \[RightArrow] Visual\\\" to \
+\\\"Mode \[RightArrow] Computational\\\" and reevaluate\"",
+           LabelStyle->"TextStyling"],
+          Annotation[#, 
+           "In the input, convert \"Mode \[RightArrow] Visual\" to \"Mode \
+\[RightArrow] Computational\" and reevaluate", "Tooltip"]& ]}
+       },
+       AutoDelete->False,
+       BaselinePosition->Bottom,
+       ColumnsEqual->True,
+       GridBoxItemSize->{},
+       GridBoxSpacings->{"Columns" -> {{0}}},
+       RowsEqual->True],
+      "Grid"]}
+   },
+   GridBoxAlignment->{"Columns" -> {{Center}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Column"]], "Output",
+ CellChangeTimes->{3.444817675673602*^9}]
+}, Open  ]],
+
+Cell["\<\
+The output of a command with the Visual mode is a graphical illustration of \
+the algebraic command. In this case, we see an illustration of how to \
+interpret the group Z[5]. If an explanation of how to interpret the \
+visualization is helpful, click on the ? at the bottom of the graphic. This \
+will bring up a small window giving an explanation. Try it.\
+\>", "Text",
+ CellChangeTimes->{{3.444817697177814*^9, 3.444817815623436*^9}}],
+
+Cell["\<\
+Note that also at the bottom of the graphic is the \[Rule] seen with the \
+Textual mode. The use of this is the same as described there.\
+\>", "Text",
+ CellChangeTimes->{{3.444817832417964*^9, 3.444817865535705*^9}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["All Mode", "Section",
+ CellChangeTimes->{{3.444817903867293*^9, 3.444817905495558*^9}}],
+
+Cell["As above, the All mode is incorporated in a similar fashion.", "Text",
+ CellChangeTimes->{{3.444817910039872*^9, 3.4448179298237667`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Z", "[", 
+  RowBox[{"5", ",", 
+   RowBox[{"Mode", "\[Rule]", "All"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.4448169321503477`*^9, 3.4448169618486547`*^9}, {
+  3.4448170054138603`*^9, 3.444817019221846*^9}, {3.444817936859877*^9, 
+  3.4448179375930977`*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{TabViewBox[{{1, "\"Computation\"" -> RowBox[{"Groupoid", "[", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"0", ",", "1", ",", "2", ",", "3", ",", "4"}], "}"}], 
+           ",", 
+           RowBox[{
+             RowBox[{"Mod", "[", 
+               RowBox[{
+                 RowBox[{"#1", "+", "#2"}], ",", "5"}], "]"}], "&"}]}], 
+         "]"}]}, {2, "\"Explanation\"" -> TagBox[
+        GridBox[{{
+          "\"This groupoid consists of the elements {0, 1, 2, 3, 4} with the \
+operation being addition mod 5. The sum of two elements x and y is given by \
+(x + y) (mod 5), which results in the remainder of (x + y) upon division by \
+5. For example, (7 + 8) (mod 12) = 3 (mod 12) in the same way that 8 hours \
+after 7:00 is 3:00.\""}, {
+           TagBox[
+            TooltipBox[
+             ButtonBox[
+              StyleBox[
+              "\"\[RightArrow]\"", StripOnInput -> False, FrontFaceColor -> 
+               GrayLevel[1], BackFaceColor -> GrayLevel[1], GraphicsColor -> 
+               GrayLevel[1], FontSize -> Small, FontColor -> GrayLevel[1]], 
+              Appearance -> Automatic, Background -> RGBColor[0.6, 0.4, 0.2], 
+              BaselinePosition -> Bottom, ButtonFunction :> 
+              AbstractAlgebra`Master`Private`ChangeModeToComputational[
+               "All", 10], Evaluator -> Automatic, ImageSize -> Tiny, Method -> 
+              "Preemptive"], 
+             "\"In the input, convert \\\"Mode \[RightArrow] All\\\" to \
+\\\"Mode \[RightArrow] Computational\\\" and reevaluate\"", LabelStyle -> 
+             "TextStyling"], 
+            Annotation[#, 
+             "In the input, convert \"Mode \[RightArrow] All\" to \"Mode \
+\[RightArrow] Computational\" and reevaluate", "Tooltip"]& ]}}, 
+         GridBoxAlignment -> {"Columns" -> {{Center}}}, 
+         GridBoxItemSize -> {
+          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"]}, {
+     3, "\"Visualization\"" -> TagBox[
+        GridBox[{{
+           GraphicsBox[{{{
+               GrayLevel[1], 
+               RectangleBox[{-1.3, -1.3}, {1.3, 1.3}]}, {
+               RGBColor[0.5, 0, 0.5], 
+               CircleBox[{0, 0}]}}, {
+              RGBColor[0, 0, 1], 
+              PointSize[0.055], 
+              PointBox[{0., 1.}]}, {
+              RGBColor[0, 0, 1], 
+              PointSize[0.055], 
+              PointBox[{0.9510565162951535, 0.30901699437494745`}]}, {
+              RGBColor[0, 0, 1], 
+              PointSize[0.055], 
+              PointBox[{0.5877852522924731, -0.8090169943749475}]}, {
+              RGBColor[0, 0, 1], 
+              PointSize[0.055], 
+              PointBox[{-0.5877852522924731, -0.8090169943749475}]}, {
+              RGBColor[0, 0, 1], 
+              PointSize[0.055], 
+              PointBox[{-0.9510565162951535, 0.30901699437494745`}]}, {
+              InsetBox[
+               InterpretationBox[
+                StyleBox[
+                "0", ShowStringCharacters -> True, NumberMarks -> True], 
+                InputForm[0], AutoDelete -> True, Editable -> True], {0., 
+               0.75}, {0, 0}], 
+              InsetBox[
+               InterpretationBox[
+                StyleBox[
+                "1", ShowStringCharacters -> True, NumberMarks -> True], 
+                InputForm[1], AutoDelete -> True, Editable -> True], {
+               0.7132923872213651, 0.2317627457812106}, {0, 0}], 
+              InsetBox[
+               InterpretationBox[
+                StyleBox[
+                "2", ShowStringCharacters -> True, NumberMarks -> True], 
+                InputForm[2], AutoDelete -> True, Editable -> True], {
+               0.44083893921935485`, -0.6067627457812106}, {0, 0}], 
+              InsetBox[
+               InterpretationBox[
+                StyleBox[
+                "3", ShowStringCharacters -> True, NumberMarks -> True], 
+                InputForm[3], AutoDelete -> True, Editable -> 
+                True], {-0.44083893921935485`, -0.6067627457812106}, {0, 0}], 
+              
+              InsetBox[
+               InterpretationBox[
+                StyleBox[
+                "4", ShowStringCharacters -> True, NumberMarks -> True], 
+                InputForm[4], AutoDelete -> True, Editable -> 
+                True], {-0.7132923872213651, 0.2317627457812106}, {0, 0}]}}, 
+            BaseStyle -> {"Times", 12}, DisplayFunction -> Identity, 
+            FormatType -> StandardForm]}, {
+           TagBox[
+            GridBox[{{
+               TagBox[
+                TooltipBox[
+                 ButtonBox[
+                  StyleBox[
+                  "\"?\"", StripOnInput -> False, FrontFaceColor -> 
+                   GrayLevel[1], BackFaceColor -> GrayLevel[1], GraphicsColor -> 
+                   GrayLevel[1], FontSize -> Small, FontColor -> 
+                   GrayLevel[1]], Appearance -> Automatic, Background -> 
+                  RGBColor[0.6, 0.4, 0.2], BaseStyle -> Small, 
+                  BaselinePosition -> Bottom, ButtonFunction :> 
+                  AbstractAlgebra`Master`Private`ZGHelp[5], Evaluator -> 
+                  Automatic, ImageSize -> Tiny, Method -> "Preemptive"], 
+                 "\"Click for further explanation of the image\"", LabelStyle -> 
+                 "TextStyling"], 
+                Annotation[#, "Click for further explanation of the image", 
+                 "Tooltip"]& ], 
+               TagBox[
+                TooltipBox[
+                 ButtonBox[
+                  StyleBox[
+                  "\"\[RightArrow]\"", StripOnInput -> False, FrontFaceColor -> 
+                   GrayLevel[1], BackFaceColor -> GrayLevel[1], GraphicsColor -> 
+                   GrayLevel[1], FontSize -> Small, FontColor -> 
+                   GrayLevel[1]], Appearance -> Automatic, Background -> 
+                  RGBColor[0.6, 0.4, 0.2], BaselinePosition -> Bottom, 
+                  ButtonFunction :> 
+                  AbstractAlgebra`Master`Private`ChangeModeToComputational[
+                   "All", 10], Evaluator -> Automatic, ImageSize -> Tiny, 
+                  Method -> "Preemptive"], 
+                 "\"In the input, convert \\\"Mode \[RightArrow] All\\\" to \
+\\\"Mode \[RightArrow] Computational\\\" and reevaluate\"", LabelStyle -> 
+                 "TextStyling"], 
+                Annotation[#, 
+                 "In the input, convert \"Mode \[RightArrow] All\" to \"Mode \
+\[RightArrow] Computational\" and reevaluate", "Tooltip"]& ]}}, AutoDelete -> 
+             False, BaselinePosition -> Bottom, ColumnsEqual -> True, 
+             GridBoxItemSize -> {}, GridBoxSpacings -> {"Columns" -> {{0}}}, 
+             RowsEqual -> True], "Grid"]}}, 
+         GridBoxAlignment -> {"Columns" -> {{Center}}}, 
+         GridBoxItemSize -> {
+          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"]}, {
+     4, "\"Interactive\"" -> TemplateBox[{
+         TabViewBox[{{1, "\"Computation\"" -> TagBox[
+              StyleBox[
+               
+               DynamicModuleBox[{
+                AbstractAlgebra`Master`Private`k$$ = 5, Typeset`show$$ = True,
+                  Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = 
+                 "Menu", Typeset`animator$$, Typeset`animvar$$ = 1, 
+                 Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+                    Hold[AbstractAlgebra`Master`Private`k$$], 5, "n"}, 2, 100,
+                     1}}, Typeset`size$$ = {358., {3., 11.}}, 
+                 Typeset`update$$ = 0, Typeset`initDone$$, 
+                 Typeset`skipInitDone$$ = True, 
+                 AbstractAlgebra`Master`Private`k$852$$ = 0}, 
+                DynamicBox[
+                 Manipulate`ManipulateBoxes[
+                 1, StandardForm, 
+                  "Variables" :> {AbstractAlgebra`Master`Private`k$$ = 5}, 
+                  "ControllerVariables" :> {
+                    Hold[
+                    AbstractAlgebra`Master`Private`k$$, 
+                    AbstractAlgebra`Master`Private`k$852$$, 0]}, 
+                  "OtherVariables" :> {
+                   Typeset`show$$, Typeset`bookmarkList$$, 
+                    Typeset`bookmarkMode$$, Typeset`animator$$, 
+                    Typeset`animvar$$, Typeset`name$$, Typeset`specs$$, 
+                    Typeset`size$$, Typeset`update$$, Typeset`initDone$$, 
+                    Typeset`skipInitDone$$}, "Body" :> 
+                  AbstractAlgebra`Master`ZG[
+                   AbstractAlgebra`Master`Private`k$$, Mode -> 
+                    AbstractAlgebra`Master`Computational], 
+                  "Specifications" :> {{{
+                    AbstractAlgebra`Master`Private`k$$, 5, "n"}, 2, 100, 1, 
+                    Appearance -> "Open"}}, "Options" :> {}, 
+                  "DefaultOptions" :> {}], 
+                 ImageSizeCache -> {411., {75.21875, 81.78125}}, 
+                 SingleEvaluation -> True], Deinitialization :> None, 
+                DynamicModuleValues :> {}, SynchronousInitialization -> True, 
+                UnsavedVariables :> {Typeset`initDone$$}, 
+                UntrackedVariables :> {Typeset`size$$}], "Manipulate", 
+               Deployed -> True, StripOnInput -> False], 
+              Manipulate`InterpretManipulate[1]]}, {
+           2, "\"Explanation\"" -> TagBox[
+              StyleBox[
+               
+               DynamicModuleBox[{
+                AbstractAlgebra`Master`Private`k$$ = 5, Typeset`show$$ = True,
+                  Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = 
+                 "Menu", Typeset`animator$$, Typeset`animvar$$ = 1, 
+                 Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+                    Hold[AbstractAlgebra`Master`Private`k$$], 5, "n"}, 2, 100,
+                     1}}, Typeset`size$$ = Automatic, Typeset`update$$ = 0, 
+                 Typeset`initDone$$, Typeset`skipInitDone$$ = True, 
+                 AbstractAlgebra`Master`Private`k$881$$ = 0}, 
+                DynamicBox[
+                 Manipulate`ManipulateBoxes[
+                 1, StandardForm, 
+                  "Variables" :> {AbstractAlgebra`Master`Private`k$$ = 5}, 
+                  "ControllerVariables" :> {
+                    Hold[
+                    AbstractAlgebra`Master`Private`k$$, 
+                    AbstractAlgebra`Master`Private`k$881$$, 0]}, 
+                  "OtherVariables" :> {
+                   Typeset`show$$, Typeset`bookmarkList$$, 
+                    Typeset`bookmarkMode$$, Typeset`animator$$, 
+                    Typeset`animvar$$, Typeset`name$$, Typeset`specs$$, 
+                    Typeset`size$$, Typeset`update$$, Typeset`initDone$$, 
+                    Typeset`skipInitDone$$}, "Body" :> 
+                  AbstractAlgebra`Master`ZG[
+                   AbstractAlgebra`Master`Private`k$$, Mode -> 
+                    AbstractAlgebra`Master`Textual, 
+                    AbstractAlgebra`Master`ShowHelp -> 
+                    AbstractAlgebra`Master`Private`showhelp$847, 
+                    AbstractAlgebra`Master`ShowConvert -> False, 
+                    AbstractAlgebra`Master`ShowConvert -> False], 
+                  "Specifications" :> {{{
+                    AbstractAlgebra`Master`Private`k$$, 5, "n"}, 2, 100, 1, 
+                    Appearance -> "Open"}}, "Options" :> {}, 
+                  "DefaultOptions" :> {}], SingleEvaluation -> True], 
+                Deinitialization :> None, DynamicModuleValues :> {}, 
+                SynchronousInitialization -> True, 
+                UnsavedVariables :> {Typeset`initDone$$}, 
+                UntrackedVariables :> {Typeset`size$$}], "Manipulate", 
+               Deployed -> True, StripOnInput -> False], 
+              Manipulate`InterpretManipulate[1]]}, {
+           3, "\"Visualization\"" -> TagBox[
+              StyleBox[
+               
+               DynamicModuleBox[{
+                AbstractAlgebra`Master`Private`k$$ = 5, Typeset`show$$ = True,
+                  Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = 
+                 "Menu", Typeset`animator$$, Typeset`animvar$$ = 1, 
+                 Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+                    Hold[AbstractAlgebra`Master`Private`k$$], 5, "n"}, 2, 100,
+                     1}}, Typeset`size$$ = Automatic, Typeset`update$$ = 0, 
+                 Typeset`initDone$$, Typeset`skipInitDone$$ = True, 
+                 AbstractAlgebra`Master`Private`k$898$$ = 0}, 
+                DynamicBox[
+                 Manipulate`ManipulateBoxes[
+                 1, StandardForm, 
+                  "Variables" :> {AbstractAlgebra`Master`Private`k$$ = 5}, 
+                  "ControllerVariables" :> {
+                    Hold[
+                    AbstractAlgebra`Master`Private`k$$, 
+                    AbstractAlgebra`Master`Private`k$898$$, 0]}, 
+                  "OtherVariables" :> {
+                   Typeset`show$$, Typeset`bookmarkList$$, 
+                    Typeset`bookmarkMode$$, Typeset`animator$$, 
+                    Typeset`animvar$$, Typeset`name$$, Typeset`specs$$, 
+                    Typeset`size$$, Typeset`update$$, Typeset`initDone$$, 
+                    Typeset`skipInitDone$$}, "Body" :> 
+                  AbstractAlgebra`Master`ZG[
+                   AbstractAlgebra`Master`Private`k$$, Mode -> 
+                    AbstractAlgebra`Master`Visual, 
+                    AbstractAlgebra`Master`ShowHelp -> 
+                    AbstractAlgebra`Master`Private`showhelp$848, 
+                    AbstractAlgebra`Master`ShowConvert -> False, 
+                    AbstractAlgebra`Master`ShowConvert -> False], 
+                  "Specifications" :> {{{
+                    AbstractAlgebra`Master`Private`k$$, 5, "n"}, 2, 100, 1, 
+                    Appearance -> "Open"}}, "Options" :> {}, 
+                  "DefaultOptions" :> {}], SingleEvaluation -> True], 
+                Deinitialization :> None, DynamicModuleValues :> {}, 
+                SynchronousInitialization -> True, 
+                UnsavedVariables :> {Typeset`initDone$$}, 
+                UntrackedVariables :> {Typeset`size$$}], "Manipulate", 
+               Deployed -> True, StripOnInput -> False], 
+              Manipulate`InterpretManipulate[1]]}}, 1, ImageSize -> 
+          Automatic], "\"Interacting with Z[n]\""}, "Labeled", 
+        DisplayFunction -> (GridBox[{{
+            ItemBox[#2, DefaultBaseStyle -> "LabeledLabel"]}, {
+            TagBox[
+             ItemBox[
+              PaneBox[
+               TagBox[#, "SkipImageSizeLevel"], 
+               Alignment -> {Center, Baseline}, BaselinePosition -> Baseline],
+               DefaultBaseStyle -> "Labeled"], "SkipImageSizeLevel"]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+           AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {2, 1}]& ), 
+        InterpretationFunction -> (RowBox[{"Labeled", "[", 
+           RowBox[{#, ",", #2, ",", "Top"}], "]"}]& )]}}, 4, ImageSize -> 
+    Automatic],"\"The group Z[5]\""},
+  "Labeled",
+  DisplayFunction->(GridBox[{{
+      ItemBox[#2, DefaultBaseStyle -> "LabeledLabel"]}, {
+      TagBox[
+       ItemBox[
+        PaneBox[
+         TagBox[#, "SkipImageSizeLevel"], Alignment -> {Center, Baseline}, 
+         BaselinePosition -> Baseline], DefaultBaseStyle -> "Labeled"], 
+       "SkipImageSizeLevel"]}}, 
+    GridBoxAlignment -> {"Columns" -> {{Center}}, "Rows" -> {{Center}}}, 
+    AutoDelete -> False, 
+    GridBoxItemSize -> {"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+    BaselinePosition -> {2, 1}]& ),
+  InterpretationFunction->(RowBox[{"Labeled", "[", 
+     RowBox[{#, ",", #2, ",", "Top"}], "]"}]& )]], "Output",
+ CellChangeTimes->{
+  3.444817940076868*^9, 3.4448236596344767`*^9, {3.444823702914413*^9, 
+   3.4448237060984163`*^9}}]
+}, Open  ]],
+
+Cell["\<\
+Note that the All option provides a tabbed environment where one can see each \
+of the Modes applied to the function at hand. Simply click on the desired \
+Mode and it will appear below. Note that as with the Textual and Visual \
+modes, a \[Rule] will appear at the bottom of the Explanation and \
+Visualization panes, as will the ? as with the Visual mode. Details for how \
+the Interactive pane (and Mode) work are discussed in the next section.\
+\>", "Text",
+ CellChangeTimes->{{3.444818355098455*^9, 3.444818446144268*^9}, {
+  3.4448236455581493`*^9, 3.444823730154861*^9}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Interactive Mode", "Section",
+ CellChangeTimes->{{3.444823782615367*^9, 3.444823784858625*^9}}],
+
+Cell["\<\
+Finally, the Interactive mode is put into use by using the Interactive value \
+for the Mode option.\
+\>", "Text",
+ CellChangeTimes->{{3.444823790875122*^9, 3.444823817058854*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Z", "[", 
+  RowBox[{"5", ",", 
+   RowBox[{"Mode", "\[Rule]", "Interactive"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.4448169321503477`*^9, 3.4448169618486547`*^9}, {
+  3.4448170054138603`*^9, 3.444817019221846*^9}, {3.444817936859877*^9, 
+  3.4448179375930977`*^9}, {3.444823823558804*^9, 3.444823824780016*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{TabViewBox[{{1, "\"Computation\"" -> TagBox[
+        StyleBox[
+         DynamicModuleBox[{
+          AbstractAlgebra`Master`Private`k$$ = 5, Typeset`show$$ = True, 
+           Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+           Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+           "\"untitled\"", Typeset`specs$$ = {{{
+               Hold[AbstractAlgebra`Master`Private`k$$], 5, "n"}, 2, 100, 1}},
+            Typeset`size$$ = {358., {3., 11.}}, Typeset`update$$ = 0, 
+           Typeset`initDone$$, Typeset`skipInitDone$$ = True, 
+           AbstractAlgebra`Master`Private`k$967$$ = 0}, 
+          DynamicBox[
+           Manipulate`ManipulateBoxes[
+           1, StandardForm, 
+            "Variables" :> {AbstractAlgebra`Master`Private`k$$ = 5}, 
+            "ControllerVariables" :> {
+              Hold[
+              AbstractAlgebra`Master`Private`k$$, 
+               AbstractAlgebra`Master`Private`k$967$$, 0]}, 
+            "OtherVariables" :> {
+             Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+              Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+              Typeset`specs$$, Typeset`size$$, Typeset`update$$, 
+              Typeset`initDone$$, Typeset`skipInitDone$$}, "Body" :> 
+            AbstractAlgebra`Master`ZG[
+             AbstractAlgebra`Master`Private`k$$, Mode -> 
+              AbstractAlgebra`Master`Computational], 
+            "Specifications" :> {{{
+               AbstractAlgebra`Master`Private`k$$, 5, "n"}, 2, 100, 1, 
+               Appearance -> "Open"}}, "Options" :> {}, 
+            "DefaultOptions" :> {}], 
+           ImageSizeCache -> {411., {75.21875, 81.78125}}, SingleEvaluation -> 
+           True], Deinitialization :> None, DynamicModuleValues :> {}, 
+          SynchronousInitialization -> True, 
+          UnsavedVariables :> {Typeset`initDone$$}, 
+          UntrackedVariables :> {Typeset`size$$}], "Manipulate", Deployed -> 
+         True, StripOnInput -> False], 
+        Manipulate`InterpretManipulate[1]]}, {2, "\"Explanation\"" -> TagBox[
+        StyleBox[
+         DynamicModuleBox[{
+          AbstractAlgebra`Master`Private`k$$ = 5, Typeset`show$$ = True, 
+           Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+           Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+           "\"untitled\"", Typeset`specs$$ = {{{
+               Hold[AbstractAlgebra`Master`Private`k$$], 5, "n"}, 2, 100, 1}},
+            Typeset`size$$ = Automatic, Typeset`update$$ = 0, 
+           Typeset`initDone$$, Typeset`skipInitDone$$ = True, 
+           AbstractAlgebra`Master`Private`k$984$$ = 0}, 
+          DynamicBox[
+           Manipulate`ManipulateBoxes[
+           1, StandardForm, 
+            "Variables" :> {AbstractAlgebra`Master`Private`k$$ = 5}, 
+            "ControllerVariables" :> {
+              Hold[
+              AbstractAlgebra`Master`Private`k$$, 
+               AbstractAlgebra`Master`Private`k$984$$, 0]}, 
+            "OtherVariables" :> {
+             Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+              Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+              Typeset`specs$$, Typeset`size$$, Typeset`update$$, 
+              Typeset`initDone$$, Typeset`skipInitDone$$}, "Body" :> 
+            AbstractAlgebra`Master`ZG[
+             AbstractAlgebra`Master`Private`k$$, Mode -> 
+              AbstractAlgebra`Master`Textual, AbstractAlgebra`Master`ShowHelp -> 
+              AbstractAlgebra`Master`Private`showhelp$964, 
+              AbstractAlgebra`Master`ShowConvert -> False], 
+            "Specifications" :> {{{
+               AbstractAlgebra`Master`Private`k$$, 5, "n"}, 2, 100, 1, 
+               Appearance -> "Open"}}, "Options" :> {}, 
+            "DefaultOptions" :> {}], SingleEvaluation -> True], 
+          Deinitialization :> None, DynamicModuleValues :> {}, 
+          SynchronousInitialization -> True, 
+          UnsavedVariables :> {Typeset`initDone$$}, 
+          UntrackedVariables :> {Typeset`size$$}], "Manipulate", Deployed -> 
+         True, StripOnInput -> False], 
+        Manipulate`InterpretManipulate[1]]}, {3, "\"Visualization\"" -> TagBox[
+        StyleBox[
+         DynamicModuleBox[{
+          AbstractAlgebra`Master`Private`k$$ = 5, Typeset`show$$ = True, 
+           Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+           Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+           "\"untitled\"", Typeset`specs$$ = {{{
+               Hold[AbstractAlgebra`Master`Private`k$$], 5, "n"}, 2, 100, 1}},
+            Typeset`size$$ = Automatic, Typeset`update$$ = 0, 
+           Typeset`initDone$$, Typeset`skipInitDone$$ = True, 
+           AbstractAlgebra`Master`Private`k$1001$$ = 0}, 
+          DynamicBox[
+           Manipulate`ManipulateBoxes[
+           1, StandardForm, 
+            "Variables" :> {AbstractAlgebra`Master`Private`k$$ = 5}, 
+            "ControllerVariables" :> {
+              Hold[
+              AbstractAlgebra`Master`Private`k$$, 
+               AbstractAlgebra`Master`Private`k$1001$$, 0]}, 
+            "OtherVariables" :> {
+             Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+              Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+              Typeset`specs$$, Typeset`size$$, Typeset`update$$, 
+              Typeset`initDone$$, Typeset`skipInitDone$$}, "Body" :> 
+            AbstractAlgebra`Master`ZG[
+             AbstractAlgebra`Master`Private`k$$, Mode -> 
+              AbstractAlgebra`Master`Visual, AbstractAlgebra`Master`ShowHelp -> 
+              AbstractAlgebra`Master`Private`showhelp$965, 
+              AbstractAlgebra`Master`ShowConvert -> False], 
+            "Specifications" :> {{{
+               AbstractAlgebra`Master`Private`k$$, 5, "n"}, 2, 100, 1, 
+               Appearance -> "Open"}}, "Options" :> {}, 
+            "DefaultOptions" :> {}], SingleEvaluation -> True], 
+          Deinitialization :> None, DynamicModuleValues :> {}, 
+          SynchronousInitialization -> True, 
+          UnsavedVariables :> {Typeset`initDone$$}, 
+          UntrackedVariables :> {Typeset`size$$}], "Manipulate", Deployed -> 
+         True, StripOnInput -> False], 
+        Manipulate`InterpretManipulate[1]]}}, 1, ImageSize -> Automatic],
+   "\"Interacting with Z[n]\""},
+  "Labeled",
+  DisplayFunction->(GridBox[{{
+      ItemBox[#2, DefaultBaseStyle -> "LabeledLabel"]}, {
+      TagBox[
+       ItemBox[
+        PaneBox[
+         TagBox[#, "SkipImageSizeLevel"], Alignment -> {Center, Baseline}, 
+         BaselinePosition -> Baseline], DefaultBaseStyle -> "Labeled"], 
+       "SkipImageSizeLevel"]}}, 
+    GridBoxAlignment -> {"Columns" -> {{Center}}, "Rows" -> {{Center}}}, 
+    AutoDelete -> False, 
+    GridBoxItemSize -> {"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+    BaselinePosition -> {2, 1}]& ),
+  InterpretationFunction->(RowBox[{"Labeled", "[", 
+     RowBox[{#, ",", #2, ",", "Top"}], "]"}]& )]], "Output",
+ CellChangeTimes->{3.444823826033605*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ "Note that this also produces a tabbed interface to display the results for \
+the Computational, Textual, and Visual modes. Additionally, the results are \
+embedded into a Manipulate command with which one can modify some parameter. \
+In this case, the index of the group of families is specified by the slider, \
+initially set to the value in the original command. One can move the slider \
+to see the output of Z[n] for various values of ",
+ Cell[BoxData[
+  FormBox["n", TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ". By changing the focus from Computation, one can also animate or \
+manipulate the index to see how the visualization or explanation changes. "
+}], "Text",
+ CellChangeTimes->{{3.444832134674004*^9, 3.444832364073366*^9}}],
+
+Cell["\<\
+Not all functions have an Interactive mode. Generally, for functions related \
+to a family of groups obtained by an index, the interaction is based on the \
+index. For other functions the interactivity is based on other factors. Below \
+it is based on the elements within the groupoid. Here one uses a radio button \
+to choose an element with which to investigate.\
+\>", "Text",
+ CellChangeTimes->{{3.444832366264349*^9, 3.444832397256679*^9}, {
+  3.444832455163302*^9, 3.44483250766464*^9}, {3.444832577371277*^9, 
+  3.444832620504939*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"G", " ", "=", " ", 
+   RowBox[{"FormGroupoid", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "1"}], ",", "0", ",", "1"}], "}"}], ",", "Plus"}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"InvertibleQ", "[", 
+  RowBox[{"G", ",", 
+   RowBox[{"-", "1"}], ",", 
+   RowBox[{"Mode", "\[Rule]", "Interactive"}]}], "]"}]}], "Input"],
+
+Cell[BoxData[
+ TemplateBox[{TabViewBox[{{1, "\"Computation\"" -> TagBox[
+        StyleBox[
+         DynamicModuleBox[{
+          AbstractAlgebra`Master`Private`h$1182$$ = -1, Typeset`show$$ = True,
+            Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+           Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+           "\"untitled\"", Typeset`specs$$ = {{{
+               Hold[AbstractAlgebra`Master`Private`h$1182$$], -1, 
+               "g \[Element] G"}, {-1, 0, 1}}}, 
+           Typeset`size$$ = {36., {1., 9.}}, Typeset`update$$ = 0, 
+           Typeset`initDone$$, Typeset`skipInitDone$$ = True, 
+           AbstractAlgebra`Master`Private`h$1182$1186$$ = 0}, 
+          DynamicBox[
+           Manipulate`ManipulateBoxes[
+           1, StandardForm, 
+            "Variables" :> {AbstractAlgebra`Master`Private`h$1182$$ = -1}, 
+            "ControllerVariables" :> {
+              Hold[
+              AbstractAlgebra`Master`Private`h$1182$$, 
+               AbstractAlgebra`Master`Private`h$1182$1186$$, 0]}, 
+            "OtherVariables" :> {
+             Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+              Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+              Typeset`specs$$, Typeset`size$$, Typeset`update$$, 
+              Typeset`initDone$$, Typeset`skipInitDone$$}, "Body" :> 
+            AbstractAlgebra`Master`InvertibleQ[
+              
+              AbstractAlgebra`Master`Private`groupoid[{-1, 0, 1}, 
+               Plus, {{}, {}, {}, {}, {}, {}}], 
+              AbstractAlgebra`Master`Private`h$1182$$, Mode -> 
+              AbstractAlgebra`Master`Computational, 
+              AbstractAlgebra`Master`ShowConvert -> False], 
+            "Specifications" :> {{{
+               AbstractAlgebra`Master`Private`h$1182$$, -1, 
+                "g \[Element] G"}, {-1, 0, 1}}}, 
+            "Options" :> {ControlType -> RadioButtonBar}, 
+            "DefaultOptions" :> {}], 
+           ImageSizeCache -> {188., {56.21875, 62.78125}}, SingleEvaluation -> 
+           True], Deinitialization :> None, DynamicModuleValues :> {}, 
+          SynchronousInitialization -> True, 
+          UnsavedVariables :> {Typeset`initDone$$}, 
+          UntrackedVariables :> {Typeset`size$$}], "Manipulate", Deployed -> 
+         True, StripOnInput -> False], 
+        Manipulate`InterpretManipulate[1]]}, {2, "\"Explanation\"" -> TagBox[
+        StyleBox[
+         DynamicModuleBox[{
+          AbstractAlgebra`Master`Private`h$1183$$ = -1, Typeset`show$$ = True,
+            Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+           Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+           "\"untitled\"", Typeset`specs$$ = {{{
+               Hold[AbstractAlgebra`Master`Private`h$1183$$], -1, 
+               "g \[Element] G"}, {-1, 0, 1}}}, Typeset`size$$ = Automatic, 
+           Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
+           True, AbstractAlgebra`Master`Private`h$1183$1203$$ = 0}, 
+          DynamicBox[
+           Manipulate`ManipulateBoxes[
+           1, StandardForm, 
+            "Variables" :> {AbstractAlgebra`Master`Private`h$1183$$ = -1}, 
+            "ControllerVariables" :> {
+              Hold[
+              AbstractAlgebra`Master`Private`h$1183$$, 
+               AbstractAlgebra`Master`Private`h$1183$1203$$, 0]}, 
+            "OtherVariables" :> {
+             Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+              Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+              Typeset`specs$$, Typeset`size$$, Typeset`update$$, 
+              Typeset`initDone$$, Typeset`skipInitDone$$}, "Body" :> 
+            AbstractAlgebra`Master`InvertibleQ[
+              
+              AbstractAlgebra`Master`Private`groupoid[{-1, 0, 1}, 
+               Plus, {{}, {}, {}, {}, {}, {}}], 
+              AbstractAlgebra`Master`Private`h$1183$$, Mode -> 
+              AbstractAlgebra`Master`Textual, 
+              AbstractAlgebra`Master`ShowConvert -> False, 
+              AbstractAlgebra`Master`ShowConvert -> False], 
+            "Specifications" :> {{{
+               AbstractAlgebra`Master`Private`h$1183$$, -1, 
+                "g \[Element] G"}, {-1, 0, 1}}}, 
+            "Options" :> {ControlType -> RadioButtonBar}, 
+            "DefaultOptions" :> {}], SingleEvaluation -> True], 
+          Deinitialization :> None, DynamicModuleValues :> {}, 
+          SynchronousInitialization -> True, 
+          UnsavedVariables :> {Typeset`initDone$$}, 
+          UntrackedVariables :> {Typeset`size$$}], "Manipulate", Deployed -> 
+         True, StripOnInput -> False], 
+        Manipulate`InterpretManipulate[1]]}, {3, "\"Visualization\"" -> TagBox[
+        StyleBox[
+         DynamicModuleBox[{
+          AbstractAlgebra`Master`Private`h$1184$$ = -1, Typeset`show$$ = True,
+            Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+           Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+           "\"untitled\"", Typeset`specs$$ = {{{
+               Hold[AbstractAlgebra`Master`Private`h$1184$$], -1, 
+               "g \[Element] G"}, {-1, 0, 1}}}, 
+           Typeset`size$$ = {169., {88.71875, 95.28125}}, Typeset`update$$ = 
+           0, Typeset`initDone$$, Typeset`skipInitDone$$ = True, 
+           AbstractAlgebra`Master`Private`h$1184$1220$$ = 0}, 
+          DynamicBox[
+           Manipulate`ManipulateBoxes[
+           1, StandardForm, 
+            "Variables" :> {AbstractAlgebra`Master`Private`h$1184$$ = -1}, 
+            "ControllerVariables" :> {
+              Hold[
+              AbstractAlgebra`Master`Private`h$1184$$, 
+               AbstractAlgebra`Master`Private`h$1184$1220$$, 0]}, 
+            "OtherVariables" :> {
+             Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+              Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+              Typeset`specs$$, Typeset`size$$, Typeset`update$$, 
+              Typeset`initDone$$, Typeset`skipInitDone$$}, "Body" :> 
+            AbstractAlgebra`Master`InvertibleQ[
+              
+              AbstractAlgebra`Master`Private`groupoid[{-1, 0, 1}, 
+               Plus, {{}, {}, {}, {}, {}, {}}], 
+              AbstractAlgebra`Master`Private`h$1184$$, Mode -> 
+              AbstractAlgebra`Master`Visual, 
+              AbstractAlgebra`Master`ShowConvert -> False, 
+              AbstractAlgebra`Master`ShowConvert -> False], 
+            "Specifications" :> {{{
+               AbstractAlgebra`Master`Private`h$1184$$, -1, 
+                "g \[Element] G"}, {-1, 0, 1}}}, 
+            "Options" :> {ControlType -> RadioButtonBar}, 
+            "DefaultOptions" :> {}], 
+           ImageSizeCache -> {222., {141.21875, 147.78125}}, SingleEvaluation -> 
+           True], Deinitialization :> None, DynamicModuleValues :> {}, 
+          SynchronousInitialization -> True, 
+          UnsavedVariables :> {Typeset`initDone$$}, 
+          UntrackedVariables :> {Typeset`size$$}], "Manipulate", Deployed -> 
+         True, StripOnInput -> False], 
+        Manipulate`InterpretManipulate[1]]}}, 3, ImageSize -> Automatic],
+   "\"Interacting with InvertibleQ[G, g]\""},
+  "Labeled",
+  DisplayFunction->(GridBox[{{
+      ItemBox[#2, DefaultBaseStyle -> "LabeledLabel"]}, {
+      TagBox[
+       ItemBox[
+        PaneBox[
+         TagBox[#, "SkipImageSizeLevel"], Alignment -> {Center, Baseline}, 
+         BaselinePosition -> Baseline], DefaultBaseStyle -> "Labeled"], 
+       "SkipImageSizeLevel"]}}, 
+    GridBoxAlignment -> {"Columns" -> {{Center}}, "Rows" -> {{Center}}}, 
+    AutoDelete -> False, 
+    GridBoxItemSize -> {"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+    BaselinePosition -> {2, 1}]& ),
+  InterpretationFunction->(RowBox[{"Labeled", "[", 
+     RowBox[{#, ",", #2, ",", "Top"}], "]"}]& )]], "Output",
+ CellChangeTimes->{3.444832589357615*^9, 3.444832625128574*^9}]
+}, Open  ]],
+
+Cell["\<\
+Sometimes the interactivity is based on choosing a pair of elements.\
+\>", "Text",
+ CellChangeTimes->{{3.4448326453797503`*^9, 3.444832667385054*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"f", "=", 
+  RowBox[{"ZMap", "[", 
+   RowBox[{"4", ",", "2"}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"PreservesQ", "[", 
+  RowBox[{"f", ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "3"}], "}"}], ",", 
+   RowBox[{"Mode", "\[Rule]", "Interactive"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.436880121387423*^9, 3.43688012198435*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Morphoid", "[", 
+  RowBox[{"\<\"1 -> 1\"\>", ",", "\<\"-Z[4]-\"\>", ",", "\<\"-Z[2]-\"\>"}], 
+  "]"}]], "Output",
+ CellChangeTimes->{3.444832670374628*^9}],
+
+Cell[BoxData[
+ TemplateBox[{TabViewBox[{{1, "\"Computation\"" -> TagBox[
+        StyleBox[
+         DynamicModuleBox[{
+          AbstractAlgebra`Master`Private`h$$ = {2, 3}, Typeset`show$$ = True, 
+           Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+           Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+           "\"untitled\"", Typeset`specs$$ = {{{
+               Hold[AbstractAlgebra`Master`Private`h$$], {2, 3}, 
+               "{g, h} \[Subset] G"}, {{0, 0}, {0, 1}, {0, 2}, {0, 3}, {1, 
+              0}, {1, 1}, {1, 2}, {1, 3}, {2, 0}, {2, 1}, {2, 2}, {2, 3}, {3, 
+              0}, {3, 1}, {3, 2}, {3, 3}}}}, Typeset`size$$ = {36., {1., 9.}},
+            Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
+           True, AbstractAlgebra`Master`Private`h$1407$$ = 0}, 
+          DynamicBox[
+           Manipulate`ManipulateBoxes[
+           1, StandardForm, 
+            "Variables" :> {AbstractAlgebra`Master`Private`h$$ = {2, 3}}, 
+            "ControllerVariables" :> {
+              Hold[
+              AbstractAlgebra`Master`Private`h$$, 
+               AbstractAlgebra`Master`Private`h$1407$$, 0]}, 
+            "OtherVariables" :> {
+             Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+              Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+              Typeset`specs$$, Typeset`size$$, Typeset`update$$, 
+              Typeset`initDone$$, Typeset`skipInitDone$$}, "Body" :> 
+            AbstractAlgebra`Master`PreservesQ[
+              AbstractAlgebra`Master`Private`morphoid[Mod[#, 2]& , 
+               
+               AbstractAlgebra`Master`Private`groupoid[{0, 1, 2, 3}, 
+                Mod[# + #2, 4]& , {{}, {}, {}, {}, {}, {
+                 AbstractAlgebra`Master`IsAGroup -> True, 
+                  AbstractAlgebra`Master`FormatOperator -> False, 
+                  AbstractAlgebra`Master`Generators -> {1}, 
+                  AbstractAlgebra`Master`GroupoidDescription -> 
+                  "Integers mod n under addition", 
+                  AbstractAlgebra`Master`Private`GroupoidInputString -> 
+                  "Z[4]", AbstractAlgebra`Master`GroupoidName -> "Z[4]"}}], 
+               
+               AbstractAlgebra`Master`Private`groupoid[{0, 1}, 
+                Mod[# + #2, 2]& , {{}, {}, {}, {}, {}, {
+                 AbstractAlgebra`Master`IsAGroup -> True, 
+                  AbstractAlgebra`Master`FormatOperator -> False, 
+                  AbstractAlgebra`Master`Generators -> {1}, 
+                  AbstractAlgebra`Master`GroupoidDescription -> 
+                  "Integers mod n under addition", 
+                  AbstractAlgebra`Master`Private`GroupoidInputString -> 
+                  "Z[2]", AbstractAlgebra`Master`GroupoidName -> "Z[2]"}}], 
+               AbstractAlgebra`Master`Group, Function, 
+               AbstractAlgebra`Master`FormatFunction -> Rule, 
+               AbstractAlgebra`Master`Private`GeneratingRule -> {1 -> 1}, 
+               AbstractAlgebra`Master`Private`ConjugatingElement -> Null], 
+              AbstractAlgebra`Master`Private`h$$, Mode -> 
+              AbstractAlgebra`Master`Computational], 
+            "Specifications" :> {{{
+               AbstractAlgebra`Master`Private`h$$, {2, 3}, 
+                "{g, h} \[Subset] G"}, {{0, 0}, {0, 1}, {0, 2}, {0, 3}, {1, 
+               0}, {1, 1}, {1, 2}, {1, 3}, {2, 0}, {2, 1}, {2, 2}, {2, 3}, {3,
+                0}, {3, 1}, {3, 2}, {3, 3}}}}, 
+            "Options" :> {ControlType -> RadioButtonBar}, 
+            "DefaultOptions" :> {}], 
+           ImageSizeCache -> {572., {88.21875, 94.78125}}, SingleEvaluation -> 
+           True], Deinitialization :> None, DynamicModuleValues :> {}, 
+          SynchronousInitialization -> True, 
+          UnsavedVariables :> {Typeset`initDone$$}, 
+          UntrackedVariables :> {Typeset`size$$}], "Manipulate", Deployed -> 
+         True, StripOnInput -> False], 
+        Manipulate`InterpretManipulate[1]]}, {2, "\"Explanation\"" -> TagBox[
+        StyleBox[
+         DynamicModuleBox[{
+          AbstractAlgebra`Master`Private`h$$ = {2, 3}, Typeset`show$$ = True, 
+           Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+           Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+           "\"untitled\"", Typeset`specs$$ = {{{
+               Hold[AbstractAlgebra`Master`Private`h$$], {2, 3}, 
+               "{g, h} \[Subset] G"}, {{0, 0}, {0, 1}, {0, 2}, {0, 3}, {1, 
+              0}, {1, 1}, {1, 2}, {1, 3}, {2, 0}, {2, 1}, {2, 2}, {2, 3}, {3, 
+              0}, {3, 1}, {3, 2}, {3, 3}}}}, Typeset`size$$ = Automatic, 
+           Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
+           True, AbstractAlgebra`Master`Private`h$1424$$ = 0}, 
+          DynamicBox[
+           Manipulate`ManipulateBoxes[
+           1, StandardForm, 
+            "Variables" :> {AbstractAlgebra`Master`Private`h$$ = {2, 3}}, 
+            "ControllerVariables" :> {
+              Hold[
+              AbstractAlgebra`Master`Private`h$$, 
+               AbstractAlgebra`Master`Private`h$1424$$, 0]}, 
+            "OtherVariables" :> {
+             Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+              Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+              Typeset`specs$$, Typeset`size$$, Typeset`update$$, 
+              Typeset`initDone$$, Typeset`skipInitDone$$}, "Body" :> 
+            AbstractAlgebra`Master`PreservesQ[
+              AbstractAlgebra`Master`Private`morphoid[Mod[#, 2]& , 
+               
+               AbstractAlgebra`Master`Private`groupoid[{0, 1, 2, 3}, 
+                Mod[# + #2, 4]& , {{}, {}, {}, {}, {}, {
+                 AbstractAlgebra`Master`IsAGroup -> True, 
+                  AbstractAlgebra`Master`FormatOperator -> False, 
+                  AbstractAlgebra`Master`Generators -> {1}, 
+                  AbstractAlgebra`Master`GroupoidDescription -> 
+                  "Integers mod n under addition", 
+                  AbstractAlgebra`Master`Private`GroupoidInputString -> 
+                  "Z[4]", AbstractAlgebra`Master`GroupoidName -> "Z[4]"}}], 
+               
+               AbstractAlgebra`Master`Private`groupoid[{0, 1}, 
+                Mod[# + #2, 2]& , {{}, {}, {}, {}, {}, {
+                 AbstractAlgebra`Master`IsAGroup -> True, 
+                  AbstractAlgebra`Master`FormatOperator -> False, 
+                  AbstractAlgebra`Master`Generators -> {1}, 
+                  AbstractAlgebra`Master`GroupoidDescription -> 
+                  "Integers mod n under addition", 
+                  AbstractAlgebra`Master`Private`GroupoidInputString -> 
+                  "Z[2]", AbstractAlgebra`Master`GroupoidName -> "Z[2]"}}], 
+               AbstractAlgebra`Master`Group, Function, 
+               AbstractAlgebra`Master`FormatFunction -> Rule, 
+               AbstractAlgebra`Master`Private`GeneratingRule -> {1 -> 1}, 
+               AbstractAlgebra`Master`Private`ConjugatingElement -> Null], 
+              AbstractAlgebra`Master`Private`h$$, Mode -> 
+              AbstractAlgebra`Master`Textual], 
+            "Specifications" :> {{{
+               AbstractAlgebra`Master`Private`h$$, {2, 3}, 
+                "{g, h} \[Subset] G"}, {{0, 0}, {0, 1}, {0, 2}, {0, 3}, {1, 
+               0}, {1, 1}, {1, 2}, {1, 3}, {2, 0}, {2, 1}, {2, 2}, {2, 3}, {3,
+                0}, {3, 1}, {3, 2}, {3, 3}}}}, 
+            "Options" :> {ControlType -> RadioButtonBar}, 
+            "DefaultOptions" :> {}], SingleEvaluation -> True], 
+          Deinitialization :> None, DynamicModuleValues :> {}, 
+          SynchronousInitialization -> True, 
+          UnsavedVariables :> {Typeset`initDone$$}, 
+          UntrackedVariables :> {Typeset`size$$}], "Manipulate", Deployed -> 
+         True, StripOnInput -> False], 
+        Manipulate`InterpretManipulate[1]]}, {3, "\"Visualization\"" -> TagBox[
+        StyleBox[
+         DynamicModuleBox[{
+          AbstractAlgebra`Master`Private`h$$ = {2, 3}, Typeset`show$$ = True, 
+           Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+           Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+           "\"untitled\"", Typeset`specs$$ = {{{
+               Hold[AbstractAlgebra`Master`Private`h$$], {2, 3}, 
+               "{g, h} \[Subset] G"}, {{0, 0}, {0, 1}, {0, 2}, {0, 3}, {1, 
+              0}, {1, 1}, {1, 2}, {1, 3}, {2, 0}, {2, 1}, {2, 2}, {2, 3}, {3, 
+              0}, {3, 1}, {3, 2}, {3, 3}}}}, 
+           Typeset`size$$ = {225., {93.71875, 100.28125}}, Typeset`update$$ = 
+           0, Typeset`initDone$$, Typeset`skipInitDone$$ = True, 
+           AbstractAlgebra`Master`Private`h$1441$$ = 0}, 
+          DynamicBox[
+           Manipulate`ManipulateBoxes[
+           1, StandardForm, 
+            "Variables" :> {AbstractAlgebra`Master`Private`h$$ = {2, 3}}, 
+            "ControllerVariables" :> {
+              Hold[
+              AbstractAlgebra`Master`Private`h$$, 
+               AbstractAlgebra`Master`Private`h$1441$$, 0]}, 
+            "OtherVariables" :> {
+             Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+              Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+              Typeset`specs$$, Typeset`size$$, Typeset`update$$, 
+              Typeset`initDone$$, Typeset`skipInitDone$$}, "Body" :> 
+            AbstractAlgebra`Master`PreservesQ[
+              AbstractAlgebra`Master`Private`morphoid[Mod[#, 2]& , 
+               AbstractAlgebra`Master`Private`groupoid[{0, 1, 2, 3}, 
+                Mod[# + #2, 4]& , {{}, {}, {}, {}, {}, {
+                 AbstractAlgebra`Master`IsAGroup -> True, 
+                  AbstractAlgebra`Master`FormatOperator -> False, 
+                  AbstractAlgebra`Master`Generators -> {1}, 
+                  AbstractAlgebra`Master`GroupoidDescription -> 
+                  "Integers mod n under addition", 
+                  AbstractAlgebra`Master`Private`GroupoidInputString -> 
+                  "Z[4]", AbstractAlgebra`Master`GroupoidName -> "Z[4]"}}], 
+               
+               AbstractAlgebra`Master`Private`groupoid[{0, 1}, 
+                Mod[# + #2, 2]& , {{}, {}, {}, {}, {}, {
+                 AbstractAlgebra`Master`IsAGroup -> True, 
+                  AbstractAlgebra`Master`FormatOperator -> False, 
+                  AbstractAlgebra`Master`Generators -> {1}, 
+                  AbstractAlgebra`Master`GroupoidDescription -> 
+                  "Integers mod n under addition", 
+                  AbstractAlgebra`Master`Private`GroupoidInputString -> 
+                  "Z[2]", AbstractAlgebra`Master`GroupoidName -> "Z[2]"}}], 
+               AbstractAlgebra`Master`Group, Function, 
+               AbstractAlgebra`Master`FormatFunction -> Rule, 
+               AbstractAlgebra`Master`Private`GeneratingRule -> {1 -> 1}, 
+               AbstractAlgebra`Master`Private`ConjugatingElement -> Null], 
+              AbstractAlgebra`Master`Private`h$$, Mode -> 
+              AbstractAlgebra`Master`Visual], 
+            "Specifications" :> {{{
+               AbstractAlgebra`Master`Private`h$$, {2, 3}, 
+                "{g, h} \[Subset] G"}, {{0, 0}, {0, 1}, {0, 2}, {0, 3}, {1, 
+               0}, {1, 1}, {1, 2}, {1, 3}, {2, 0}, {2, 1}, {2, 2}, {2, 3}, {3,
+                0}, {3, 1}, {3, 2}, {3, 3}}}}, 
+            "Options" :> {ControlType -> RadioButtonBar}, 
+            "DefaultOptions" :> {}], 
+           ImageSizeCache -> {572., {178.21875, 184.78125}}, SingleEvaluation -> 
+           True], Deinitialization :> None, DynamicModuleValues :> {}, 
+          SynchronousInitialization -> True, 
+          UnsavedVariables :> {Typeset`initDone$$}, 
+          UntrackedVariables :> {Typeset`size$$}], "Manipulate", Deployed -> 
+         True, StripOnInput -> False], 
+        Manipulate`InterpretManipulate[1]]}}, 3, ImageSize -> Automatic],
+   "\"Interacting with PreservesQ[f, {g, h}]\""},
+  "Labeled",
+  DisplayFunction->(GridBox[{{
+      ItemBox[#2, DefaultBaseStyle -> "LabeledLabel"]}, {
+      TagBox[
+       ItemBox[
+        PaneBox[
+         TagBox[#, "SkipImageSizeLevel"], Alignment -> {Center, Baseline}, 
+         BaselinePosition -> Baseline], DefaultBaseStyle -> "Labeled"], 
+       "SkipImageSizeLevel"]}}, 
+    GridBoxAlignment -> {"Columns" -> {{Center}}, "Rows" -> {{Center}}}, 
+    AutoDelete -> False, 
+    GridBoxItemSize -> {"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+    BaselinePosition -> {2, 1}]& ),
+  InterpretationFunction->(RowBox[{"Labeled", "[", 
+     RowBox[{#, ",", #2, ",", "Top"}], "]"}]& )]], "Output",
+ CellChangeTimes->{{3.444832670452145*^9, 3.4448326783767853`*^9}}]
+}, Open  ]],
+
+Cell["\<\
+Finally, sometimes elements can be chosen via check boxes rather than radio \
+buttons.\
+\>", "Text",
+ CellChangeTimes->{{3.444832684771512*^9, 3.4448327026814623`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Closure", "[", 
+  RowBox[{
+   RowBox[{"Z", "[", "8", "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "6"}], "}"}], ",", 
+   RowBox[{"Mode", "\[Rule]", "Interactive"}], ",", " ", 
+   RowBox[{"InteractiveMode", "\[Rule]", "Visual"}]}], "]"}]], "Input"],
+
+Cell[BoxData[
+ TemplateBox[{PanelBox[
+    TagBox[
+     GridBox[{{
+        InterpretationBox[
+         StyleBox[
+          RowBox[{
+            GridBox[{{
+               CheckboxBox[
+                Dynamic[
+                 MemberQ[AbstractAlgebra`Master`Private`x$1647, 0], 
+                 BoxForm`TogglerBarFunction[
+                 AbstractAlgebra`Master`Private`x$1647, 0]& ], 
+                DefaultBaseStyle -> "CheckboxBar"], 
+               StyleBox["0", "CheckboxBarLabel", StripOnInput -> False]}}, 
+             AutoDelete -> False, 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {
+                 Offset[0.27999999999999997`], {
+                  Offset[0.21]}, 
+                 Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, 
+               "Rows" -> {
+                 Offset[0.2], {
+                  Offset[0.4]}, 
+                 Offset[0.2]}, "RowsIndexed" -> {}}], "  ", 
+            GridBox[{{
+               CheckboxBox[
+                Dynamic[
+                 MemberQ[AbstractAlgebra`Master`Private`x$1647, 1], 
+                 BoxForm`TogglerBarFunction[
+                 AbstractAlgebra`Master`Private`x$1647, 1]& ], 
+                DefaultBaseStyle -> "CheckboxBar"], 
+               StyleBox["1", "CheckboxBarLabel", StripOnInput -> False]}}, 
+             AutoDelete -> False, 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {
+                 Offset[0.27999999999999997`], {
+                  Offset[0.21]}, 
+                 Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, 
+               "Rows" -> {
+                 Offset[0.2], {
+                  Offset[0.4]}, 
+                 Offset[0.2]}, "RowsIndexed" -> {}}], "  ", 
+            GridBox[{{
+               CheckboxBox[
+                Dynamic[
+                 MemberQ[AbstractAlgebra`Master`Private`x$1647, 3], 
+                 BoxForm`TogglerBarFunction[
+                 AbstractAlgebra`Master`Private`x$1647, 3]& ], 
+                DefaultBaseStyle -> "CheckboxBar"], 
+               StyleBox["3", "CheckboxBarLabel", StripOnInput -> False]}}, 
+             AutoDelete -> False, 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {
+                 Offset[0.27999999999999997`], {
+                  Offset[0.21]}, 
+                 Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, 
+               "Rows" -> {
+                 Offset[0.2], {
+                  Offset[0.4]}, 
+                 Offset[0.2]}, "RowsIndexed" -> {}}], "  ", 
+            GridBox[{{
+               CheckboxBox[
+                Dynamic[
+                 MemberQ[AbstractAlgebra`Master`Private`x$1647, 4], 
+                 BoxForm`TogglerBarFunction[
+                 AbstractAlgebra`Master`Private`x$1647, 4]& ], 
+                DefaultBaseStyle -> "CheckboxBar"], 
+               StyleBox["4", "CheckboxBarLabel", StripOnInput -> False]}}, 
+             AutoDelete -> False, 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {
+                 Offset[0.27999999999999997`], {
+                  Offset[0.21]}, 
+                 Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, 
+               "Rows" -> {
+                 Offset[0.2], {
+                  Offset[0.4]}, 
+                 Offset[0.2]}, "RowsIndexed" -> {}}], "  ", 
+            GridBox[{{
+               CheckboxBox[
+                Dynamic[
+                 MemberQ[AbstractAlgebra`Master`Private`x$1647, 5], 
+                 BoxForm`TogglerBarFunction[
+                 AbstractAlgebra`Master`Private`x$1647, 5]& ], 
+                DefaultBaseStyle -> "CheckboxBar"], 
+               StyleBox["5", "CheckboxBarLabel", StripOnInput -> False]}}, 
+             AutoDelete -> False, 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {
+                 Offset[0.27999999999999997`], {
+                  Offset[0.21]}, 
+                 Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, 
+               "Rows" -> {
+                 Offset[0.2], {
+                  Offset[0.4]}, 
+                 Offset[0.2]}, "RowsIndexed" -> {}}], "  ", 
+            GridBox[{{
+               CheckboxBox[
+                Dynamic[
+                 MemberQ[AbstractAlgebra`Master`Private`x$1647, 7], 
+                 BoxForm`TogglerBarFunction[
+                 AbstractAlgebra`Master`Private`x$1647, 7]& ], 
+                DefaultBaseStyle -> "CheckboxBar"], 
+               StyleBox["7", "CheckboxBarLabel", StripOnInput -> False]}}, 
+             AutoDelete -> False, 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {
+                 Offset[0.27999999999999997`], {
+                  Offset[0.21]}, 
+                 Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, 
+               "Rows" -> {
+                 Offset[0.2], {
+                  Offset[0.4]}, 
+                 Offset[0.2]}, "RowsIndexed" -> {}}]}], Deployed -> True], 
+         CheckboxBar[
+          Dynamic[AbstractAlgebra`Master`Private`x$1647], {0, 1, 3, 4, 5, 
+          7}]]}, {
+        DynamicBox[
+         ToBoxes[
+          AbstractAlgebra`Master`Private`SubgroupQVisual5[
+           
+           AbstractAlgebra`Master`Private`groupoid[{0, 1, 2, 3, 4, 5, 6, 7}, 
+            Mod[# + #2, 8]& , {{}, {}, {}, {}, {}, {
+             AbstractAlgebra`Master`IsAGroup -> True, 
+              AbstractAlgebra`Master`FormatOperator -> False, 
+              AbstractAlgebra`Master`Generators -> {1}, 
+              AbstractAlgebra`Master`GroupoidDescription -> 
+              "Integers mod n under addition", 
+              AbstractAlgebra`Master`Private`GroupoidInputString -> "Z[8]", 
+              AbstractAlgebra`Master`GroupoidName -> "Z[8]"}}], 
+           Join[{2, 6}, AbstractAlgebra`Master`Private`x$1647], Mode -> 
+           AbstractAlgebra`Master`Visual], StandardForm], 
+         ImageSizeCache -> {241., {132., 157.}}]}}, 
+      GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+      GridBoxItemSize -> {
+       "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"]],
+   TagBox[
+    FormBox["\"Closure of {2, 6} in Z[8]\"", "TraditionalForm"], 
+    TraditionalForm, Editable -> True]},
+  "Labeled",
+  DisplayFunction->(GridBox[{{
+      ItemBox[#2, Alignment -> {Left, Inherited}, DefaultBaseStyle -> 
+       "PanelLabel"]}, {
+      TagBox[
+       ItemBox[
+        PaneBox[
+         TagBox[#, "SkipImageSizeLevel"], Alignment -> {Center, Baseline}, 
+         BaselinePosition -> Baseline], DefaultBaseStyle -> "Labeled"], 
+       "SkipImageSizeLevel"]}}, 
+    GridBoxAlignment -> {"Columns" -> {{Center}}, "Rows" -> {{Center}}}, 
+    AutoDelete -> False, 
+    GridBoxItemSize -> {"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+    BaselinePosition -> {2, 1}]& ),
+  InterpretationFunction->(RowBox[{"Labeled", "[", 
+     RowBox[{#, ",", 
+       RowBox[{"{", #2, "}"}], ",", 
+       RowBox[{"{", 
+         RowBox[{"{", 
+           RowBox[{"Top", ",", "Left"}], "}"}], "}"}], ",", 
+       RowBox[{"DefaultLabelStyle", "\[Rule]", "\"PanelLabel\""}], ",", 
+       RowBox[{"LabelStyle", "\[Rule]", 
+         RowBox[{"{", "}"}]}], ",", 
+       RowBox[{"RotateLabel", "\[Rule]", "False"}], ",", 
+       RowBox[{"Spacings", "\[Rule]", "Automatic"}]}], "]"}]& )]], "Output",
+ CellChangeTimes->{{3.444832716157331*^9, 3.444832731722302*^9}}]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+},
+WindowSize->{748, 809},
+WindowMargins->{{4, Automatic}, {Automatic, 4}},
+Magnification:>FEPrivate`If[
+  FEPrivate`Equal[FEPrivate`$VersionNumber, 6.], 1.25, 1.25 Inherited],
+FrontEndVersion->"7.0 for Mac OS X x86 (32-bit) (November 11, 2008)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 90, 1, 95, "Title"],
+Cell[CellGroupData[{
+Cell[682, 27, 103, 1, 83, "Section"],
+Cell[788, 30, 266, 5, 51, "Text"],
+Cell[1057, 37, 88, 1, 33, "Input"],
+Cell[1148, 40, 365, 7, 70, "Text"],
+Cell[CellGroupData[{
+Cell[1538, 51, 177, 3, 33, "Input"],
+Cell[1718, 56, 314, 10, 33, "Output"]
+}, Open  ]],
+Cell[2047, 69, 140, 2, 32, "Text"],
+Cell[CellGroupData[{
+Cell[2212, 75, 243, 5, 33, "Input"],
+Cell[2458, 82, 314, 10, 33, "Output"]
+}, Open  ]],
+Cell[2787, 95, 167, 2, 32, "Text"],
+Cell[2957, 99, 217, 4, 32, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3211, 108, 152, 2, 83, "Section"],
+Cell[3366, 112, 183, 2, 32, "Text"],
+Cell[CellGroupData[{
+Cell[3574, 118, 237, 5, 33, "Input"],
+Cell[3814, 125, 1501, 37, 137, "Output"]
+}, Open  ]],
+Cell[5330, 165, 374, 6, 51, "Text"],
+Cell[CellGroupData[{
+Cell[5729, 175, 474, 11, 53, "Input"],
+Cell[6206, 188, 207, 6, 33, "Output"],
+Cell[6416, 196, 1418, 36, 119, "Output"]
+}, Open  ]],
+Cell[7849, 235, 598, 12, 89, "Text"],
+Cell[CellGroupData[{
+Cell[8472, 251, 207, 5, 33, "Input"],
+Cell[8682, 258, 1501, 37, 137, "Output"]
+}, Open  ]],
+Cell[10198, 298, 234, 7, 32, "Text"],
+Cell[CellGroupData[{
+Cell[10457, 309, 130, 2, 33, "Input"],
+Cell[10590, 313, 1564, 38, 137, "Output"]
+}, Open  ]],
+Cell[12169, 354, 862, 22, 107, "Text"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[13068, 381, 252, 3, 45, "Section"],
+Cell[13323, 386, 323, 6, 40, "Text"],
+Cell[CellGroupData[{
+Cell[13671, 396, 285, 6, 41, "Input"],
+Cell[13959, 404, 4501, 126, 343, "Output"]
+}, Open  ]],
+Cell[18475, 533, 447, 7, 111, "Text"],
+Cell[18925, 542, 226, 4, 63, "Text"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[19188, 551, 93, 1, 45, "Section"],
+Cell[19284, 554, 144, 1, 40, "Text"],
+Cell[CellGroupData[{
+Cell[19453, 559, 284, 6, 41, "Input"],
+Cell[19740, 567, 15816, 298, 412, "Output"]
+}, Open  ]],
+Cell[35571, 868, 588, 9, 133, "Text"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[36196, 882, 101, 1, 45, "Section"],
+Cell[36300, 885, 189, 4, 40, "Text"],
+Cell[CellGroupData[{
+Cell[36514, 893, 338, 6, 41, "Input"],
+Cell[36855, 901, 7070, 131, 318, "Output"]
+}, Open  ]],
+Cell[43940, 1035, 766, 13, 157, "Text"],
+Cell[44709, 1050, 551, 9, 111, "Text"],
+Cell[CellGroupData[{
+Cell[45285, 1063, 398, 12, 66, "Input"],
+Cell[45686, 1077, 7917, 147, 483, "Output"]
+}, Open  ]],
+Cell[53618, 1227, 160, 3, 40, "Text"],
+Cell[CellGroupData[{
+Cell[53803, 1234, 360, 9, 66, "Input"],
+Cell[54166, 1245, 179, 4, 41, "Output"],
+Cell[54348, 1251, 12626, 218, 576, "Output"]
+}, Open  ]],
+Cell[66989, 1472, 178, 4, 40, "Text"],
+Cell[CellGroupData[{
+Cell[67192, 1480, 278, 7, 41, "Input"],
+Cell[67473, 1489, 7803, 171, 478, "Output"]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

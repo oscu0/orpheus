@@ -4,10 +4,14 @@
 <dict>
 	<key>hidemenu</key>
 	<true/>
+	<key>hidesubtext</key>
+	<integer>2</integer>
 	<key>nativedarkmode</key>
 	<true/>
-	<key>showOnScreen</key>
+	<key>scrollbarmode</key>
 	<integer>1</integer>
+	<key>showOnScreen</key>
+	<integer>2</integer>
 	<key>visibleresults</key>
 	<integer>4</integer>
 </dict>

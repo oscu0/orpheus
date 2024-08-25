@@ -1,8 +1,8 @@
 set keyseq-timeout 0
 set editing-mode emacs
 set show-mode-in-prompt off
-set vi-ins-mode-string "\1\e[5 q\2[ins] "
-set vi-cmd-mode-string "\1\e[2 q\2[nav] "
+set vi-ins-mode-string "\1\e[5 q\2+ > "
+set vi-cmd-mode-string "\1\e[2 q\2: > "
 
 Control-l: clear-screen
 TAB: menu-complete
@@ -10,8 +10,12 @@ TAB: menu-complete
 set convert-meta on
 Meta-TAB: menu-complete
 
-Control-p: menu-complete-backward
-Control-n: menu-complete
+# "\e[C": forward-char
+set match-hidden-files off
+Space:magic-space
+
+# Control-p: menu-complete-backward
+# Control-n: menu-complete
 # set vi-cmd-mode-string ": "
 # set vi-ins-mode-string "+ "
 "\e[A": history-search-backward
@@ -19,6 +23,12 @@ Control-n: menu-complete
 # set keymap vi-command
 # "gg": beginning-of-history
 # "G": end-of-history
+
+set show-all-if-ambiguous on
+set completion-map-case on
+set mark-symlinked-directories on
+set menu-complete-display-prefix on
+set show-all-if-ambiguous on
 
 set bell-style visible
 

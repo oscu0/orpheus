@@ -1,0 +1,261 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 6.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[      8667,        252]
+NotebookOptionsPosition[      7656,        208]
+NotebookOutlinePosition[      8274,        236]
+CellTagsIndexPosition[      8203,        231]
+WindowFrame->Normal
+ContainsDynamic->False*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["U[15]", "Input",
+ Deletable->False,
+ CellFrame->True,
+ ShowCellBracket->True,
+ Evaluatable->False,
+ CellFrameLabels->{{
+    StyleBox["Type in Groupoid:", FontColor -> RGBColor[0, 0, 1]], None}, {
+   Inherited, Inherited}},
+ CellChangeTimes->{{3.436735532906395*^9, 3.436735533264488*^9}},
+ CellTags->"structure"],
+
+Cell[TextData[{
+ "Some groups to consider: Z[n] (integers mod ",
+ Cell[BoxData[
+  FormBox["n", TraditionalForm]]],
+ " under addition), U[n] (integers mod ",
+ Cell[BoxData[
+  FormBox["n", TraditionalForm]]],
+ " under multiplication), D[n] (dihedral group on ",
+ Cell[BoxData[
+  FormBox["n", TraditionalForm]]],
+ " symbols), A[n] (alternating group), S[n] (symmetric group) and other G",
+ ButtonBox["roupoids",
+  BaseStyle->"AddOnsLink",
+  ButtonData:>{
+   "Groupoids based on the integers mod n", 
+    "Groupoids based on the integers mod n"}],
+ "."
+}], "Text",
+ ShowCellBracket->True,
+ CellChangeTimes->{{3.4367368314136543`*^9, 3.436736860458695*^9}},
+ FontSize->14],
+
+Cell["\<\
+After specifying a Groupoid, choose a button (but evaluate the command first \
+if a column of buttons is not already presented). \
+\>", "Text",
+ ShowCellBracket->True,
+ CellChangeTimes->{
+  3.432139301530188*^9, {3.436736837466013*^9, 3.4367368378174458`*^9}, {
+   3.4367368726833553`*^9, 3.43673689982771*^9}},
+ FontSize->14],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["CreatePaletteButtons"], "Input"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {
+     TagBox[
+      TooltipBox[
+       ButtonBox["\<\"Palette of Elements\"\>",
+        Appearance->Automatic,
+        ButtonFrame->"DialogBox",
+        ButtonFunction:>AbstractAlgebra`Master`FormElements,
+        Evaluator->Automatic,
+        Method->"Preemptive"],
+       "\"This simply brings up a vertical palette of the elements in the \
+group. May have some use but not indispensable.\"",
+       LabelStyle->"TextStyling"],
+      Annotation[#, 
+       "This simply brings up a vertical palette of the elements in the \
+group. May have some use but not indispensable.", "Tooltip"]& ]},
+    {
+     TagBox[
+      TooltipBox[
+       ButtonBox["\<\"GroupCalculator\"\>",
+        Appearance->Automatic,
+        ButtonFrame->"DialogBox",
+        ButtonFunction:>AbstractAlgebra`Master`GroupCalculatorPC,
+        Evaluator->Automatic,
+        Method->"Preemptive"],
+       "\"This brings up a calculator to work with the specified group. One \
+can calculate products and inverses and use the memory option or choose \
+random elements.\"",
+       LabelStyle->"TextStyling"],
+      Annotation[#, 
+       "This brings up a calculator to work with the specified group. One can \
+calculate products and inverses and use the memory option or choose random \
+elements.", "Tooltip"]& ]},
+    {
+     TagBox[
+      TooltipBox[
+       ButtonBox["\<\"Properties of group elements\"\>",
+        Appearance->Automatic,
+        ButtonFrame->"DialogBox",
+        ButtonFunction:>AbstractAlgebra`Master`ElementInformation,
+        Evaluator->Automatic,
+        Method->"Preemptive"],
+       "\"This brings up a palette of functions and a palette with the \
+elements in the group and one can investigate which properties hold for the \
+various elements. One can proceed element-by-element or function-by-function, \
+or see all at once.\"",
+       LabelStyle->"TextStyling"],
+      Annotation[#, 
+       "This brings up a palette of functions and a palette with the elements \
+in the group and one can investigate which properties hold for the various \
+elements. One can proceed element-by-element or function-by-function, or see \
+all at once.", "Tooltip"]& ]},
+    {
+     TagBox[
+      TooltipBox[
+       ButtonBox["\<\"Properties of the group\"\>",
+        Appearance->Automatic,
+        ButtonFrame->"DialogBox",
+        ButtonFunction:>AbstractAlgebra`Master`GroupInformation,
+        Evaluator->Automatic,
+        Method->"Preemptive"],
+       "\"This brings up a palette of functions and a palette with the \
+elements in the group and one can investigate which properties hold for the \
+various elements. One can proceed element-by-element or function-by-function, \
+or see all at once.\"",
+       LabelStyle->"TextStyling"],
+      Annotation[#, 
+       "This brings up a palette of functions and a palette with the elements \
+in the group and one can investigate which properties hold for the various \
+elements. One can proceed element-by-element or function-by-function, or see \
+all at once.", "Tooltip"]& ]}
+   },
+   ColumnsEqual->False,
+   GridBoxAlignment->{"Columns" -> {{Left}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+   RowsEqual->False],
+  "Column"]], "Output",
+ CellChangeTimes->{3.436736596728154*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Implementation", "Section",
+ ShowCellBracket->True,
+ CellOpen->True,
+ CellChangeTimes->{{3.4367369244310417`*^9, 3.4367369260599957`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<AbstractAlgebra`Master`\>\"", "]"}]], "Input",
+ ShowCellBracket->True,
+ CellOpen->True,
+ InitializationCell->True,
+ CellChangeTimes->{{3.432139268488616*^9, 3.4321392799786654`*^9}, {
+  3.436736529879586*^9, 3.436736558180579*^9}}],
+
+Cell[BoxData[
+ RowBox[{"CreatePaletteButtons", ":=", 
+  RowBox[{"Column", "[", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"Tooltip", "[", 
+      RowBox[{
+       RowBox[{"Button", "[", 
+        RowBox[{"\"\<Palette of Elements\>\"", ",", "FormElements"}], "]"}], 
+       ",", "\"\<This simply brings up a vertical palette of the elements in \
+the group. May have some use but not indispensable.\>\""}], "]"}], ",", 
+     RowBox[{"Tooltip", "[", 
+      RowBox[{
+       RowBox[{"Button", "[", 
+        RowBox[{"\"\<GroupCalculator\>\"", ",", "GroupCalculatorPC"}], "]"}], 
+       ",", "\"\<This brings up a calculator to work with the specified \
+group. One can calculate products and inverses and use the memory option or \
+choose random elements.\>\""}], "]"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"Tooltip", "[", 
+      RowBox[{
+       RowBox[{"Button", "[", 
+        RowBox[{
+        "\"\<Properties of group elements\>\"", ",", "ElementInformation"}], 
+        "]"}], ",", 
+       "\"\<This brings up a palette of functions and a palette with the \
+elements in the group and one can investigate which properties hold for the \
+various elements. One can proceed element-by-element or function-by-function, \
+or see all at once.\>\""}], "]"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"Tooltip", "[", 
+      RowBox[{
+       RowBox[{"Button", "[", 
+        RowBox[{"\"\<Properties of the group\>\"", ",", "GroupInformation"}], 
+        "]"}], ",", 
+       "\"\<This brings up a palette of functions and a palette with the \
+elements in the group and one can investigate which properties hold for the \
+various elements. One can proceed element-by-element or function-by-function, \
+or see all at once.\>\""}], "]"}]}], "}"}], "]"}]}]], "Input",
+ ShowCellBracket->True,
+ CellOpen->True,
+ InitializationCell->True,
+ CellChangeTimes->{{3.432139268488616*^9, 3.4321392799786654`*^9}, {
+  3.436736529879586*^9, 3.436736585271186*^9}}]
+}, Closed]]
+},
+AutoGeneratedPackage->None,
+Saveable->True,
+InitializationCellEvaluation->True,
+WindowSize->{971, 643},
+WindowMargins->{{Automatic, 297}, {29, Automatic}},
+ShowCellBracket->False,
+ShowGroupOpener->True,
+Magnification->1.5,
+FrontEndVersion->"6.0 for Mac OS X x86 (32-bit) (March 13, 2008)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "structure"->{
+  Cell[568, 21, 318, 9, 65, "Input",
+   Evaluatable->False,
+   CellTags->"structure"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"structure", 8092, 224}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[568, 21, 318, 9, 65, "Input",
+ Evaluatable->False,
+ CellTags->"structure"],
+Cell[889, 32, 667, 20, 93, "Text"],
+Cell[1559, 54, 336, 8, 68, "Text"],
+Cell[CellGroupData[{
+Cell[1920, 66, 46, 0, 40, "Input"],
+Cell[1969, 68, 3275, 78, 196, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5281, 151, 144, 3, 100, "Section",
+ CellOpen->True],
+Cell[5428, 156, 273, 6, 40, "Input",
+ CellOpen->True,
+ InitializationCell->True],
+Cell[5704, 164, 1936, 41, 478, "Input",
+ CellOpen->True,
+ InitializationCell->True]
+}, Closed]]
+}
+]
+*)
+
+(* End of internal cache information *)

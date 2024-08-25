@@ -1,0 +1,1030 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 6.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     37507,       1021]
+NotebookOptionsPosition[     32470,        857]
+NotebookOutlinePosition[     33228,        889]
+CellTagsIndexPosition[     33133,        883]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Changes in the AbstractAlgebra package", "Title",
+ CellChangeTimes->{{3.436804127326028*^9, 3.436804136865139*^9}, {
+  3.445123652425259*^9, 3.445123658352729*^9}}],
+
+Cell["\<\
+To evaluate some of the examples in this notebook, the following cell needs \
+to be evaluated.\
+\>", "Text",
+ CellChangeTimes->{{3.436879301406946*^9, 3.43687933168156*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<AbstractAlgebra`Master`\>\"", "]"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.436879273892747*^9, 3.436879296650996*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "From ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " version 8 to version 9"
+}], "Section",
+ CellChangeTimes->{{3.436804142107623*^9, 3.436804161788662*^9}, {
+  3.436804223921657*^9, 3.436804227906168*^9}, {3.5036745955164137`*^9, 
+  3.503674598422125*^9}, {3.566553030057171*^9, 3.5665530334889517`*^9}}],
+
+Cell[TextData[{
+ "Version 9 of ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " introduced a function called Symmetric, which conflicts with the name \
+given the groupoid for the symmetric group.  This function is now overloaded \
+to work as a groupoid for positive integer arguments and as the System \
+function for lists.\n\nThe FilterOptions package used in previous version is \
+no longer supported and is superseded by FilterRules, which is a System \
+function.  This is reflected in version of the package.\n\nOne nagging \
+problem:  Options to Symmetric work fine, but show up in red because the \
+System version of Symmetric has no options.  I\[CloseCurlyQuote]m not sure \
+how to fix that.\n\nChanged LabCode.m to remove FilterOptions and BarCharts \
+in BeginPackage.\n\nChanged some option names in the BarChart function: \
+BarLabels changed to ChartLabels, BarValues removed, and BarStyle to \
+ChartStyle.\n\nIn LabCode.m, changed Global`e to just e in some definitions \
+of tables and groups."
+}], "Text",
+ CellChangeTimes->{{3.566553057207121*^9, 3.5665530742324877`*^9}, {
+   3.5665564589968433`*^9, 3.5665568325061417`*^9}, {3.567610327941819*^9, 
+   3.5676103610487623`*^9}, {3.56761052561027*^9, 3.567610568863415*^9}, {
+   3.567610633907399*^9, 3.56761066720223*^9}, {3.5676109578844833`*^9, 
+   3.567610958666741*^9}, {3.567612317350422*^9, 3.56761235982062*^9}, 
+   3.5676130695879908`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "From ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " version 7 to version 8"
+}], "Section",
+ CellChangeTimes->{{3.436804142107623*^9, 3.436804161788662*^9}, {
+  3.436804223921657*^9, 3.436804227906168*^9}, {3.5036745955164137`*^9, 
+  3.503674598422125*^9}}],
+
+Cell["\<\
+Version 8 incorporates some group data for various groups. It also adopted \
+names that we have been using as formal names for some groups, though we \
+typically did not use these formal names. Thus, this version now has \
+CyclicGroup, DihedralGroup, AlternatingGroup, and SymmetricGroup, all names \
+that we have been using for many years. We typically used shorter names for \
+these when we used them in our labs: Cyclic, Dihedral (or just D), \
+Alternating (or just A), and Symmetric (or just S), respectivley. These \
+shorter names still work. If you feel that you want to use the longer names \
+and have OUR functionality, they have been renamed to CyclicGroupAA, \
+DihedralGroupAA, AlternatingGroupAA, and SymmetricGroupAA.\
+\>", "Text",
+ CellChangeTimes->{{3.436804336981251*^9, 3.4368044914205112`*^9}, {
+  3.5036746659680443`*^9, 3.503674813994039*^9}, {3.503674844376417*^9, 
+  3.5036749162591467`*^9}}],
+
+Cell[TextData[{
+ "Version 8 of ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " also introduces changes to the function RandomPermutation. We mostly used \
+this internally and it has now been renamed RandomPermutationAA. The function \
+Image was introduced in version 7 without any interference with our package, \
+but now there is. Thus, we have renamed our Image (for the image of a \
+morphoid) to MorphoidImage. Finally, the definitions of ToCycles and \
+FromCycles has been modified in version 8. Since we use these in a number of \
+places, we have it so that these names work as they have in the past for our \
+package and NOT following the current version\[CloseCurlyQuote]s use. If this \
+poses a nuisance to anyone, contact us and we can make some changes."
+}], "Text",
+ CellChangeTimes->{{3.445123393502542*^9, 3.4451236324066067`*^9}, {
+  3.503674940817671*^9, 3.503675079259735*^9}, {3.503675110598427*^9, 
+  3.503675147187969*^9}, {3.5149104463247547`*^9, 3.5149105042673597`*^9}}],
+
+Cell["\<\
+Unresolved issues or things not yet done: 
+
+(1) When using a DirectProduct to form a new group and Mode is set to All, \
+there is an error message that occurs that may read like\
+\>", "Text",
+ CellChangeTimes->{{3.514911059322678*^9, 3.5149111632166977`*^9}, {
+  3.5149113021775*^9, 3.514911306431715*^9}}],
+
+Cell["\<\
+ToExpression::sntx: Invalid syntax in or before \"4] x Z[5\".
+                                                   ^\
+\>", "Message", "MSG",
+ CellChangeTimes->{3.5149110376200867`*^9},
+ CellTags->"GL10"],
+
+Cell["\<\
+This seems to not interfere with the calculations but seems to come up when \
+the label on a tabbed environment is created.\
+\>", "Text",
+ CellChangeTimes->{{3.514911151222239*^9, 3.514911222270884*^9}}],
+
+Cell["\<\
+(2) The AlgebraInvestigator has been tested but not fully. Please point out \
+any errors related to the changes indicated above.\
+\>", "Text",
+ CellChangeTimes->{{3.5149113123593283`*^9, 3.5149113499845333`*^9}, {
+  3.5149139457883463`*^9, 3.514913957655472*^9}}],
+
+Cell["\<\
+(3) If you are an EAAM user, Group Lab 14 (Rotational Groups of Regular \
+Polyhedra) has not yet been updated.\
+\>", "Text",
+ CellChangeTimes->{{3.514911832223812*^9, 3.514911864439966*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "From ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " version 6 to version 7"
+}], "Section",
+ CellChangeTimes->{{3.436804142107623*^9, 3.436804161788662*^9}, {
+  3.436804223921657*^9, 3.436804227906168*^9}}],
+
+Cell[TextData[{
+ "This current version of ",
+ StyleBox["AbstractAlgebra",
+  FontSlant->"Italic"],
+ " does NOT reflect any changes that version 7 brings but that does not \
+prevent some speculation concerning the changes that we are anticipating."
+}], "Text",
+ CellChangeTimes->{{3.4368042415156403`*^9, 3.4368043172561283`*^9}}],
+
+Cell["\<\
+Version 7 incorporates some rudimentary group data for various groups. This \
+collection extends what we currently have in our packages. Thus, we can \
+certainly try to incorporate some of these new groups. There may be a need \
+for a global variable that tracks the groups available for a given version. \
+\>", "Text",
+ CellChangeTimes->{{3.436804336981251*^9, 3.4368044914205112`*^9}}],
+
+Cell["\<\
+Given that, there are two distinct additions that are available now that \
+version is out. 
+
+(1) First, the suite of palettes that have been around since version 3  have \
+now used some version 7 features and are gathered together in one palette \
+with triangle toggles for sections.
+
+(2) Second, this will the first formal release of a collection of notebooks \
+that were started under version 5 but are now finally ready: \
+AlgebraInvestigator. There is a link to this on the AbstractAlgebra palette. \
+This is a means of investigating groups, rings, morphisms, permutations, and \
+ring extensions without knowing the syntax of our package. It can be done in \
+a very structured environment or you can wander around and investigate \
+various ideas. Try it out.\
+\>", "Text",
+ CellChangeTimes->{{3.445123393502542*^9, 3.4451236324066067`*^9}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "From ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " version 5 to version 6"
+}], "Section",
+ CellChangeTimes->{{3.436804142107623*^9, 3.436804161788662*^9}}],
+
+Cell["\<\
+There are a number of changes in the AbstractAlgebra packages to respond to \
+version 6. Initially, there were a number of changes that needed to be made \
+just to be compatible with version 6. These were incorporated first and a \
+compatible version has been available for some time. These are discussed \
+below. Following making the package compatible, we began the task of finding \
+ways that the new version to advantage of new features in version 6, \
+particularly Manipulate and Grid.\
+\>", "Text",
+ CellChangeTimes->{{3.436804505982136*^9, 3.436804664577011*^9}, {
+  3.436805173618924*^9, 3.436805181026093*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Making AbstractAlgebra version 6 compatible", "Subsection",
+ CellChangeTimes->{{3.4368046965761623`*^9, 3.436804712205201*^9}}],
+
+Cell["\<\
+The most immediate change that every user of version 6 noticed was the change \
+to how graphic images were presented. No longer were they a side affect but \
+the actual output of commands that produced them. Goodbye semicolons. Since \
+our packages try to use graphical images wherever possible, this needed to be \
+remedied. Some other changes that had to be made concerned adjusting to \
+changing names of colors and their locations, some packages being incoporated \
+into the kernel, some packages changing names, and some common option names \
+changed (Active to Enabled, DefaultFont to BaseStyle).\
+\>", "Text",
+ CellChangeTimes->{{3.436804731306241*^9, 3.43680473761277*^9}, {
+  3.4368047694971437`*^9, 3.436804872477837*^9}, {3.436804910906481*^9, 
+  3.4368050497246428`*^9}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Adjusting AbstractAlgebra to version 6", "Subsection",
+ CellChangeTimes->{{3.4368046965761623`*^9, 3.436804712205201*^9}, {
+  3.4368051476640253`*^9, 3.436805157122805*^9}}],
+
+Cell["\<\
+After making the packages at least able to be run in version 6, the next step \
+was to find ways to adjust to what is there. Here are some adjustments that \
+were made.\
+\>", "Text",
+ CellChangeTimes->{{3.436805245074245*^9, 3.436805326885599*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Modifying the Mode option", "Subsubsection",
+ CellChangeTimes->{{3.436805336123128*^9, 3.4368053737303333`*^9}}],
+
+Cell["\<\
+Since graphic images were no longer side effects, we had to rethink the Mode \
+option. Many of the functions offered both a Textual and Visual mode in which \
+additional information was presented in addition to the computation. Before \
+version 6, the command\
+\>", "Text",
+ CellChangeTimes->{{3.436805422731502*^9, 3.436805521682695*^9}}],
+
+Cell[BoxData[
+ RowBox[{"CyclicQ", "[", 
+  RowBox[{
+   RowBox[{"Z", "[", "5", "]"}], ",", " ", 
+   RowBox[{"Mode", " ", "\[Rule]", " ", "Visual"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.4368055249222116`*^9, 3.436805540016478*^9}}],
+
+Cell["\<\
+provided a graphical image to answer if Z[5] was cyclic or not, but the \
+actual output was True or False (True here) and the image preceded it. \
+Similarly, the Textual mode provided a Print statement before the output that \
+helped give an explanation of the general concept (cyclic here) and details \
+about the specific case (being true here).\
+\>", "Text",
+ CellChangeTimes->{{3.436805545139038*^9, 3.4368056884941063`*^9}, 
+   3.436879935167574*^9}],
+
+Cell["\<\
+While we could  have continued to use Print for the text and also used Print \
+for the graphic, both approaches separated the extra information (textual or \
+visual) from the actual output. The advent of the TabView allowed multiple \
+presentations within one structure. This motivated the new use of Mode where \
+the actual output (in Out[]) contains the reflection of that mode. Thus, with \
+the Textual mode, instead of using Print, the actual text is in the output. \
+Similarly for the Visual mode where the actual output is the graphical image. \
+\>", "Text",
+ CellChangeTimes->{{3.4368057004944773`*^9, 3.436805764009554*^9}, {
+  3.436805800798526*^9, 3.436805807544312*^9}, {3.436805849819034*^9, 
+  3.436805876821074*^9}, {3.436805999228304*^9, 3.436806071225786*^9}, {
+  3.436806111919067*^9, 3.436806118256233*^9}, {3.4368061648501453`*^9, 
+  3.4368062730038958`*^9}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Explanations in Visual mode", "Subsubsection",
+ CellChangeTimes->{{3.436806546744639*^9, 3.43680655228484*^9}}],
+
+Cell[TextData[{
+ "In the previous version of ",
+ StyleBox["AbstractAlgebra",
+  FontSlant->"Italic"],
+ ", some graphical images used in the Visual mode had a brief explanation \
+printed above it. In this version, every visual image has a button underneath \
+the image with the label ?. By clicking on the button, context-sensitive \
+explanation of the visualization is given. Typically, a general explanation \
+is given and then sometimes extra details about the particular parameters is \
+given. This button can be turned off either globally by"
+}], "Text",
+ CellChangeTimes->{{3.436806588928636*^9, 3.4368067937543983`*^9}, {
+  3.436807137090007*^9, 3.436807162200408*^9}}],
+
+Cell[BoxData[
+ RowBox[{"SetOptions", "[", 
+  RowBox[{"HelpMessages", ",", 
+   RowBox[{"ShowHelp", "\[Rule]", "False"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.436807473422934*^9, 3.4368074747594643`*^9}, {
+  3.436807637863769*^9, 3.4368076604524307`*^9}}],
+
+Cell["\<\
+or locally by adding an option with the Visual mode that turns it off for a \
+particular call. For example, consider\
+\>", "Text",
+ CellChangeTimes->{{3.436807174539303*^9, 3.436807217092733*^9}}],
+
+Cell[BoxData[
+ RowBox[{"CyclicQ", "[", 
+  RowBox[{
+   RowBox[{"U", "[", "28", "]"}], ",", " ", 
+   RowBox[{"Mode", "\[Rule]", "Visual"}], ",", " ", 
+   RowBox[{"ShowHelp", " ", "\[Rule]", "False"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.436807226902211*^9, 3.436807243796769*^9}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Converting back to Computational mode", "Subsubsection",
+ CellChangeTimes->{{3.436806874655012*^9, 3.4368068871284647`*^9}}],
+
+Cell[TextData[{
+ "In the previous version of ",
+ StyleBox["AbstractAlgebra",
+  FontSlant->"Italic"],
+ ", the command"
+}], "Text",
+ CellChangeTimes->{{3.43680690475423*^9, 3.436806931839669*^9}}],
+
+Cell[BoxData[
+ RowBox[{"H", " ", "=", " ", 
+  RowBox[{"SubgroupGenerated", "[", 
+   RowBox[{
+    RowBox[{"Z", "[", "8", "]"}], ",", "2", ",", " ", 
+    RowBox[{"Mode", "\[Rule]", "Visual"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.4368069347086573`*^9, 3.436806957304057*^9}}],
+
+Cell["\<\
+would have assigned to H the set {0, 2, 4, 6}. Now, as indicated above, the \
+graphical image associated with this command is assigned to H, which may or \
+may not be the desired goal. This two-for-one output was particularly nice \
+for this type of work, being able to save the actual output in a variable but \
+also see the visualization. Now, for the Textual and Visual modes,  there is \
+a button beneath the text or image labeled with the \[RightArrow] symbol. By \
+clicking on this button, the Textual or Visual mode name is changed to \
+Computational and the command is reevaluated. Thus, you can still have your \
+cake and eat it too: Make an assignment with a Visual mode, consider the \
+graphic, click on the \[RightArrow] button and then you have actual \
+computation saved. The presence of this button can be turned off globally by \
+changing the option as below\
+\>", "Text",
+ CellChangeTimes->{{3.4368069617724667`*^9, 3.436807131332201*^9}, {
+  3.436807270644785*^9, 3.436807470014347*^9}}],
+
+Cell[BoxData[
+ RowBox[{"SetOptions", "[", 
+  RowBox[{"HelpMessages", ",", 
+   RowBox[{"ShowConvert", "\[Rule]", "False"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.436807473422934*^9, 3.4368074747594643`*^9}, {
+  3.436807637863769*^9, 3.43680764503773*^9}}],
+
+Cell["\<\
+or locally by adding the option ShowConvert, as indicated below.\
+\>", "Text",
+ CellChangeTimes->{{3.436807477877194*^9, 3.4368075142525167`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"OrderOfElement", "[", 
+  RowBox[{
+   RowBox[{"U", "[", "22", "]"}], ",", "3", ",", " ", 
+   RowBox[{"Mode", "\[Rule]", "Textual"}], ",", " ", 
+   RowBox[{"ShowConvert", " ", "\[Rule]", "False"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.4368069347086573`*^9, 3.436806957304057*^9}, {
+  3.436807525893979*^9, 3.436807565933344*^9}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Combining two Visual outputs in one", "Subsubsection",
+ CellChangeTimes->{{3.4368076816844387`*^9, 3.4368076984098043`*^9}}],
+
+Cell[TextData[{
+ "In the previous version of ",
+ StyleBox["AbstractAlgebra",
+  FontSlant->"Italic"],
+ ", since graphic images were side effects, they could not be stored in a \
+variable for collection. Thus, it was necessary to add the option Output \
+->Graphic when this was desired. This is no longer necessary, as illustrated \
+below."
+}], "Text",
+ CellChangeTimes->{{3.43680690475423*^9, 3.436806931839669*^9}, {
+  3.436807719755723*^9, 3.436807802400888*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"gr1", " ", "=", " ", 
+  RowBox[{"CayleyTable", "[", 
+   RowBox[{
+    RowBox[{"Z", "[", "8", "]"}], ",", 
+    RowBox[{"ShowExtraInformation", " ", "\[Rule]", "False"}]}], 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"gr2", " ", "=", " ", 
+  RowBox[{"SubgroupQ", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"0", ",", "8"}], "}"}], ",", 
+    RowBox[{"Z", "[", "16", "]"}], ",", " ", 
+    RowBox[{"Mode", "\[Rule]", "Visual"}], ",", 
+    RowBox[{"ShowConvert", "\[Rule]", "False"}], ",", " ", 
+    RowBox[{"ShowHelp", "\[Rule]", "False"}]}], 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"Row", "[", 
+  RowBox[{"{", 
+   RowBox[{"gr1", ",", "gr2"}], "}"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.436807804706894*^9, 3.436807890317937*^9}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Animations converted to use of Manipulate", "Subsubsection",
+ CellChangeTimes->{{3.4368076816844387`*^9, 3.4368076984098043`*^9}, {
+  3.436807947070459*^9, 3.4368079568351583`*^9}}],
+
+Cell[TextData[{
+ "In the previous version of ",
+ StyleBox["AbstractAlgebra",
+  FontSlant->"Italic"],
+ ", a few functions produced a series of graphical images that were then \
+intended to be selected and animated. Now, this is naturally done with \
+Manipulate."
+}], "Text",
+ CellChangeTimes->{{3.43680690475423*^9, 3.436806931839669*^9}, {
+  3.436807719755723*^9, 3.436807802400888*^9}, {3.436807963484675*^9, 
+  3.436808024431773*^9}}],
+
+Cell[BoxData[
+ RowBox[{"SubgroupGenerated", "[", 
+  RowBox[{
+   RowBox[{"Z", "[", "8", "]"}], ",", " ", "6", ",", " ", 
+   RowBox[{"Mode", " ", "\[Rule]", " ", "Visual"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.4338717643377733`*^9, 3.433871765888894*^9}},
+ CellTags->"Subgroups"]
+}, Closed]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Making AbstractAlgebra version 6 savvy", "Subsection",
+ CellChangeTimes->{{3.4368046965761623`*^9, 3.4368047235986137`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["All mode", "Subsubsection",
+ CellChangeTimes->{{3.4368062983630342`*^9, 3.43680630769683*^9}}],
+
+Cell["\<\
+As alluded to above, the availability of the TabView structure motivated the \
+All mode. Thus,\
+\>", "Text",
+ CellChangeTimes->{{3.436806310546183*^9, 3.4368063357672977`*^9}, {
+  3.436806366546871*^9, 3.436806398597026*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Z", "[", 
+  RowBox[{"5", ",", " ", 
+   RowBox[{"Mode", " ", "\[Rule]", " ", "All"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.4368064008822737`*^9, 3.436806407247366*^9}}],
+
+Cell["\<\
+presents a tabbed environment in which the Computational, Textual, and Visual \
+modes are all enclosed in this TabView.\
+\>", "Text",
+ CellChangeTimes->{{3.43680641656389*^9, 3.436806489876034*^9}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Interactive mode", "Subsubsection",
+ CellChangeTimes->{{3.4368081041289673`*^9, 3.436808110803104*^9}}],
+
+Cell["\<\
+An Interactive mode has been added to many functions. For example, sometimes \
+a function has an integer-based parameter over which many alternatives can be \
+provided. Below is an example.\
+\>", "Text",
+ CellChangeTimes->{{3.4368081209553823`*^9, 3.436808133255364*^9}, {
+  3.4368082054686623`*^9, 3.43680820954031*^9}, {3.4368805528039827`*^9, 
+  3.436880679011621*^9}}],
+
+Cell[BoxData[
+ RowBox[{"U", "[", 
+  RowBox[{"5", ",", 
+   RowBox[{"Mode", "\[Rule]", "Interactive"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.4338065565379133`*^9, 3.433806567087582*^9}, {
+  3.433806615272512*^9, 3.433806615735292*^9}, {3.436880428015493*^9, 
+  3.4368804303793383`*^9}}],
+
+Cell["\<\
+Sometimes a paramter is based on the elements within a groupoid. Below \
+illustrates how the Interactive mode can be used here.\
+\>", "Text",
+ CellChangeTimes->{{3.4368806913964148`*^9, 3.4368807285915537`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"G", " ", "=", " ", 
+   RowBox[{"FormGroupoid", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "1"}], ",", "0", ",", "1"}], "}"}], ",", "Plus"}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"InvertibleQ", "[", 
+  RowBox[{"G", ",", 
+   RowBox[{"-", "1"}], ",", 
+   RowBox[{"Mode", "\[Rule]", "Interactive"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.436880051548407*^9, 3.4368800633023357`*^9}, 
+   3.4368804469987583`*^9}],
+
+Cell["\<\
+Below is an example that varies over pairs of group elements.\
+\>", "Text",
+ CellChangeTimes->{{3.436880738229887*^9, 3.436880760083578*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"f", "=", 
+  RowBox[{"ZMap", "[", 
+   RowBox[{"4", ",", "2"}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"PreservesQ", "[", 
+  RowBox[{"f", ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "3"}], "}"}], ",", 
+   RowBox[{"Mode", "\[Rule]", "Interactive"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.436880121387423*^9, 3.43688012198435*^9}}],
+
+Cell["\<\
+Finally, below is an example in which elements can be chosen via check boxes \
+rather than radio buttons.\
+\>", "Text",
+ CellChangeTimes->{{3.436880767077058*^9, 3.436880793510988*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Closure", "[", 
+  RowBox[{
+   RowBox[{"Z", "[", "8", "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "6"}], "}"}], ",", 
+   RowBox[{"Mode", "\[Rule]", "Interactive"}], ",", " ", 
+   RowBox[{"InteractiveMode", "\[Rule]", "Visual"}]}], "]"}]], "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Grid", "Subsubsection",
+ CellChangeTimes->{{3.436880187372127*^9, 3.4368801901121073`*^9}}],
+
+Cell["\<\
+Previous verions of AbstractAlgebra produced Cayley tables using graphical \
+constructs:\
+\>", "Text",
+ CellChangeTimes->{{3.436880814952829*^9, 3.4368808517228622`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"CayleyTable", "[", 
+  RowBox[{
+   RowBox[{"Dihedral", "[", "3", "]"}], ",", 
+   RowBox[{"Mode", "\[Rule]", "Visual"}], ",", " ", 
+   RowBox[{"Version", "\[Rule]", "5"}]}], "]"}]], "Input"],
+
+Cell["\<\
+Version 6 now has the Grid structure which has some advantages. Where \
+possible, most table-based illustrations have been converted to using  Grid.\
+\>", "Text",
+ CellChangeTimes->{{3.4368808561146393`*^9, 3.436880901864805*^9}}],
+
+Cell[BoxData[
+ RowBox[{"CayleyTable", "[", 
+  RowBox[{
+   RowBox[{"Dihedral", "[", "3", "]"}], ",", 
+   RowBox[{"Mode", "\[Rule]", "Visual"}]}], "]"}]], "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Tooltip", "Subsubsection",
+ CellChangeTimes->{{3.436880232705793*^9, 3.4368802338555202`*^9}}],
+
+Cell["\<\
+Version 6 introduced the use Tooltips to allow additional information to be \
+provided. When the Visual mode is used, sometimes Tooltip is used. For \
+example, the CayleTable command uses Tooltip to show the order and inverse of \
+any element. This can be turned off. Here are the options.\
+\>", "Text",
+ CellChangeTimes->{{3.436880912982355*^9, 3.4368809594342527`*^9}, {
+  3.436882628889708*^9, 3.436882661554473*^9}, {3.4368826971870823`*^9, 
+  3.436882758193781*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Options", "[", "CayleyTable", "]"}]], "Input"],
+
+Cell["\<\
+Using the TooltipInfo option, Cayley tables can be created without the tips.\
+\>", "Text",
+ CellChangeTimes->{{3.436882768044634*^9, 3.436882825945509*^9}}],
+
+Cell[BoxData[
+ RowBox[{"CayleyTable", "[", 
+  RowBox[{
+   RowBox[{"Dihedral", "[", "3", "]"}], ",", 
+   RowBox[{"Mode", "\[Rule]", "Visual"}], ",", 
+   RowBox[{"TooltipInfo", "\[Rule]", "False"}], ",", " ", 
+   RowBox[{"ShowExtraCayleyInformation", "\[Rule]", "False"}]}], 
+  "]"}]], "Input"],
+
+Cell["Below a Tooltip shows the power of each element.", "Text",
+ CellChangeTimes->{{3.436882847594379*^9, 3.436882869200407*^9}, 
+   3.436882901919786*^9}],
+
+Cell[BoxData[
+ RowBox[{"SubgroupGenerated", "[", 
+  RowBox[{
+   RowBox[{"U", "[", "15", "]"}], ",", "13", ",", 
+   RowBox[{"Mode", "\[Rule]", "Visual2"}]}], "]"}]], "Input"]
+}, Closed]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Other changes", "Subsection",
+ CellChangeTimes->{{3.436995447298855*^9, 3.436995466026395*^9}}],
+
+Cell["\<\
+In addition to the various changes that are visible, there were many changes \
+that are \"under the hood\". Many individual functions underwent changes in \
+how they were coded. The ShowMode function to distribute mode calls was \
+abandoned.\
+\>", "Text",
+ CellChangeTimes->{{3.4369972982365723`*^9, 3.436997338934003*^9}, {
+  3.436997376055298*^9, 3.436997422316127*^9}, {3.437041476422431*^9, 
+  3.437041520199658*^9}}],
+
+Cell["\<\
+October 30, 2006 - began working on making package workable under version 6. \
+Modified opening Needs command, modified ShowModes and handleMany to \
+accommodate change in how graphics are handled. Also modified HermitianQ \
+since it is now built in. Changed DefaultFont to BaseStyle since the former \
+has been superceded. Updated Arrow so that it has a list of two points rather \
+than just the two points.\
+\>", "Text",
+ CellChangeTimes->{{3.437064032919078*^9, 3.437064035178195*^9}, {
+  3.437064117192009*^9, 3.437064117809224*^9}, {3.437066912722129*^9, 
+  3.437066924849859*^9}}]
+}, Closed]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "From ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " version 4 to version 5"
+}], "Section",
+ CellChangeTimes->{{3.436804142107623*^9, 3.4368041897763042`*^9}}],
+
+Cell["\<\
+July 15, 2004 - organized into one package instead of many packages; doing \
+so, adjusted the SwitchStructureTo to remove references to specific packages; \
+Modified all calls to ShowModes so that references to the old packages are \
+replaced with Master. Adjusted the options to QuotientRing to accommodate all \
+packages together (and different values of the options). 
+
+Adjusted definitions of GroupoidQ and RingoidQ to allow LabCode to recognize \
+groupoids and ringoids. 
+Added MatrixQ on HasNegativeQ (and NegationOf) to adjust for evaluation order \
+of HasNegativeQ.
+\
+\>", "Text",
+ CellChangeTimes->{{3.437041350438705*^9, 3.437041428428638*^9}, {
+  3.437041461378285*^9, 3.43704146657399*^9}, {3.437041528159956*^9, 
+  3.437041580149108*^9}, {3.4370638760613127`*^9, 3.437063876776873*^9}, {
+  3.437063910078601*^9, 3.437063940806534*^9}, {3.437066742266111*^9, 
+  3.437066808700526*^9}, {3.437066856749198*^9, 3.437066862237899*^9}}],
+
+Cell["\<\
+July 26, 2004 - 
+ \tAdded usage statements for LeftMeans, ElementOnRight, and ElementOnLeft. 
+  \tAdded messages that there are no visual or textual modes to NormalQ. 
+  \tAdded FormGroupoidByRelations and GenerateGroupoidByRelations. 
+ \tMade some adjustments to RandomElement (s) to work better with Z[
+  \\*SqrtBox[n]] elements. 
+ \tTweaked Centralizer to handle centralizer of a subgroup correctly.\
+\>", "Text",
+ CellChangeTimes->{{3.437041350438705*^9, 3.437041428428638*^9}, {
+   3.437041461378285*^9, 3.43704146657399*^9}, {3.437041528159956*^9, 
+   3.437041580149108*^9}, {3.4370638760613127`*^9, 3.437063876776873*^9}, {
+   3.437063910078601*^9, 3.437063940806534*^9}, {3.437066742266111*^9, 
+   3.437066808700526*^9}, 3.437066856749198*^9}],
+
+Cell["", "Text",
+ CellChangeTimes->{{3.4370651176345177`*^9, 3.437065118280113*^9}, {
+  3.437065163814015*^9, 3.437065166573865*^9}, {3.437066817444602*^9, 
+  3.437066851660946*^9}}],
+
+Cell["\<\
+October 29, 1999
+\tAdded BodyColored option to CayleyTable to turn on and off coloring
+\tIn CayleyTableVisualWork, removed final comma in parameter list of
+\t\tthe Module\
+\>", "Text",
+ CellChangeTimes->{{3.4370651176345177`*^9, 3.437065118280113*^9}, {
+  3.437065163814015*^9, 3.437065166573865*^9}, {3.437066817444602*^9, 
+  3.437066851660946*^9}}],
+
+Cell["\<\
+January 14, 2000
+\tModified ClosedQ[G_?GroupoidQ, H_List, Mode -> Visual, opts___?OptionQ] to \
+reflect proper usage of the Output option\
+\>", "Text",
+ CellChangeTimes->{{3.4370651176345177`*^9, 3.437065118280113*^9}, {
+  3.437065163814015*^9, 3.437065166573865*^9}, {3.437066817444602*^9, 
+  3.437066849708984*^9}}],
+
+Cell["\<\
+July 13, 2000
+\tChanged text in HasIdentityQ visualization so it is not cut off.
+  \tAdded OtherColors and PrintingOtherColors and PrintingBackgroundColors.
+  \t\
+\>", "Text",
+ CellChangeTimes->{{3.4370651176345177`*^9, 3.437065118280113*^9}, {
+  3.437065163814015*^9, 3.437065166573865*^9}, {3.437066817444602*^9, 
+  3.4370668478608427`*^9}}],
+
+Cell["\<\
+November 11, 1999 - 
+\timproved DirectProduct to determine identity at formation and define \\
+\tinverses coordinatewise - resorted back to original on 1/17/00
+\t\
+\>", "Text",
+ CellChangeTimes->{{3.4370651176345177`*^9, 3.437065118280113*^9}, {
+  3.437065163814015*^9, 3.437065166573865*^9}, {3.437066817444602*^9, 
+  3.437066844917585*^9}}],
+
+Cell["\<\
+January 15, 2000 - adjusted AbelianQTextual by properly using NonCommutingPairs
+
+January 1, 1999 - Revised the usage statements 
+
+September 1, 1999 - Improved QuotientRing[R, Poly] 
+
+September 8, 1999 - Fixed RandomElement[PolyRing, n] 
+
+July 10, 2000 -  Fixed QuotientRing[R, Poly] to work with Poly from either \
+direction\
+\>", "Text",
+ CellChangeTimes->{{3.4370651176345177`*^9, 3.437065118280113*^9}, {
+  3.437065163814015*^9, 3.437065166573865*^9}, {3.437066817444602*^9, 
+  3.4370668416126537`*^9}, {3.437066886446601*^9, 3.4370668984410048`*^9}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "From ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " version 3 to version 4"
+}], "Section",
+ CellChangeTimes->{{3.436804142107623*^9, 3.436804161788662*^9}, {
+  3.436804192575451*^9, 3.436804195894068*^9}}],
+
+Cell["\<\
+July 3, 1998 :
+ \thelped some functions handle where visual and/or textual
+\t\tmode are not supported; 
+\tfixed GroupInverse to work with many elements
+\t\tfrom one group, as well as a list of pairs in form {G, g}; 
+\tadded more error testing to RandomElement and RandomElements; 
+\tfixed Inverses in visual mode to work with multiple groups; 
+\tmodified visual mode of AssociativeQ so that groups with wide
+\t\telements use a key and appear better;
+\tfixed two bugs in RandomAssociativeQ;
+\tcommented out If[$VersionNumber < 2.5, Print[\" \"]] in basicCayley;
+July 6, 1998
+\tadded textual mode to Closure;
+\tadded support for SemiGroupQ and MonoidQ;
+\tremoved inadvertent calls to RingProperties
+\tfixed ElementToKey so that it worked with polynomial elements
+December 31, 1998
+\tReviewed Usage statements
+\tModified Adjoin to return $Failed if element is from the set
+\tModified GeneratingSet to return $Failed instead of {} when unknown
+\tModified InversesVisual by putting the loops on the inside and
+\t\tdecreasing width of lines and loops
+\tFixed errors with NextStage[Closure, k] and PreviousStage[Closure, k],
+\t\tas well as allowing negative values for k\
+\>", "Text"],
+
+Cell["\<\
+July 6, 1998 :
+ \tadded error testing for IrreduciblePolynomial;
+\tadded textual mode to GF;
+\tadded error checking in MultiplicativeToAdditive;\
+\>", "Text"],
+
+Cell["November 27, 1998 - Protected {Rot, Ref, U, Zx}", "Text"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "From ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " version 2 to version 3"
+}], "Section",
+ CellChangeTimes->{{3.436804142107623*^9, 3.436804161788662*^9}, {
+  3.436804192575451*^9, 3.436804207520546*^9}}],
+
+Cell["\<\
+Some of the main changes were to add full-scale documentation into the \
+Documentation Browser and to add palettes that provided an easy access to the \
+various functions. There were many other smaller changes.\
+\>", "Text",
+ CellChangeTimes->{{3.437066619602343*^9, 3.437066696224451*^9}}]
+}, Closed]]
+}, Open  ]]
+},
+AutoGeneratedPackage->None,
+WindowToolbars->"EditBar",
+WindowSize->{801, 621},
+WindowMargins->{{0, Automatic}, {Automatic, 58}},
+ShowSelection->True,
+ShowGroupOpener->True,
+Magnification->1.5,
+FrontEndVersion->"9.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (November 20, \
+2012)",
+StyleDefinitions->FrontEnd`FileName[{"Creative"}, "PastelColor.nb", 
+  CharacterEncoding -> "UTF-8"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "GL10"->{
+  Cell[5450, 130, 211, 5, 54, "Message",
+   CellTags->"GL10"]},
+ "Subgroups"->{
+  Cell[18680, 464, 282, 6, 414, "Input",
+   CellTags->"Subgroups"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"GL10", 32961, 874},
+ {"Subgroups", 33041, 877}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 170, 2, 143, "Title"],
+Cell[740, 26, 183, 4, 70, "Text"],
+Cell[926, 32, 181, 3, 58, "Input",
+ InitializationCell->True],
+Cell[CellGroupData[{
+Cell[1132, 39, 330, 8, 109, "Section"],
+Cell[1465, 49, 1416, 23, 600, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2918, 77, 282, 8, 109, "Section"],
+Cell[3203, 87, 923, 14, 308, "Text"],
+Cell[4129, 103, 999, 16, 308, "Text"],
+Cell[5131, 121, 316, 7, 123, "Text"],
+Cell[5450, 130, 211, 5, 54, "Message",
+ CellTags->"GL10"],
+Cell[5664, 137, 213, 4, 70, "Text"],
+Cell[5880, 143, 273, 5, 105, "Text"],
+Cell[6156, 150, 200, 4, 105, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6393, 159, 231, 7, 163, "Section"],
+Cell[6627, 168, 328, 7, 283, "Text"],
+Cell[6958, 177, 397, 6, 360, "Text"],
+Cell[7358, 185, 854, 16, 1041, "Text"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[8249, 206, 182, 6, 93, "Section"],
+Cell[8434, 214, 629, 10, 586, "Text"],
+Cell[CellGroupData[{
+Cell[9088, 228, 133, 1, 171, "Subsection"],
+Cell[9224, 231, 793, 12, 1660, "Text"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[10054, 248, 179, 2, 123, "Subsection"],
+Cell[10236, 252, 258, 5, 636, "Text"],
+Cell[CellGroupData[{
+Cell[10519, 261, 118, 1, 271, "Subsubsection"],
+Cell[10640, 264, 349, 6, 810, "Text"],
+Cell[10992, 272, 233, 5, 414, "Input"],
+Cell[11228, 279, 465, 8, 973, "Text"],
+Cell[11696, 289, 888, 13, 1318, "Text"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[12621, 307, 117, 1, 271, "Subsubsection"],
+Cell[12741, 310, 674, 12, 1318, "Text"],
+Cell[13418, 324, 257, 5, 414, "Input"],
+Cell[13678, 331, 206, 4, 468, "Text"],
+Cell[13887, 337, 283, 6, 414, "Input"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[14207, 348, 130, 1, 271, "Subsubsection"],
+Cell[14340, 351, 194, 6, 292, "Text"],
+Cell[14537, 359, 279, 6, 414, "Input"],
+Cell[14819, 367, 1015, 15, 2004, "Text"],
+Cell[15837, 384, 257, 5, 414, "Input"],
+Cell[16097, 391, 156, 3, 292, "Text"],
+Cell[16256, 396, 355, 7, 595, "Input"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[16648, 408, 130, 1, 271, "Subsubsection"],
+Cell[16781, 411, 464, 10, 810, "Text"],
+Cell[17248, 423, 766, 20, 945, "Input"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[18051, 448, 187, 2, 271, "Subsubsection"],
+Cell[18241, 452, 436, 10, 636, "Text"],
+Cell[18680, 464, 282, 6, 414, "Input",
+ CellTags->"Subgroups"]
+}, Closed]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[19011, 476, 130, 1, 123, "Subsection"],
+Cell[CellGroupData[{
+Cell[19166, 481, 100, 1, 271, "Subsubsection"],
+Cell[19269, 484, 235, 5, 468, "Text"],
+Cell[19507, 491, 195, 4, 414, "Input"],
+Cell[19705, 497, 208, 4, 468, "Text"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[19950, 506, 109, 1, 271, "Subsubsection"],
+Cell[20062, 509, 382, 7, 636, "Text"],
+Cell[20447, 518, 288, 6, 414, "Input"],
+Cell[20738, 526, 221, 4, 468, "Text"],
+Cell[20962, 532, 494, 14, 595, "Input"],
+Cell[21459, 548, 151, 3, 292, "Text"],
+Cell[21613, 553, 360, 9, 595, "Input"],
+Cell[21976, 564, 195, 4, 468, "Text"],
+Cell[22174, 570, 278, 7, 595, "Input"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[22489, 582, 97, 1, 271, "Subsubsection"],
+Cell[22589, 585, 180, 4, 468, "Text"],
+Cell[22772, 591, 212, 5, 414, "Input"],
+Cell[22987, 598, 240, 4, 468, "Text"],
+Cell[23230, 604, 161, 4, 414, "Input"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[23428, 613, 100, 1, 271, "Subsubsection"],
+Cell[23531, 616, 481, 8, 810, "Text"],
+Cell[24015, 626, 70, 1, 414, "Input"],
+Cell[24088, 629, 166, 3, 292, "Text"],
+Cell[24257, 634, 292, 7, 595, "Input"],
+Cell[24552, 643, 156, 2, 292, "Text"],
+Cell[24711, 647, 173, 4, 414, "Input"]
+}, Closed]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[24933, 657, 101, 1, 123, "Subsection"],
+Cell[25037, 660, 431, 8, 540, "Text"],
+Cell[25471, 670, 596, 10, 769, "Text"]
+}, Closed]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[26116, 686, 184, 6, 93, "Section"],
+Cell[26303, 694, 953, 17, 891, "Text"],
+Cell[27259, 713, 761, 13, 663, "Text"],
+Cell[28023, 728, 182, 3, 130, "Text"],
+Cell[28208, 733, 360, 8, 360, "Text"],
+Cell[28571, 743, 327, 7, 283, "Text"],
+Cell[28901, 752, 353, 8, 433, "Text"],
+Cell[29257, 762, 352, 8, 360, "Text"],
+Cell[29612, 772, 564, 14, 891, "Text"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[30213, 791, 231, 7, 93, "Section"],
+Cell[30447, 800, 1187, 25, 1878, "Text"],
+Cell[31637, 827, 168, 5, 360, "Text"],
+Cell[31808, 834, 63, 0, 130, "Text"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[31908, 839, 231, 7, 93, "Section"],
+Cell[32142, 848, 300, 5, 283, "Text"]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

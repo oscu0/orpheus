@@ -1,0 +1,481 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 6.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     18971,        472]
+NotebookOptionsPosition[     17858,        430]
+NotebookOutlinePosition[     18593,        458]
+CellTagsIndexPosition[     18522,        453]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Permutation Specifier", "Title"],
+
+Cell["\<\
+This tool allows you to easily construct permutations by filling in empty \
+boxes, either by typing or clicking. To continue, click on the button below.\
+\>", "Text"],
+
+Cell[BoxData[
+ ButtonBox[
+  RowBox[{
+  "use", " ", "the", " ", "permutation", " ", "specifier", " ", "tool"}],
+  BaseStyle->None,
+  ButtonFunction:>(NotebookFind[
+     ButtonNotebook[], "evaluate", All, CellTags, AutoScroll -> False]; 
+   SelectionEvaluate[
+     ButtonNotebook[], After]),
+  Evaluator->Automatic]], "Input",
+ Enabled->True],
+
+Cell[CellGroupData[{
+
+Cell["Code (which is evaluated by button above)", "Section"],
+
+Cell[BoxData[
+ RowBox[{"continueButton", " ", ":=", " ", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"n", ",", "nb", ",", " ", "mat"}], "}"}], ",", "\n", "\t", 
+    RowBox[{
+     RowBox[{"n", " ", "=", " ", 
+      RowBox[{
+      "Input", "[", "\"\<How many vertices are there on your figure?\>\"", 
+       "]"}]}], ";", "\n", "\t", 
+     RowBox[{"nb", " ", "=", " ", 
+      RowBox[{"InputNotebook", "[", "]"}]}], ";", "\n", "\t", 
+     RowBox[{"NotebookFind", "[", 
+      RowBox[{
+      "nb", ",", "\"\<cont\>\"", ",", "All", ",", "CellTags", ",", " ", 
+       RowBox[{"AutoScroll", " ", "->", " ", "False"}]}], "]"}], ";", "\n", 
+     "\t", 
+     RowBox[{"SelectionMove", "[", 
+      RowBox[{"nb", ",", "After", ",", "Notebook", ",", " ", 
+       RowBox[{"AutoScroll", " ", "->", " ", "False"}]}], "]"}], ";", "\n", 
+     "\t", 
+     RowBox[{"LastPermName", " ", "=", " ", 
+      RowBox[{"ToString", "[", 
+       RowBox[{"Unique", "[", "permq", "]"}], "]"}]}], ";", "\n", 
+     RowBox[{"NotebookWrite", "[", 
+      RowBox[{"nb", ",", 
+       RowBox[{"Cell", "[", 
+        RowBox[{
+        "\"\<For each box, select it and either type in a number or click on \
+the button with the appropriate number. Tab will take you to the next \
+box.\>\"", ",", "\"\<Text\>\""}], "]"}]}], "]"}], ";", "\n", "\t", 
+     RowBox[{"mat", " ", "=", " ", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Prepend", "[", 
+         RowBox[{
+          RowBox[{"Range", "[", 
+           RowBox[{"1", ",", "n"}], "]"}], ",", "\"\<vertex #\>\""}], "]"}], 
+        ",", 
+        RowBox[{"Prepend", "[", 
+         RowBox[{
+          RowBox[{"Table", "[", 
+           RowBox[{"\"\<\[DoubleDownArrow]\>\"", ",", 
+            RowBox[{"{", "n", "}"}]}], "]"}], ",", "\"\<goes to\>\""}], "]"}],
+         ",", 
+        RowBox[{"Prepend", "[", 
+         RowBox[{
+          RowBox[{"Table", "[", 
+           RowBox[{"\"\<\[Placeholder]\>\"", ",", 
+            RowBox[{"{", "n", "}"}]}], "]"}], ",", "\"\<vertex #\>\""}], 
+         "]"}]}], "}"}]}], ";", "\n", "\t", 
+     RowBox[{"SelectionMove", "[", 
+      RowBox[{"nb", ",", "After", ",", "Notebook", ",", " ", 
+       RowBox[{"AutoScroll", " ", "->", " ", "False"}]}], "]"}], ";", "\n", 
+     "\t", 
+     RowBox[{"NotebookWrite", "[", 
+      RowBox[{"nb", ",", 
+       RowBox[{"Cell", "[", 
+        RowBox[{
+         RowBox[{"BoxData", "[", 
+          RowBox[{"RowBox", "[", 
+           RowBox[{"{", 
+            RowBox[{"GridBox", "[", 
+             RowBox[{"mat", ",", 
+              RowBox[{"GridFrame", "->", "True"}], ",", "\n", "        ", 
+              RowBox[{"ColumnLines", "->", "True"}]}], "]"}], "}"}], "]"}], 
+          "]"}], ",", "\"\<Text\>\"", ",", " ", 
+         RowBox[{"CellTags", " ", "->", " ", "LastPermName"}], ",", 
+         RowBox[{"TextAlignment", " ", "->", " ", "Center"}]}], "]"}]}], 
+      "]"}], ";", "\n", "\t", 
+     RowBox[{"SelectionMove", "[", 
+      RowBox[{"nb", ",", "After", ",", "Notebook", ",", " ", 
+       RowBox[{"AutoScroll", " ", "->", " ", "False"}]}], "]"}], ";", "\n", 
+     "\t", 
+     RowBox[{"NotebookWrite", "[", 
+      RowBox[{"nb", ",", 
+       RowBox[{"Cell", "[", 
+        RowBox[{
+         RowBox[{"BoxData", "[", 
+          RowBox[{"RowBox", "[", 
+           RowBox[{"Map", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"ButtonBox", "[", 
+               RowBox[{"#", ",", 
+                RowBox[{"ButtonStyle", " ", "->", " ", "\"\<Paste\>\""}]}], 
+               "]"}], "&"}], ",", 
+             RowBox[{"Range", "[", 
+              RowBox[{"1", ",", "n"}], "]"}]}], "]"}], "]"}], "]"}], ",", 
+         "\"\<Input\>\"", ",", " ", 
+         RowBox[{"Active", " ", "->", " ", "True"}], ",", 
+         RowBox[{"TextAlignment", " ", "->", " ", "Center"}]}], "]"}]}], 
+      "]"}], ";", "\n", "\t", 
+     RowBox[{"SelectionMove", "[", 
+      RowBox[{"nb", ",", "After", ",", "Notebook", ",", " ", 
+       RowBox[{"AutoScroll", " ", "->", " ", "False"}]}], "]"}], ";", "\n", 
+     "\t\t", 
+     RowBox[{"NotebookWrite", "[", 
+      RowBox[{"nb", ",", 
+       RowBox[{"Cell", "[", 
+        RowBox[{
+         RowBox[{"BoxData", "[", "\n", "    ", 
+          RowBox[{"ButtonBox", "[", 
+           RowBox[{
+           "\"\<click when ready to define the permutation\>\"", ",", "\n", 
+            "      ", 
+            RowBox[{"ButtonFunction", ":>", "definePerm"}], ",", "\n", 
+            "      ", 
+            RowBox[{"ButtonEvaluator", "->", "Automatic"}]}], "]"}], "]"}], 
+         ",", " ", "\"\<Input\>\"", ",", "\n", "  ", 
+         RowBox[{"Active", "->", "True"}]}], "]"}]}], "]"}], ";", 
+     RowBox[{"NumberOfVertices", " ", "=", " ", "n"}], ";"}]}], "\n", "\t", 
+   "]"}]}]], "Input",
+ InitializationCell->True,
+ CellTags->"evaluate"],
+
+Cell[BoxData[
+ RowBox[{"definePerm", " ", ":=", " ", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"ok", ",", "nb", ",", " ", "perm", ",", " ", 
+      RowBox[{"n", " ", "=", " ", "NumberOfVertices"}]}], "}"}], ",", "\n", 
+    "\t", 
+    RowBox[{
+     RowBox[{"nb", " ", "=", " ", 
+      RowBox[{"InputNotebook", "[", "]"}]}], ";", "\n", "\t", 
+     RowBox[{"NotebookFind", "[", 
+      RowBox[{
+      "nb", ",", "LastPermName", ",", "All", ",", "CellTags", ",", " ", 
+       RowBox[{"AutoScroll", " ", "->", " ", "False"}]}], "]"}], ";", "\n", 
+     "\t", 
+     RowBox[{"SelectionMove", "[", 
+      RowBox[{"nb", ",", "All", ",", "Cell", ",", " ", 
+       RowBox[{"AutoScroll", " ", "->", " ", "False"}]}], "]"}], ";", "\n", 
+     "\t\t", 
+     RowBox[{"myCell", " ", "=", " ", 
+      RowBox[{"NotebookRead", "[", "nb", "]"}]}], ";", "\n", "\t\t", 
+     RowBox[{"perm", " ", "=", " ", 
+      RowBox[{"Drop", "[", 
+       RowBox[{
+        RowBox[{"myCell", "[", 
+         RowBox[{"[", 
+          RowBox[{"1", ",", "1", ",", "1", ",", "3"}], "]"}], "]"}], ",", 
+        "1"}], "]"}]}], ";", "\n", "\t\t", 
+     RowBox[{"perm", " ", "=", " ", 
+      RowBox[{"Map", "[", 
+       RowBox[{"ToExpression", ",", "perm"}], "]"}]}], ";", "\n", "\t\t", 
+     RowBox[{"ok", " ", "=", " ", 
+      RowBox[{"TestPermutationQ", "[", "perm", "]"}]}], ";", "\n", "\t", 
+     RowBox[{"SelectionMove", "[", 
+      RowBox[{"nb", ",", "After", ",", "Notebook", ",", " ", 
+       RowBox[{"AutoScroll", " ", "->", " ", "False"}]}], "]"}], ";", "\n", 
+     "\t", 
+     RowBox[{"NotebookWrite", "[", 
+      RowBox[{"nb", ",", 
+       RowBox[{"Cell", "[", 
+        RowBox[{"\"\<You entered\>\"", ",", "\"\<Text\>\""}], "]"}]}], "]"}], 
+     ";", "\n", "\t\t", 
+     RowBox[{"NotebookWrite", "[", 
+      RowBox[{"nb", ",", 
+       RowBox[{"Cell", "[", 
+        RowBox[{
+         RowBox[{"ToString", "[", "perm", "]"}], ",", "\"\<Text\>\"", ",", 
+         RowBox[{"TextAlignment", " ", "->", " ", "Center"}]}], "]"}]}], 
+      "]"}], ";", "\n", "\t", 
+     RowBox[{"NotebookWrite", "[", 
+      RowBox[{"nb", ",", 
+       RowBox[{"Cell", "[", 
+        RowBox[{"\"\<as your permutation. \>\"", ",", "\"\<Text\>\""}], 
+        "]"}]}], "]"}], ";", "\n", "\t\t", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"Not", "[", 
+        RowBox[{"PermutationQ", "[", "perm", "]"}], "]"}], ",", "\n", 
+       "\t\t\t\t", 
+       RowBox[{"NotebookWrite", "[", 
+        RowBox[{"nb", ",", 
+         RowBox[{"Cell", "[", 
+          RowBox[{
+           RowBox[{"StringJoin", "[", 
+            RowBox[{
+            "\"\<This does not, however, represent a permutation on \>\"", 
+             ",", 
+             RowBox[{"ToString", "[", "n", "]"}], ",", 
+             "\"\< vertices. \>\""}], "]"}], ",", "\"\<Text\>\""}], "]"}]}], 
+        "]"}], ",", "\n", "\t\t\t", 
+       RowBox[{"If", "[", 
+        RowBox[{"ok", ",", 
+         RowBox[{"NotebookWrite", "[", 
+          RowBox[{"nb", ",", 
+           RowBox[{"Cell", "[", 
+            RowBox[{
+            "\"\<This represents a valid permutation for this figure.\>\"", 
+             ",", "\"\<Text\>\""}], "]"}]}], "]"}], ",", 
+         RowBox[{"NotebookWrite", "[", 
+          RowBox[{"nb", ",", 
+           RowBox[{"Cell", "[", 
+            RowBox[{
+            "\"\<While this does represent a permutation, it is not a \
+permutation representing a symmetry of this figure.\>\"", ",", 
+             "\"\<Text\>\""}], "]"}]}], "]"}]}], "]"}]}], "\n", "\t\t\t", 
+      "]"}], ";", "\n", "\t\t", 
+     RowBox[{"junk349", " ", ":=", 
+      RowBox[{"(", "\n", "\t\t\t\t\t", 
+       RowBox[{
+        RowBox[{"SelectionMove", "[", 
+         RowBox[{"nb", ",", "After", ",", "Notebook", ",", " ", 
+          RowBox[{"AutoScroll", " ", "->", " ", "False"}]}], "]"}], ";", "\n",
+         "\t\t\t\t\t", 
+        RowBox[{"NotebookWrite", "[", 
+         RowBox[{"nb", ",", 
+          RowBox[{"Cell", "[", 
+           RowBox[{
+            RowBox[{"BoxData", "[", "\n", "    ", 
+             RowBox[{"RowBox", "[", 
+              RowBox[{"{", 
+               RowBox[{
+               "\"\<ShowPermutation\>\"", ",", " ", "\"\<[\>\"", ",", " ", 
+                RowBox[{"ToString", "[", "perm", "]"}], ",", " ", 
+                "\"\<]\>\""}], "}"}], "]"}], "]"}], ",", " ", 
+            "\"\<Input\>\""}], "]"}], ",", " ", "All"}], "]"}], ";", "\n", 
+        "\t\t\t\t", 
+        RowBox[{"SelectionEvaluate", "[", 
+         RowBox[{"nb", ",", "After"}], "]"}]}], "\n", "\t\t", ")"}]}], ";", 
+     "\n", "\t\t", 
+     RowBox[{"junk348", " ", ":=", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"SelectionMove", "[", 
+         RowBox[{"nb", ",", "After", ",", "Notebook", ",", " ", 
+          RowBox[{"AutoScroll", " ", "->", " ", "False"}]}], "]"}], ";", "\n",
+         "\t\t\t\t\t", 
+        RowBox[{"NotebookWrite", "[", 
+         RowBox[{"nb", ",", 
+          RowBox[{"Cell", "[", 
+           RowBox[{
+            RowBox[{"BoxData", "[", "\n", "    ", 
+             RowBox[{"RowBox", "[", 
+              RowBox[{"{", 
+               RowBox[{
+               "\"\<AddPermToGroup\>\"", ",", " ", "\"\<[\>\"", ",", " ", 
+                RowBox[{"ToString", "[", "perm", "]"}], ",", " ", 
+                "\"\<]\>\""}], "}"}], "]"}], "]"}], ",", " ", 
+            "\"\<Input\>\""}], "]"}], ",", " ", "All"}], "]"}], ";", "\n", 
+        "\t\t\t\t", 
+        RowBox[{"SelectionEvaluate", "[", 
+         RowBox[{"nb", ",", "After"}], "]"}]}], "\n", "\t\t", ")"}]}], ";", 
+     "\n", "\t\t\t", 
+     RowBox[{"NotebookWrite", "[", 
+      RowBox[{"nb", ",", 
+       RowBox[{"Cell", "[", 
+        RowBox[{
+        "\"\<Choose one (or more) of the following three options.\>\"", ",", 
+         "\"\<Text\>\""}], "]"}]}], "]"}], ";", "\n", "\t\t\t", 
+     RowBox[{"NotebookWrite", "[", 
+      RowBox[{"nb", ",", 
+       RowBox[{"Cell", "[", 
+        RowBox[{
+         RowBox[{"BoxData", "[", 
+          RowBox[{"GridBox", "[", 
+           RowBox[{
+            RowBox[{"{", "\n", "        ", 
+             RowBox[{
+              RowBox[{"{", "\n", "          ", 
+               RowBox[{"ButtonBox", "[", "\n", "            ", 
+                RowBox[{
+                 RowBox[{"RowBox", "[", 
+                  RowBox[{"{", "\n", "            ", 
+                   RowBox[{
+                   "\"\<apply\>\"", ",", " ", "\"\< \>\"", ",", " ", 
+                    "\"\<ShowPermutation\>\"", ",", " ", "\"\< \>\"", ",", 
+                    " ", "\"\<to\>\"", ",", " ", "\"\< \>\"", ",", " ", 
+                    "\"\<this\>\"", ",", " ", "\"\< \>\"", ",", " ", "\n", 
+                    "              ", "\"\<permutation\>\""}], "}"}], "]"}], 
+                 ",", " ", 
+                 RowBox[{"ButtonFunction", ":>", "junk349"}], ",", " ", 
+                 RowBox[{"ButtonEvaluator", " ", "->", " ", "Automatic"}]}], 
+                "]"}], "}"}], ",", "\n", "        ", 
+              RowBox[{"{", "\n", "          ", 
+               RowBox[{"ButtonBox", "[", "\n", "            ", 
+                RowBox[{
+                 RowBox[{"RowBox", "[", 
+                  RowBox[{"{", "\n", "            ", 
+                   RowBox[{
+                   "\"\<add\>\"", ",", " ", "\"\< \>\"", ",", " ", 
+                    "\"\<this\>\"", ",", " ", "\"\< \>\"", ",", " ", 
+                    "\"\<permutation\>\"", ",", " ", "\"\< \>\"", ",", " ", 
+                    "\"\<to\>\"", ",", " ", "\"\< \>\"", ",", " ", 
+                    "\"\<the\>\"", ",", " ", "\n", "              ", 
+                    "\"\< \>\"", ",", " ", "\"\<list\>\"", ",", " ", 
+                    "\"\< \>\"", ",", " ", "\n", "              ", 
+                    RowBox[{"RowBox", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "\"\<(\>\"", ",", " ", "\"\<group\>\"", ",", " ", 
+                    "\"\<)\>\""}], "}"}], "]"}]}], "}"}], "]"}], ",", "\n", 
+                 "              ", 
+                 RowBox[{"ButtonFunction", ":>", "junk348"}], ",", " ", 
+                 RowBox[{"ButtonEvaluator", " ", "->", " ", "Automatic"}]}], 
+                "]"}], "}"}], ",", "\n", "        ", 
+              RowBox[{"{", "\n", "          ", 
+               RowBox[{"ButtonBox", "[", "\n", "            ", 
+                RowBox[{
+                 RowBox[{"RowBox", "[", 
+                  RowBox[{"{", "\n", "            ", 
+                   RowBox[{
+                   "\"\<use\>\"", ",", " ", "\"\< \>\"", ",", " ", 
+                    "\"\<this\>\"", ",", " ", "\"\< \>\"", ",", " ", 
+                    "\"\<approach\>\"", ",", " ", "\"\< \>\"", ",", " ", 
+                    "\"\<to\>\"", ",", " ", "\"\< \>\"", ",", " ", 
+                    "\"\<determine\>\"", ",", " ", "\n", "              ", 
+                    "\"\< \>\"", ",", " ", "\"\<another\>\"", ",", " ", 
+                    "\"\< \>\"", ",", " ", "\"\<permutation\>\""}], "}"}], 
+                  "]"}], ",", "\n", "            ", 
+                 RowBox[{"ButtonFunction", ":>", "continueButton"}], ",", 
+                 "\n", "            ", 
+                 RowBox[{"ButtonEvaluator", " ", "->", " ", "Automatic"}]}], 
+                "]"}], "}"}]}], "\n", "        ", "}"}], ",", "\n", "      ", 
+            
+            RowBox[{"RowSpacings", "->", "0"}], ",", "\n", "      ", 
+            RowBox[{"ColumnSpacings", "->", "0"}], ",", "\n", "      ", 
+            RowBox[{"RowLines", "->", "True"}], ",", "\n", "      ", 
+            RowBox[{"ColumnLines", "->", "True"}]}], "]"}], "]"}], ",", " ", 
+         "\"\<Input\>\"", ",", " ", 
+         RowBox[{"Active", " ", "->", " ", "True"}]}], "]"}]}], "]"}], 
+     ";"}]}], "\n", "\t", "]"}]}]], "Input",
+ InitializationCell->True],
+
+Cell[BoxData[
+ RowBox[{"Transition", " ", ":=", " ", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"nb", ",", " ", "nb2"}], "}"}], ",", "\n", "\t\t", 
+    RowBox[{
+     RowBox[{"nb2", " ", "=", 
+      RowBox[{"SelectedNotebook", "[", "]"}]}], ";", "\n", 
+     RowBox[{"nb", " ", "=", " ", 
+      RowBox[{"NotebookCreate", "[", 
+       RowBox[{
+        RowBox[{"WindowSize", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{"598", ",", "231"}], "}"}]}], ",", 
+        RowBox[{"WindowMargins", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"1", ",", "Automatic"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"3", ",", "Automatic"}], "}"}]}], "}"}]}], ",", 
+        RowBox[{"StyleDefinitions", "\[Rule]", "\"\<EAAM.nb\>\""}]}], "]"}]}],
+      ";", "\n", 
+     RowBox[{"NotebookWrite", "[", 
+      RowBox[{"nb", ",", 
+       RowBox[{"Cell", "[", 
+        RowBox[{
+        "\"\<This notebook is meant to facilitate the construction of a \
+permutation that represents a symmetry of the figure in question. To begin, \
+make sure you can see both the figure and this notebook. Next, evaluate the \
+following button and follow the instructions.\>\"", ",", " ", 
+         "\"\<Text\>\""}], "]"}]}], "]"}], ";", "\n", 
+     RowBox[{"NotebookWrite", "[", 
+      RowBox[{"nb", ",", 
+       RowBox[{"Cell", "[", 
+        RowBox[{
+         RowBox[{"BoxData", "[", "\n", "    ", 
+          RowBox[{"ButtonBox", "[", 
+           RowBox[{"\"\<continue\>\"", ",", "\n", "      ", 
+            RowBox[{"ButtonFunction", ":>", "continueButton"}], ",", "\n", 
+            "      ", 
+            RowBox[{"ButtonEvaluator", "->", "Automatic"}]}], "]"}], "]"}], 
+         ",", " ", "\"\<Input\>\"", ",", "\n", "  ", 
+         RowBox[{"Active", "->", "True"}], ",", "\n", "  ", 
+         RowBox[{"CellTags", "->", "\"\<cont\>\""}]}], "]"}]}], "]"}], ";", 
+     "\n", "\t\t", 
+     RowBox[{"NotebookClose", "[", "nb2", "]"}]}]}], "]"}]}]], "Input",
+ InitializationCell->True],
+
+Cell[BoxData["Transition"], "Input",
+ InitializationCell->True]
+}, Closed]]
+}, Open  ]]
+},
+AutoGeneratedPackage->None,
+WindowSize->{620, 234},
+WindowMargins->{{11, Automatic}, {26, Automatic}},
+MacintoshSystemPageSetup -> \
+"00<0001804P000000]P2:?oQon82n@960dL5:0?l0080001804P000000]P2:001\n\
+0000I00000400`<300000BL?00400@0000000000000006P801T1T00000000000\n\
+00000000000000000000000000000000",
+Background->GrayLevel[1],
+FrontEndVersion->"7.0 for Mac OS X x86 (32-bit) (November 11, 2008)",
+StyleDefinitions->"EAAM.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "evaluate"->{
+  Cell[1215, 45, 4776, 115, 430, "Input",
+   InitializationCell->True,
+   CellTags->"evaluate"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"evaluate", 18401, 446}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 38, 0, 70, "Title"],
+Cell[608, 24, 176, 3, 45, "Text"],
+Cell[787, 29, 340, 10, 33, "Input"],
+Cell[CellGroupData[{
+Cell[1152, 43, 60, 0, 50, "Section"],
+Cell[1215, 45, 4776, 115, 430, "Input",
+ InitializationCell->True,
+ CellTags->"evaluate"],
+Cell[5994, 162, 9723, 211, 1090, "Input",
+ InitializationCell->True],
+Cell[15720, 375, 2044, 48, 250, "Input",
+ InitializationCell->True],
+Cell[17767, 425, 63, 1, 24, "Input",
+ InitializationCell->True]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

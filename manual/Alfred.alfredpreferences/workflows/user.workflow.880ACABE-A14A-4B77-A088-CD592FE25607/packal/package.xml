@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<workflow>
-  <name>Microsoft Todo</name>
-  <version>0.1.21</version>
-  <bundle>com.johandebeurs.alfred.mstodo</bundle>
-  <updated>1589091704</updated>
-  <file>mstodo.alfredworkflow</file>
-</workflow>
