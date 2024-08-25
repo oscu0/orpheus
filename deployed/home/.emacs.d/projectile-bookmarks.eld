@@ -1,1 +1,0 @@
-("~/.config/orpheus/" "~/Local/sdds/" "~/Local/vdnh_80/" "~/.emacs.d/elpa/auctex-12.1.2/" "~/.config/custom/")

@@ -3,8 +3,8 @@ cd deployed/home
 
 GLOBIGNORE=".:.."
 for i in .*; do 
-    mv ~/$i{,.bak};
-    ln -sf $(pwd)/$i ~/$i;
+    mv "$HOME/$i"{,.bak};
+    ln -sf "$(pwd)/$i" "$HOME/$i";
  done
 
 git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
