@@ -1,0 +1,483 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     13170,        473]
+NotebookOptionsPosition[      9193,        325]
+NotebookOutlinePosition[     11969,        424]
+CellTagsIndexPosition[     11801,        415]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[{
+ StyleBox["PLEASE NOTE",
+  FontWeight->"Bold"],
+ ": This is not the complete lab that you may have been expecting. If you are \
+a user of the book ",
+ StyleBox["Exploring Abstract Algebra with Mathematica",
+  FontSlant->"Italic"],
+ " (EAAM), you should either replace the GroupLabs or RingLabs directory with \
+the equivalent from the CD or contact either of us (",
+ ButtonBox["hibbarda@central.edu",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    URL["mailto://hibbarda@central.edu"], None}],
+ " or ",
+ ButtonBox["Kenneth_Levasseur@uml.edu",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    URL["mailto://Kenneth_Levasseur@uml.edu"], None}],
+ ") for updated versions of these labs. (The updates have no substantive \
+changes, mostly only the tagging necessary to allow them to be read into the \
+Browser.)\n\nIf you are not a user of EAAM, we apologize if you find this \
+misleading. This file mainly acts as a target to make the link work that you \
+used to get here, which allows us to have one set of documentation files \
+independent of whether one is a user of EAAM or not. You will note, however, \
+that the Prerequisites and Goals section of this lab are included to give a \
+brief overview of the focus of this lab. For other details, you can find some \
+more information in ",
+ ButtonBox["another section",
+  BaseStyle->"AddOnsLink",
+  ButtonData:>{"Summaries of group labs", "Summaries of group labs"}],
+ " of the documentation, or you can go to our ",
+ ButtonBox["web page",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    URL["http://www.central.edu/homepages/hibbarda/EAAM/moreEAAM.html"], 
+    None}],
+ " that gives more details about EAAM, or you can download some sample labs \
+from another ",
+ ButtonBox["web page",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    URL["http://www.central.edu/homepages/hibbarda/EAAM/SampleLabs.html"], 
+    None}],
+ "."
+}], "Text",
+ CellTags->"RL1"],
+
+Cell["Name(s): ", "Answer",
+ Evaluatable->False,
+ AspectRatioFixed->True,
+ CellTags->"RL1"],
+
+Cell[TextData[{
+ StyleBox["Exploring Abstract Algebra with Mathematica\n",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Al Hibbard and Ken Levasseur",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->14,
+  FontSlant->"Plain"],
+ StyleBox["\n",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["\[Copyright] Copyright 1998 Springer-Verlag New York, Inc.",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->10,
+  FontSlant->"Plain"]
+}], "Subsubtitle",
+ Evaluatable->False,
+ AspectRatioFixed->True,
+ CellTags->"RL1"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ StyleBox["Ring Lab 1",
+  FontSize->18],
+ "\nIntroduction to Rings and ",
+ StyleBox["Ringoids",
+  FontFamily->"Courier"]
+}], "Title",
+ Evaluatable->False,
+ AspectRatioFixed->True,
+ CellTags->{"a:1.1", "RL1"}],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ StyleBox["1.0 Note regarding ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Exploring Abstract Algebra with Mathematica",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic"]
+}], "Section",
+ Evaluatable->False,
+ AspectRatioFixed->True,
+ CellTags->{"a:1.2.1", "RL1"}],
+
+Cell[TextData[{
+ StyleBox["This lab is intended to supplement an abstract algebra course. It \
+is part of a series of labs and packages under the name ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Exploring Abstract Algebra with Mathematica,",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic"],
+ StyleBox[" a joint project by Al Hibbard (Central College) and Ken Levasseur \
+(UMass-Lowell). This is also the title of a book published by TELOS/Springer \
+Verlag that contains this lab. This book includes labs for group theory, labs \
+for ring theory, and a user",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ "\[CloseCurlyQuote]",
+ StyleBox["s guide with printed and electronic documentation.",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}], "Text",
+ Evaluatable->False,
+ CellTags->"RL1"],
+
+Cell[TextData[{
+ StyleBox["For more information on the ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Exploring Abstract Algebra with Mathematica",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic"],
+ StyleBox[" project, go to our web site at ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ ButtonBox["http://www.central.edu/eaam.html",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    URL["http://www.central.edu/eaam.html"], None}],
+ StyleBox[". This site is also mirrored at ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ ButtonBox["http://www.uml.edu/Dept/Math/eaam/eaam.html",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    URL["http://www.uml.edu/Dept/Math/eaam/eaam.html"], None}],
+ StyleBox[". There you will find the latest versions of the packages in ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["AbstractAlgebra",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Courier"],
+ StyleBox[", the latest palettes available to supplement ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["AbstractAlgebra",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Courier"],
+ StyleBox[", and other related resources.",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}], "Text",
+ Evaluatable->False,
+ CellTags->"RL1"],
+
+Cell[TextData[StyleBox["You may also contact either of the authors:",
+ Evaluatable->False,
+ AspectRatioFixed->True]], "Text",
+ Evaluatable->False,
+ CellTags->"RL1"],
+
+Cell[TextData[{
+ ButtonBox["Al Hibbard",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    URL["http://www.central.edu/homepages/hibbarda/hibbard.html"], None}],
+ StyleBox["\n",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ ButtonBox["Central College",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    URL["http://www.central.edu"], None}],
+ StyleBox["\nPella, IA 50219\n",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ ButtonBox["hibbarda@central.edu",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    URL["mailto://hibbarda@central.edu"], None}]
+}], "Text",
+ Evaluatable->False,
+ CellTags->"RL1"],
+
+Cell[TextData[{
+ ButtonBox["Ken Levasseur",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    URL["http://www.uml.edu/Dept/Math/LevasseuK.html"], None}],
+ StyleBox["\n",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ ButtonBox["UMass Lowell",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    URL["http://www.uml.edu"], None}],
+ StyleBox["\nLowell, MA",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ " ",
+ StyleBox["01854\n",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ ButtonBox["Kenneth_Levasseur@uml.edu",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    URL["mailto://Kenneth_Levasseur@uml.edu"], None}]
+}], "Text",
+ Evaluatable->False,
+ CellTags->"RL1"],
+
+Cell[TextData[{
+ StyleBox["Last revision: April 25, 1998\n\n",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["\[Copyright] Copyright 1998 Springer-Verlag New York, Inc.",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->10,
+  FontSlant->"Plain"]
+}], "Text",
+ Evaluatable->False,
+ CellTags->"RL1"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ StyleBox["1.1 ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ "Prerequisites"
+}], "Section",
+ Evaluatable->False,
+ AspectRatioFixed->True,
+ CellTags->{"a:1.3.1", "RL1"}],
+
+Cell["\<\
+There are no prerequisites for this lab, although a brief introduction to the \
+terminology related to rings might be beneficial.\
+\>", "Text",
+ Evaluatable->False,
+ AspectRatioFixed->True,
+ CellTags->"RL1"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ StyleBox["1.2 ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ "Goals"
+}], "Section",
+ Evaluatable->False,
+ AspectRatioFixed->True,
+ CellTags->{"a:1.4.1", "RL1"}],
+
+Cell[TextData[{
+ StyleBox["This lab is intended to introduce both the mathematical concept of \
+the structure of a ring and the corresponding ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Mathematica",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic"],
+ StyleBox[" structure ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Ringoid",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Courier"],
+ StyleBox[". Various properties that a ring must and can have are introduced, \
+and the ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Mathematica",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic"],
+ StyleBox[" commands to explore these properties are illustrated.",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}], "Text",
+ Evaluatable->False,
+ AspectRatioFixed->True,
+ CellTags->"RL1"]
+}, Closed]]
+}, Closed]]
+},
+AutoGeneratedPackage->None,
+WindowToolbars->"EditBar",
+InitializationCellEvaluation->True,
+WindowSize->{630, 431},
+WindowMargins->{{5, Automatic}, {Automatic, 5}},
+PrintingCopies->1,
+PrintingStartingPageNumber->1,
+PrintingPageRange->{1, Automatic},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, -1}},
+ShowGroupOpener->True,
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False},
+MacintoshSystemPageSetup -> \
+"00<0004/0B`000002mT8o?mooh<<HPUi0fL5:0?l0080004/0B`000000]P2:001\n\
+0000I00000400`<300000BL?00400@Bbem0000000000060801T1T00000000000\n\
+00000000000000000000000000000000",
+FrontEndVersion->"7.0 for Mac OS X x86 (32-bit) (November 11, 2008)",
+StyleDefinitions->"EAAM.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "RL1"->{
+  Cell[545, 20, 1908, 45, 249, "Text",
+   CellTags->"RL1"],
+  Cell[2456, 67, 91, 3, 42, "Answer",
+   Evaluatable->False,
+   CellTags->"RL1"],
+  Cell[2550, 72, 558, 20, 82, "Subsubtitle",
+   Evaluatable->False,
+   CellTags->"RL1"],
+  Cell[3133, 96, 224, 9, 104, "Title",
+   Evaluatable->False,
+   CellTags->{"a:1.1", "RL1"}],
+  Cell[3382, 109, 317, 11, 55, "Section",
+   Evaluatable->False,
+   CellTags->{"a:1.2.1", "RL1"}],
+  Cell[3702, 122, 836, 21, 109, "Text",
+   Evaluatable->False,
+   CellTags->"RL1"],
+  Cell[4541, 145, 1313, 41, 109, "Text",
+   Evaluatable->False,
+   CellTags->"RL1"],
+  Cell[5857, 188, 164, 4, 33, "Text",
+   Evaluatable->False,
+   CellTags->"RL1"],
+  Cell[6024, 194, 596, 21, 90, "Text",
+   Evaluatable->False,
+   CellTags->"RL1"],
+  Cell[6623, 217, 660, 25, 90, "Text",
+   Evaluatable->False,
+   CellTags->"RL1"],
+  Cell[7286, 244, 320, 11, 67, "Text",
+   Evaluatable->False,
+   CellTags->"RL1"],
+  Cell[7643, 260, 191, 8, 35, "Section",
+   Evaluatable->False,
+   CellTags->{"a:1.3.1", "RL1"}],
+  Cell[7837, 270, 217, 6, 52, "Text",
+   Evaluatable->False,
+   CellTags->"RL1"],
+  Cell[8091, 281, 183, 8, 35, "Section",
+   Evaluatable->False,
+   CellTags->{"a:1.4.1", "RL1"}],
+  Cell[8277, 291, 888, 30, 71, "Text",
+   Evaluatable->False,
+   CellTags->"RL1"]},
+ "a:1.1"->{
+  Cell[3133, 96, 224, 9, 104, "Title",
+   Evaluatable->False,
+   CellTags->{"a:1.1", "RL1"}]},
+ "a:1.2.1"->{
+  Cell[3382, 109, 317, 11, 55, "Section",
+   Evaluatable->False,
+   CellTags->{"a:1.2.1", "RL1"}]},
+ "a:1.3.1"->{
+  Cell[7643, 260, 191, 8, 35, "Section",
+   Evaluatable->False,
+   CellTags->{"a:1.3.1", "RL1"}]},
+ "a:1.4.1"->{
+  Cell[8091, 281, 183, 8, 35, "Section",
+   Evaluatable->False,
+   CellTags->{"a:1.4.1", "RL1"}]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"RL1", 10045, 351},
+ {"a:1.1", 11343, 396},
+ {"a:1.2.1", 11452, 400},
+ {"a:1.3.1", 11566, 404},
+ {"a:1.4.1", 11679, 408}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[545, 20, 1908, 45, 249, "Text",
+ CellTags->"RL1"],
+Cell[2456, 67, 91, 3, 42, "Answer",
+ Evaluatable->False,
+ CellTags->"RL1"],
+Cell[2550, 72, 558, 20, 82, "Subsubtitle",
+ Evaluatable->False,
+ CellTags->"RL1"],
+Cell[CellGroupData[{
+Cell[3133, 96, 224, 9, 104, "Title",
+ Evaluatable->False,
+ CellTags->{"a:1.1", "RL1"}],
+Cell[CellGroupData[{
+Cell[3382, 109, 317, 11, 55, "Section",
+ Evaluatable->False,
+ CellTags->{"a:1.2.1", "RL1"}],
+Cell[3702, 122, 836, 21, 109, "Text",
+ Evaluatable->False,
+ CellTags->"RL1"],
+Cell[4541, 145, 1313, 41, 109, "Text",
+ Evaluatable->False,
+ CellTags->"RL1"],
+Cell[5857, 188, 164, 4, 33, "Text",
+ Evaluatable->False,
+ CellTags->"RL1"],
+Cell[6024, 194, 596, 21, 90, "Text",
+ Evaluatable->False,
+ CellTags->"RL1"],
+Cell[6623, 217, 660, 25, 90, "Text",
+ Evaluatable->False,
+ CellTags->"RL1"],
+Cell[7286, 244, 320, 11, 67, "Text",
+ Evaluatable->False,
+ CellTags->"RL1"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[7643, 260, 191, 8, 35, "Section",
+ Evaluatable->False,
+ CellTags->{"a:1.3.1", "RL1"}],
+Cell[7837, 270, 217, 6, 52, "Text",
+ Evaluatable->False,
+ CellTags->"RL1"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[8091, 281, 183, 8, 35, "Section",
+ Evaluatable->False,
+ CellTags->{"a:1.4.1", "RL1"}],
+Cell[8277, 291, 888, 30, 71, "Text",
+ Evaluatable->False,
+ CellTags->"RL1"]
+}, Closed]]
+}, Closed]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

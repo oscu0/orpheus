@@ -1,0 +1,3604 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[    112249,       3595]
+NotebookOptionsPosition[     86075,       2687]
+NotebookOutlinePosition[    101161,       3187]
+CellTagsIndexPosition[    100497,       3161]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["Name(s): ", "Answer",
+ Deletable->True,
+ Evaluatable->False,
+ AspectRatioFixed->True,
+ CellTags->"Lab0"],
+
+Cell[TextData[{
+ StyleBox["Exploring Abstract Algebra with Mathematica\n",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Al Hibbard and Ken Levasseur",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->14,
+  FontSlant->"Plain"],
+ StyleBox["\n",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["\[Copyright] Copyright 1998 Springer Verlag New York, Inc.",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->10,
+  FontSlant->"Plain"]
+}], "Subsubtitle",
+ Evaluatable->False,
+ CellChangeTimes->{{3.4437809160223703`*^9, 3.4437809255362*^9}},
+ AspectRatioFixed->True,
+ CellTags->"Lab0"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ StyleBox["Lab 0\nGetting Started with ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Mathematica ",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic"],
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["6.0", "+"], TraditionalForm]],
+  FormatType->"TraditionalForm"]
+}], "Title",
+ Evaluatable->False,
+ CellChangeTimes->{{3.443780944802368*^9, 3.4437809505597277`*^9}},
+ AspectRatioFixed->True,
+ CellTags->{"a:0.0", "Lab0"}],
+
+Cell[TextData[{
+ StyleBox["This lab is intended to be an introduction to using ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Mathematica",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic"],
+ StyleBox[". The version you are reading, EAAMLab0.nb,  is designed for users \
+of ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Mathematica",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic"],
+ StyleBox[" 6.0 or higher.   There are several key skills and concepts that \
+need to be mastered to ensure success with the labs in ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Exploring Abstract Algebra with",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic"],
+ StyleBox[" ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Mathematica",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic"],
+ StyleBox[". They are:\n\n\t1. how to recognize nested cells\n\t2. how to \
+open and close nested cells\n\t3. how to evaluate an expression in an input \
+cell\n\t4. how to create an input cell in order to create one\
+\[CloseCurlyQuote]s own ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Mathematica",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic"],
+ StyleBox[" input\n\t5. learn some of the general principles of ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Mathematica",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic"],
+ StyleBox[" syntax\n\t6. learn where to get more help",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}], "Text",
+ Evaluatable->False,
+ CellChangeTimes->{{3.443781063236342*^9, 3.443781138177663*^9}, 
+   3.4442439008510647`*^9},
+ TabSpacings->2,
+ AspectRatioFixed->True,
+ CellTags->"Lab0"],
+
+Cell[TextData[{
+ StyleBox["Let\[CloseCurlyQuote]s begin with the first two goals.  Different \
+parts of a ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Mathematica",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic"],
+ StyleBox[" Notebook are contained in Cells.     Cells generally have one or \
+more brackets surrounding it on the right side of the window.   The brackets \
+may be replaced by, or supplemented with, arrows (triangles) on the left that \
+can be toggled.   For instance, look at the next cell, headed by the title \
+\[OpenCurlyDoubleQuote]0.0 Note regarding Exploring Abstract Algebra with ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Mathematica",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic"],
+ StyleBox[".\[CloseCurlyDoubleQuote] (You may need to scroll down to see it.  \
+This section occurs only in the notebook version,  not in the printed \
+version.)  Note that this cell has a standard square bracket as well as \
+another bracket to its right that looks somewhat like a harpoon. This \
+indicates that there are cells nested inside. When you move the cursor over \
+the bracket with the harpoon, the cursor takes on the shape of an arrow \
+pointing left toward a vertical bar. When the cursor has this shape, you can \
+double-click on the harpoon. This will open up to reveal the inner, nested \
+cells.  Alternatively, the grouping can be opened and closed by clicking once \
+on the triangle to the left.   Try this now with the first three sections \
+(0.0, 0.1, or 0.2); after reading them, proceed to section 0.3 and open it up \
+to continue.  ",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}], "Text",
+ Evaluatable->False,
+ CellChangeTimes->{{3.443781186424062*^9, 3.443781201143977*^9}, {
+  3.4437812471945677`*^9, 3.443781315694688*^9}, {3.443781352003524*^9, 
+  3.443781378616994*^9}, {3.44378150601019*^9, 3.443781548458157*^9}, {
+  3.443781616560309*^9, 3.4437817940405693`*^9}},
+ CellTags->"Lab0"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ StyleBox["0.0 Note regarding Exploring Abstract Algebra with ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Mathematica",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic"]
+}], "Section",
+ Evaluatable->False,
+ CellTags->{"a:0.1.0", "Lab0"}],
+
+Cell[TextData[{
+ StyleBox["This lab is intended to supplement an abstract algebra course. It \
+is part of a series of labs and packages under the name ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Exploring Abstract Algebra with Mathematica,",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic"],
+ StyleBox[" a joint project by Al Hibbard (Central College) and Ken Levasseur \
+(UMass Lowell). This is also the title of a book published by TELOS/Springer \
+Verlag that contains this lab. This book includes labs for group theory, labs \
+for ring theory, and a user\[CloseCurlyQuote]s guide with printed and \
+electronic documentation.",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}], "Text",
+ Evaluatable->False,
+ CellChangeTimes->{{3.443782106153204*^9, 3.44378210642448*^9}},
+ CellTags->"Lab0"],
+
+Cell[TextData[{
+ StyleBox["For more information on the ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Exploring Abstract Algebra with Mathematica",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic"],
+ StyleBox[" project, go to our web site at ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ ButtonBox["http://www.central.edu/eaam/index.asp",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://www.central.edu/eaam/index.asp"], None},
+  ButtonNote->"http://www.central.edu/eaam/index.asp"],
+ StyleBox[". There you will find the latest versions of the packages in ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["AbstractAlgebra",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Courier"],
+ StyleBox[", the latest palettes available to supplement ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["AbstractAlgebra",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Courier"],
+ StyleBox[", and other related resources.",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}], "Text",
+ Evaluatable->False,
+ CellChangeTimes->{{3.443781835741411*^9, 3.4437818702906933`*^9}},
+ CellTags->"Lab0"],
+
+Cell[TextData[StyleBox["You may also contact either of the authors:",
+ Evaluatable->False,
+ AspectRatioFixed->True]], "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+
+Cell[TextData[{
+ ButtonBox["Al Hibbard",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://pages.central.edu/emp/hibbarda/"], None},
+  ButtonNote->"http://pages.central.edu/emp/hibbarda/"],
+ "\n",
+ ButtonBox["Central College",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    URL["http://www.central.edu"], None}],
+ StyleBox["\nPella, IA 50219\n",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ ButtonBox["hibbarda@central.edu",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    URL["mailto://hibbarda@central.edu"], None}]
+}], "Text",
+ CellChangeTimes->{{3.443781952743544*^9, 3.443781976640423*^9}},
+ CellTags->"Lab0"],
+
+Cell[TextData[{
+ ButtonBox["Ken Levasseur",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://faculty.uml.edu/klevasseur/"], None},
+  ButtonNote->"http://faculty.uml.edu/klevasseur/"],
+ "\n",
+ ButtonBox["UMass Lowell",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    URL["http://www.uml.edu"], None}],
+ StyleBox["\nLowell, MA",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ " ",
+ StyleBox["01854\n",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ ButtonBox["Kenneth_Levasseur@uml.edu",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    URL["mailto://Kenneth_Levasseur@uml.edu"], None}]
+}], "Text",
+ CellChangeTimes->{{3.443782032226142*^9, 3.443782059273046*^9}},
+ CellTags->"Lab0"],
+
+Cell[TextData[{
+ StyleBox["Last revision of this Lab: February 15, 2009\n\n",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["\[Copyright] Copyright 1998 Springer Verlag New York, Inc.",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->10,
+  FontSlant->"Plain"]
+}], "Text",
+ Evaluatable->False,
+ CellChangeTimes->{{3.4437820718560257`*^9, 3.443782091336049*^9}},
+ CellTags->"Lab0"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["0.1 Prerequisites", "Section",
+ Evaluatable->False,
+ CellTags->{"a:0.2.0", "Lab0"}],
+
+Cell["There are no prerequisites for this lab.", "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["0.2 Goals for this lab", "Section",
+ Evaluatable->False,
+ CellTags->{"a:0.3.0", "Lab0"}],
+
+Cell[TextData[{
+ StyleBox["This lab is intended to introduce a few of the basics of ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Mathematica",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic"],
+ StyleBox[", as well as introduce a few rudimentary algebraic ideas. In \
+particular, the user should master the six specific goals outlined at the \
+outset of this lab.",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}], "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ StyleBox["0.3 The In\[CloseCurlyQuote]s and Out\[CloseCurlyQuote]s of \
+evaluating ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Mathematica",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic"],
+ StyleBox[" expressions",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}], "Section",
+ Evaluatable->False,
+ CellTags->{"a:0.4.0", "Lab0"}],
+
+Cell["\<\
+These nested cells are not too difficult to open up, once you get the hang of \
+it, right?\
+\>", "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+
+Cell[TextData[{
+ StyleBox["Q1",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontWeight->"Bold"],
+ StyleBox[". Go to section 0.4 (below) and open up the nested cells. What do \
+you find inside at the inner-most nested level?",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}], "Question",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+
+Cell["Answer: ", "Answer",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+
+Cell[TextData[{
+ StyleBox["You may have noticed that some cells appear differently than \
+others. For instance, this text is in a ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Courier"],
+ StyleBox[" cell, while the cell heading this section (0.3) is called a ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Section",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Courier"],
+ StyleBox[" cell. If you go up and click anywhere in the characters of the \
+section 0.3 cell, you will see the word ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Section",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Courier"],
+ StyleBox[" appear in the pop-up menu in the ruler at the top of the window. \
+This menu indicates the current cell type; it can also be used to change one \
+type of cell to another. To tell ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Mathematica",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic"],
+ StyleBox[" to compute an evaluation, we need to use a special type of cell, \
+called an ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Input",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Courier"],
+ StyleBox[" cell. Consider the following cell.",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}], "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+
+Cell[BoxData[
+ FractionBox["26", "3"]], "Input",
+ CellTags->"Lab0"],
+
+Cell[TextData[{
+ StyleBox["Click the cursor anywhere in the body of the above cell containing \
+",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ Cell[BoxData[
+  FormBox[
+   FractionBox["26", "3"], TraditionalForm]]],
+ StyleBox[", or select its cell bracket. (Note that the name of the cell type \
+becomes ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Input",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Courier"],
+ StyleBox[" in the pop-up menu in the ruler.) To ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["evaluate",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic"],
+ StyleBox[" this cell (assuming you have clicked in the cell or selected its \
+bracket), press the SHIFT/RETURN key combination (or the ENTER key, if you \
+have one).  ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Mathematica",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic"],
+ StyleBox[" will then evaluate this request and return its value. Do so.",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}], "Text",
+ Evaluatable->False,
+ CellChangeTimes->{{3.4437822307209597`*^9, 3.443782247797982*^9}, {
+  3.443782549839013*^9, 3.443782558102047*^9}},
+ CellTags->"Lab0"],
+
+Cell[TextData[{
+ StyleBox["Do not be too disappointed with the result; ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Mathematica",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic"],
+ StyleBox[" always tries to return an exact result whenever possible. In this \
+case, ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ Cell[BoxData[
+  FormBox[
+   FractionBox["26", "3"], TraditionalForm]]],
+ StyleBox[" is more exact than 8.7 or 8.6667 or 8.666666667. Each of these \
+approximations can be obtained as follows (evaluate this next cell).",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}], "Text",
+ Evaluatable->False,
+ CellChangeTimes->{{3.443782272115157*^9, 3.443782275054306*^9}},
+ CellTags->"Lab0"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"N", "[", 
+    RowBox[{
+     FractionBox["26", "3"], ",", "2"}], "]"}], ",", 
+   RowBox[{"N", "[", 
+    RowBox[{
+     FractionBox["26", "3"], ",", "5"}], "]"}], ",", 
+   RowBox[{"N", "[", 
+    RowBox[{
+     FractionBox["26", "3"], ",", "10"}], "]"}]}], "}"}]], "Input",
+ CellTags->"Lab0"],
+
+Cell[TextData[{
+ StyleBox["Q2",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontWeight->"Bold"],
+ StyleBox[". Evaluate the cell below. (Remember to use the SHIFT/RETURN \
+combination.) What do these results have in common with the above \
+approximations of 26/3?",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}], "Question",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+
+Cell["Answer: ", "Answer",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+
+Cell[BoxData[
+ RowBox[{"N", "[", 
+  RowBox[{"{", 
+   RowBox[{
+    FractionBox["29", "3"], ",", 
+    FractionBox["23", "3"], ",", 
+    FractionBox["20", "3"]}], "}"}], "]"}]], "Input",
+ CellTags->"Lab0"],
+
+Cell[TextData[{
+ StyleBox["The next thing to learn is how to make your own ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Input",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Courier"],
+ StyleBox[" cell so that you can type in your own ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Mathematica",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic"],
+ StyleBox[" expresssion. Move the cursor (slowly) right below the text in \
+this paragraph. As you move it, you should see the cursor take on one or more \
+of the following shapes: a horizontal I-beam, a down-arrow, a circle with a \
+plus, a vertical I-beam or possibly other shapes. When it is just below this \
+text, but yet above the next cell, you should see the cursor become a \
+horizontal I-beam. On clicking the mouse when this cursor is present, a \
+horizontal line appears in the window. You can now start typing and you are \
+automatically in the ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Input",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Courier"],
+ StyleBox[" style.  Read the next question.",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}], "Text",
+ Evaluatable->False,
+ CellChangeTimes->{{3.443782619744713*^9, 3.443782629542184*^9}, {
+  3.4437827579701023`*^9, 3.443782765234333*^9}},
+ CellTags->"Lab0"],
+
+Cell[TextData[{
+ StyleBox["Q3",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontWeight->"Bold"],
+ StyleBox[". Above this cell, but below the preceding paragraph of text, \
+create an input cell, type in 17/3, and evaluate the cell.  Create another \
+cell and determine the decimal approximations of  17/3, 14/3 and 11/3. What \
+do these results have in common with previous results?",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}], "Question",
+ Evaluatable->False,
+ CellChangeTimes->{{3.443782818935851*^9, 3.443782834694956*^9}},
+ CellTags->"Lab0"],
+
+Cell["Answer: ", "Answer",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+
+Cell[TextData[{
+ StyleBox["Q4",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontWeight->"Bold"],
+ StyleBox[". Evaluate the following ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Input",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Courier"],
+ StyleBox[" cell. Next, create a new input cell and either retype the line \
+just evaluated or copy it and paste it in the new cell. (You are not expected \
+to understand what these instructions in the ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Input",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Courier"],
+ StyleBox[" cell mean.) Before evaluating, change the 2 to a 1. What do the \
+results in the output have in common? How do they compare to the previous \
+output?",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}], "Question",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+
+Cell["Answer: ", "Answer",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{"N", "[", 
+     RowBox[{"#", "/", "3"}], "]"}], "&"}], ")"}], " ", "/@", " ", 
+  RowBox[{"Range", "[", 
+   RowBox[{"2", ",", " ", "30", ",", " ", "3"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.443782963021173*^9, 3.443782987042803*^9}},
+ FormatType->"InputForm",
+ CellTags->"Lab0"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["0.4 What is inside?", "Section",
+ Evaluatable->False,
+ CellTags->{"a:0.5.0", "Lab0"}],
+
+Cell[CellGroupData[{
+
+Cell["You have to open up each layer to find out.", "Subsection",
+ Evaluatable->False,
+ CellTags->{"a:0.5.1.0", "Lab0"}],
+
+Cell[CellGroupData[{
+
+Cell["Is there another level inside this?", "Subsubsection",
+ Evaluatable->False,
+ CellTags->{"a:0.5.1.1.0", "Lab0"}],
+
+Cell["No. A subsubsection is the lowest level here.", "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"]
+}, Closed]]
+}, Closed]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["0.5 Some syntax basics", "Section",
+ Evaluatable->False,
+ CellTags->{"a:0.6.0", "Lab0"}],
+
+Cell["\<\
+Evaluate the following cell. (Recall that we also saw this expression when \
+working with question two.)\
+\>", "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+
+Cell[BoxData[
+ RowBox[{"N", "[", 
+  RowBox[{"{", 
+   RowBox[{
+    FractionBox["29", "3"], ",", 
+    FractionBox["23", "3"], ",", 
+    FractionBox["20", "3"]}], "}"}], "]"}]], "Input",
+ CellTags->"Lab0"],
+
+Cell[TextData[{
+ StyleBox["Mathematica",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic"],
+ StyleBox[" is very particular in expecting the exact syntax for \
+communicating requests. For example, the following are incorrect methods (for \
+various reasons) of inputting the previous cell. Evaluate each of the \
+following.",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}], "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"example", " ", "1"}], " ", "*)"}], "   ", 
+  RowBox[{"n", "[", 
+   RowBox[{"{", 
+    RowBox[{
+     FractionBox["29", "3"], ",", 
+     FractionBox["23", "3"], ",", 
+     FractionBox["20", "3"]}], "}"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.443783085316691*^9, 3.443783085533102*^9}},
+ CellTags->"Lab0"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"example", " ", "2"}], " ", "*)"}], "   ", 
+  RowBox[{"N", "[", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"29", "/", "3"}], ",", " ", 
+     RowBox[{"23", "/", "3"}], ",", " ", 
+     RowBox[{"20", "/", "3"}]}], ")"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.443783087957411*^9, 3.443783088157445*^9}, {
+   3.443783999538477*^9, 3.443784001153248*^9}, 3.443784060626088*^9},
+ EmphasizeSyntaxErrors->True,
+ CellTags->"Lab0"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"example", " ", "3"}], " ", "*)"}], "   ", 
+  RowBox[{"N", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"29", "/", "3"}], ",", " ", 
+     RowBox[{"23", "/", "3"}], ",", " ", 
+     RowBox[{"20", "/", "3"}]}], ")"}]}]}]], "Input",
+ CellChangeTimes->{{3.443783909831265*^9, 3.443783931305957*^9}, {
+  3.443783994545877*^9, 3.443784003753233*^9}, {3.443784063257588*^9, 
+  3.44378406515308*^9}},
+ EmphasizeSyntaxErrors->True],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"example", " ", "4"}], " ", "*)"}], "   ", 
+  RowBox[{"N", " ", 
+   RowBox[{"{", 
+    RowBox[{
+     FractionBox["29", "3"], ",", 
+     FractionBox["23", "3"], ",", 
+     FractionBox["20", "3"]}], "}"}]}]}]], "Input",
+ CellChangeTimes->{{3.443783089781554*^9, 3.443783089949628*^9}, 
+   3.443783933682479*^9, {3.443784005953484*^9, 3.4437840069271727`*^9}, 
+   3.443784067489518*^9},
+ CellTags->"Lab0"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"example", " ", "5"}], " ", "*)"}], "   ", 
+  RowBox[{"N", "[", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"29", "/", "3"}], "  ", 
+     RowBox[{"23", "/", "3"}], "  ", 
+     RowBox[{"20", "/", "3"}]}], "}"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.4437830913173523`*^9, 3.443783091485989*^9}, 
+   3.4437839364094563`*^9, {3.44378400992946*^9, 3.4437840106337357`*^9}, 
+   3.443784069905342*^9, {3.443784120378557*^9, 3.4437841537679567`*^9}},
+ CellTags->"Lab0"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"example", " ", "6"}], " ", "*)"}], "  ", 
+  RowBox[{"N", "[", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"29", "/", "3"}], ";", " ", 
+     RowBox[{"23", "/", "3"}], ";", " ", 
+     RowBox[{"20", "/", "3"}]}], "}"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.4437830913173523`*^9, 3.443783091485989*^9}, 
+   3.4437839364094563`*^9, {3.44378400992946*^9, 3.4437840106337357`*^9}, 
+   3.443784069905342*^9, {3.443784120378557*^9, 3.4437841537679567`*^9}, {
+   3.44378418830832*^9, 3.4437841990252647`*^9}},
+ CellTags->"Lab0"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"example", " ", "7"}], " ", "*)"}], "   ", 
+  RowBox[{"N", "[", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"29", "/", "3"}], ",", " ", 
+     RowBox[{"23", "/", "3"}], ",", " ", 
+     RowBox[{"20", "/", "3"}]}]}], "]"}], "}"}]], "Input",
+ CellChangeTimes->{{3.443783093165229*^9, 3.4437830933177357`*^9}, {
+   3.443783592382495*^9, 3.443783593054885*^9}, 3.44378394161084*^9, 
+   3.443784196393293*^9},
+ EmphasizeSyntaxErrors->True,
+ CellTags->"Lab0"],
+
+Cell[TextData[{
+ StyleBox["If you try to evaluate an expression that contains a syntax error, \
+the cell bracket will turn orange and a yellow square with a plus sign will \
+appear next to it.   If you click on the square, some error messages will \
+appear.  To the beginner, these messages may or may not be useful.   Some of \
+the examples above don't have syntax error, but are still not what we intend. \
+ Here are additional reasons why these are incorrect.\n\n1. All built-in ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Mathematica",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic"],
+ StyleBox[" commands or functions start with capital letters, which is not \
+the case in example 1.\n\n2. Lists are always enclosed with curly brackets \
+{}; parentheses are used ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["only",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic"],
+ StyleBox[" for grouping expressions to alter the standard order of \
+operations (such as ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox[
+    RowBox[{"(", 
+     RowBox[{"a", "+", "b"}], ")"}], "2"], TraditionalForm]]],
+ StyleBox[" in contrast to ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"a", "+", 
+    SuperscriptBox["b", "2"]}], TraditionalForm]]],
+ StyleBox[").\n\n3. Arguments for functions (such as the ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["N",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Courier"],
+ StyleBox[" function in this case) must always be enclosed in square brackets \
+[], not parentheses (which are used only as grouping symbols).\n\n4. Lists \
+must always have their elements separated by commas.  In example 5, the terms \
+were multiplied, since a space implies multiplication.  In example 6, the \
+terms are separated by semicolons, and the sequence of numbers has the last \
+term as its value.\n\n",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ "5. Of the three types of brackets, (), {}, and [], each type can only be \
+used for the specific use for which it is intended.  Furthermore every left \
+bracket must\nhave a matching right bracket of the same type, which isn't the \
+case in example 7."
+}], "Text",
+ Evaluatable->False,
+ CellChangeTimes->{{3.4437833475960283`*^9, 3.4437834788294477`*^9}, {
+   3.4437835162211037`*^9, 3.443783573213125*^9}, {3.443783619915605*^9, 
+   3.443783738420165*^9}, {3.4437837834858503`*^9, 3.443783809221319*^9}, {
+   3.4437840971539583`*^9, 3.443784105048316*^9}, 3.443784139866478*^9, {
+   3.443784231193325*^9, 3.4437843740874853`*^9}},
+ CellTags->"Lab0"],
+
+Cell[TextData[{
+ StyleBox["Q5",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontWeight->"Bold"],
+ StyleBox[". Evaluate the following ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Input",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Courier"],
+ StyleBox[" cell. What error(s) does it have? Correct the error(s) to arrive \
+at the intended input.",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}], "Question",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+
+Cell["Answer: ", "Answer",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Expand", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"x", "+", "y"}], "}"}], "^", "2"}]}], ")"}]], "Input",
+ EmphasizeSyntaxErrors->True,
+ CellTags->"Lab0"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["0.6 Help", "Section",
+ Evaluatable->False,
+ CellTags->{"a:0.7.0", "linkex", "Lab0"}],
+
+Cell[TextData[{
+ StyleBox["Mathematica",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic"],
+ StyleBox[" has a sophisticated help facility called the Documentation \
+Center. The last item on ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Mathematica",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic"],
+ StyleBox["\[CloseCurlyQuote]s menu bar is the ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Help",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Courier"],
+ StyleBox[" menu. Choose this and select \"Documentation Center.\"  In the \
+window that opens, you will find links to literally thousands of pages of \
+documentation.    The Documentation Center is a ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Mathematica",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic"],
+ StyleBox[" notebook and not just a static display device.   You can edit \
+and/or evaluate virtually all expressions that appear in this document.   To \
+learn more about any specific function you can use the ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Information", "Input",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox[" function, which is normally abbreviated to ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["?", "Input",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox[".    If you evaluate the expression ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["?Expand", "Input",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox[", for example, you will get a paragraph or two about the function. \
+  A link that look like two \"greater thans\" - >> will appear at the end of \
+the description and can be used to go to an extensive descripiton of the \
+function in the Documentation Center.",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}], "Text",
+ Evaluatable->False,
+ CellChangeTimes->{{3.4437844269646997`*^9, 3.4437845207727222`*^9}, {
+  3.443784706907873*^9, 3.4437847307647247`*^9}, {3.4438018411790733`*^9, 
+  3.443801974320346*^9}, {3.443802021529748*^9, 3.4438020307648697`*^9}, {
+  3.443802935077991*^9, 3.4438031630985327`*^9}, {3.443803193540072*^9, 
+  3.443803246503212*^9}},
+ CellTags->"Lab0"],
+
+Cell[TextData[{
+ StyleBox["Q6",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontWeight->"Bold"],
+ StyleBox[". Using the help facility, learn more about the ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Expand",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Courier"],
+ StyleBox[" function. What does this function do? (Hint: ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Expand",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Courier"],
+ StyleBox[" is a built-in function used for algebraic computations in basic \
+algebra.)",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}], "Question",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+
+Cell["Answer: ", "Answer",
+ Evaluatable->False,
+ CellTags->"Lab0"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ StyleBox["0.7 Using ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Mathematica",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic"],
+ StyleBox[" to learn a mod idea",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}], "Section",
+ Evaluatable->False,
+ CellTags->{"a:0.8.0", "Lab0"}],
+
+Cell["\<\
+Above we saw that 26/3, 29/3, 23/3 and several other fractions all had one \
+thing in common: the quotient had a decimal part returning .666667. In other \
+words, on  division by three, the remainder was always two. Observe:\
+\>", "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+
+Cell[BoxData[
+ RowBox[{"26", "==", 
+  RowBox[{
+   RowBox[{"8", "*", "3"}], "+", "2"}]}]], "Input",
+ CellTags->"Lab0"],
+
+Cell[BoxData[
+ RowBox[{"29", "==", 
+  RowBox[{
+   RowBox[{"9", "*", "3"}], "+", "2"}]}]], "Input",
+ CellTags->"Lab0"],
+
+Cell[BoxData[
+ RowBox[{"23", "==", 
+  RowBox[{
+   RowBox[{"7", "*", "3"}], "+", "2"}]}]], "Input",
+ CellTags->"Lab0"],
+
+Cell[TextData[{
+ StyleBox["In each case, we see that the numbers 26, 29 and 23 have a \
+remainder of two, ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ "on ",
+ StyleBox[" division by 3. We can see this visually as well. First, select \
+all the cells in the following subsection. (You do not need to open up the \
+subsection, simply ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["select",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic"],
+ StyleBox[" the outer harpoon bracket surrounding it.) Next, evaluate all \
+these cells (type SHIFT/RETURN). This will define some functions we will be \
+using. Now go to the next section.",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}], "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Evaluate all cells in this subsection, if not done on  opening\
+\>", "Subsection",
+ Evaluatable->False,
+ CellTags->{"a:0.8.1.0", "Lab0"}],
+
+Cell[CellGroupData[{
+
+Cell["usage/messages", "Subsubsection",
+ Evaluatable->False,
+ CellTags->{"a:0.8.1.1.0", "Lab0"}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Off", "[", 
+   RowBox[{
+    RowBox[{"General", "::", "\"\<spell\>\""}], ",", 
+    RowBox[{"General", "::", "\"\<spell1\>\""}]}], "]"}], ";", "\n", 
+  RowBox[{"$FormatType", " ", "=", " ", "OutputForm"}], ";", "\n", 
+  RowBox[{"Needs", "[", "\"\<Graphics`Colors`\>\"", "]"}]}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"IllustrateModReduction", "::", "\"\<arg\>\""}], "=", 
+   "\"\<The first argument of  IllustrateModReduction must be an integer and \
+the second must be a  positive integer.\>\""}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"IllustrateModAddition", "::", "\"\<arg\>\""}], "=", 
+   "\"\<The first two arguments of  IllustrateModAddition must be integers \
+and the third must be a  positive integer.\>\""}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"IllustrateModAddition", "::", "\"\<usage\>\""}], "=", 
+   "\"\<IllustrateModAddition[a_, b_, n_] is a function which takes three \
+integer arguments. The purpose of  the function is to illustrate how the \
+number 'a' (first arg) is  added to 'b' (second arg) using modulo 'n' (third \
+arg) arithmetic.  It draws bars of multiples of n and the remainders and \
+regroups to  show the addition.\>\""}], ";"}]}], "Input",
+ InitializationCell->True,
+ CellTags->"Lab0"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["IllustrateModReduction", "Subsubsection",
+ Evaluatable->False,
+ CellTags->{"a:0.8.1.2.0", "Lab0"}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"IllustrateModReduction", "[", 
+    RowBox[{"a_Integer", ",", 
+     RowBox[{"n_Integer", "?", "Positive"}], ",", "opts___"}], "]"}], ":=", 
+   RowBox[{"Show", "[", 
+    RowBox[{"computeModReduction", "[", 
+     RowBox[{"a", ",", "n", ",", "opts"}], "]"}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"IllustrateModReduction", "[", 
+   RowBox[{"a_", ",", "n_", ",", "opts___"}], "]"}], ":=", 
+  RowBox[{"Message", "[", 
+   RowBox[{"IllustrateModReduction", "::", "\"\<arg\>\""}], "]"}]}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Options", "[", "computeModReduction", "]"}], "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"showText", "\[Rule]", "True"}], ",", 
+     RowBox[{"dotColor", "\[Rule]", "Blue"}]}], "}"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"textPortionOfReduction", "[", 
+   RowBox[{"a_", ",", "n_", ",", "r_", ",", "q_"}], "]"}], ":=", 
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"a", ",", "\"\< mod \>\"", ",", "n", ",", "\"\< is \>\"", ",", 
+      RowBox[{"Mod", "[", 
+       RowBox[{"a", ",", "n"}], "]"}], ",", "\"\< since \>\"", ",", "a", ",", 
+      "\"\< = \>\"", ",", 
+      RowBox[{"Quotient", "[", 
+       RowBox[{"a", ",", "n"}], "]"}], ",", "\"\<*\>\"", ",", "n", ",", 
+      "\"\< + \>\"", ",", 
+      RowBox[{"Mod", "[", 
+       RowBox[{"a", ",", "n"}], "]"}], ",", "\"\<.\>\""}], "]"}], ";", 
+    RowBox[{"Print", "[", 
+     RowBox[{
+     "\"\<In other words, \>\"", ",", "a", ",", "\"\< mod \>\"", ",", "n", 
+      ",", "\"\< is the remainder \>\""}], "]"}], ";", 
+    RowBox[{"Print", "[", 
+     RowBox[{
+     "\"\<on  division of \>\"", ",", "a", ",", "\"\< by \>\"", ",", "n", 
+      ",", "\"\<.\>\""}], "]"}], ";", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"a", ">", "0"}], ",", 
+      RowBox[{
+       RowBox[{"Print", "[", 
+        RowBox[{"\"\<To illustrate, \>\"", ",", "\"\<below \>\"", ",", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{"q", "==", "1"}], ",", "\"\<is \>\"", ",", 
+           "\"\<are \>\""}], "]"}], ",", "q", ",", "\"\< full column\>\"", 
+         ",", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{"q", "=!=", "1"}], ",", "\"\<s\>\"", ",", "\"\<\>\""}], 
+          "]"}]}], "]"}], ";", 
+       RowBox[{"Print", "[", 
+        RowBox[{"\"\<of height \>\"", ",", "n", ",", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{"r", ">", "0"}], ",", 
+           "\"\< and one column with height \>\"", ",", "\"\<\>\""}], "]"}], 
+         ",", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{"r", ">", "0"}], ",", "r", ",", "\"\<\>\""}], "]"}], ",", 
+         "\"\<.\>\""}], "]"}], ";", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"r", "==", "0"}], ",", 
+         RowBox[{"Print", "[", 
+          RowBox[{
+          "\"\<Since there is no remainder, \>\"", ",", "a", ",", 
+           "\"\< mod \>\"", ",", "n", ",", "\"\< is 0.\>\""}], "]"}], ",", 
+         RowBox[{"Print", "[", 
+          RowBox[{
+          "\"\<Since the remainder is \>\"", ",", "r", ",", "\"\<, \>\"", ",",
+            "a", ",", "\"\< mod \>\"", ",", "n", ",", "\"\< is \>\"", ",", 
+           "r", ",", "\"\<.\>\""}], "]"}]}], "]"}]}]}], "]"}]}], 
+   ")"}]}], "\n", 
+ RowBox[{
+  RowBox[{"computeModReduction", "[", 
+   RowBox[{"a_", ",", "n_", ",", "opts___"}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"r", ",", "q", ",", "showtext", ",", "dotcolor"}], "}"}], ",", 
+    RowBox[{
+     RowBox[{"SetOptions", "[", 
+      RowBox[{"Graphics", ",", 
+       RowBox[{"AspectRatio", "\[Rule]", 
+        FractionBox["1", "GoldenRatio"]}]}], "]"}], ";", 
+     RowBox[{"r", "=", 
+      RowBox[{"Mod", "[", 
+       RowBox[{"a", ",", "n"}], "]"}]}], ";", 
+     RowBox[{"q", "=", 
+      RowBox[{"Quotient", "[", 
+       RowBox[{"a", ",", "n"}], "]"}]}], ";", 
+     RowBox[{"dotcolor", "=", 
+      RowBox[{
+       RowBox[{"dotColor", "/.", 
+        RowBox[{"{", "opts", "}"}]}], "/.", 
+       RowBox[{"Options", "[", "computeModReduction", "]"}]}]}], ";", 
+     RowBox[{"showtext", "=", 
+      RowBox[{
+       RowBox[{"showText", "/.", 
+        RowBox[{"{", "opts", "}"}]}], "/.", 
+       RowBox[{"Options", "[", "computeModReduction", "]"}]}]}], ";", 
+     RowBox[{"If", "[", 
+      RowBox[{"showtext", ",", 
+       RowBox[{"textPortionOfReduction", "[", 
+        RowBox[{"a", ",", "n", ",", "r", ",", "q"}], "]"}]}], "]"}], ";", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"q", "==", "0"}], ",", 
+       RowBox[{"makeDots", "[", 
+        RowBox[{
+        "1", ",", "1", ",", "r", ",", "dotcolor", ",", "Yellow", ",", 
+         "0.025"}], "]"}], ",", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"r", "==", "0"}], ",", 
+         RowBox[{"makeDots", "[", 
+          RowBox[{
+          "1", ",", "q", ",", "n", ",", "dotcolor", ",", "Red", ",", "0.025", 
+           ",", 
+           RowBox[{"colLabels", "\[Rule]", "True"}]}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"makeDots", "[", 
+            RowBox[{
+            "1", ",", "q", ",", "n", ",", "dotcolor", ",", "Red", ",", 
+             "0.025", ",", 
+             RowBox[{"colLabels", "\[Rule]", "True"}]}], "]"}], ",", 
+           RowBox[{"makeDots", "[", 
+            RowBox[{
+             RowBox[{"q", "+", "1.5"}], ",", "1", ",", "r", ",", "dotcolor", 
+             ",", "Yellow", ",", "0.025"}], "]"}]}], "}"}]}], "]"}]}], 
+      "]"}]}]}], "]"}]}]}], "Input",
+ InitializationCell->True,
+ CellTags->"Lab0"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["IllustrateModAddition", "Subsubsection",
+ Evaluatable->False,
+ CellTags->{"a:0.8.1.3.0", "Lab0"}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"IllustrateModAddition", "[", 
+   RowBox[{"a_Integer", ",", "b_Integer", ",", 
+    RowBox[{"n_Integer", "?", "Positive"}]}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+     "ra", ",", "rb", ",", "qa", ",", "qb", ",", "first", ",", "mid", ",", 
+      "mid2", ",", "end", ",", "seq"}], "}"}], ",", 
+    RowBox[{
+     RowBox[{"SetOptions", "[", 
+      RowBox[{"Graphics", ",", 
+       RowBox[{"AspectRatio", "\[Rule]", 
+        FractionBox["1", "GoldenRatio"]}]}], "]"}], ";", 
+     RowBox[{"ra", "=", 
+      RowBox[{"Mod", "[", 
+       RowBox[{"a", ",", "n"}], "]"}]}], ";", 
+     RowBox[{"qa", "=", 
+      RowBox[{"Quotient", "[", 
+       RowBox[{"a", ",", "n"}], "]"}]}], ";", 
+     RowBox[{"rb", "=", 
+      RowBox[{"Mod", "[", 
+       RowBox[{"b", ",", "n"}], "]"}]}], ";", 
+     RowBox[{"qb", "=", 
+      RowBox[{"Quotient", "[", 
+       RowBox[{"b", ",", "n"}], "]"}]}], ";", 
+     RowBox[{"Print", "[", 
+      RowBox[{
+      "\"\<We wish to calculate \>\"", ",", "a", ",", "\"\< mod \>\"", ",", 
+       "n", ",", "\"\<  +  \>\"", ",", "b", ",", "\"\< mod \>\"", ",", "n", 
+       ",", "\"\<.\>\""}], "]"}], ";", 
+     RowBox[{
+     "Print", "[", 
+      "\"\<To do so, we determine the quotients and remainders when\>\"", 
+      "]"}], ";", 
+     RowBox[{"Print", "[", 
+      RowBox[{
+      "a", ",", "\"\< and \>\"", ",", "b", ",", "\"\< are divided by \>\"", 
+       ",", "n", ",", "\"\<.\>\""}], "]"}], ";", 
+     RowBox[{"first", "=", 
+      RowBox[{"{", 
+       RowBox[{"showStageOne", "[", 
+        RowBox[{"ra", ",", "rb", ",", "qa", ",", "qb", ",", "n"}], "]"}], 
+       "}"}]}], ";", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"qa", "+", "qb"}], ">", 
+         RowBox[{"Max", "[", 
+          RowBox[{"qa", ",", "qb"}], "]"}]}], "&&", 
+        RowBox[{
+         RowBox[{"ra", "+", "rb"}], ">", 
+         RowBox[{"Max", "[", 
+          RowBox[{"ra", ",", "rb"}], "]"}]}]}], ",", 
+       RowBox[{"mid", "=", 
+        RowBox[{"{", 
+         RowBox[{"showStageTwo", "[", 
+          RowBox[{"ra", ",", "rb", ",", "qa", ",", "qb", ",", "n"}], "]"}], 
+         "}"}]}], ",", 
+       RowBox[{"mid", "=", 
+        RowBox[{"{", "}"}]}]}], "]"}], ";", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"qa", "=!=", "0"}], "&&", 
+        RowBox[{"qb", "=!=", "0"}]}], ",", 
+       RowBox[{"mid2", "=", 
+        RowBox[{"{", 
+         RowBox[{"showStageThree", "[", 
+          RowBox[{"ra", ",", "rb", ",", "qa", ",", "qb", ",", "n"}], "]"}], 
+         "}"}]}], ",", 
+       RowBox[{"mid2", "=", 
+        RowBox[{"{", "}"}]}]}], "]"}], ";", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"n", ">", 
+        RowBox[{"ra", "+", "rb"}]}], ",", 
+       RowBox[{"end", "=", 
+        RowBox[{"{", 
+         RowBox[{"showStageFive", "[", 
+          RowBox[{"ra", ",", "rb", ",", "qa", ",", "qb", ",", "n"}], "]"}], 
+         "}"}]}], ",", 
+       RowBox[{"end", "=", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"showStageFour", "[", 
+           RowBox[{"ra", ",", "rb", ",", "qa", ",", "qb", ",", "n"}], "]"}], 
+          ",", 
+          RowBox[{"showStageFive", "[", 
+           RowBox[{"ra", ",", "rb", ",", "qa", ",", "qb", ",", "n"}], "]"}]}],
+          "}"}]}]}], "]"}], ";", 
+     RowBox[{"seq", "=", 
+      RowBox[{"Join", "[", 
+       RowBox[{"first", ",", "mid", ",", "mid2", ",", "end"}], "]"}]}], ";", 
+     RowBox[{"Manipulate", "[", 
+      RowBox[{
+       RowBox[{"seq", "[", 
+        RowBox[{"[", "k", "]"}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"k", ",", "1", ",", 
+         RowBox[{"Length", "[", "seq", "]"}], ",", "1"}], "}"}]}], "]"}]}]}], 
+   "]"}]}], "\n", 
+ RowBox[{
+  RowBox[{"IllustrateModAddition", "[", 
+   RowBox[{"a_", ",", "b_", ",", "n_"}], "]"}], ":=", 
+  RowBox[{"Message", "[", 
+   RowBox[{"IllustrateModAddition", "::", "\"\<arg\>\""}], "]"}]}], "\n", 
+ RowBox[{
+  RowBox[{"showStageOne", "[", 
+   RowBox[{"ra_", ",", "rb_", ",", "qa_", ",", "qb_", ",", "n_"}], "]"}], ":=", 
+  RowBox[{"Show", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"makeDots", "[", 
+       RowBox[{
+       "1", ",", "qa", ",", "n", ",", "Blue", ",", "Red", ",", "0.025", ",", 
+        RowBox[{"colLabels", "\[Rule]", "True"}]}], "]"}], ",", 
+      RowBox[{"makeDots", "[", 
+       RowBox[{
+        RowBox[{"1", "+", "qa", "+", ".5"}], ",", "1", ",", "ra", ",", "Blue",
+         ",", "Yellow", ",", "0.025"}], "]"}], ",", 
+      RowBox[{"makeDots", "[", 
+       RowBox[{
+        RowBox[{"1", "+", "qa", "+", "3"}], ",", "qb", ",", "n", ",", "Black",
+         ",", "Red", ",", "0.025", ",", 
+        RowBox[{"colLabels", "\[Rule]", "True"}]}], "]"}], ",", 
+      RowBox[{"makeDots", "[", 
+       RowBox[{
+        RowBox[{"1", "+", "qa", "+", "3", "+", "qb", "+", ".5"}], ",", "1", 
+        ",", "rb", ",", "Black", ",", "Yellow", ",", "0.025"}], "]"}]}], 
+     "}"}], ",", 
+    RowBox[{"PlotLabel", "\[Rule]", 
+     RowBox[{
+      RowBox[{"ToString", "[", 
+       RowBox[{
+        RowBox[{"qa", "n"}], "+", "ra"}], "]"}], "<>", "\"\< = \>\"", "<>", 
+      RowBox[{"ToString", "[", "qa", "]"}], "<>", "\"\<*\>\"", "<>", 
+      RowBox[{"ToString", "[", "n", "]"}], "<>", "\"\< + \>\"", "<>", 
+      RowBox[{"ToString", "[", "ra", "]"}], "<>", "\"\< and \\n\>\"", "<>", 
+      RowBox[{"ToString", "[", 
+       RowBox[{
+        RowBox[{"qb", "n"}], "+", "rb"}], "]"}], "<>", "\"\< = \>\"", "<>", 
+      RowBox[{"ToString", "[", "qb", "]"}], "<>", "\"\<*\>\"", "<>", 
+      RowBox[{"ToString", "[", "n", "]"}], "<>", "\"\< + \>\"", "<>", 
+      RowBox[{"ToString", "[", "rb", "]"}]}]}]}], "]"}]}], "\n", 
+ RowBox[{
+  RowBox[{"showStageTwo", "[", 
+   RowBox[{"ra_", ",", "rb_", ",", "qa_", ",", "qb_", ",", "n_"}], "]"}], ":=", 
+  RowBox[{"Show", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"makeDots", "[", 
+       RowBox[{
+       "1", ",", "qa", ",", "n", ",", "Blue", ",", "Red", ",", "0.025", ",", 
+        RowBox[{"colLabels", "\[Rule]", "True"}]}], "]"}], ",", 
+      RowBox[{"makeDots", "[", 
+       RowBox[{
+        RowBox[{"1", "+", "qa", "+", "1"}], ",", "qb", ",", "n", ",", "Black",
+         ",", "Red", ",", "0.025", ",", 
+        RowBox[{"colLabels", "\[Rule]", "True"}]}], "]"}], ",", 
+      RowBox[{"makeDots", "[", 
+       RowBox[{
+        RowBox[{"1", "+", "qa", "+", "1", "+", "qb", "+", "2"}], ",", "1", 
+        ",", "ra", ",", "Blue", ",", "Yellow", ",", "0.025"}], "]"}], ",", 
+      RowBox[{"makeDots", "[", 
+       RowBox[{
+        RowBox[{"1", "+", "qa", "+", "1", "+", "qb", "+", "4"}], ",", "1", 
+        ",", "rb", ",", "Black", ",", "Yellow", ",", "0.025"}], "]"}]}], 
+     "}"}], ",", 
+    RowBox[{"PlotLabel", "\[Rule]", 
+     RowBox[{"\"\<Combining our multiples of \>\"", "<>", 
+      RowBox[{"ToString", "[", "n", "]"}], "<>", 
+      "\"\<\\nand our remainders...\>\""}]}]}], "]"}]}], "\n", 
+ RowBox[{
+  RowBox[{"showStageThree", "[", 
+   RowBox[{"ra_", ",", "rb_", ",", "qa_", ",", "qb_", ",", "n_"}], "]"}], ":=", 
+  RowBox[{"Show", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"makeDots", "[", 
+       RowBox[{
+       "1", ",", "qa", ",", "n", ",", "Blue", ",", "Red", ",", "0.025", ",", 
+        RowBox[{"colLabels", "\[Rule]", "True"}]}], "]"}], ",", 
+      RowBox[{"makeDots", "[", 
+       RowBox[{
+        RowBox[{"1", "+", "qa"}], ",", "qb", ",", "n", ",", "Black", ",", 
+        "Red", ",", "0.025", ",", 
+        RowBox[{"rowLabels", "\[Rule]", "False"}], ",", 
+        RowBox[{"colLabels", "\[Rule]", "True"}], ",", 
+        RowBox[{"colStart", "\[Rule]", 
+         RowBox[{"1", "+", "qa"}]}]}], "]"}], ",", 
+      RowBox[{"makeDots", "[", 
+       RowBox[{
+        RowBox[{"1", "+", "qa", "+", "qb", "+", "2"}], ",", "1", ",", "ra", 
+        ",", "Blue", ",", "Yellow", ",", "0.025"}], "]"}], ",", 
+      RowBox[{"makeDots", "[", 
+       RowBox[{
+        RowBox[{"1", "+", "qa", "+", "qb", "+", "3.5"}], ",", "1", ",", "rb", 
+        ",", "Black", ",", "Yellow", ",", "0.025"}], "]"}]}], "}"}], ",", 
+    RowBox[{"PlotLabel", "\[Rule]", 
+     RowBox[{"\"\<results in \>\"", "<>", 
+      RowBox[{"ToString", "[", 
+       RowBox[{"qa", "+", "qb"}], "]"}], "<>", "\"\< multiples of \>\"", "<>", 
+      RowBox[{"ToString", "[", "n", "]"}], "<>", 
+      "\"\<\\nwith remainders \>\"", "<>", 
+      RowBox[{"ToString", "[", "ra", "]"}], "<>", "\"\< and \>\"", "<>", 
+      RowBox[{"ToString", "[", "rb", "]"}], "<>", "\"\<.\>\""}]}]}], 
+   "]"}]}], "\n", 
+ RowBox[{
+  RowBox[{"showStageFour", "[", 
+   RowBox[{"ra_", ",", "rb_", ",", "qa_", ",", "qb_", ",", "n_"}], "]"}], ":=", 
+  RowBox[{"Show", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"makeDots", "[", 
+       RowBox[{"1", ",", 
+        RowBox[{"qa", "+", "qb"}], ",", "n", ",", "TurquoiseDark", ",", "Red",
+         ",", "0.025", ",", 
+        RowBox[{"colLabels", "\[Rule]", "True"}]}], "]"}], ",", 
+      RowBox[{"makeDots", "[", 
+       RowBox[{
+        RowBox[{"1", "+", "qa", "+", "qb", "+", "2"}], ",", "1", ",", 
+        RowBox[{"Min", "[", 
+         RowBox[{
+          RowBox[{"ra", "+", "rb"}], ",", "n"}], "]"}], ",", "TurquoiseDark", 
+        ",", "Yellow", ",", "0.025"}], "]"}], ",", 
+      RowBox[{"makeDots", "[", 
+       RowBox[{
+        RowBox[{"1", "+", "qa", "+", "qb", "+", "3.5"}], ",", "1", ",", 
+        RowBox[{"ra", "+", "rb", "-", "n"}], ",", "TurquoiseDark", ",", 
+        "Yellow", ",", "0.025"}], "]"}]}], "}"}], ",", 
+    RowBox[{"PlotLabel", "\[Rule]", 
+     RowBox[{"\"\<Since the remainders add up to at\\nleast \>\"", "<>", 
+      RowBox[{"ToString", "[", "n", "]"}], "<>", 
+      "\"\<, we form a multiple of \>\"", "<>", 
+      RowBox[{"ToString", "[", "n", "]"}], "<>", 
+      "\"\<\\nand determine the new remainder.\>\""}]}]}], "]"}]}], "\n", 
+ RowBox[{
+  RowBox[{"showStageFive", "[", 
+   RowBox[{"ra_", ",", "rb_", ",", "qa_", ",", "qb_", ",", "n_"}], "]"}], ":=", 
+  RowBox[{"Show", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"makeDots", "[", 
+       RowBox[{"1", ",", 
+        RowBox[{"qa", "+", "qb", "+", 
+         RowBox[{"Quotient", "[", 
+          RowBox[{
+           RowBox[{"rb", "+", "ra"}], ",", "n"}], "]"}]}], ",", "n", ",", 
+        "TurquoiseDark", ",", "Red", ",", "0.025", ",", 
+        RowBox[{"colLabels", "\[Rule]", "True"}]}], "]"}], ",", 
+      RowBox[{"makeDots", "[", 
+       RowBox[{
+        RowBox[{"1", "+", "qa", "+", "qb", "+", "2"}], ",", "1", ",", 
+        RowBox[{"Mod", "[", 
+         RowBox[{
+          RowBox[{"ra", "+", "rb"}], ",", "n"}], "]"}], ",", "TurquoiseDark", 
+        ",", "Yellow", ",", "0.025"}], "]"}]}], "}"}], ",", 
+    RowBox[{"PlotLabel", "\[Rule]", 
+     RowBox[{"\"\<Finally, we have our multiples of \>\"", "<>", 
+      RowBox[{"ToString", "[", "n", "]"}], "<>", 
+      "\"\< and\\nonly consider the remainder.\>\"", "<>", 
+      "\"\< Thus,\\n\>\"", "<>", 
+      RowBox[{"ToString", "[", 
+       RowBox[{
+        RowBox[{"qa", "n"}], "+", "ra"}], "]"}], "<>", "\"\< mod \>\"", "<>", 
+      
+      RowBox[{"ToString", "[", "n", "]"}], "<>", "\"\<  +  \>\"", "<>", 
+      RowBox[{"ToString", "[", 
+       RowBox[{
+        RowBox[{"qb", "n"}], "+", "rb"}], "]"}], "<>", "\"\< mod \>\"", "<>", 
+      
+      RowBox[{"ToString", "[", "n", "]"}], "<>", "\"\<  =  \>\"", "<>", 
+      RowBox[{"ToString", "[", 
+       RowBox[{"Mod", "[", 
+        RowBox[{
+         RowBox[{"ra", "+", "rb"}], ",", "n"}], "]"}], "]"}], "<>", 
+      "\"\< mod \>\"", "<>", 
+      RowBox[{"ToString", "[", "n", "]"}]}]}]}], "]"}]}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.443805206824951*^9, 3.4438053832307158`*^9}, {
+  3.443805470748171*^9, 3.443805492074301*^9}, {3.443805783720973*^9, 
+  3.4438058008618603`*^9}, {3.443805855647348*^9, 3.443805922026105*^9}},
+ CellTags->"Lab0"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+core functions for IllustrateModReduction and IllustrateModAddition\
+\>", "Subsubsection",
+ Evaluatable->False,
+ CellTags->{"a:0.8.1.4.0", "Lab0"}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"makeDots", "[", 
+   RowBox[{
+   "xStart_", ",", "width_", ",", "height_", ",", "dotcolor_", ",", 
+    "backcolor_", ",", "dotsize_", ",", "opts___"}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"adj", "=", "0.4"}], ",", "i", ",", "j", ",", "crds", ",", 
+      "bcrds", ",", "tcrds", ",", "rcrds", ",", "ccrds", ",", "rl", ",", "cl",
+       ",", "cs"}], "}"}], ",", 
+    RowBox[{
+     RowBox[{"rl", "=", 
+      RowBox[{
+       RowBox[{"rowLabels", "/.", 
+        RowBox[{"{", "opts", "}"}]}], "/.", 
+       RowBox[{"Options", "[", "makeDots", "]"}]}]}], ";", 
+     RowBox[{"cl", "=", 
+      RowBox[{
+       RowBox[{"colLabels", "/.", 
+        RowBox[{"{", "opts", "}"}]}], "/.", 
+       RowBox[{"Options", "[", "makeDots", "]"}]}]}], ";", 
+     RowBox[{"cs", "=", 
+      RowBox[{
+       RowBox[{"colStart", "/.", 
+        RowBox[{"{", "opts", "}"}]}], "/.", 
+       RowBox[{"Options", "[", "makeDots", "]"}]}]}], ";", 
+     RowBox[{"crds", "=", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"i", "+", "xStart", "-", "1"}], ",", "j"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", "width"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"j", ",", "height"}], "}"}]}], "]"}]}], ";", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"crds", "==", 
+         RowBox[{"{", "}"}]}], "||", 
+        RowBox[{"crds", "==", 
+         RowBox[{"{", 
+          RowBox[{"{", "}"}], "}"}]}]}], ",", 
+       RowBox[{"nullGraphics", "[", "]"}], ",", 
+       RowBox[{
+        RowBox[{"ccrds", "=", 
+         RowBox[{
+          RowBox[{"Last", "[", 
+           RowBox[{"Transpose", "[", "crds", "]"}], "]"}], "+", 
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"0", ",", "0.75"}], "}"}], ",", 
+            RowBox[{"{", "width", "}"}]}], "]"}]}]}], ";", 
+        RowBox[{"rcrds", "=", 
+         RowBox[{
+          RowBox[{"First", "[", "crds", "]"}], "+", 
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"-", "0.5"}], ",", "0"}], "}"}], ",", 
+            RowBox[{"{", "height", "}"}]}], "]"}]}]}], ";", 
+        RowBox[{"bcrds", "=", 
+         RowBox[{"First", "[", 
+          RowBox[{"Transpose", "[", "crds", "]"}], "]"}]}], ";", 
+        RowBox[{"tcrds", "=", 
+         RowBox[{"Last", "[", 
+          RowBox[{"Transpose", "[", "crds", "]"}], "]"}]}], ";", 
+        RowBox[{"rects", "=", 
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"Rectangle", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+              "bcrds", "\[LeftDoubleBracket]", "i", "\[RightDoubleBracket]"}],
+               "+", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"-", "adj"}], ",", 
+                RowBox[{"-", "adj"}]}], "}"}]}], ",", 
+             RowBox[{
+              RowBox[{
+              "tcrds", "\[LeftDoubleBracket]", "i", "\[RightDoubleBracket]"}],
+               "+", 
+              RowBox[{"{", 
+               RowBox[{"adj", ",", "adj"}], "}"}]}]}], "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"i", ",", "width"}], "}"}]}], "]"}]}], ";", 
+        RowBox[{"Graphics", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"If", "[", 
+            RowBox[{"rl", ",", 
+             RowBox[{"{", 
+              RowBox[{"Evaluate", "[", 
+               RowBox[{"Table", "[", 
+                RowBox[{
+                 RowBox[{"Text", "[", 
+                  RowBox[{
+                   RowBox[{"ToString", "[", "i", "]"}], ",", 
+                   RowBox[{
+                   "rcrds", "\[LeftDoubleBracket]", "i", 
+                    "\[RightDoubleBracket]"}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{"1", ",", "0"}], "}"}]}], "]"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{"i", ",", "height"}], "}"}]}], "]"}], "]"}], "}"}], 
+             ",", 
+             RowBox[{"nullPreGraphics", "[", "]"}]}], "]"}], ",", 
+           RowBox[{"If", "[", 
+            RowBox[{"cl", ",", 
+             RowBox[{"{", 
+              RowBox[{"Evaluate", "[", 
+               RowBox[{"Table", "[", 
+                RowBox[{
+                 RowBox[{"Text", "[", 
+                  RowBox[{
+                   RowBox[{"ToString", "[", 
+                    RowBox[{"i", "+", "cs", "-", "1"}], "]"}], ",", 
+                   RowBox[{
+                   "ccrds", "\[LeftDoubleBracket]", "i", 
+                    "\[RightDoubleBracket]"}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{"0", ",", "0"}], "}"}]}], "]"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{"i", ",", "width"}], "}"}]}], "]"}], "]"}], "}"}], 
+             ",", 
+             RowBox[{"nullPreGraphics", "[", "]"}]}], "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"backcolor", ",", "rects"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"PointSize", "[", "dotsize", "]"}], ",", "dotcolor", ",", 
+             RowBox[{"Point", "/@", 
+              RowBox[{"Flatten", "[", 
+               RowBox[{"crds", ",", "1"}], "]"}]}]}], "}"}]}], "}"}], 
+         "]"}]}]}], "]"}]}]}], "]"}]}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Options", "[", "makeDots", "]"}], "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"rowLabels", "\[Rule]", "True"}], ",", 
+     RowBox[{"colLabels", "\[Rule]", "False"}], ",", 
+     RowBox[{"colStart", "\[Rule]", "1"}]}], "}"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"nullGraphics", "[", "]"}], ":=", 
+  RowBox[{"Graphics", "[", 
+   RowBox[{"{", 
+    RowBox[{"White", ",", 
+     RowBox[{"Rectangle", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"1", ",", "1"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "1"}], "}"}]}], "]"}]}], "}"}], "]"}]}], "\n", 
+ RowBox[{
+  RowBox[{"nullPreGraphics", "[", "]"}], ":=", 
+  RowBox[{"{", 
+   RowBox[{"White", ",", 
+    RowBox[{"Rectangle", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"1", ",", "1"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"1", ",", "1"}], "}"}]}], "]"}]}], "}"}]}]}], "Input",
+ InitializationCell->True,
+ CellTags->"Lab0"]
+}, Closed]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Continue on in this subsection", "Subsection",
+ Evaluatable->False,
+ CellTags->{"a:0.8.2.0", "Lab0"}],
+
+Cell["\<\
+By evaluating the cell below, you can see why 2 is the remainder of 26 on  \
+division by 3.\
+\>", "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+
+Cell[BoxData[
+ RowBox[{"IllustrateModReduction", "[", 
+  RowBox[{"26", ",", "3"}], "]"}]], "Input",
+ CellChangeTimes->{3.443803459698353*^9},
+ CellTags->"Lab0"],
+
+Cell[TextData[{
+ StyleBox["Note that the word \[OpenCurlyDoubleQuote]mod\
+\[CloseCurlyDoubleQuote] is used in the function name. We say ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"26", " ", "mod", " ", "3"}], TraditionalForm]]],
+ StyleBox[" is 2 because 2 is the remainder when 26 is divided by 3. ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Mathematica",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic"],
+ StyleBox[" can compute this directly.",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}], "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+
+Cell[BoxData[
+ RowBox[{"Mod", "[", 
+  RowBox[{"26", ",", "3"}], "]"}]], "Input",
+ CellTags->"Lab0"],
+
+Cell["\<\
+Note that each of 29, 26 and 23, when reduced modulo 3, results in the value \
+2.\
+\>", "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"Mod", "[", 
+    RowBox[{"29", ",", "3"}], "]"}], ",", 
+   RowBox[{"Mod", "[", 
+    RowBox[{"26", ",", "3"}], "]"}], ",", 
+   RowBox[{"Mod", "[", 
+    RowBox[{"23", ",", "3"}], "]"}]}], "}"}]], "Input",
+ CellTags->"Lab0"],
+
+Cell["\<\
+In other words, 2 is the remainder when 29 is divided by 3 and when 23 is \
+divided by 3. These can be seen visually as well; evaluate one or both of the \
+following.\
+\>", "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+
+Cell[BoxData[
+ RowBox[{"IllustrateModReduction", "[", 
+  RowBox[{"29", ",", "3"}], "]"}]], "Input",
+ CellChangeTimes->{3.4438034759223127`*^9},
+ CellTags->"Lab0"],
+
+Cell[BoxData[
+ RowBox[{"IllustrateModReduction", "[", 
+  RowBox[{"23", ",", "3"}], "]"}]], "Input",
+ CellChangeTimes->{3.4438034798654137`*^9},
+ CellTags->"Lab0"],
+
+Cell[TextData[{
+ StyleBox["Q7",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontWeight->"Bold"],
+ StyleBox[". Determine the values of ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"22", " ", "mod", " ", "3"}], TraditionalForm]]],
+ StyleBox[", ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"25", " ", "mod", " ", "3"}], TraditionalForm]]],
+ StyleBox[" and ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"28", " ", "mod", " ", "3"}], TraditionalForm]]],
+ StyleBox[" using either the ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Mod",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Courier"],
+ StyleBox[" function or the ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["IllustrateModReduction",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Courier"],
+ StyleBox[" function. What do these three values have in common? How are 22, \
+25 and 28 related to each other?",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}], "Question",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+
+Cell["Answer: ", "Answer",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+
+Cell[TextData[{
+ StyleBox["Q8",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontWeight->"Bold"],
+ StyleBox[". Determine the values of ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"21", " ", "mod", " ", "3"}], TraditionalForm]]],
+ StyleBox[", ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"24", " ", "mod", " ", "3"}], TraditionalForm]]],
+ StyleBox[" and ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"27", " ", "mod", " ", "3"}], TraditionalForm]]],
+ StyleBox[" using either the ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Mod",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Courier"],
+ StyleBox[" function or the ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["IllustrateModReduction",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Courier"],
+ StyleBox[" function. What do these three values have in common? How are 21, \
+24 and 27 related to each other?",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}], "Question",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+
+Cell["Answer: ", "Answer",
+ Evaluatable->False,
+ CellTags->"Lab0"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["0.8 Divide and conquer", "Section",
+ Evaluatable->False,
+ CellTags->{"a:0.9.0", "Lab0"}],
+
+Cell[TextData[{
+ StyleBox["First, check to be sure that \"Dynamic Updating Enabled\" is \
+checked in the Evaluation menu.    Now select and evaluate the input cell \
+below. After evaluating it, come back here and finish reading this text. \
+There are some mathematical observations to make, as well some ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Mathematica",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic"],
+ StyleBox[" observations. First, note that the output starts by showing you  ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"k", " ", "mod", " ", "3"}], TraditionalForm]]],
+ StyleBox[" for ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ Cell[BoxData[
+  FormBox["k", TraditionalForm]]],
+ StyleBox[" running from 18 to 20.  These values, 0, 1 and 2, are the heights \
+of the yellow rectangles to the right of each division image.  Now if you \
+move the slider in this demonstration, the three values that are shown are \
+alway 0, 1 and 2 in some order.   Do you see why?",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}], "Text",
+ Evaluatable->False,
+ CellChangeTimes->{{3.4438043459565573`*^9, 3.44380441153118*^9}, {
+  3.443804455270418*^9, 3.443804536846244*^9}, {3.443804575889573*^9, 
+  3.443804586502841*^9}, {3.44380462640585*^9, 3.443804792566207*^9}},
+ CellTags->"Lab0"],
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"TableForm", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"Style", "[", 
+          RowBox[{
+           RowBox[{"\"\<Division of \>\"", "<>", 
+            RowBox[{"ToString", "[", "k", "]"}], "<>", "\"\< by 3.\>\""}], 
+           ",", 
+           RowBox[{"FontSize", "->", "20"}]}], "]"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"IllustrateModReduction", "[", 
+          RowBox[{"k", ",", "3", ",", 
+           RowBox[{"showText", "\[Rule]", "False"}]}], "]"}], "}"}]}], "}"}], 
+      ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"Style", "[", 
+          RowBox[{
+           RowBox[{"\"\<Division of \>\"", "<>", 
+            RowBox[{"ToString", "[", 
+             RowBox[{"k", "+", "1"}], "]"}], "<>", "\"\< by 3.\>\""}], ",", 
+           RowBox[{"FontSize", "->", "20"}]}], "]"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"IllustrateModReduction", "[", 
+          RowBox[{
+           RowBox[{"k", "+", "1"}], ",", "3", ",", 
+           RowBox[{"showText", "\[Rule]", "False"}]}], "]"}], "}"}]}], "}"}], 
+      ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"Style", "[", 
+          RowBox[{
+           RowBox[{"\"\<Division of \>\"", "<>", 
+            RowBox[{"ToString", "[", 
+             RowBox[{"k", "+", "2"}], "]"}], "<>", "\"\< by 3.\>\""}], ",", 
+           RowBox[{"FontSize", "->", "20"}]}], "]"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"IllustrateModReduction", "[", 
+          RowBox[{
+           RowBox[{"k", "+", "2"}], ",", "3", ",", 
+           RowBox[{"showText", "\[Rule]", "False"}]}], "]"}], "}"}]}], 
+       "}"}]}], "}"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"k", ",", "18", ",", "29", ",", "1"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.443803555562166*^9, 3.443803659349581*^9}, {
+  3.443803696273868*^9, 3.443803948430966*^9}, {3.443803994650361*^9, 
+  3.4438040728004293`*^9}, {3.4438041248738623`*^9, 3.443804135250022*^9}, {
+  3.4438041694672422`*^9, 3.4438042213920794`*^9}, {3.44380426429312*^9, 
+  3.443804265073153*^9}},
+ CellTags->"Lab0"],
+
+Cell[TextData[{
+ StyleBox["For each of the cases where the remainder is zero (ie., ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"k", " ", "mod", " ", "3"}], " ", "=", " ", "0"}], 
+   TraditionalForm]]],
+ StyleBox["), observe that this happens because 3 is a divisor of ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ Cell[BoxData[
+  FormBox["k", TraditionalForm]]],
+ StyleBox[". Mathematically, we say \[OpenCurlyDoubleQuote]3 divides ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ Cell[BoxData[
+  FormBox["k", TraditionalForm]]],
+ StyleBox["\[CloseCurlyDoubleQuote] and denote this by ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"3", " ", "|", " ", "k"}], TraditionalForm]]],
+ StyleBox[". Consider ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"k", " ", "=", " ", "24"}], TraditionalForm]]],
+ StyleBox[" and ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"j", " ", "=", " ", "30"}], TraditionalForm]]],
+ StyleBox[". In both cases we have 3 as a divisor. There are, however, other \
+divisors of each. In previous course-work, you may have encountered the \
+notion of the ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["greatest common divisor",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic"],
+ StyleBox[", or gcd. In this case, the gcd of 24 and 30, frequently denoted \
+gcd(24, 30) or simply (24, 30), is actually 6. Here is how we get ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Mathematica",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic"],
+ StyleBox[" to confirm this. (Note the capital letters.)",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}], "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+
+Cell[BoxData[
+ RowBox[{"GCD", "[", 
+  RowBox[{"24", ",", "30"}], "]"}]], "Input",
+ CellTags->"Lab0"],
+
+Cell[TextData[{
+ StyleBox["Q9",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontWeight->"Bold"],
+ StyleBox[". What is the gcd of 242652 and 3054876?",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}], "Question",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+
+Cell["Answer: ", "Answer",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+
+Cell[TextData[{
+ "Suppose we consider the problem of determining the gcd of two fairly large \
+numbers, say ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"a", " ", "=", " ", "1234567891011121314"}], TraditionalForm]]],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"b", " ", "=", " ", "1413121110987654321"}], TraditionalForm]]],
+ ". "
+}], "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+
+Cell[BoxData[{
+ RowBox[{"a", "=", "1234567891011121314"}], "\n", 
+ RowBox[{"b", "=", "1413121110987654321"}]}], "Input",
+ CellTags->"Lab0"],
+
+Cell[TextData[{
+ StyleBox["We will pursue the gcd in two ways. First, we will find ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["all",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic"],
+ StyleBox[" the divisors of ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ Cell[BoxData[
+  FormBox["a", TraditionalForm]]],
+ StyleBox[" (and record how much time this took).",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}], "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+
+Cell[BoxData[
+ RowBox[{"divisorsOfa", "=", 
+  RowBox[{"Timing", "[", 
+   RowBox[{"Divisors", "[", "a", "]"}], "]"}]}]], "Input",
+ CellTags->"Lab0"],
+
+Cell[TextData[{
+ StyleBox["And then do the same for ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ Cell[BoxData[
+  FormBox["b", TraditionalForm]]],
+ StyleBox[".\[LineSeparator]",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}], "Text",
+ Evaluatable->False,
+ CellChangeTimes->{3.4438048703676643`*^9},
+ CellTags->"Lab0"],
+
+Cell[BoxData[
+ RowBox[{"divisorsOfb", "=", 
+  RowBox[{"Timing", "[", 
+   RowBox[{"Divisors", "[", "b", "]"}], "]"}]}]], "Input",
+ CellTags->"Lab0"],
+
+Cell[TextData[{
+ StyleBox["Next we take the intersection of the lists of divisors and ask for \
+the maximum value. (Note that ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["divisorsOfa",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Courier"],
+ StyleBox[" and ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["divisorsOfb",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Courier"],
+ StyleBox[" consist of a list containing both the time and the list of \
+divisors. Since we want the second part, the list of divisors, we specify \
+this by using the notation ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["div",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Courier"],
+ StyleBox["isorsOf",
+  FontFamily->"Courier"],
+ StyleBox["a[[2]]",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Courier"],
+ StyleBox[".)",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}], "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+
+Cell[BoxData[
+ RowBox[{"max", "=", 
+  RowBox[{"Timing", "[", 
+   RowBox[{"Max", "[", 
+    RowBox[{"Intersection", "[", 
+     RowBox[{
+      RowBox[{
+      "divisorsOfa", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}], 
+      ",", 
+      RowBox[{
+      "divisorsOfb", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}]}],
+      "]"}], "]"}], "]"}]}]], "Input",
+ CellTags->"Lab0"],
+
+Cell["\<\
+We see that the gcd is 3. How much time did this take? We can add up the \
+amounts found in the first part of each result.\
+\>", "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+
+Cell[BoxData[
+ RowBox[{"totalTime", "=", 
+  RowBox[{
+   RowBox[{
+   "divisorsOfa", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], "+", 
+   RowBox[{
+   "divisorsOfb", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], "+", 
+   RowBox[{
+   "max", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}]}]}]], "Input",\
+
+ CellTags->"Lab0"],
+
+Cell["\<\
+Now let\[CloseCurlyQuote]s see how long it takes for the GCD function?\
+\>", "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+
+Cell[BoxData[
+ RowBox[{"Timing", "[", 
+  RowBox[{"GCD", "[", 
+   RowBox[{"a", ",", "b"}], "]"}], "]"}]], "Input",
+ CellTags->"Lab0"],
+
+Cell[TextData[{
+ StyleBox["Is this surprising? The ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["GCD",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Courier"],
+ StyleBox[" function did not use any previous results to enable it to be this \
+fast, but rather the method of calculating the gcd happens to be a very fast \
+algorithm called the Euclidean Algorithm. Hopefully, you will be learning \
+more about this algorithm in this course; we will see it in this suite of \
+labs when we study polynomial rings in Ring Lab 6. If you increase the number \
+of digits in ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ Cell[BoxData[
+  FormBox["a", TraditionalForm]]],
+ StyleBox[" and ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ Cell[BoxData[
+  FormBox["b", TraditionalForm]]],
+ StyleBox[" by only a few, the time difference will be even more dramatic.",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}], "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["0.9 It all adds up", "Section",
+ Evaluatable->False,
+ CellTags->{"a:0.10.0", "Lab0"}],
+
+Cell[TextData[{
+ "Earlier we saw how the values of ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"k", " ", "mod", " ", "3"}], TraditionalForm]]],
+ " (",
+ StyleBox["Mod[",
+  FontFamily->"Courier"],
+ StyleBox["k",
+  FontFamily->"Courier",
+  FontSlant->"Italic"],
+ StyleBox[", 3]",
+  FontFamily->"Courier"],
+ ") are 0, 1 or 2."
+}], "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Table", "[", 
+  RowBox[{
+   RowBox[{"Mod", "[", 
+    RowBox[{"k", ",", "3"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"k", ",", "18", ",", "28"}], "}"}]}], "]"}]], "Input",
+ CellTags->"Lab0"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"{", 
+   RowBox[{
+   "0", ",", "1", ",", "2", ",", "0", ",", "1", ",", "2", ",", "0", ",", "1", 
+    ",", "2", ",", "0", ",", "1"}], "}"}], TraditionalForm]], "Output",
+ CellChangeTimes->{3.443804926273237*^9},
+ CellTags->"Lab0"]
+}, Open  ]],
+
+Cell[TextData[{
+ "A question that algebraists ask in such a situation is \
+\[OpenCurlyDoubleQuote]Does the set {0, 1, 2} have any other structure?\
+\[CloseCurlyDoubleQuote] In other words, is there a natural operation that \
+may exist between, for example, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"14", " ", "mod", " ", "3"}], TraditionalForm]]],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"16", " ", "mod", " ", "3"}], TraditionalForm]]],
+ "? In particular, does this answer have anything to do with ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"30", " ", "mod", " ", "3"}], TraditionalForm]]],
+ "?"
+}], "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"Mod", "[", 
+  RowBox[{"14", ",", "3"}], "]"}], "\n", 
+ RowBox[{"Mod", "[", 
+  RowBox[{"16", ",", "3"}], "]"}], "\n", 
+ RowBox[{"Mod", "[", 
+  RowBox[{"30", ",", "3"}], "]"}]}], "Input",
+ CellTags->"Lab0"],
+
+Cell[BoxData[
+ FormBox["2", TraditionalForm]], "Output",
+ CellChangeTimes->{3.443804929051499*^9},
+ CellTags->"Lab0"],
+
+Cell[BoxData[
+ FormBox["1", TraditionalForm]], "Output",
+ CellChangeTimes->{3.443804929053348*^9},
+ CellTags->"Lab0"],
+
+Cell[BoxData[
+ FormBox["0", TraditionalForm]], "Output",
+ CellChangeTimes->{3.443804929055202*^9},
+ CellTags->"Lab0"]
+}, Open  ]],
+
+Cell["This can be illustrated visually below.", "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"IllustrateModAddition", "[", 
+  RowBox[{"14", ",", "16", ",", "3"}], "]"}]], "Input",
+ CellTags->"Lab0"],
+
+Cell[BoxData[
+ FormBox[
+  InterpretationBox[
+   RowBox[{"\<\"We wish to calculate \"\>", "\[InvisibleSpace]", "14", 
+    "\[InvisibleSpace]", "\<\" mod \"\>", "\[InvisibleSpace]", "3", 
+    "\[InvisibleSpace]", "\<\"  +  \"\>", "\[InvisibleSpace]", "16", 
+    "\[InvisibleSpace]", "\<\" mod \"\>", "\[InvisibleSpace]", "3", 
+    "\[InvisibleSpace]", "\<\".\"\>"}],
+   SequenceForm[
+   "We wish to calculate ", 14, " mod ", 3, "  +  ", 16, " mod ", 3, "."],
+   Editable->False], TraditionalForm]], "Print",
+ CellChangeTimes->{3.4438049430311193`*^9, 3.443805994693017*^9},
+ CellTags->"Lab0"],
+
+Cell[BoxData[
+ FormBox["\<\"To do so, we determine the quotients and remainders when\"\>", 
+  TraditionalForm]], "Print",
+ CellChangeTimes->{3.4438049430311193`*^9, 3.443805994696396*^9},
+ CellTags->"Lab0"],
+
+Cell[BoxData[
+ FormBox[
+  InterpretationBox[
+   RowBox[{
+   "14", "\[InvisibleSpace]", "\<\" and \"\>", "\[InvisibleSpace]", "16", 
+    "\[InvisibleSpace]", "\<\" are divided by \"\>", "\[InvisibleSpace]", "3",
+     "\[InvisibleSpace]", "\<\".\"\>"}],
+   SequenceForm[14, " and ", 16, " are divided by ", 3, "."],
+   Editable->False], TraditionalForm]], "Print",
+ CellChangeTimes->{3.4438049430311193`*^9, 3.443805994698695*^9},
+ CellTags->"Lab0"],
+
+Cell[BoxData[
+ FormBox[
+  TagBox[
+   FormBox[
+    StyleBox[
+     DynamicModuleBox[{$CellContext`k$$ = 1, Typeset`show$$ = True, 
+      Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+      Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+      "\"untitled\"", Typeset`specs$$ = {{
+        Hold[$CellContext`k$$], 1, 5, 1}}, Typeset`size$$ = {
+      360., {125., 131.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+      Typeset`skipInitDone$$ = True, $CellContext`k$7583$$ = 0}, 
+      DynamicBox[Manipulate`ManipulateBoxes[
+       1, TraditionalForm, "Variables" :> {$CellContext`k$$ = 1}, 
+        "ControllerVariables" :> {
+          Hold[$CellContext`k$$, $CellContext`k$7583$$, 0]}, 
+        "OtherVariables" :> {
+         Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+          Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+          Typeset`specs$$, Typeset`size$$, Typeset`update$$, 
+          Typeset`initDone$$, Typeset`skipInitDone$$}, "Body" :> 
+        Part[$CellContext`seq$7562, $CellContext`k$$], 
+        "Specifications" :> {{$CellContext`k$$, 1, 5, 1}}, "Options" :> {}, 
+        "DefaultOptions" :> {}],
+       ImageSizeCache->{403., {169.40625, 175.59375}},
+       SingleEvaluation->True],
+      Deinitialization:>None,
+      DynamicModuleValues:>{},
+      SynchronousInitialization->True,
+      UnsavedVariables:>{Typeset`initDone$$},
+      UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+     Deployed->True,
+     StripOnInput->False],
+    TraditionalForm],
+   Manipulate`InterpretManipulate[1]], TraditionalForm]], "Output",
+ CellChangeTimes->{3.443805994829844*^9},
+ CellTags->"Lab0"]
+}, Open  ]],
+
+Cell[TextData[{
+ "Note that (",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"14", " ", "mod", " ", "3"}], TraditionalForm]]],
+ ") plus (",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"14", " ", "mod", " ", "3"}], TraditionalForm]]],
+ ") (ie., 2 \[OpenCurlyDoubleQuote]plus\[CloseCurlyDoubleQuote] 2) yields 1, \
+which is also ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"28", " ", "mod", " ", "3"}], TraditionalForm]]],
+ ".  "
+}], "Text",
+ Evaluatable->False,
+ CellChangeTimes->{{3.4438060247422028`*^9, 3.44380604960928*^9}},
+ CellTags->"Lab0"],
+
+Cell[BoxData[{
+ RowBox[{"Mod", "[", 
+  RowBox[{"14", ",", "3"}], "]"}], "\n", 
+ RowBox[{"Mod", "[", 
+  RowBox[{"14", ",", "3"}], "]"}], "\n", 
+ RowBox[{"Mod", "[", 
+  RowBox[{"28", ",", "3"}], "]"}]}], "Input",
+ CellTags->"Lab0"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"IllustrateModAddition", "[", 
+  RowBox[{"14", ",", "14", ",", "3"}], "]"}]], "Input",
+ CellChangeTimes->{3.443805966746179*^9, 3.443806007258685*^9},
+ CellTags->"Lab0"],
+
+Cell[BoxData[
+ FormBox[
+  InterpretationBox[
+   RowBox[{"\<\"We wish to calculate \"\>", "\[InvisibleSpace]", "14", 
+    "\[InvisibleSpace]", "\<\" mod \"\>", "\[InvisibleSpace]", "3", 
+    "\[InvisibleSpace]", "\<\"  +  \"\>", "\[InvisibleSpace]", "13", 
+    "\[InvisibleSpace]", "\<\" mod \"\>", "\[InvisibleSpace]", "3", 
+    "\[InvisibleSpace]", "\<\".\"\>"}],
+   SequenceForm[
+   "We wish to calculate ", 14, " mod ", 3, "  +  ", 13, " mod ", 3, "."],
+   Editable->False], TraditionalForm]], "Print",
+ CellChangeTimes->{3.443804955269568*^9, 3.443805503320895*^9, 
+  3.4438058120710707`*^9, 3.443805931964072*^9, 3.443805967808326*^9},
+ CellTags->"Lab0"],
+
+Cell[BoxData[
+ FormBox["\<\"To do so, we determine the quotients and remainders when\"\>", 
+  TraditionalForm]], "Print",
+ CellChangeTimes->{3.443804955269568*^9, 3.443805503320895*^9, 
+  3.4438058120710707`*^9, 3.443805931964072*^9, 3.4438059678113728`*^9},
+ CellTags->"Lab0"],
+
+Cell[BoxData[
+ FormBox[
+  InterpretationBox[
+   RowBox[{
+   "14", "\[InvisibleSpace]", "\<\" and \"\>", "\[InvisibleSpace]", "13", 
+    "\[InvisibleSpace]", "\<\" are divided by \"\>", "\[InvisibleSpace]", "3",
+     "\[InvisibleSpace]", "\<\".\"\>"}],
+   SequenceForm[14, " and ", 13, " are divided by ", 3, "."],
+   Editable->False], TraditionalForm]], "Print",
+ CellChangeTimes->{3.443804955269568*^9, 3.443805503320895*^9, 
+  3.4438058120710707`*^9, 3.443805931964072*^9, 3.4438059678134604`*^9},
+ CellTags->"Lab0"],
+
+Cell[BoxData[
+ FormBox[
+  TagBox[
+   FormBox[
+    StyleBox[
+     DynamicModuleBox[{$CellContext`k$$ = 1, Typeset`show$$ = True, 
+      Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+      Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+      "\"untitled\"", Typeset`specs$$ = {{
+        Hold[$CellContext`k$$], 1, 5, 1}}, Typeset`size$$ = {
+      360., {125., 131.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+      Typeset`skipInitDone$$ = True, $CellContext`k$7392$$ = 0}, 
+      DynamicBox[Manipulate`ManipulateBoxes[
+       1, TraditionalForm, "Variables" :> {$CellContext`k$$ = 1}, 
+        "ControllerVariables" :> {
+          Hold[$CellContext`k$$, $CellContext`k$7392$$, 0]}, 
+        "OtherVariables" :> {
+         Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+          Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+          Typeset`specs$$, Typeset`size$$, Typeset`update$$, 
+          Typeset`initDone$$, Typeset`skipInitDone$$}, "Body" :> 
+        Part[$CellContext`seq$7371, $CellContext`k$$], 
+        "Specifications" :> {{$CellContext`k$$, 1, 5, 1}}, "Options" :> {}, 
+        "DefaultOptions" :> {}],
+       ImageSizeCache->{403., {169.40625, 175.59375}},
+       SingleEvaluation->True],
+      Deinitialization:>None,
+      DynamicModuleValues:>{},
+      SynchronousInitialization->True,
+      UnsavedVariables:>{Typeset`initDone$$},
+      UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+     Deployed->True,
+     StripOnInput->False],
+    TraditionalForm],
+   Manipulate`InterpretManipulate[1]], TraditionalForm]], "Output",
+ CellChangeTimes->{3.443805503530115*^9, 3.4438058122569323`*^9, 
+  3.4438059320891647`*^9, 3.443805967923345*^9},
+ CellTags->"Lab0"]
+}, Open  ]],
+
+Cell["\<\
+The collection of values where the integers are reduced by some modulus (3 in \
+this example) forms a very interesting structure for algebraists. Much more \
+will be said about this in the future.\
+\>", "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ StyleBox["0.10 ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Mathematica",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic"],
+ StyleBox[" commands used in this lab",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}], "Section",
+ Evaluatable->False,
+ CellTags->{"a:0.11.0", "Lab0"}],
+
+Cell[TextData[{
+ StyleBox["If you wish to learn more about how to use the ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Mathematica",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic"],
+ StyleBox[" commands or functions used in this lab, type ? followed by the \
+command. Below are some used in this lab that may be useful for later work.",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}], "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+
+Cell[BoxData[
+ RowBox[{"?", "N"}]], "Input",
+ CellTags->"Lab0"],
+
+Cell[BoxData[
+ RowBox[{"?", "Map"}]], "Input",
+ CellTags->"Lab0"],
+
+Cell[BoxData[
+ RowBox[{"?", "Range"}]], "Input",
+ CellTags->"Lab0"],
+
+Cell[BoxData[
+ RowBox[{"?", "Expand"}]], "Input",
+ CellTags->"Lab0"],
+
+Cell[BoxData[
+ RowBox[{"?", "Manipulate"}]], "Input",
+ CellChangeTimes->{{3.443806105250916*^9, 3.4438061097156887`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"?", "Mod"}]], "Input",
+ CellTags->"Lab0"],
+
+Cell[BoxData[
+ RowBox[{"?", "GCD"}]], "Input",
+ CellTags->"Lab0"],
+
+Cell[BoxData[
+ RowBox[{"?", "Divisors"}]], "Input",
+ CellTags->"Lab0"],
+
+Cell[BoxData[
+ RowBox[{"?", "Timing"}]], "Input",
+ CellTags->"Lab0"],
+
+Cell[BoxData[
+ RowBox[{"?", "Table"}]], "Input",
+ CellChangeTimes->{{3.4438061006348553`*^9, 3.443806118944882*^9}},
+ CellTags->"Lab0"]
+}, Closed]]
+}, Open  ]]
+},
+AutoGeneratedPackage->None,
+Saveable->True,
+WindowToolbars->"EditBar",
+InitializationCellEvaluation->True,
+WindowSize->{1063, 687},
+WindowMargins->{{2, Automatic}, {Automatic, 2}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, -1}},
+ShowSelection->True,
+ShowGroupOpener->True,
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False},
+MacintoshSystemPageSetup -> \
+"00<0001804P000000]P2:?oQon82n@960dL5:0?l0080001804P000000]P2:001\n\
+0000I00000400`<300000BL?00400@00000000000000060801T1T00000000000\n\
+00000000000000000000000000000000",
+FrontEndVersion->"7.0 for Mac OS X x86 (32-bit) (November 11, 2008)",
+StyleDefinitions->"EAAM.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "Lab0"->{
+  Cell[545, 20, 110, 4, 42, "Answer",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[658, 26, 625, 21, 82, "Subsubtitle",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[1308, 51, 470, 16, 113, "Title",
+   Evaluatable->False,
+   CellTags->{"a:0.0", "Lab0"}],
+  Cell[1781, 69, 1817, 57, 165, "Text",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[3601, 128, 2013, 40, 131, "Text",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[5639, 172, 293, 10, 50, "Section",
+   Evaluatable->False,
+   CellTags->{"a:0.1.0", "Lab0"}],
+  Cell[5935, 184, 836, 19, 63, "Text",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[6774, 205, 1188, 36, 45, "Text",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[7965, 243, 165, 4, 28, "Text",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[8133, 249, 624, 20, 79, "Text",
+   CellTags->"Lab0"],
+  Cell[8760, 271, 691, 24, 79, "Text",
+   CellTags->"Lab0"],
+  Cell[9454, 297, 404, 12, 60, "Text",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[9895, 314, 89, 2, 30, "Section",
+   Evaluatable->False,
+   CellTags->{"a:0.2.0", "Lab0"}],
+  Cell[9987, 318, 96, 2, 28, "Text",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[10120, 325, 94, 2, 30, "Section",
+   Evaluatable->False,
+   CellTags->{"a:0.3.0", "Lab0"}],
+  Cell[10217, 329, 504, 15, 45, "Text",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[10758, 349, 390, 14, 30, "Section",
+   Evaluatable->False,
+   CellTags->{"a:0.4.0", "Lab0"}],
+  Cell[11151, 365, 154, 5, 28, "Text",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[11308, 372, 335, 11, 42, "Question",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[11646, 385, 66, 2, 42, "Answer",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[11715, 389, 1479, 46, 79, "Text",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[13197, 437, 67, 2, 44, "Input",
+   CellTags->"Lab0"],
+  Cell[13267, 441, 1257, 39, 72, "Text",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[14527, 482, 744, 22, 56, "Text",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[15274, 506, 339, 12, 44, "Input",
+   CellTags->"Lab0"],
+  Cell[15616, 520, 374, 12, 42, "Question",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[15993, 534, 66, 2, 42, "Answer",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[16062, 538, 202, 7, 44, "Input",
+   CellTags->"Lab0"],
+  Cell[16267, 547, 1384, 36, 79, "Text",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[17654, 585, 559, 14, 59, "Question",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[18216, 601, 66, 2, 42, "Answer",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[18285, 605, 898, 28, 76, "Question",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[19186, 635, 66, 2, 42, "Answer",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[19255, 639, 346, 10, 24, "Input",
+   CellTags->"Lab0"],
+  Cell[19638, 654, 91, 2, 30, "Section",
+   Evaluatable->False,
+   CellTags->{"a:0.5.0", "Lab0"}],
+  Cell[19754, 660, 120, 2, 42, "Subsection",
+   Evaluatable->False,
+   CellTags->{"a:0.5.1.0", "Lab0"}],
+  Cell[19899, 666, 117, 2, 70, "Subsubsection",
+   Evaluatable->False,
+   CellTags->{"a:0.5.1.1.0", "Lab0"}],
+  Cell[20019, 670, 101, 2, 70, "Text",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[20181, 679, 94, 2, 30, "Section",
+   Evaluatable->False,
+   CellTags->{"a:0.6.0", "Lab0"}],
+  Cell[20278, 683, 168, 5, 28, "Text",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[20449, 690, 202, 7, 44, "Input",
+   CellTags->"Lab0"],
+  Cell[20654, 699, 444, 13, 45, "Text",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[21101, 714, 363, 11, 44, "Input",
+   CellTags->"Lab0"],
+  Cell[21467, 727, 481, 13, 24, "Input",
+   CellTags->"Lab0"],
+  Cell[22431, 757, 458, 13, 44, "Input",
+   CellTags->"Lab0"],
+  Cell[22892, 772, 522, 13, 24, "Input",
+   CellTags->"Lab0"],
+  Cell[23417, 787, 580, 14, 24, "Input",
+   CellTags->"Lab0"],
+  Cell[24000, 803, 508, 14, 24, "Input",
+   CellTags->"Lab0"],
+  Cell[24511, 819, 2714, 64, 289, "Text",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[27228, 885, 491, 18, 42, "Question",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[27722, 905, 66, 2, 42, "Answer",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[27791, 909, 196, 7, 24, "Input",
+   CellTags->"Lab0"],
+  Cell[28024, 921, 90, 2, 30, "Section",
+   Evaluatable->False,
+   CellTags->{"a:0.7.0", "linkex", "Lab0"}],
+  Cell[28117, 925, 2297, 62, 114, "Text",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[30417, 989, 704, 25, 59, "Question",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[31124, 1016, 66, 2, 42, "Answer",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[31227, 1023, 335, 13, 30, "Section",
+   Evaluatable->False,
+   CellTags->{"a:0.8.0", "Lab0"}],
+  Cell[31565, 1038, 288, 6, 45, "Text",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[31856, 1046, 117, 4, 24, "Input",
+   CellTags->"Lab0"],
+  Cell[31976, 1052, 117, 4, 24, "Input",
+   CellTags->"Lab0"],
+  Cell[32096, 1058, 117, 4, 24, "Input",
+   CellTags->"Lab0"],
+  Cell[32216, 1064, 773, 22, 62, "Text",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[33014, 1090, 147, 4, 42, "Subsection",
+   Evaluatable->False,
+   CellTags->{"a:0.8.1.0", "Lab0"}],
+  Cell[33186, 1098, 96, 2, 38, "Subsubsection",
+   Evaluatable->False,
+   CellTags->{"a:0.8.1.1.0", "Lab0"}],
+  Cell[33285, 1102, 1272, 27, 175, "Input",
+   InitializationCell->True,
+   CellTags->"Lab0"],
+  Cell[34594, 1134, 104, 2, 24, "Subsubsection",
+   Evaluatable->False,
+   CellTags->{"a:0.8.1.2.0", "Lab0"}],
+  Cell[34701, 1138, 5558, 143, 267, "Input",
+   InitializationCell->True,
+   CellTags->"Lab0"],
+  Cell[40296, 1286, 103, 2, 24, "Subsubsection",
+   Evaluatable->False,
+   CellTags->{"a:0.8.1.3.0", "Lab0"}],
+  Cell[40402, 1290, 11846, 291, 523, "Input",
+   InitializationCell->True,
+   CellTags->"Lab0"],
+  Cell[52285, 1586, 157, 4, 24, "Subsubsection",
+   Evaluatable->False,
+   CellTags->{"a:0.8.1.4.0", "Lab0"}],
+  Cell[52445, 1592, 6339, 173, 205, "Input",
+   InitializationCell->True,
+   CellTags->"Lab0"],
+  Cell[58833, 1771, 107, 2, 42, "Subsection",
+   Evaluatable->False,
+   CellTags->{"a:0.8.2.0", "Lab0"}],
+  Cell[58943, 1775, 155, 5, 28, "Text",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[59101, 1782, 160, 4, 24, "Input",
+   CellTags->"Lab0"],
+  Cell[59264, 1788, 633, 20, 29, "Text",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[59900, 1810, 99, 3, 24, "Input",
+   CellTags->"Lab0"],
+  Cell[60002, 1815, 145, 5, 28, "Text",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[60150, 1822, 272, 9, 24, "Input",
+   CellTags->"Lab0"],
+  Cell[60425, 1833, 230, 6, 28, "Text",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[60658, 1841, 162, 4, 24, "Input",
+   CellTags->"Lab0"],
+  Cell[60823, 1847, 162, 4, 24, "Input",
+   CellTags->"Lab0"],
+  Cell[60988, 1853, 1165, 43, 59, "Question",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[62156, 1898, 66, 2, 42, "Answer",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[62225, 1902, 1165, 43, 59, "Question",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[63393, 1947, 66, 2, 42, "Answer",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[63508, 1955, 94, 2, 30, "Section",
+   Evaluatable->False,
+   CellTags->{"a:0.9.0", "Lab0"}],
+  Cell[63605, 1959, 1380, 33, 79, "Text",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[64988, 1994, 2228, 57, 85, "Input",
+   CellTags->"Lab0"],
+  Cell[67219, 2053, 1881, 59, 83, "Text",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[69103, 2114, 100, 3, 24, "Input",
+   CellTags->"Lab0"],
+  Cell[69206, 2119, 260, 10, 42, "Question",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[69469, 2131, 66, 2, 42, "Answer",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[69538, 2135, 382, 13, 28, "Text",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[69923, 2150, 139, 3, 40, "Input",
+   CellTags->"Lab0"],
+  Cell[70065, 2155, 505, 18, 28, "Text",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[70573, 2175, 147, 4, 24, "Input",
+   CellTags->"Lab0"],
+  Cell[70723, 2181, 328, 12, 45, "Text",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[71054, 2195, 147, 4, 24, "Input",
+   CellTags->"Lab0"],
+  Cell[71204, 2201, 1019, 36, 45, "Text",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[72226, 2239, 390, 12, 24, "Input",
+   CellTags->"Lab0"],
+  Cell[72619, 2253, 186, 5, 28, "Text",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[72808, 2260, 349, 10, 24, "Input",
+   CellTags->"Lab0"],
+  Cell[73160, 2272, 134, 4, 29, "Text",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[73297, 2278, 132, 4, 24, "Input",
+   CellTags->"Lab0"],
+  Cell[73432, 2284, 994, 28, 62, "Text",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[74463, 2317, 91, 2, 30, "Section",
+   Evaluatable->False,
+   CellTags->{"a:0.10.0", "Lab0"}],
+  Cell[74557, 2321, 370, 16, 28, "Text",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[74952, 2341, 217, 7, 24, "Input",
+   CellTags->"Lab0"],
+  Cell[75172, 2350, 263, 7, 24, "Output",
+   CellTags->"Lab0"],
+  Cell[75450, 2360, 651, 19, 46, "Text",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[76126, 2383, 229, 7, 55, "Input",
+   CellTags->"Lab0"],
+  Cell[76358, 2392, 117, 3, 24, "Output",
+   CellTags->"Lab0"],
+  Cell[76478, 2397, 117, 3, 24, "Output",
+   CellTags->"Lab0"],
+  Cell[76598, 2402, 117, 3, 24, "Output",
+   CellTags->"Lab0"],
+  Cell[76730, 2408, 95, 2, 28, "Text",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[76850, 2414, 128, 3, 24, "Input",
+   CellTags->"Lab0"],
+  Cell[76981, 2419, 590, 12, 20, "Print",
+   CellTags->"Lab0"],
+  Cell[77574, 2433, 206, 4, 20, "Print",
+   CellTags->"Lab0"],
+  Cell[77783, 2439, 447, 10, 20, "Print",
+   CellTags->"Lab0"],
+  Cell[78233, 2451, 1669, 36, 359, "Output",
+   CellTags->"Lab0"],
+  Cell[79917, 2490, 527, 18, 29, "Text",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[80447, 2510, 229, 7, 55, "Input",
+   CellTags->"Lab0"],
+  Cell[80701, 2521, 192, 4, 24, "Input",
+   CellTags->"Lab0"],
+  Cell[80896, 2527, 659, 13, 20, "Print",
+   CellTags->"Lab0"],
+  Cell[81558, 2542, 277, 5, 20, "Print",
+   CellTags->"Lab0"],
+  Cell[81838, 2549, 518, 11, 20, "Print",
+   CellTags->"Lab0"],
+  Cell[82359, 2562, 1742, 37, 359, "Output",
+   CellTags->"Lab0"],
+  Cell[84116, 2602, 260, 6, 45, "Text",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[84413, 2613, 337, 13, 30, "Section",
+   Evaluatable->False,
+   CellTags->{"a:0.11.0", "Lab0"}],
+  Cell[84753, 2628, 477, 14, 45, "Text",
+   Evaluatable->False,
+   CellTags->"Lab0"],
+  Cell[85233, 2644, 63, 2, 24, "Input",
+   CellTags->"Lab0"],
+  Cell[85299, 2648, 65, 2, 24, "Input",
+   CellTags->"Lab0"],
+  Cell[85367, 2652, 67, 2, 24, "Input",
+   CellTags->"Lab0"],
+  Cell[85437, 2656, 68, 2, 24, "Input",
+   CellTags->"Lab0"],
+  Cell[85632, 2664, 65, 2, 24, "Input",
+   CellTags->"Lab0"],
+  Cell[85700, 2668, 65, 2, 24, "Input",
+   CellTags->"Lab0"],
+  Cell[85768, 2672, 70, 2, 24, "Input",
+   CellTags->"Lab0"],
+  Cell[85841, 2676, 68, 2, 24, "Input",
+   CellTags->"Lab0"],
+  Cell[85912, 2680, 135, 3, 24, "Input",
+   CellTags->"Lab0"]},
+ "a:0.0"->{
+  Cell[1308, 51, 470, 16, 113, "Title",
+   Evaluatable->False,
+   CellTags->{"a:0.0", "Lab0"}]},
+ "a:0.1.0"->{
+  Cell[5639, 172, 293, 10, 50, "Section",
+   Evaluatable->False,
+   CellTags->{"a:0.1.0", "Lab0"}]},
+ "a:0.2.0"->{
+  Cell[9895, 314, 89, 2, 30, "Section",
+   Evaluatable->False,
+   CellTags->{"a:0.2.0", "Lab0"}]},
+ "a:0.3.0"->{
+  Cell[10120, 325, 94, 2, 30, "Section",
+   Evaluatable->False,
+   CellTags->{"a:0.3.0", "Lab0"}]},
+ "a:0.4.0"->{
+  Cell[10758, 349, 390, 14, 30, "Section",
+   Evaluatable->False,
+   CellTags->{"a:0.4.0", "Lab0"}]},
+ "a:0.5.0"->{
+  Cell[19638, 654, 91, 2, 30, "Section",
+   Evaluatable->False,
+   CellTags->{"a:0.5.0", "Lab0"}]},
+ "a:0.5.1.0"->{
+  Cell[19754, 660, 120, 2, 42, "Subsection",
+   Evaluatable->False,
+   CellTags->{"a:0.5.1.0", "Lab0"}]},
+ "a:0.5.1.1.0"->{
+  Cell[19899, 666, 117, 2, 70, "Subsubsection",
+   Evaluatable->False,
+   CellTags->{"a:0.5.1.1.0", "Lab0"}]},
+ "a:0.6.0"->{
+  Cell[20181, 679, 94, 2, 30, "Section",
+   Evaluatable->False,
+   CellTags->{"a:0.6.0", "Lab0"}]},
+ "a:0.7.0"->{
+  Cell[28024, 921, 90, 2, 30, "Section",
+   Evaluatable->False,
+   CellTags->{"a:0.7.0", "linkex", "Lab0"}]},
+ "linkex"->{
+  Cell[28024, 921, 90, 2, 30, "Section",
+   Evaluatable->False,
+   CellTags->{"a:0.7.0", "linkex", "Lab0"}]},
+ "a:0.8.0"->{
+  Cell[31227, 1023, 335, 13, 30, "Section",
+   Evaluatable->False,
+   CellTags->{"a:0.8.0", "Lab0"}]},
+ "a:0.8.1.0"->{
+  Cell[33014, 1090, 147, 4, 42, "Subsection",
+   Evaluatable->False,
+   CellTags->{"a:0.8.1.0", "Lab0"}]},
+ "a:0.8.1.1.0"->{
+  Cell[33186, 1098, 96, 2, 38, "Subsubsection",
+   Evaluatable->False,
+   CellTags->{"a:0.8.1.1.0", "Lab0"}]},
+ "a:0.8.1.2.0"->{
+  Cell[34594, 1134, 104, 2, 24, "Subsubsection",
+   Evaluatable->False,
+   CellTags->{"a:0.8.1.2.0", "Lab0"}]},
+ "a:0.8.1.3.0"->{
+  Cell[40296, 1286, 103, 2, 24, "Subsubsection",
+   Evaluatable->False,
+   CellTags->{"a:0.8.1.3.0", "Lab0"}]},
+ "a:0.8.1.4.0"->{
+  Cell[52285, 1586, 157, 4, 24, "Subsubsection",
+   Evaluatable->False,
+   CellTags->{"a:0.8.1.4.0", "Lab0"}]},
+ "a:0.8.2.0"->{
+  Cell[58833, 1771, 107, 2, 42, "Subsection",
+   Evaluatable->False,
+   CellTags->{"a:0.8.2.0", "Lab0"}]},
+ "a:0.9.0"->{
+  Cell[63508, 1955, 94, 2, 30, "Section",
+   Evaluatable->False,
+   CellTags->{"a:0.9.0", "Lab0"}]},
+ "a:0.10.0"->{
+  Cell[74463, 2317, 91, 2, 30, "Section",
+   Evaluatable->False,
+   CellTags->{"a:0.10.0", "Lab0"}]},
+ "a:0.11.0"->{
+  Cell[84413, 2613, 337, 13, 30, "Section",
+   Evaluatable->False,
+   CellTags->{"a:0.11.0", "Lab0"}]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"Lab0", 86881, 2712},
+ {"a:0.0", 97960, 3074},
+ {"a:0.1.0", 98071, 3078},
+ {"a:0.2.0", 98186, 3082},
+ {"a:0.3.0", 98299, 3086},
+ {"a:0.4.0", 98413, 3090},
+ {"a:0.5.0", 98529, 3094},
+ {"a:0.5.1.0", 98645, 3098},
+ {"a:0.5.1.1.0", 98769, 3102},
+ {"a:0.6.0", 98894, 3106},
+ {"a:0.7.0", 99008, 3110},
+ {"linkex", 99131, 3114},
+ {"a:0.8.0", 99255, 3118},
+ {"a:0.8.1.0", 99374, 3122},
+ {"a:0.8.1.1.0", 99499, 3126},
+ {"a:0.8.1.2.0", 99628, 3130},
+ {"a:0.8.1.3.0", 99758, 3134},
+ {"a:0.8.1.4.0", 99888, 3138},
+ {"a:0.8.2.0", 100016, 3142},
+ {"a:0.9.0", 100137, 3146},
+ {"a:0.10.0", 100253, 3150},
+ {"a:0.11.0", 100370, 3154}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[545, 20, 110, 4, 42, "Answer",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+Cell[658, 26, 625, 21, 82, "Subsubtitle",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+Cell[CellGroupData[{
+Cell[1308, 51, 470, 16, 113, "Title",
+ Evaluatable->False,
+ CellTags->{"a:0.0", "Lab0"}],
+Cell[1781, 69, 1817, 57, 165, "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+Cell[3601, 128, 2013, 40, 131, "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+Cell[CellGroupData[{
+Cell[5639, 172, 293, 10, 50, "Section",
+ Evaluatable->False,
+ CellTags->{"a:0.1.0", "Lab0"}],
+Cell[5935, 184, 836, 19, 63, "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+Cell[6774, 205, 1188, 36, 45, "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+Cell[7965, 243, 165, 4, 28, "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+Cell[8133, 249, 624, 20, 79, "Text",
+ CellTags->"Lab0"],
+Cell[8760, 271, 691, 24, 79, "Text",
+ CellTags->"Lab0"],
+Cell[9454, 297, 404, 12, 60, "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[9895, 314, 89, 2, 30, "Section",
+ Evaluatable->False,
+ CellTags->{"a:0.2.0", "Lab0"}],
+Cell[9987, 318, 96, 2, 28, "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[10120, 325, 94, 2, 30, "Section",
+ Evaluatable->False,
+ CellTags->{"a:0.3.0", "Lab0"}],
+Cell[10217, 329, 504, 15, 45, "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[10758, 349, 390, 14, 30, "Section",
+ Evaluatable->False,
+ CellTags->{"a:0.4.0", "Lab0"}],
+Cell[11151, 365, 154, 5, 28, "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+Cell[11308, 372, 335, 11, 42, "Question",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+Cell[11646, 385, 66, 2, 42, "Answer",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+Cell[11715, 389, 1479, 46, 79, "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+Cell[13197, 437, 67, 2, 44, "Input",
+ CellTags->"Lab0"],
+Cell[13267, 441, 1257, 39, 72, "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+Cell[14527, 482, 744, 22, 56, "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+Cell[15274, 506, 339, 12, 44, "Input",
+ CellTags->"Lab0"],
+Cell[15616, 520, 374, 12, 42, "Question",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+Cell[15993, 534, 66, 2, 42, "Answer",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+Cell[16062, 538, 202, 7, 44, "Input",
+ CellTags->"Lab0"],
+Cell[16267, 547, 1384, 36, 79, "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+Cell[17654, 585, 559, 14, 59, "Question",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+Cell[18216, 601, 66, 2, 42, "Answer",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+Cell[18285, 605, 898, 28, 76, "Question",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+Cell[19186, 635, 66, 2, 42, "Answer",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+Cell[19255, 639, 346, 10, 24, "Input",
+ CellTags->"Lab0"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[19638, 654, 91, 2, 30, "Section",
+ Evaluatable->False,
+ CellTags->{"a:0.5.0", "Lab0"}],
+Cell[CellGroupData[{
+Cell[19754, 660, 120, 2, 42, "Subsection",
+ Evaluatable->False,
+ CellTags->{"a:0.5.1.0", "Lab0"}],
+Cell[CellGroupData[{
+Cell[19899, 666, 117, 2, 70, "Subsubsection",
+ Evaluatable->False,
+ CellTags->{"a:0.5.1.1.0", "Lab0"}],
+Cell[20019, 670, 101, 2, 70, "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"]
+}, Closed]]
+}, Closed]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[20181, 679, 94, 2, 30, "Section",
+ Evaluatable->False,
+ CellTags->{"a:0.6.0", "Lab0"}],
+Cell[20278, 683, 168, 5, 28, "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+Cell[20449, 690, 202, 7, 44, "Input",
+ CellTags->"Lab0"],
+Cell[20654, 699, 444, 13, 45, "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+Cell[21101, 714, 363, 11, 44, "Input",
+ CellTags->"Lab0"],
+Cell[21467, 727, 481, 13, 24, "Input",
+ CellTags->"Lab0"],
+Cell[21951, 742, 477, 13, 24, "Input"],
+Cell[22431, 757, 458, 13, 44, "Input",
+ CellTags->"Lab0"],
+Cell[22892, 772, 522, 13, 24, "Input",
+ CellTags->"Lab0"],
+Cell[23417, 787, 580, 14, 24, "Input",
+ CellTags->"Lab0"],
+Cell[24000, 803, 508, 14, 24, "Input",
+ CellTags->"Lab0"],
+Cell[24511, 819, 2714, 64, 289, "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+Cell[27228, 885, 491, 18, 42, "Question",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+Cell[27722, 905, 66, 2, 42, "Answer",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+Cell[27791, 909, 196, 7, 24, "Input",
+ CellTags->"Lab0"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[28024, 921, 90, 2, 30, "Section",
+ Evaluatable->False,
+ CellTags->{"a:0.7.0", "linkex", "Lab0"}],
+Cell[28117, 925, 2297, 62, 114, "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+Cell[30417, 989, 704, 25, 59, "Question",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+Cell[31124, 1016, 66, 2, 42, "Answer",
+ Evaluatable->False,
+ CellTags->"Lab0"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[31227, 1023, 335, 13, 30, "Section",
+ Evaluatable->False,
+ CellTags->{"a:0.8.0", "Lab0"}],
+Cell[31565, 1038, 288, 6, 45, "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+Cell[31856, 1046, 117, 4, 24, "Input",
+ CellTags->"Lab0"],
+Cell[31976, 1052, 117, 4, 24, "Input",
+ CellTags->"Lab0"],
+Cell[32096, 1058, 117, 4, 24, "Input",
+ CellTags->"Lab0"],
+Cell[32216, 1064, 773, 22, 62, "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+Cell[CellGroupData[{
+Cell[33014, 1090, 147, 4, 42, "Subsection",
+ Evaluatable->False,
+ CellTags->{"a:0.8.1.0", "Lab0"}],
+Cell[CellGroupData[{
+Cell[33186, 1098, 96, 2, 38, "Subsubsection",
+ Evaluatable->False,
+ CellTags->{"a:0.8.1.1.0", "Lab0"}],
+Cell[33285, 1102, 1272, 27, 175, "Input",
+ InitializationCell->True,
+ CellTags->"Lab0"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[34594, 1134, 104, 2, 24, "Subsubsection",
+ Evaluatable->False,
+ CellTags->{"a:0.8.1.2.0", "Lab0"}],
+Cell[34701, 1138, 5558, 143, 267, "Input",
+ InitializationCell->True,
+ CellTags->"Lab0"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[40296, 1286, 103, 2, 24, "Subsubsection",
+ Evaluatable->False,
+ CellTags->{"a:0.8.1.3.0", "Lab0"}],
+Cell[40402, 1290, 11846, 291, 523, "Input",
+ InitializationCell->True,
+ CellTags->"Lab0"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[52285, 1586, 157, 4, 24, "Subsubsection",
+ Evaluatable->False,
+ CellTags->{"a:0.8.1.4.0", "Lab0"}],
+Cell[52445, 1592, 6339, 173, 205, "Input",
+ InitializationCell->True,
+ CellTags->"Lab0"]
+}, Closed]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[58833, 1771, 107, 2, 42, "Subsection",
+ Evaluatable->False,
+ CellTags->{"a:0.8.2.0", "Lab0"}],
+Cell[58943, 1775, 155, 5, 28, "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+Cell[59101, 1782, 160, 4, 24, "Input",
+ CellTags->"Lab0"],
+Cell[59264, 1788, 633, 20, 29, "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+Cell[59900, 1810, 99, 3, 24, "Input",
+ CellTags->"Lab0"],
+Cell[60002, 1815, 145, 5, 28, "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+Cell[60150, 1822, 272, 9, 24, "Input",
+ CellTags->"Lab0"],
+Cell[60425, 1833, 230, 6, 28, "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+Cell[60658, 1841, 162, 4, 24, "Input",
+ CellTags->"Lab0"],
+Cell[60823, 1847, 162, 4, 24, "Input",
+ CellTags->"Lab0"],
+Cell[60988, 1853, 1165, 43, 59, "Question",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+Cell[62156, 1898, 66, 2, 42, "Answer",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+Cell[62225, 1902, 1165, 43, 59, "Question",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+Cell[63393, 1947, 66, 2, 42, "Answer",
+ Evaluatable->False,
+ CellTags->"Lab0"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[63508, 1955, 94, 2, 30, "Section",
+ Evaluatable->False,
+ CellTags->{"a:0.9.0", "Lab0"}],
+Cell[63605, 1959, 1380, 33, 79, "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+Cell[64988, 1994, 2228, 57, 85, "Input",
+ CellTags->"Lab0"],
+Cell[67219, 2053, 1881, 59, 83, "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+Cell[69103, 2114, 100, 3, 24, "Input",
+ CellTags->"Lab0"],
+Cell[69206, 2119, 260, 10, 42, "Question",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+Cell[69469, 2131, 66, 2, 42, "Answer",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+Cell[69538, 2135, 382, 13, 28, "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+Cell[69923, 2150, 139, 3, 40, "Input",
+ CellTags->"Lab0"],
+Cell[70065, 2155, 505, 18, 28, "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+Cell[70573, 2175, 147, 4, 24, "Input",
+ CellTags->"Lab0"],
+Cell[70723, 2181, 328, 12, 45, "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+Cell[71054, 2195, 147, 4, 24, "Input",
+ CellTags->"Lab0"],
+Cell[71204, 2201, 1019, 36, 45, "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+Cell[72226, 2239, 390, 12, 24, "Input",
+ CellTags->"Lab0"],
+Cell[72619, 2253, 186, 5, 28, "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+Cell[72808, 2260, 349, 10, 24, "Input",
+ CellTags->"Lab0"],
+Cell[73160, 2272, 134, 4, 29, "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+Cell[73297, 2278, 132, 4, 24, "Input",
+ CellTags->"Lab0"],
+Cell[73432, 2284, 994, 28, 62, "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[74463, 2317, 91, 2, 30, "Section",
+ Evaluatable->False,
+ CellTags->{"a:0.10.0", "Lab0"}],
+Cell[74557, 2321, 370, 16, 28, "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+Cell[CellGroupData[{
+Cell[74952, 2341, 217, 7, 24, "Input",
+ CellTags->"Lab0"],
+Cell[75172, 2350, 263, 7, 24, "Output",
+ CellTags->"Lab0"]
+}, Open  ]],
+Cell[75450, 2360, 651, 19, 46, "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+Cell[CellGroupData[{
+Cell[76126, 2383, 229, 7, 55, "Input",
+ CellTags->"Lab0"],
+Cell[76358, 2392, 117, 3, 24, "Output",
+ CellTags->"Lab0"],
+Cell[76478, 2397, 117, 3, 24, "Output",
+ CellTags->"Lab0"],
+Cell[76598, 2402, 117, 3, 24, "Output",
+ CellTags->"Lab0"]
+}, Open  ]],
+Cell[76730, 2408, 95, 2, 28, "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+Cell[CellGroupData[{
+Cell[76850, 2414, 128, 3, 24, "Input",
+ CellTags->"Lab0"],
+Cell[76981, 2419, 590, 12, 20, "Print",
+ CellTags->"Lab0"],
+Cell[77574, 2433, 206, 4, 20, "Print",
+ CellTags->"Lab0"],
+Cell[77783, 2439, 447, 10, 20, "Print",
+ CellTags->"Lab0"],
+Cell[78233, 2451, 1669, 36, 359, "Output",
+ CellTags->"Lab0"]
+}, Open  ]],
+Cell[79917, 2490, 527, 18, 29, "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+Cell[80447, 2510, 229, 7, 55, "Input",
+ CellTags->"Lab0"],
+Cell[CellGroupData[{
+Cell[80701, 2521, 192, 4, 24, "Input",
+ CellTags->"Lab0"],
+Cell[80896, 2527, 659, 13, 20, "Print",
+ CellTags->"Lab0"],
+Cell[81558, 2542, 277, 5, 20, "Print",
+ CellTags->"Lab0"],
+Cell[81838, 2549, 518, 11, 20, "Print",
+ CellTags->"Lab0"],
+Cell[82359, 2562, 1742, 37, 359, "Output",
+ CellTags->"Lab0"]
+}, Open  ]],
+Cell[84116, 2602, 260, 6, 45, "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[84413, 2613, 337, 13, 30, "Section",
+ Evaluatable->False,
+ CellTags->{"a:0.11.0", "Lab0"}],
+Cell[84753, 2628, 477, 14, 45, "Text",
+ Evaluatable->False,
+ CellTags->"Lab0"],
+Cell[85233, 2644, 63, 2, 24, "Input",
+ CellTags->"Lab0"],
+Cell[85299, 2648, 65, 2, 24, "Input",
+ CellTags->"Lab0"],
+Cell[85367, 2652, 67, 2, 24, "Input",
+ CellTags->"Lab0"],
+Cell[85437, 2656, 68, 2, 24, "Input",
+ CellTags->"Lab0"],
+Cell[85508, 2660, 121, 2, 24, "Input"],
+Cell[85632, 2664, 65, 2, 24, "Input",
+ CellTags->"Lab0"],
+Cell[85700, 2668, 65, 2, 24, "Input",
+ CellTags->"Lab0"],
+Cell[85768, 2672, 70, 2, 24, "Input",
+ CellTags->"Lab0"],
+Cell[85841, 2676, 68, 2, 24, "Input",
+ CellTags->"Lab0"],
+Cell[85912, 2680, 135, 3, 24, "Input",
+ CellTags->"Lab0"]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

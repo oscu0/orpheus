@@ -1,0 +1,181 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode python-mode
+      :tags 
+        '( ("__future__" include nil nil [47 84])
+            ("\"\"\"
+Created on Fri May 19 14:02:24 2017
+
+@author: arnaud
+\"\"\"" code nil nil [86 146])
+            ("try" code nil nil [148 232])
+            ("numpy" include nil nil [232 250])
+            ("datetime" include nil nil [251 266])
+            ("pandas" include nil nil [267 280])
+            ("SideOn" include nil nil [281 294])
+            ("DataStack" type
+               (:documentation "DataStack is a class associated with one day of data from one space 
+    weather satellite instrument. It can handles both .cdf, .nc and .csv
+    formats."
+                :superclasses ("object")
+                :members 
+                  ( ("__init__" function
+                       (:suite 
+                          ( ("\"\"\"INPUTS
+        sat: string name of the satellite or of the instrument
+        filename: string name of the source file
+        variables: string list of variables of interest
+        
+        ATTRIBUTES
+        self.dataStack: data dictionnary of variables
+        self.time: numpy array of sampling times in seconds since 1970
+        self.longNameVariables: long name of variables
+        self.date: date of the day
+        self.strDate: string date of the day
+        self.timeres: time resolution of acquisition
+        
+        Note: A variable in detaStack dictionnary can have several or one
+        dimensions, depending on wheter it is associated with a multi-energy
+        channels instrument or not\"\"\"" code nil (reparse-symbol indented_block_body) [546 1262])
+                            ("self" variable nil (reparse-symbol indented_block_body) [1272 1286])
+                            ("self" variable nil (reparse-symbol indented_block_body) [1295 1319])
+                            ("self" variable nil (reparse-symbol indented_block_body) [1328 1354])
+                            ("self" variable nil (reparse-symbol indented_block_body) [1363 1386])
+                            ("self" variable nil (reparse-symbol indented_block_body) [1395 1418])
+                            ("if" code nil (reparse-symbol indented_block_body) [1427 3393])
+                            ("self" variable nil (reparse-symbol indented_block_body) [3401 3461])
+                            ("self" code nil (reparse-symbol indented_block_body) [3470 3532])
+                            ("self" code nil (reparse-symbol indented_block_body) [3541 3583]))                          
+                        :parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [505 509])
+                            ("sat" variable nil (reparse-symbol function_parameters) [511 514])
+                            ("filename" variable nil (reparse-symbol function_parameters) [516 524])
+                            ("variables" variable nil (reparse-symbol function_parameters) [526 535]))                          
+                        :documentation "INPUTS
+        sat: string name of the satellite or of the instrument
+        filename: string name of the source file
+        variables: string list of variables of interest
+        
+        ATTRIBUTES
+        self.dataStack: data dictionnary of variables
+        self.time: numpy array of sampling times in seconds since 1970
+        self.longNameVariables: long name of variables
+        self.date: date of the day
+        self.strDate: string date of the day
+        self.timeres: time resolution of acquisition
+        
+        Note: A variable in detaStack dictionnary can have several or one
+        dimensions, depending on wheter it is associated with a multi-energy
+        channels instrument or not"
+                        :constructor-flag t)
+                        (reparse-symbol indented_block_body) [492 3584])
+                    ("Delete" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [3600 3604])
+                            ("variable" variable nil (reparse-symbol function_parameters) [3606 3614]))                          
+                        :documentation "Delete a variable from the dataStack attribute dictionnary")
+                        (reparse-symbol indented_block_body) [3589 3727])
+                    ("Corr" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [3741 3745])
+                            ("var" variable nil (reparse-symbol function_parameters) [3747 3750])
+                            ("T" variable nil (reparse-symbol function_parameters) [3752 3753])
+                            ("base" variable nil (reparse-symbol function_parameters) [3755 3759]))                          
+                        :documentation "Affect base to values of a variable var under L threshold")
+                        (reparse-symbol indented_block_body) [3732 3895])
+                    ("Sorting" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [3912 3916])
+                            ("condition" variable nil (reparse-symbol function_parameters) [3918 3927])
+                            ("variables" variable nil (reparse-symbol function_parameters) [3929 3938]))                          
+                        :documentation "Sorting methods to select some data points based on a condition.
+        Condition is an array of booleans with the same size than variables
+        arrays")
+                        (reparse-symbol indented_block_body) [3900 4387])
+                    ("Mean" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [4401 4405])
+                            ("variable" variable nil (reparse-symbol function_parameters) [4407 4415])
+                            ("ax" variable nil (reparse-symbol function_parameters) [4417 4419]))                          
+                        :documentation "Compute the mean value of a variable along the axis ax")
+                        (reparse-symbol indented_block_body) [4392 4569]))                  
+                :type "class")
+                nil [297 4569]))          
+      :file "DataStack.py"
+      :pointmax 4569
+      :unmatched-syntax nil)
+
+    (semanticdb-table "semanticdb-table"
+      :major-mode python-mode
+      :tags 
+        '( ("__future__" include nil nil [47 84])
+            ("\"\"\"
+Created on Fri May 19 14:02:40 2017
+
+@author: arnaud
+\"\"\"" code nil nil [86 146])
+            ("matplotlib" include nil nil [147 164])
+            ("matplotlib" code nil nil [218 239])
+            ("matplotlib.pyplot" include nil nil [240 271])
+            ("matplotlib.colors" include nil nil [272 306])
+            ("SideOn" include nil nil [307 339])
+            ("SideOn" include nil nil [340 375])
+            ("SideOn" include nil nil [376 400])
+            ("SideOn" include nil nil [401 432])
+            ("numpy" include nil nil [433 451])
+            ("time" include nil nil [452 463])
+            ("datetime" include nil nil [464 479])
+            ("os" include nil nil [480 489])
+            ("format_name" function (:arguments 
+              ( ("name" variable nil (reparse-symbol function_parameters) [508 512]))              ) nil [492 3130])
+            ("map_vs_time" function
+               (:documentation "
+        Method to draw a map of some electron flux variables in a 
+    P(parameter)/Time 2D space.
+    It can be used to draw several maps of different variables, or different 
+    channels of one variable, or just one map.         
+        
+    DataStacks: Datastack input objects /type: list of DataStacks
+    P: Y-axis parameter of the map /type: str
+    Pmin, Pmax: P minimal and maximal values /type: float
+    variables: Variables to be drawn on the map /type: list
+    klist: Channels to be drawn of the map (if 1 variable) /type: list
+    fmin, fmax: Variables minimal and maximal values /type: float
+    res: Resolution of the scatter plot /type: int
+    timeType: Timewindow type of span 'day' or 'hour' /type: str
+    tickstep: Number of days or hours between ticksteps /type: int
+    dstBool: Wether to draw dst index variations or not /type: Bool
+    aeBool: Wether to draw ae index variations or not /type: Bool
+    solarWindBool: Wether do draw solar wind variations or not /type: Bool
+        "
+                :arguments 
+                  ( ("DataStacks" variable nil (reparse-symbol function_parameters) [3148 3158])
+                    ("P" variable nil (reparse-symbol function_parameters) [3160 3161])
+                    ("timeType" variable nil (reparse-symbol function_parameters) [3163 3171])
+                    ("tickStep" variable nil (reparse-symbol function_parameters) [3173 3181])
+                    ("variables" variable nil (reparse-symbol function_parameters) [3183 3192])
+                    ("Pmin" variable nil (reparse-symbol function_parameters) [3210 3214])
+                    ("Pmax" variable nil (reparse-symbol function_parameters) [3221 3225])
+                    ("fmin" variable nil (reparse-symbol function_parameters) [3232 3236])
+                    ("fmax" variable nil (reparse-symbol function_parameters) [3243 3247])
+                    ("res" variable nil (reparse-symbol function_parameters) [3254 3257])
+                    ("dstBool" variable nil (reparse-symbol function_parameters) [3280 3287])
+                    ("aeBool" variable nil (reparse-symbol function_parameters) [3295 3301])
+                    ("solarWindBool" variable nil (reparse-symbol function_parameters) [3309 3322])
+                    ("klist" variable nil (reparse-symbol function_parameters) [3330 3335]))                  )
+                nil [3132 9228]))          
+      :file "MapVsTime_FromDb.py"
+      :pointmax 9228
+      :unmatched-syntax nil))
+  :file "!Users!aosh!Local!sdds!arnaud!FluxMapPack!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

@@ -1,0 +1,2052 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 6.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     62963,       2042]
+NotebookOptionsPosition[     54764,       1790]
+NotebookOutlinePosition[     60644,       1962]
+CellTagsIndexPosition[     60372,       1950]
+WindowFrame->Normal
+ContainsDynamic->False*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[{
+ "Labs for ",
+ StyleBox["Exploring Abstract Algebra with",
+  FontSlant->"Italic"],
+ " ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"]
+}], "Title",
+ CellMargins->{{Inherited, Inherited}, {10, 8}},
+ TextAlignment->Center,
+ TextJustification->0,
+ FontFamily->"Times",
+ FontSize->18,
+ CellTags->{
+  "standAlone", "SALab0", "SAGroupLabs", "SARingLabs", "BrowserUser", 
+   "QuestRL", "Quest0", "QuestGL"}],
+
+Cell[CellGroupData[{
+
+Cell["8.0 Read me first", "Subsection",
+ CellMargins->{{Inherited, Inherited}, {5, 10}},
+ CellTags->"standAlone"],
+
+Cell[TextData[{
+ "There are three sections of choices in this panel. \n\[Bullet] The first \
+three items open up the labs (Lab 0, group labs, and ring labs) in \
+stand-alone windows (outside of the Help Browser). While you can work with \
+the notebooks, none of your work will be saved unless you do a Save As... and \
+rename the file. This is to ensure that the content of the original file does \
+not get lost.\n\[Bullet] The next three items bring up the labs (all three \
+types) inside the Help Browser (this current window).\n\[Bullet] The last \
+three items open up files that only contain the questions for the three types \
+of labs; these are placed in stand-alone windows and can not be altered but \
+only saved with Save As....\nF",
+ StyleBox["or users of version 4 and higher, if you choose an option from the \
+second set of items (bringing up the labs in the Help Browser), you may wish \
+to click on the \[OpenCurlyDoubleQuote]Hide \
+Categories\[CloseCurlyDoubleQuote] button in order to provide more room.",
+  FontSlant->"Italic"],
+ "\n",
+ StyleBox["Note that if you are not a user of ",
+  FontWeight->"Bold"],
+ StyleBox["Exploring Abstract Algebra with Mathematica",
+  FontWeight->"Bold",
+  FontSlant->"Italic"],
+ StyleBox[" (EAAM), these choices still work but they bring up only truncated \
+notebooks.",
+  FontWeight->"Bold"]
+}], "Text",
+ CellTags->"standAlone"],
+
+Cell[TextData[{
+ StyleBox["If you are using version 3.x of ",
+  FontColor->RGBColor[0, 0, 1]],
+ StyleBox["Mathematica",
+  FontSlant->"Italic",
+  FontColor->RGBColor[0, 0, 1]],
+ StyleBox[", there appears to be a slight bug that prevents the code in this \
+section from working as it should unless you perform one more step at the \
+directory level. Without doing this, you will get a complaint about not \
+finding the EAAM stylesheet (and then again also, perhaps, an error about not \
+knowing what to do with the Question and Answer style). The solution is very \
+easy. ",
+  FontColor->RGBColor[0, 0, 1]],
+ StyleBox["Copy",
+  FontSlant->"Italic",
+  FontColor->RGBColor[0, 0, 1]],
+ StyleBox[" the EAAM.nb file from the directory with path ",
+  FontColor->RGBColor[0, 0, 1]],
+ StyleBox["Mathematica 3.0 \
+Files:AddOns:Applications:AbstractAlgebra:FrontEnd:StyleSheets",
+  FontWeight->"Bold",
+  FontColor->RGBColor[0, 0, 1]],
+ StyleBox[" to the directory with path ",
+  FontColor->RGBColor[0, 0, 1]],
+ StyleBox["Mathematica 3.0 Files:Configuration:FrontEnd:StyleSheets",
+  FontWeight->"Bold",
+  FontColor->RGBColor[0, 0, 1]],
+ StyleBox[". Alternatively, you can let ",
+  FontColor->RGBColor[0, 0, 1]],
+ StyleBox["Mathematica",
+  FontSlant->"Italic",
+  FontColor->RGBColor[0, 0, 1]],
+ StyleBox[" do this for you by executing the following code (which needs to \
+be done only once, per machine):",
+  FontColor->RGBColor[0, 0, 1]]
+}], "Text",
+ FontSize->10,
+ Background->RGBColor[1, 1, 0],
+ CellTags->{
+  "SALab0", "SAGroupLabs", "SARingLabs", "QuestRL", "Quest0", "QuestGL", 
+   "standAlone"}],
+
+Cell[BoxData[
+ RowBox[{"Module", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"nb", ",", "nb2"}], "}"}], ",", 
+   RowBox[{
+    RowBox[{"nb", "=", 
+     RowBox[{"NotebookOpen", "[", 
+      RowBox[{"ToFileName", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"ParentDirectory", "[", 
+           RowBox[{"ParentDirectory", "[", "]"}], "]"}], ",", 
+          "\"\<FrontEnd\>\"", ",", "\"\<StyleSheets\>\""}], "}"}], ",", 
+        "\"\<EAAM.nb\>\""}], "]"}], "]"}]}], ";", 
+    RowBox[{"NotebookPut", "[", 
+     RowBox[{
+      RowBox[{"NotebookGet", "[", "nb", "]"}], ",", 
+      RowBox[{"CreateWindow", "[", "]"}]}], "]"}], ";", 
+    RowBox[{"nb2", "=", 
+     RowBox[{"SelectedNotebook", "[", "]"}]}], ";", 
+    RowBox[{"NotebookClose", "[", "nb", "]"}], ";", 
+    RowBox[{"NotebookSave", "[", 
+     RowBox[{"nb2", ",", 
+      RowBox[{"ToFileName", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+         "$TopDirectory", ",", "\"\<Configuration\>\"", ",", 
+          "\"\<FrontEnd\>\"", ",", "\"\<StyleSheets\>\""}], "}"}], ",", 
+        "\"\<EAAM.nb\>\""}], "]"}]}], "]"}], ";", 
+    RowBox[{"NotebookClose", "[", "nb2", "]"}]}]}], "]"}]], "Input",
+ FontSize->9,
+ CellTags->{
+  "SALab0", "SAGroupLabs", "SARingLabs", "QuestRL", "Quest0", "QuestGL", 
+   "standAlone"}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["8.1 Lab 0 - stand-alone file", "Subsection",
+ CellMargins->{{Inherited, Inherited}, {5, 10}},
+ CellTags->"SALab0"],
+
+Cell["\<\
+If you wish to have Lab 0 brought up as a stand-alone notebook (as opposed to \
+opening up in the Browser), click on the button below. If you wish to have \
+Lab 0 brought up in the Help Browser, click on it in the next section in the \
+Browser. \
+\>", "Text",
+ CellTags->"SALab0"],
+
+Cell[BoxData[GridBox[{
+   {
+    ButtonBox[
+     RowBox[{"Lab", " ", "0"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "Lab0", "EAAMLab0.nb"}], "a:1.1"}], 
+    ButtonBox[
+     StyleBox[
+      RowBox[{"Getting", " ", "Started", " ", "with", " ", "Mathematica"}],
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]}
+  },
+  GridBoxSpacings->{"Columns" -> {
+      Offset[0.27999999999999997`], {
+       Offset[0.]}, 
+      Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+      Offset[0.2], {
+       Offset[0.]}, 
+      Offset[0.2]}, "RowsIndexed" -> {}},
+  GridDefaultElement:>ButtonBox["\\[Placeholder]"]]], "Input",
+ Active->True,
+ CellTags->"SALab0"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["8.2 Group labs - stand-alone files", "Subsection",
+ CellMargins->{{Inherited, Inherited}, {5, 10}},
+ CellTags->"SAGroupLabs"],
+
+Cell["\<\
+If you wish to have a group lab brought up as a stand-alone notebook (as \
+opposed to opening up in the Browser), click on the appropriate button below. \
+(The pink buttons are inert, simply providing the lab name; click on the \
+buttons on the left.) If you wish to have a group lab brought up in the Help \
+Browser, click on it in the next section in the Browser. \
+\>", "Text",
+ CellTags->"SAGroupLabs"],
+
+Cell[BoxData[GridBox[{
+   {
+    ButtonBox[
+     RowBox[{"Group", " ", "Lab", " ", "1"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "GroupLabs", "GrpLab01.nb"}], "a:1.1"}], 
+    ButtonBox[
+     StyleBox[
+      RowBox[{
+      "Using", " ", "Symmetry", " ", "to", " ", "Uncover", " ", "a", " ", 
+       "Group"}],
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain",
+      FontSlant->"Italic"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]},
+   {
+    ButtonBox[
+     RowBox[{"Group", " ", "Lab", " ", "2"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "GroupLabs", "GrpLab02.nb"}], "a:1.1"}], 
+    ButtonBox[
+     StyleBox[
+      RowBox[{
+      "Determining", " ", "the", " ", "Symmetry", " ", "Group", " ", "of", 
+       " ", "a", " ", "Given", " ", "Figure"}],
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain",
+      FontSlant->"Italic"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]},
+   {
+    ButtonBox[
+     RowBox[{"Group", " ", "Lab", " ", "3"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "GroupLabs", "GrpLab03.nb"}], "a:1.1"}], 
+    ButtonBox[
+     StyleBox[
+      RowBox[{"Is", " ", "This", " ", "a", " ", 
+       RowBox[{"Group", "?"}]}],
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain",
+      FontSlant->"Italic"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]},
+   {
+    ButtonBox[
+     RowBox[{"Group", " ", "Lab", " ", "4"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "GroupLabs", "GrpLab04.nb"}], "a:1.1"}], 
+    ButtonBox[
+     StyleBox[
+      RowBox[{
+       RowBox[{
+        StyleBox["Let",
+         Evaluatable->False,
+         AspectRatioFixed->True,
+         FontSlant->"Italic"], "\[CloseCurlyQuote]"}], 
+       StyleBox["s",
+        Evaluatable->False,
+        AspectRatioFixed->True,
+        FontSlant->"Italic"], 
+       StyleBox[" ",
+        Evaluatable->False,
+        AspectRatioFixed->True,
+        FontSlant->"Italic"], 
+       StyleBox["Get",
+        Evaluatable->False,
+        AspectRatioFixed->True,
+        FontSlant->"Italic"], 
+       StyleBox[" ",
+        Evaluatable->False,
+        AspectRatioFixed->True,
+        FontSlant->"Italic"], 
+       StyleBox["These",
+        Evaluatable->False,
+        AspectRatioFixed->True,
+        FontSlant->"Italic"], 
+       StyleBox[" ",
+        Evaluatable->False,
+        AspectRatioFixed->True,
+        FontSlant->"Italic"], 
+       StyleBox["Orders",
+        Evaluatable->False,
+        AspectRatioFixed->True,
+        FontSlant->"Italic"], 
+       StyleBox[" ",
+        Evaluatable->False,
+        AspectRatioFixed->True,
+        FontSlant->"Italic"], 
+       StyleBox["Straight",
+        Evaluatable->False,
+        AspectRatioFixed->True,
+        FontSlant->"Italic"]}],
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]},
+   {
+    ButtonBox[
+     RowBox[{"Group", " ", "Lab", " ", "5"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "GroupLabs", "GrpLab05.nb"}], "a:1.1"}], 
+    ButtonBox[
+     StyleBox[
+      RowBox[{"Subversively", " ", "Grouping", " ", "Our", " ", "Elements"}],
+      Evaluatable->False,
+      AspectRatioFixed->True,
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain",
+      FontSlant->"Italic"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]},
+   {
+    ButtonBox[
+     RowBox[{"Group", " ", "Lab", " ", "6"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "GroupLabs", "GrpLab06.nb"}], "a:1.1"}], 
+    ButtonBox[
+     StyleBox[
+      RowBox[{"Cycling", " ", "Through", " ", "the", " ", "Groups"}],
+      Evaluatable->False,
+      AspectRatioFixed->True,
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain",
+      FontSlant->"Italic"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]},
+   {
+    ButtonBox[
+     RowBox[{"Group", " ", "Lab", " ", "7"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "GroupLabs", "GrpLab07.nb"}], "a:1.1"}], 
+    ButtonBox[
+     StyleBox["Permutations",
+      Evaluatable->False,
+      AspectRatioFixed->True,
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain",
+      FontSlant->"Italic"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]},
+   {
+    ButtonBox[
+     RowBox[{"Group", " ", "Lab", " ", "8"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "GroupLabs", "GrpLab08.nb"}], "a:1.1"}], 
+    ButtonBox[
+     StyleBox["Isomorphisms",
+      Evaluatable->False,
+      AspectRatioFixed->True,
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain",
+      FontSlant->"Italic"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]},
+   {
+    ButtonBox[
+     RowBox[{"Group", " ", "Lab", " ", "9"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "GroupLabs", "GrpLab09.nb"}], "a:1.1"}], 
+    ButtonBox[
+     StyleBox["Automorphisms",
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain",
+      FontSlant->"Italic"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]},
+   {
+    ButtonBox[
+     RowBox[{"Group", " ", "Lab", " ", "10"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "GroupLabs", "GrpLab10.nb"}], "a:1.1"}], 
+    ButtonBox[
+     StyleBox[
+      RowBox[{"Direct", " ", "Products"}],
+      Evaluatable->False,
+      AspectRatioFixed->True,
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain",
+      FontSlant->"Italic"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]},
+   {
+    ButtonBox[
+     RowBox[{"Group", " ", "Lab", " ", "11"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "GroupLabs", "GrpLab11.nb"}], "a:1.1"}], 
+    ButtonBox[
+     StyleBox["Cosets",
+      Evaluatable->False,
+      AspectRatioFixed->True,
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain",
+      FontSlant->"Italic"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]},
+   {
+    ButtonBox[
+     RowBox[{"Group", " ", "Lab", " ", "12"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "GroupLabs", "GrpLab12.nb"}], "a:1.1"}], 
+    ButtonBox[
+     StyleBox[
+      RowBox[{"Normality", " ", "and", " ", "Factor", " ", "groups"}],
+      Evaluatable->False,
+      AspectRatioFixed->True,
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain",
+      FontSlant->"Italic"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]},
+   {
+    ButtonBox[
+     RowBox[{"Group", " ", "Lab", " ", "13"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "GroupLabs", "GrpLab13.nb"}], "a:1.1"}], 
+    ButtonBox[
+     StyleBox["Homomorphisms",
+      Evaluatable->False,
+      AspectRatioFixed->True,
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain",
+      FontSlant->"Italic"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]},
+   {
+    ButtonBox[
+     RowBox[{"Group", " ", "Lab", " ", "14"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "GroupLabs", "GrpLab14.nb"}], "a:1.1"}], 
+    ButtonBox[
+     StyleBox[
+      RowBox[{
+      "Rotational", " ", "Groups", " ", "of", " ", "Regular", " ", 
+       "Polyhedra"}],
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain",
+      FontSlant->"Italic"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]}
+  },
+  GridBoxDividers->{
+   "Columns" -> {False, {True}, False}, "ColumnsIndexed" -> {}, 
+    "Rows" -> {False, {True}, False}, "RowsIndexed" -> {}},
+  GridBoxSpacings->{"Columns" -> {
+      Offset[0.27999999999999997`], {
+       Offset[0.]}, 
+      Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+      Offset[0.2], {
+       Offset[0.]}, 
+      Offset[0.2]}, "RowsIndexed" -> {}},
+  GridDefaultElement:>ButtonBox["\\[Placeholder]"]]], "Input",
+ Active->True,
+ CellTags->"SAGroupLabs"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["8.3 Ring labs - stand-alone files", "Subsection",
+ CellMargins->{{Inherited, Inherited}, {5, 10}},
+ CellTags->"SARingLabs"],
+
+Cell["\<\
+If you wish to have a ring lab brought up as a stand-alone notebook (as \
+opposed to opening up in the Browser), click on the appropriate button below. \
+(The pink buttons are inert, simply providing the lab name; click on the \
+buttons on the left.) If you wish to have a ring lab brought up in the Help \
+Browser, click on it in the next section in the Browser. \
+\>", "Text",
+ CellTags->"SARingLabs"],
+
+Cell[BoxData[GridBox[{
+   {
+    ButtonBox[
+     RowBox[{"Ring", " ", "Lab", " ", "1"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "RingLabs", "RngLab01.nb"}], "a:1.1"}], 
+    ButtonBox[
+     StyleBox[
+      RowBox[{
+       StyleBox["An",
+        FontFamily->"Times"], 
+       StyleBox[" ",
+        FontFamily->"Times"], 
+       StyleBox["Introduction",
+        FontFamily->"Times"], 
+       StyleBox[" ",
+        FontFamily->"Times"], 
+       StyleBox["to",
+        FontFamily->"Times"], 
+       StyleBox[" ",
+        FontFamily->"Times"], 
+       StyleBox["Rings",
+        FontFamily->"Times"], 
+       StyleBox[" ",
+        FontFamily->"Times"], 
+       StyleBox["and",
+        FontFamily->"Times"], 
+       StyleBox[" ",
+        FontFamily->"Times"], 
+       StyleBox["Ringoids",
+        FontFamily->"Courier"]}],
+      FontSize->12,
+      FontWeight->"Plain",
+      FontSlant->"Italic"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]},
+   {
+    ButtonBox[
+     RowBox[{"Ring", " ", "Lab", " ", "2"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "RingLabs", "RngLab02.nb"}], "a:1.1"}], 
+    ButtonBox[
+     StyleBox[
+      RowBox[{
+       RowBox[{"An", " ", "Introduction", " ", "to", " ", "Rings"}], ",", " ",
+        
+       RowBox[{"Part", " ", "2"}]}],
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain",
+      FontSlant->"Italic"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]},
+   {
+    ButtonBox[
+     RowBox[{"Ring", " ", "Lab", " ", "3"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "RingLabs", "RngLab03.nb"}], "a:1.1"}], 
+    ButtonBox[
+     StyleBox[
+      RowBox[{"An", " ", "Ideal", " ", "Part", " ", "of", " ", "Rings"}],
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain",
+      FontSlant->"Italic"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]},
+   {
+    ButtonBox[
+     RowBox[{"Ring", " ", "Lab", " ", "4"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "RingLabs", "RngLab04.nb"}], "a:1.1"}], 
+    ButtonBox[
+     StyleBox[
+      RowBox[{
+       RowBox[{"What", " ", "Does", " "}], 
+       FormBox[
+        RowBox[{
+         RowBox[{"\[DoubleStruckCapitalZ]", "[", "i", "]"}], "/", 
+         RowBox[{"\[LeftAngleBracket]", 
+          RowBox[{"a", "+", 
+           RowBox[{"b", " ", "i"}]}], "\[RightAngleBracket]"}]}],
+        TraditionalForm], 
+       RowBox[{" ", 
+        RowBox[{"Look", " ", 
+         RowBox[{"Like", "?"}]}]}]}],
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain",
+      FontSlant->"Italic"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]},
+   {
+    ButtonBox[
+     RowBox[{"Ring", " ", "Lab", " ", "5"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "RingLabs", "RngLab05.nb"}], "a:1.1"}], 
+    ButtonBox[
+     StyleBox[
+      RowBox[{"Ring", " ", "Homomorphisms"}],
+      Evaluatable->False,
+      AspectRatioFixed->True,
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain",
+      FontSlant->"Italic"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]},
+   {
+    ButtonBox[
+     RowBox[{"Ring", " ", "Lab", " ", "6"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "RingLabs", "RngLab06.nb"}], "a:1.1"}], 
+    ButtonBox[
+     StyleBox[
+      RowBox[{"Polynomial", " ", "Rings"}],
+      Evaluatable->False,
+      AspectRatioFixed->True,
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain",
+      FontSlant->"Italic"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]},
+   {
+    ButtonBox[
+     RowBox[{"Ring", " ", "Lab", " ", "7"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "RingLabs", "RngLab07.nb"}], "a:1.1"}], 
+    ButtonBox[
+     StyleBox[
+      RowBox[{"Factoring", " ", "and", " ", "Irreducibility"}],
+      Evaluatable->False,
+      AspectRatioFixed->True,
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain",
+      FontSlant->"Italic"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]},
+   {
+    ButtonBox[
+     RowBox[{"Ring", " ", "Lab", " ", "8"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "RingLabs", "RngLab08.nb"}], "a:1.1"}], 
+    ButtonBox[
+     StyleBox[
+      RowBox[{"Roots", " ", "of", " ", "Unity"}],
+      Evaluatable->False,
+      AspectRatioFixed->True,
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain",
+      FontSlant->"Italic"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]},
+   {
+    ButtonBox[
+     RowBox[{"Ring", " ", "Lab", " ", "9"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "RingLabs", "RngLab09.nb"}], "a:1.1"}], 
+    ButtonBox[
+     StyleBox[
+      RowBox[{"Cyclotomic", " ", "Polynomials"}],
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain",
+      FontSlant->"Italic"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]},
+   {
+    ButtonBox[
+     RowBox[{"Ring", " ", "Lab", " ", "10"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "RingLabs", "RngLab10.nb"}], "a:1.1"}], 
+    ButtonBox[
+     StyleBox[
+      RowBox[{"Quotient", " ", "Rings", " ", "of", " ", "Polynomials"}],
+      Evaluatable->False,
+      AspectRatioFixed->True,
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain",
+      FontSlant->"Italic"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]},
+   {
+    ButtonBox[
+     RowBox[{"Ring", " ", "Lab", " ", "11"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "RingLabs", "RngLab11.nb"}], "a:1.1"}], 
+    ButtonBox[
+     StyleBox[
+      RowBox[{"Quadratic", " ", "Field", " ", "Extensions"}],
+      Evaluatable->False,
+      AspectRatioFixed->True,
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain",
+      FontSlant->"Italic"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]},
+   {
+    ButtonBox[
+     RowBox[{"Ring", " ", "Lab", " ", "12"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "RingLabs", "RngLab12.nb"}], "a:1.1"}], 
+    ButtonBox[
+     StyleBox[
+      RowBox[{"Factoring", " ", "in", " ", 
+       FormBox[
+        RowBox[{
+         FormBox[
+          RowBox[{"\[DoubleStruckCapitalZ]", "[", 
+           SqrtBox["d"]}],
+          TraditionalForm], "]"}],
+        TraditionalForm]}],
+      Evaluatable->False,
+      AspectRatioFixed->True,
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain",
+      FontSlant->"Italic"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]},
+   {
+    ButtonBox[
+     RowBox[{"Ring", " ", "Lab", " ", "13"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "RingLabs", "RngLab13.nb"}], "a:1.1"}], 
+    ButtonBox[
+     StyleBox[
+      RowBox[{"Finite", " ", "Fields"}],
+      Evaluatable->False,
+      AspectRatioFixed->True,
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain",
+      FontSlant->"Italic"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]}
+  },
+  GridBoxDividers->{
+   "Columns" -> {False, {True}, False}, "ColumnsIndexed" -> {}, 
+    "Rows" -> {False, {True}, False}, "RowsIndexed" -> {}},
+  GridBoxSpacings->{"Columns" -> {
+      Offset[0.27999999999999997`], {
+       Offset[0.]}, 
+      Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+      Offset[0.2], {
+       Offset[0.]}, 
+      Offset[0.2]}, "RowsIndexed" -> {}},
+  GridDefaultElement:>ButtonBox["\\[Placeholder]"]]], "Input",
+ Active->True,
+ CellTags->"SARingLabs"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["8.4 Files created to be used in the Browser", "Subsection",
+ CellMargins->{{Inherited, Inherited}, {5, 10}},
+ CellTags->"BrowserUser"],
+
+Cell["\<\
+If you click on any of the three options in this section, the specified file \
+will be brought up to be displayed and used within the Help Browser. (Note: \
+For users of version 4 and higher, you may wish to hide the categories to \
+provide for more room.)  If you wish to have the lab notebooks brought up as \
+stand-alone files that are in an unsaved state, click on one of the options \
+in the previous section. In either case, if you wish to have a notebook \
+created that has just the list of questions, click on those options in the \
+third section.\
+\>", "Text",
+ CellTags->"BrowserUser"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["8.4 Lab 0 - question file", "Subsection",
+ CellMargins->{{Inherited, Inherited}, {5, 10}},
+ CellTags->"Quest0"],
+
+Cell["\<\
+If you wish to have a notebook brought up as a stand-alone file that contains \
+the list of all the questions for Lab 0, click on the button below. (The pink \
+button is inert, simply providing the lab name; click on the button on the \
+left.) This approach may be useful if you are going to print out, save, or \
+transmit just the set of answers to the questions.\
+\>", "Text",
+ CellTags->"Quest0"],
+
+Cell[BoxData[GridBox[{
+   {
+    ButtonBox[
+     RowBox[{"Lab", " ", "0"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "Lab0", "Lab0Qts.nb"}], "a:1.1"}], 
+    ButtonBox[
+     StyleBox[
+      RowBox[{"Getting", " ", "Started", " ", "with", " ", "Mathematica"}],
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]}
+  },
+  GridBoxSpacings->{"Columns" -> {
+      Offset[0.27999999999999997`], {
+       Offset[0.]}, 
+      Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+      Offset[0.2], {
+       Offset[0.]}, 
+      Offset[0.2]}, "RowsIndexed" -> {}},
+  GridDefaultElement:>ButtonBox["\\[Placeholder]"]]], "Input",
+ Active->True,
+ CellTags->"Quest0"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["8.5 Group labs - question files", "Subsection",
+ CellMargins->{{Inherited, Inherited}, {5, 10}},
+ CellTags->"QuestGL"],
+
+Cell[TextData[{
+ "If you wish to have a notebook brought up as a stand-alone file that \
+contains the list of all the questions for a given lab, click on the \
+appropriate button below. (The pink buttons are inert, simply providing the \
+lab name; click on the buttons on the left.) This approach may be useful if \
+you are going to print out, save, or transmit just the set of answers to the \
+questions. (Note: This may take a few seconds to load.) If you have not \
+loaded any other files yet, first evaluate the Input cell '",
+ StyleBox["Needs[\"AbstractAlgebra`ReadFiles`\"]",
+  FontFamily->"Courier"],
+ ",' before using any of the buttons."
+}], "Text",
+ CellTags->"QuestGL"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<AbstractAlgebra`ReadFiles`\>\"", "]"}], 
+  ";"}]], "Input",
+ CellTags->"QuestGL"],
+
+Cell[BoxData[GridBox[{
+   {
+    ButtonBox[
+     RowBox[{"Group", " ", "Lab", " ", "1"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "GroupLabQuestions", "GrpQst01.nb"}], "a:1.1"}],
+     
+    ButtonBox[
+     StyleBox[
+      RowBox[{
+      "Using", " ", "Symmetry", " ", "to", " ", "Uncover", " ", "a", " ", 
+       "Group"}],
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain",
+      FontSlant->"Italic"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]},
+   {
+    ButtonBox[
+     RowBox[{"Group", " ", "Lab", " ", "2"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "GroupLabQuestions", "GrpQst02.nb"}], "a:1.1"}],
+     
+    ButtonBox[
+     StyleBox[
+      RowBox[{
+      "Determining", " ", "the", " ", "Symmetry", " ", "Group", " ", "of", 
+       " ", "a", " ", "Given", " ", "Figure"}],
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain",
+      FontSlant->"Italic"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]},
+   {
+    ButtonBox[
+     RowBox[{"Group", " ", "Lab", " ", "3"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "GroupLabQuestions", "GrpQst03.nb"}], "a:1.1"}],
+     
+    ButtonBox[
+     StyleBox[
+      RowBox[{"Is", " ", "This", " ", "a", " ", 
+       RowBox[{"Group", "?"}]}],
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain",
+      FontSlant->"Italic"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]},
+   {
+    ButtonBox[
+     RowBox[{"Group", " ", "Lab", " ", "4"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "GroupLabQuestions", "GrpQst04.nb"}], "a:1.1"}],
+     
+    ButtonBox[
+     StyleBox[
+      RowBox[{
+       RowBox[{
+        StyleBox["Let",
+         Evaluatable->False,
+         AspectRatioFixed->True,
+         FontSlant->"Italic"], "\[CloseCurlyQuote]"}], 
+       StyleBox["s",
+        Evaluatable->False,
+        AspectRatioFixed->True,
+        FontSlant->"Italic"], 
+       StyleBox[" ",
+        Evaluatable->False,
+        AspectRatioFixed->True,
+        FontSlant->"Italic"], 
+       StyleBox["Get",
+        Evaluatable->False,
+        AspectRatioFixed->True,
+        FontSlant->"Italic"], 
+       StyleBox[" ",
+        Evaluatable->False,
+        AspectRatioFixed->True,
+        FontSlant->"Italic"], 
+       StyleBox["These",
+        Evaluatable->False,
+        AspectRatioFixed->True,
+        FontSlant->"Italic"], 
+       StyleBox[" ",
+        Evaluatable->False,
+        AspectRatioFixed->True,
+        FontSlant->"Italic"], 
+       StyleBox["Orders",
+        Evaluatable->False,
+        AspectRatioFixed->True,
+        FontSlant->"Italic"], 
+       StyleBox[" ",
+        Evaluatable->False,
+        AspectRatioFixed->True,
+        FontSlant->"Italic"], 
+       StyleBox["Straight",
+        Evaluatable->False,
+        AspectRatioFixed->True,
+        FontSlant->"Italic"]}],
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]},
+   {
+    ButtonBox[
+     RowBox[{"Group", " ", "Lab", " ", "5"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "GroupLabQuestions", "GrpQst05.nb"}], "a:1.1"}],
+     
+    ButtonBox[
+     StyleBox[
+      RowBox[{"Subversively", " ", "Grouping", " ", "Our", " ", "Elements"}],
+      Evaluatable->False,
+      AspectRatioFixed->True,
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain",
+      FontSlant->"Italic"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]},
+   {
+    ButtonBox[
+     RowBox[{"Group", " ", "Lab", " ", "6"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "GroupLabQuestions", "GrpQst06.nb"}], "a:1.1"}],
+     
+    ButtonBox[
+     StyleBox[
+      RowBox[{"Cycling", " ", "Through", " ", "the", " ", "Groups"}],
+      Evaluatable->False,
+      AspectRatioFixed->True,
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain",
+      FontSlant->"Italic"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]},
+   {
+    ButtonBox[
+     RowBox[{"Group", " ", "Lab", " ", "7"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "GroupLabQuestions", "GrpQst07.nb"}], "a:1.1"}],
+     
+    ButtonBox[
+     StyleBox["Permutations",
+      Evaluatable->False,
+      AspectRatioFixed->True,
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain",
+      FontSlant->"Italic"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]},
+   {
+    ButtonBox[
+     RowBox[{"Group", " ", "Lab", " ", "8"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "GroupLabQuestions", "GrpQst08.nb"}], "a:1.1"}],
+     
+    ButtonBox[
+     StyleBox["Isomorphisms",
+      Evaluatable->False,
+      AspectRatioFixed->True,
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain",
+      FontSlant->"Italic"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]},
+   {
+    ButtonBox[
+     RowBox[{"Group", " ", "Lab", " ", "9"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "GroupLabQuestions", "GrpQst09.nb"}], "a:1.1"}],
+     
+    ButtonBox[
+     StyleBox["Automorphisms",
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain",
+      FontSlant->"Italic"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]},
+   {
+    ButtonBox[
+     RowBox[{"Group", " ", "Lab", " ", "10"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "GroupLabQuestions", "GrpQst10.nb"}], "a:1.1"}],
+     
+    ButtonBox[
+     StyleBox[
+      RowBox[{"Direct", " ", "Products"}],
+      Evaluatable->False,
+      AspectRatioFixed->True,
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain",
+      FontSlant->"Italic"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]},
+   {
+    ButtonBox[
+     RowBox[{"Group", " ", "Lab", " ", "11"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "GroupLabQuestions", "GrpQst11.nb"}], "a:1.1"}],
+     
+    ButtonBox[
+     StyleBox["Cosets",
+      Evaluatable->False,
+      AspectRatioFixed->True,
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain",
+      FontSlant->"Italic"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]},
+   {
+    ButtonBox[
+     RowBox[{"Group", " ", "Lab", " ", "12"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "GroupLabQuestions", "GrpQst12.nb"}], "a:1.1"}],
+     
+    ButtonBox[
+     StyleBox[
+      RowBox[{"Normality", " ", "and", " ", "Factor", " ", "groups"}],
+      Evaluatable->False,
+      AspectRatioFixed->True,
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain",
+      FontSlant->"Italic"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]},
+   {
+    ButtonBox[
+     RowBox[{"Group", " ", "Lab", " ", "13"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "GroupLabQuestions", "GrpQst13.nb"}], "a:1.1"}],
+     
+    ButtonBox[
+     StyleBox["Homomorphisms",
+      Evaluatable->False,
+      AspectRatioFixed->True,
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain",
+      FontSlant->"Italic"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]},
+   {
+    ButtonBox[
+     RowBox[{"Group", " ", "Lab", " ", "14"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "GroupLabQuestions", "GrpQst14.nb"}], "a:1.1"}],
+     
+    ButtonBox[
+     StyleBox[
+      RowBox[{
+      "Rotational", " ", "Groups", " ", "of", " ", "Regular", " ", 
+       "Polyhedra"}],
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain",
+      FontSlant->"Italic"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]}
+  },
+  GridBoxDividers->{
+   "Columns" -> {False, {True}, False}, "ColumnsIndexed" -> {}, 
+    "Rows" -> {False, {True}, False}, "RowsIndexed" -> {}},
+  GridBoxSpacings->{"Columns" -> {
+      Offset[0.27999999999999997`], {
+       Offset[0.]}, 
+      Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+      Offset[0.2], {
+       Offset[0.]}, 
+      Offset[0.2]}, "RowsIndexed" -> {}},
+  GridDefaultElement:>ButtonBox["\\[Placeholder]"]]], "Input",
+ Active->True,
+ CellTags->"QuestGL"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["8.6 Ring labs - question files", "Subsection",
+ CellMargins->{{Inherited, Inherited}, {5, 10}},
+ CellTags->"QuestRL"],
+
+Cell[TextData[{
+ "If you wish to have a notebook brought up as a stand-alone file that \
+contains the list of all the questions for a given lab, click on the \
+appropriate button below. (The pink buttons are inert, simply providing the \
+lab name; click on the buttons on the left.) This approach may be useful if \
+you are going to print out, save, or transmit just the set of answers to the \
+questions. (Note: This may take a few seconds to load.) If you have not \
+loaded any other files yet, first evaluate the Input cell '",
+ StyleBox["Needs[\"AbstractAlgebra`ReadFiles`\"]",
+  FontFamily->"Courier"],
+ ",' before using any of the buttons."
+}], "Text",
+ CellTags->"QuestRL"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<AbstractAlgebra`ReadFiles`\>\"", "]"}], 
+  ";"}]], "Input",
+ CellTags->"QuestRL"],
+
+Cell[BoxData[GridBox[{
+   {
+    ButtonBox[
+     RowBox[{"Ring", " ", "Lab", " ", "1"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "RingLabQuestions", "RngQst01.nb"}], "a:1.1"}], 
+    
+    ButtonBox[
+     StyleBox[
+      RowBox[{
+       StyleBox["An",
+        FontFamily->"Times"], 
+       StyleBox[" ",
+        FontFamily->"Times"], 
+       StyleBox["Introduction",
+        FontFamily->"Times"], 
+       StyleBox[" ",
+        FontFamily->"Times"], 
+       StyleBox["to",
+        FontFamily->"Times"], 
+       StyleBox[" ",
+        FontFamily->"Times"], 
+       StyleBox["Rings",
+        FontFamily->"Times"], 
+       StyleBox[" ",
+        FontFamily->"Times"], 
+       StyleBox["and",
+        FontFamily->"Times"], 
+       StyleBox[" ",
+        FontFamily->"Times"], 
+       StyleBox["Ringoids",
+        FontFamily->"Courier"]}],
+      FontSize->12,
+      FontWeight->"Plain",
+      FontSlant->"Italic"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]},
+   {
+    ButtonBox[
+     RowBox[{"Ring", " ", "Lab", " ", "2"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "RingLabQuestions", "RngQst02.nb"}], "a:1.1"}], 
+    
+    ButtonBox[
+     StyleBox[
+      RowBox[{
+       RowBox[{"An", " ", "Introduction", " ", "to", " ", "Rings"}], ",", " ",
+        
+       RowBox[{"Part", " ", "2"}]}],
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain",
+      FontSlant->"Italic"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]},
+   {
+    ButtonBox[
+     RowBox[{"Ring", " ", "Lab", " ", "3"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "RingLabQuestions", "RngQst03.nb"}], "a:1.1"}], 
+    
+    ButtonBox[
+     StyleBox[
+      RowBox[{"An", " ", "Ideal", " ", "Part", " ", "of", " ", "Rings"}],
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain",
+      FontSlant->"Italic"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]},
+   {
+    ButtonBox[
+     RowBox[{"Ring", " ", "Lab", " ", "4"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "RingLabQuestions", "RngQst04.nb"}], "a:1.1"}], 
+    
+    ButtonBox[
+     StyleBox[
+      RowBox[{"What", " ", "Does", " ", 
+       FormBox[
+        RowBox[{
+         RowBox[{"\[DoubleStruckCapitalZ]", "[", "i", "]"}], "/", 
+         RowBox[{"\[LeftAngleBracket]", 
+          RowBox[{"a", "+", 
+           RowBox[{"b", " ", "i"}]}], "\[RightAngleBracket]"}]}],
+        TraditionalForm], " ", "Look", " ", 
+       RowBox[{"Like", "?"}]}],
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain",
+      FontSlant->"Italic"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]},
+   {
+    ButtonBox[
+     RowBox[{"Ring", " ", "Lab", " ", "5"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "RingLabQuestions", "RngQst05.nb"}], "a:1.1"}], 
+    
+    ButtonBox[
+     StyleBox[
+      RowBox[{"Ring", " ", "Homomorphisms"}],
+      Evaluatable->False,
+      AspectRatioFixed->True,
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain",
+      FontSlant->"Italic"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]},
+   {
+    ButtonBox[
+     RowBox[{"Ring", " ", "Lab", " ", "6"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "RingLabQuestions", "RngQst06.nb"}], "a:1.1"}], 
+    
+    ButtonBox[
+     StyleBox[
+      RowBox[{"Polynomial", " ", "Rings"}],
+      Evaluatable->False,
+      AspectRatioFixed->True,
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain",
+      FontSlant->"Italic"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]},
+   {
+    ButtonBox[
+     RowBox[{"Ring", " ", "Lab", " ", "7"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "RingLabQuestions", "RngQst07.nb"}], "a:1.1"}], 
+    
+    ButtonBox[
+     StyleBox[
+      RowBox[{"Factoring", " ", "and", " ", "Irreducibility"}],
+      Evaluatable->False,
+      AspectRatioFixed->True,
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain",
+      FontSlant->"Italic"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]},
+   {
+    ButtonBox[
+     RowBox[{"Ring", " ", "Lab", " ", "8"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "RingLabQuestions", "RngQst08.nb"}], "a:1.1"}], 
+    
+    ButtonBox[
+     StyleBox[
+      RowBox[{"Roots", " ", "of", " ", "Unity"}],
+      Evaluatable->False,
+      AspectRatioFixed->True,
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain",
+      FontSlant->"Italic"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]},
+   {
+    ButtonBox[
+     RowBox[{"Ring", " ", "Lab", " ", "9"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "RingLabQuestions", "RngQst09.nb"}], "a:1.1"}], 
+    
+    ButtonBox[
+     StyleBox[
+      RowBox[{"Cyclotomic", " ", "Polynomials"}],
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain",
+      FontSlant->"Italic"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]},
+   {
+    ButtonBox[
+     RowBox[{"Ring", " ", "Lab", " ", "10"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "RingLabQuestions", "RngQst10.nb"}], "a:1.1"}], 
+    
+    ButtonBox[
+     StyleBox[
+      RowBox[{"Quotient", " ", "Rings", " ", "of", " ", "Polynomials"}],
+      Evaluatable->False,
+      AspectRatioFixed->True,
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain",
+      FontSlant->"Italic"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]},
+   {
+    ButtonBox[
+     RowBox[{"Ring", " ", "Lab", " ", "11"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "RingLabQuestions", "RngQst11.nb"}], "a:1.1"}], 
+    
+    ButtonBox[
+     StyleBox[
+      RowBox[{"Quadratic", " ", "Field", " ", "Extensions"}],
+      Evaluatable->False,
+      AspectRatioFixed->True,
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain",
+      FontSlant->"Italic"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]},
+   {
+    ButtonBox[
+     RowBox[{"Ring", " ", "Lab", " ", "12"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "RingLabQuestions", "RngQst12.nb"}], "a:1.1"}], 
+    
+    ButtonBox[
+     StyleBox[
+      RowBox[{"Factoring", " ", "in", " ", 
+       FormBox[
+        RowBox[{
+         FormBox[
+          RowBox[{"\[DoubleStruckCapitalZ]", "[", 
+           SqrtBox["d"]}],
+          TraditionalForm], "]"}],
+        TraditionalForm]}],
+      Evaluatable->False,
+      AspectRatioFixed->True,
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain",
+      FontSlant->"Italic"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]},
+   {
+    ButtonBox[
+     RowBox[{"Ring", " ", "Lab", " ", "13"}],
+     BaseStyle->"Hyperlink",
+     ButtonData:>{
+       FrontEnd`FileName[{
+         ParentDirectory[
+          ParentDirectory[]], "RingLabQuestions", "RngQst13.nb"}], "a:1.1"}], 
+    
+    ButtonBox[
+     StyleBox[
+      RowBox[{"Finite", " ", "Fields"}],
+      Evaluatable->False,
+      AspectRatioFixed->True,
+      FontFamily->"Times",
+      FontSize->12,
+      FontWeight->"Plain",
+      FontSlant->"Italic"],
+     Background->RGBColor[1, 0.749996, 0.8],
+     BaseStyle->"Text",
+     ButtonFunction:>Null]},
+   {"", ""}
+  },
+  GridBoxDividers->{
+   "Columns" -> {False, {True}, False}, "ColumnsIndexed" -> {}, 
+    "Rows" -> {False, {True}, False}, "RowsIndexed" -> {}},
+  GridBoxSpacings->{"Columns" -> {
+      Offset[0.27999999999999997`], {
+       Offset[0.]}, 
+      Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+      Offset[0.2], {
+       Offset[0.]}, 
+      Offset[0.2]}, "RowsIndexed" -> {}},
+  GridDefaultElement:>ButtonBox["\\[Placeholder]"]]], "Input",
+ Active->True,
+ CellTags->"QuestRL"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["8.00 Necessary code - hide later, if needed", "Subsection",
+ CellMargins->{{Inherited, Inherited}, {5, 10}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"FolderAndFileQst", "[", "in_", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"char", ",", "num", ",", "type", ",", "file"}], "}"}], ",", 
+    RowBox[{
+     RowBox[{"char", "=", 
+      RowBox[{"Characters", "[", 
+       RowBox[{"StringJoin", "[", 
+        RowBox[{"in", "\[LeftDoubleBracket]", 
+         RowBox[{"1", ",", "1"}], "\[RightDoubleBracket]"}], "]"}], "]"}]}], 
+     ";", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"First", "[", "char", "]"}], "===", "\"\<G\>\""}], ",", 
+       RowBox[{
+        RowBox[{"type", "=", "\"\<GLQ\>\""}], ";", 
+        RowBox[{"num", "=", 
+         RowBox[{"Drop", "[", 
+          RowBox[{"char", ",", "10"}], "]"}]}], ";", 
+        RowBox[{"file", "=", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"Length", "[", "num", "]"}], "\[Equal]", "1"}], ",", 
+           RowBox[{"\"\<GrpQst\>\"", "<>", "\"\<0\>\"", "<>", 
+            RowBox[{"First", "[", "num", "]"}], "<>", "\"\<.nb\>\""}], ",", 
+           RowBox[{"\"\<GrpQst\>\"", "<>", 
+            RowBox[{"StringJoin", "[", "num", "]"}], "<>", "\"\<.nb\>\""}]}], 
+          "]"}]}]}], ",", 
+       RowBox[{
+        RowBox[{"type", "=", "\"\<RingLabsQuestions\>\""}], ";", 
+        RowBox[{"num", "=", 
+         RowBox[{"Drop", "[", 
+          RowBox[{"char", ",", "9"}], "]"}]}], ";", 
+        RowBox[{"file", "=", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"Length", "[", "num", "]"}], "\[Equal]", "1"}], ",", 
+           RowBox[{"\"\<RngQst\>\"", "<>", "\"\<0\>\"", "<>", 
+            RowBox[{"First", "[", "num", "]"}], "<>", "\"\<.nb\>\""}], ",", 
+           RowBox[{"\"\<RngQst\>\"", "<>", 
+            RowBox[{"StringJoin", "[", "num", "]"}], "<>", "\"\<.nb\>\""}]}], 
+          "]"}]}]}]}], "]"}], ";", 
+     RowBox[{"{", 
+      RowBox[{"type", ",", "file"}], "}"}]}]}], "]"}]}], "\n", 
+ RowBox[{
+  RowBox[{"FolderAndFile", "[", "in_", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"char", ",", "num", ",", "type", ",", "file"}], "}"}], ",", 
+    RowBox[{
+     RowBox[{"char", "=", 
+      RowBox[{"Characters", "[", 
+       RowBox[{"StringJoin", "[", 
+        RowBox[{"in", "\[LeftDoubleBracket]", 
+         RowBox[{"1", ",", "1"}], "\[RightDoubleBracket]"}], "]"}], "]"}]}], 
+     ";", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"First", "[", "char", "]"}], "===", "\"\<G\>\""}], ",", 
+       RowBox[{
+        RowBox[{"type", "=", "\"\<GroupLabs\>\""}], ";", 
+        RowBox[{"num", "=", 
+         RowBox[{"Drop", "[", 
+          RowBox[{"char", ",", "10"}], "]"}]}], ";", 
+        RowBox[{"file", "=", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"Length", "[", "num", "]"}], "\[Equal]", "1"}], ",", 
+           RowBox[{"\"\<GrpLab\>\"", "<>", "\"\<0\>\"", "<>", 
+            RowBox[{"First", "[", "num", "]"}], "<>", "\"\<.nb\>\""}], ",", 
+           RowBox[{"\"\<GrpLab\>\"", "<>", 
+            RowBox[{"StringJoin", "[", "num", "]"}], "<>", "\"\<.nb\>\""}]}], 
+          "]"}]}]}], ",", 
+       RowBox[{
+        RowBox[{"type", "=", "\"\<RingLabs\>\""}], ";", 
+        RowBox[{"num", "=", 
+         RowBox[{"Drop", "[", 
+          RowBox[{"char", ",", "9"}], "]"}]}], ";", 
+        RowBox[{"file", "=", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"Length", "[", "num", "]"}], "\[Equal]", "1"}], ",", 
+           RowBox[{"\"\<RngLab\>\"", "<>", "\"\<0\>\"", "<>", 
+            RowBox[{"First", "[", "num", "]"}], "<>", "\"\<.nb\>\""}], ",", 
+           RowBox[{"\"\<RngLab\>\"", "<>", 
+            RowBox[{"StringJoin", "[", "num", "]"}], "<>", "\"\<.nb\>\""}]}], 
+          "]"}]}]}]}], "]"}], ";", 
+     RowBox[{"{", 
+      RowBox[{"type", ",", "file"}], "}"}]}]}], "]"}]}], "\n", 
+ RowBox[{
+  RowBox[{"CopyNotebook", "[", "info_List", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"nb", ",", "type", ",", "flnm"}], "}"}], ",", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"type", ",", "flnm"}], "}"}], "=", "info"}], ";", 
+     RowBox[{"nb", "=", 
+      RowBox[{"NotebookOpen", "[", 
+       RowBox[{
+        RowBox[{"ToFileName", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+           "$TopDirectory", ",", "\"\<AddOns\>\"", ",", 
+            "\"\<Applications\>\"", ",", "\"\<AbstractAlgebra\>\"", ",", 
+            "type"}], "}"}], ",", "flnm"}], "]"}], ",", 
+        RowBox[{"Visible", "\[Rule]", "False"}]}], "]"}]}], ";", 
+     RowBox[{"NotebookPut", "[", 
+      RowBox[{
+       RowBox[{"NotebookGet", "[", "nb", "]"}], ",", 
+       RowBox[{"CreateWindow", "[", 
+        RowBox[{
+         RowBox[{"Visible", "\[Rule]", "True"}], ",", 
+         RowBox[{"Sequence", "@@", 
+          RowBox[{"Options", "[", "nb", "]"}]}]}], "]"}]}], "]"}], ";", 
+     RowBox[{"NotebookClose", "[", "nb", "]"}], ";"}]}], "]"}]}]}], "Input"],
+
+Cell[BoxData[
+ ButtonBox[
+  RowBox[{"Click", " ", "here", " ", "to", " ", "get", " ", "started"}],
+  BaseStyle->None,
+  ButtonFunction:>(NotebookLocate["eval"]; SelectionEvaluate[
+     SelectedNotebook[]]),
+  Evaluator->Automatic]], "Input",
+ Active->True]
+}, Open  ]]
+}, Open  ]]
+},
+AutoGeneratedPackage->None,
+ScreenStyleEnvironment->"Working",
+WindowToolbars->"EditBar",
+WindowSize->{791, 755},
+WindowMargins->{{230, Automatic}, {Automatic, 18}},
+FrontEndVersion->"6.0 for Mac OS X x86 (32-bit) (June 19, 2007)",
+StyleDefinitions->"HelpBrowser.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "standAlone"->{
+  Cell[590, 23, 418, 15, 36, "Title",
+   CellTags->{
+    "standAlone", "SALab0", "SAGroupLabs", "SARingLabs", "BrowserUser", 
+     "QuestRL", "Quest0", "QuestGL"}],
+  Cell[1033, 42, 113, 2, 31, "Subsection",
+   CellTags->"standAlone"],
+  Cell[1149, 46, 1380, 26, 190, "Text",
+   CellTags->"standAlone"],
+  Cell[2532, 74, 1588, 40, 83, "Text",
+   CellTags->{
+    "SALab0", "SAGroupLabs", "SARingLabs", "QuestRL", "Quest0", "QuestGL", 
+     "standAlone"}],
+  Cell[4123, 116, 1314, 36, 48, "Input",
+   CellTags->{
+    "SALab0", "SAGroupLabs", "SARingLabs", "QuestRL", "Quest0", "QuestGL", 
+     "standAlone"}]},
+ "SALab0"->{
+  Cell[590, 23, 418, 15, 36, "Title",
+   CellTags->{
+    "standAlone", "SALab0", "SAGroupLabs", "SARingLabs", "BrowserUser", 
+     "QuestRL", "Quest0", "QuestGL"}],
+  Cell[2532, 74, 1588, 40, 83, "Text",
+   CellTags->{
+    "SALab0", "SAGroupLabs", "SARingLabs", "QuestRL", "Quest0", "QuestGL", 
+     "standAlone"}],
+  Cell[4123, 116, 1314, 36, 48, "Input",
+   CellTags->{
+    "SALab0", "SAGroupLabs", "SARingLabs", "QuestRL", "Quest0", "QuestGL", 
+     "standAlone"}],
+  Cell[5474, 157, 120, 2, 31, "Subsection",
+   CellTags->"SALab0"],
+  Cell[5597, 161, 290, 6, 33, "Text",
+   CellTags->"SALab0"],
+  Cell[5890, 169, 875, 28, 37, "Input",
+   CellTags->"SALab0"]},
+ "SAGroupLabs"->{
+  Cell[590, 23, 418, 15, 36, "Title",
+   CellTags->{
+    "standAlone", "SALab0", "SAGroupLabs", "SARingLabs", "BrowserUser", 
+     "QuestRL", "Quest0", "QuestGL"}],
+  Cell[2532, 74, 1588, 40, 83, "Text",
+   CellTags->{
+    "SALab0", "SAGroupLabs", "SARingLabs", "QuestRL", "Quest0", "QuestGL", 
+     "standAlone"}],
+  Cell[4123, 116, 1314, 36, 48, "Input",
+   CellTags->{
+    "SALab0", "SAGroupLabs", "SARingLabs", "QuestRL", "Quest0", "QuestGL", 
+     "standAlone"}],
+  Cell[6802, 202, 131, 2, 31, "Subsection",
+   CellTags->"SAGroupLabs"],
+  Cell[6936, 206, 416, 7, 46, "Text",
+   CellTags->"SAGroupLabs"],
+  Cell[7355, 215, 9486, 324, 349, "Input",
+   CellTags->"SAGroupLabs"]},
+ "SARingLabs"->{
+  Cell[590, 23, 418, 15, 36, "Title",
+   CellTags->{
+    "standAlone", "SALab0", "SAGroupLabs", "SARingLabs", "BrowserUser", 
+     "QuestRL", "Quest0", "QuestGL"}],
+  Cell[2532, 74, 1588, 40, 83, "Text",
+   CellTags->{
+    "SALab0", "SAGroupLabs", "SARingLabs", "QuestRL", "Quest0", "QuestGL", 
+     "standAlone"}],
+  Cell[4123, 116, 1314, 36, 48, "Input",
+   CellTags->{
+    "SALab0", "SAGroupLabs", "SARingLabs", "QuestRL", "Quest0", "QuestGL", 
+     "standAlone"}],
+  Cell[16878, 544, 129, 2, 31, "Subsection",
+   CellTags->"SARingLabs"],
+  Cell[17010, 548, 413, 7, 46, "Text",
+   CellTags->"SARingLabs"],
+  Cell[17426, 557, 8929, 306, 331, "Input",
+   CellTags->"SARingLabs"]},
+ "BrowserUser"->{
+  Cell[590, 23, 418, 15, 36, "Title",
+   CellTags->{
+    "standAlone", "SALab0", "SAGroupLabs", "SARingLabs", "BrowserUser", 
+     "QuestRL", "Quest0", "QuestGL"}],
+  Cell[26392, 868, 140, 2, 31, "Subsection",
+   CellTags->"BrowserUser"],
+  Cell[26535, 872, 605, 10, 59, "Text",
+   CellTags->"BrowserUser"]},
+ "QuestRL"->{
+  Cell[590, 23, 418, 15, 36, "Title",
+   CellTags->{
+    "standAlone", "SALab0", "SAGroupLabs", "SARingLabs", "BrowserUser", 
+     "QuestRL", "Quest0", "QuestGL"}],
+  Cell[2532, 74, 1588, 40, 83, "Text",
+   CellTags->{
+    "SALab0", "SAGroupLabs", "SARingLabs", "QuestRL", "Quest0", "QuestGL", 
+     "standAlone"}],
+  Cell[4123, 116, 1314, 36, 48, "Input",
+   CellTags->{
+    "SALab0", "SAGroupLabs", "SARingLabs", "QuestRL", "Quest0", "QuestGL", 
+     "standAlone"}],
+  Cell[39268, 1300, 123, 2, 31, "Subsection",
+   CellTags->"QuestRL"],
+  Cell[39394, 1304, 680, 12, 59, "Text",
+   CellTags->"QuestRL"],
+  Cell[40077, 1318, 134, 4, 23, "Input",
+   CellTags->"QuestRL"],
+  Cell[40214, 1324, 9051, 317, 342, "Input",
+   CellTags->"QuestRL"]},
+ "Quest0"->{
+  Cell[590, 23, 418, 15, 36, "Title",
+   CellTags->{
+    "standAlone", "SALab0", "SAGroupLabs", "SARingLabs", "BrowserUser", 
+     "QuestRL", "Quest0", "QuestGL"}],
+  Cell[2532, 74, 1588, 40, 83, "Text",
+   CellTags->{
+    "SALab0", "SAGroupLabs", "SARingLabs", "QuestRL", "Quest0", "QuestGL", 
+     "standAlone"}],
+  Cell[4123, 116, 1314, 36, 48, "Input",
+   CellTags->{
+    "SALab0", "SAGroupLabs", "SARingLabs", "QuestRL", "Quest0", "QuestGL", 
+     "standAlone"}],
+  Cell[27177, 887, 117, 2, 31, "Subsection",
+   CellTags->"Quest0"],
+  Cell[27297, 891, 409, 7, 46, "Text",
+   CellTags->"Quest0"],
+  Cell[27709, 900, 874, 28, 37, "Input",
+   CellTags->"Quest0"]},
+ "QuestGL"->{
+  Cell[590, 23, 418, 15, 36, "Title",
+   CellTags->{
+    "standAlone", "SALab0", "SAGroupLabs", "SARingLabs", "BrowserUser", 
+     "QuestRL", "Quest0", "QuestGL"}],
+  Cell[2532, 74, 1588, 40, 83, "Text",
+   CellTags->{
+    "SALab0", "SAGroupLabs", "SARingLabs", "QuestRL", "Quest0", "QuestGL", 
+     "standAlone"}],
+  Cell[4123, 116, 1314, 36, 48, "Input",
+   CellTags->{
+    "SALab0", "SAGroupLabs", "SARingLabs", "QuestRL", "Quest0", "QuestGL", 
+     "standAlone"}],
+  Cell[28620, 933, 124, 2, 31, "Subsection",
+   CellTags->"QuestGL"],
+  Cell[28747, 937, 680, 12, 59, "Text",
+   CellTags->"QuestGL"],
+  Cell[29430, 951, 134, 4, 23, "Input",
+   CellTags->"QuestGL"],
+  Cell[29567, 957, 9664, 338, 349, "Input",
+   CellTags->"QuestGL"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"standAlone", 55147, 1803},
+ {"SALab0", 55769, 1820},
+ {"SAGroupLabs", 56451, 1839},
+ {"SARingLabs", 57150, 1858},
+ {"BrowserUser", 57850, 1877},
+ {"QuestRL", 58173, 1886},
+ {"Quest0", 58929, 1907},
+ {"QuestGL", 59610, 1926}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[590, 23, 418, 15, 36, "Title",
+ CellTags->{
+  "standAlone", "SALab0", "SAGroupLabs", "SARingLabs", "BrowserUser", 
+   "QuestRL", "Quest0", "QuestGL"}],
+Cell[CellGroupData[{
+Cell[1033, 42, 113, 2, 31, "Subsection",
+ CellTags->"standAlone"],
+Cell[1149, 46, 1380, 26, 190, "Text",
+ CellTags->"standAlone"],
+Cell[2532, 74, 1588, 40, 83, "Text",
+ CellTags->{
+  "SALab0", "SAGroupLabs", "SARingLabs", "QuestRL", "Quest0", "QuestGL", 
+   "standAlone"}],
+Cell[4123, 116, 1314, 36, 48, "Input",
+ CellTags->{
+  "SALab0", "SAGroupLabs", "SARingLabs", "QuestRL", "Quest0", "QuestGL", 
+   "standAlone"}]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5474, 157, 120, 2, 31, "Subsection",
+ CellTags->"SALab0"],
+Cell[5597, 161, 290, 6, 33, "Text",
+ CellTags->"SALab0"],
+Cell[5890, 169, 875, 28, 37, "Input",
+ CellTags->"SALab0"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6802, 202, 131, 2, 31, "Subsection",
+ CellTags->"SAGroupLabs"],
+Cell[6936, 206, 416, 7, 46, "Text",
+ CellTags->"SAGroupLabs"],
+Cell[7355, 215, 9486, 324, 349, "Input",
+ CellTags->"SAGroupLabs"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16878, 544, 129, 2, 31, "Subsection",
+ CellTags->"SARingLabs"],
+Cell[17010, 548, 413, 7, 46, "Text",
+ CellTags->"SARingLabs"],
+Cell[17426, 557, 8929, 306, 331, "Input",
+ CellTags->"SARingLabs"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[26392, 868, 140, 2, 31, "Subsection",
+ CellTags->"BrowserUser"],
+Cell[26535, 872, 605, 10, 59, "Text",
+ CellTags->"BrowserUser"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[27177, 887, 117, 2, 31, "Subsection",
+ CellTags->"Quest0"],
+Cell[27297, 891, 409, 7, 46, "Text",
+ CellTags->"Quest0"],
+Cell[27709, 900, 874, 28, 37, "Input",
+ CellTags->"Quest0"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[28620, 933, 124, 2, 31, "Subsection",
+ CellTags->"QuestGL"],
+Cell[28747, 937, 680, 12, 59, "Text",
+ CellTags->"QuestGL"],
+Cell[29430, 951, 134, 4, 23, "Input",
+ CellTags->"QuestGL"],
+Cell[29567, 957, 9664, 338, 349, "Input",
+ CellTags->"QuestGL"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[39268, 1300, 123, 2, 31, "Subsection",
+ CellTags->"QuestRL"],
+Cell[39394, 1304, 680, 12, 59, "Text",
+ CellTags->"QuestRL"],
+Cell[40077, 1318, 134, 4, 23, "Input",
+ CellTags->"QuestRL"],
+Cell[40214, 1324, 9051, 317, 342, "Input",
+ CellTags->"QuestRL"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[49302, 1646, 114, 1, 31, "Subsection"],
+Cell[49419, 1649, 5058, 128, 234, "Input"],
+Cell[54480, 1779, 256, 7, 32, "Input"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

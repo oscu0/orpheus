@@ -1,0 +1,614 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 6.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     16434,        604]
+NotebookOptionsPosition[     12805,        476]
+NotebookOutlinePosition[     14618,        540]
+CellTagsIndexPosition[     14524,        534]
+WindowFrame->Normal
+ContainsDynamic->False*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["Name(s): ", "Answer",
+ Evaluatable->False,
+ AspectRatioFixed->True],
+
+Cell[TextData[{
+ StyleBox["Exploring Abstract Algebra with Mathematica\n",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Al Hibbard and Ken Levasseur",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->14,
+  FontSlant->"Plain"],
+ StyleBox["\n",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["\[Copyright] Copyright 1998 Springer-Verlag New York, Inc.",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->10,
+  FontSlant->"Plain"]
+}], "Subsubtitle",
+ Evaluatable->False,
+ AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ StyleBox["Lab 0",
+  FontSize->18],
+ "\n",
+ StyleBox["Getting Started with ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Mathematica",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic"]
+}], "Title",
+ Evaluatable->False,
+ AspectRatioFixed->True,
+ CellTags->"a:3.3"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ StyleBox["Note regarding ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Exploring Abstract Algebra with",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic"],
+ StyleBox[" ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Mathematica",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic"]
+}], "Section",
+ Evaluatable->False,
+ AspectRatioFixed->True,
+ CellTags->"a:2.3.2"],
+
+Cell[TextData[{
+ StyleBox["This lab is intended to supplement an abstract algebra course. It \
+is part of a series of labs and packages under the name ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Exploring Abstract Algebra with Mathematica,",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic"],
+ StyleBox[" a joint project by Al Hibbard (Central College) and Ken Levasseur \
+(UMass-Lowell). This is also the title of a book published by TELOS/Springer \
+Verlag that contains this lab. This book includes labs for group theory, labs \
+for ring theory, and a user\[CloseCurlyQuote]s guide with printed and \
+electronic documentation.",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}], "Text",
+ Evaluatable->False],
+
+Cell[TextData[{
+ StyleBox["For more information on the ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Exploring Abstract Algebra with Mathematica",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic"],
+ StyleBox[" project, go to our web site at ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ ButtonBox["http://www.central.edu/eaam.html",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    URL["http://www.central.edu/eaam.html"], None}],
+ StyleBox[". This site is also mirrored at ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ ButtonBox["http://www.uml.edu/Dept/Math/eaam/eaam.html",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    URL["http://www.uml.edu/Dept/Math/eaam/eaam.html"], None}],
+ StyleBox[". There you will find the latest versions of the packages in ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["AbstractAlgebra",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Courier"],
+ StyleBox[", the latest palettes available to supplement ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["AbstractAlgebra",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Courier"],
+ StyleBox[", and other related resources.",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}], "Text",
+ Evaluatable->False],
+
+Cell[TextData[StyleBox["You may also contact either of the authors:",
+ Evaluatable->False,
+ AspectRatioFixed->True]], "Text",
+ Evaluatable->False],
+
+Cell[TextData[{
+ ButtonBox["Al Hibbard",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    URL["http://www.central.edu/homepages/hibbarda/hibbard.html"], None}],
+ StyleBox["\n",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ ButtonBox["Central College",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    URL["http://www.central.edu"], None}],
+ StyleBox["\nPella, IA 50219\n",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ ButtonBox["hibbarda@central.edu",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    URL["mailto://hibbarda@central.edu"], None}]
+}], "Text",
+ Evaluatable->False],
+
+Cell[TextData[{
+ ButtonBox["Ken Levasseur",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    URL["http://www.uml.edu/Dept/Math/LevasseuK.html"], None}],
+ StyleBox["\n",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ ButtonBox["UMass Lowell",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    URL["http://www.uml.edu"], None}],
+ StyleBox["\nLowell, MA",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ " ",
+ StyleBox["01854\n",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ ButtonBox["Kenneth_Levasseur@uml.edu",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    URL["mailto://Kenneth_Levasseur@uml.edu"], None}]
+}], "Text",
+ Evaluatable->False],
+
+Cell[TextData[{
+ StyleBox["Last revision: April 25, 1998\n\n",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["\[Copyright] Copyright 1998 Springer-Verlag New York, Inc.",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->10,
+  FontSlant->"Plain"]
+}], "Text",
+ Evaluatable->False]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Questions", "Section",
+ Evaluatable->False,
+ AspectRatioFixed->True],
+
+Cell[TextData[{
+ "Answer these questions according to the following scheme: When you need to \
+use ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " commands related to a particular question, first obtain an input cell \
+below the question and then enter your commands. (Recall, to do so, move the \
+mouse until you get a horizontal cursor, click the mouse, and begin typing.) \
+Otherwise, for a descriptive or textual response, type in the cell labeled ",
+ StyleBox["Answer",
+  FontWeight->"Bold"],
+ ": that is below the question. As you work, you may wish to save to your \
+diskette (or other location, as your local circumstances dictate) at least \
+every 15 minutes. When complete, submit as instructed by your professor."
+}], "Text"],
+
+Cell[TextData[{
+ StyleBox["Q1",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontWeight->"Bold"],
+ StyleBox[". Go to section 0.4 (below) and open up the nested cells. What do \
+you find inside at the inner-most nested level?",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}], "Question",
+ Evaluatable->False],
+
+Cell["Answer: ", "Answer",
+ Evaluatable->False],
+
+Cell[TextData[{
+ StyleBox["Q2",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontWeight->"Bold"],
+ StyleBox[". Evaluate the cell below. (Remember to use the SHIFT/RETURN \
+combination.) What do these results have in common with the above \
+approximations of 26/3?",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}], "Question",
+ Evaluatable->False],
+
+Cell["Answer: ", "Answer",
+ Evaluatable->False],
+
+Cell[TextData[{
+ StyleBox["Q3",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontWeight->"Bold"],
+ StyleBox[". Above this cell, but below the preceding paragraph of text, \
+create an input cell, type in 17/3, and evaluate the cell. Create another \
+cell and determine the decimal approximations of 14/3 and 11/3. What do these \
+results have in common with previous results?",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}], "Question",
+ Evaluatable->False],
+
+Cell["Answer: ", "Answer",
+ Evaluatable->False],
+
+Cell[TextData[{
+ StyleBox["Q4",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontWeight->"Bold"],
+ StyleBox[". Evaluate the following ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Input",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Courier"],
+ StyleBox[" cell. Next, create a new input cell and either retype the line \
+just evaluated or copy it and paste it in the new cell. (You are not expected \
+to understand what these instructions in the ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Input",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Courier"],
+ StyleBox[" cell mean.) Before evaluating, change the 2 to a 1. What do the \
+results in the output have in common? How do they compare to the previous \
+output?",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}], "Question",
+ Evaluatable->False],
+
+Cell["Answer: ", "Answer",
+ Evaluatable->False],
+
+Cell[TextData[{
+ StyleBox["Q5",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontWeight->"Bold"],
+ StyleBox[". Evaluate the following ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Input",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Courier"],
+ StyleBox[" cell. What error(s) does it have? Correct the error(s) to arrive \
+at the intended input.",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}], "Question",
+ Evaluatable->False],
+
+Cell["Answer: ", "Answer",
+ Evaluatable->False],
+
+Cell[TextData[{
+ StyleBox["Q6",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontWeight->"Bold"],
+ StyleBox[". Using the help facility, learn more about the ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Expand",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Courier"],
+ StyleBox[" function. What does this function do? (Hint: ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Expand",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Courier"],
+ StyleBox[" is a built-in function used for algebraic computations in basic \
+algebra.)",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}], "Question",
+ Evaluatable->False],
+
+Cell["Answer: ", "Answer",
+ Evaluatable->False],
+
+Cell[TextData[{
+ StyleBox["Q7",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontWeight->"Bold"],
+ StyleBox[". Determine the values of ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"22", " ", "mod", " ", "3"}], TraditionalForm]]],
+ StyleBox[", ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"25", " ", "mod", " ", "3"}], TraditionalForm]]],
+ StyleBox[" and ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"28", " ", "mod", " ", "3"}], TraditionalForm]]],
+ StyleBox[" using either the ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Mod",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Courier"],
+ StyleBox[" function or the ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["IllustrateModReduction",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Courier"],
+ StyleBox[" function. What do these three values have in common? How are 22, \
+25 and 28 related to each other?",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}], "Question",
+ Evaluatable->False],
+
+Cell["Answer: ", "Answer",
+ Evaluatable->False],
+
+Cell[TextData[{
+ StyleBox["Q8",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontWeight->"Bold"],
+ StyleBox[". Determine the values of ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"21", " ", "mod", " ", "3"}], TraditionalForm]]],
+ StyleBox[", ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"24", " ", "mod", " ", "3"}], TraditionalForm]]],
+ StyleBox[" and ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"27", " ", "mod", " ", "3"}], TraditionalForm]]],
+ StyleBox[" using either the ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["Mod",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Courier"],
+ StyleBox[" function or the ",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+ StyleBox["IllustrateModReduction",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Courier"],
+ StyleBox[" function. What do these three values have in common? How are 21, \
+24 and 27 related to each other?",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}], "Question",
+ Evaluatable->False],
+
+Cell["Answer: ", "Answer",
+ Evaluatable->False],
+
+Cell[TextData[{
+ StyleBox["Q9",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontWeight->"Bold"],
+ StyleBox[". What is the gcd of 242652 and 3054876?",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}], "Question",
+ Evaluatable->False],
+
+Cell["Answer: ", "Answer",
+ Evaluatable->False]
+}, Closed]]
+}, Closed]]
+},
+AutoGeneratedPackage->None,
+WindowToolbars->"EditBar",
+InitializationCellEvaluation->True,
+WindowSize->{628, 433},
+WindowMargins->{{4, Automatic}, {Automatic, 1}},
+PrintingCopies->1,
+PrintingPageRange->{1, Automatic},
+PageHeaders->{{
+   Cell[
+    TextData[{
+      StyleBox[
+       CounterBox["Page"], FontWeight -> "Bold"], "  ", 
+      StyleBox["Groups", FontSlant -> "Italic"]}], "Text"], Inherited, 
+   None}, {None, Inherited, 
+   Cell[
+    TextData[{
+      StyleBox[
+      "Lab 1 Using symmetry to uncover a group", FontSlant -> "Italic"], "  ",
+       
+      StyleBox[
+       CounterBox["Page"], FontWeight -> "Bold"]}], "Text"]}},
+PageHeaderLines->{False, False},
+PrintingOptions->{"FacingPages"->True,
+"FirstPageFooter"->False,
+"FirstPageHeader"->False,
+"PrintCellBrackets"->False,
+"PrintMultipleHorizontalPages"->False,
+"PrintRegistrationMarks"->False,
+"PrintingMargins"->{{54, 54}, {72, 72}}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, -1}},
+ShowGroupOpener->True,
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False},
+MacintoshSystemPageSetup -> \
+"00<0004/0B`000002mT8o?mooh<<HPUi0fL5:0?l0080004/0B`000000]P2:001\n\
+0000I00000400`<300000BL?00400@BbcP000000000006P801T1T00000000000\n\
+00000000000000000000000000000000",
+FrontEndVersion->"6.0 for Mac OS X x86 (32-bit) (June 19, 2007)",
+StyleDefinitions->"EAAM.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "a:3.3"->{
+  Cell[1209, 48, 317, 14, 104, "Title",
+   Evaluatable->False,
+   CellTags->"a:3.3"]},
+ "a:2.3.2"->{
+  Cell[1551, 66, 453, 18, 55, "Section",
+   Evaluatable->False,
+   CellTags->"a:2.3.2"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"a:3.3", 14310, 523},
+ {"a:2.3.2", 14411, 527}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[568, 21, 73, 2, 42, "Answer",
+ Evaluatable->False],
+Cell[644, 25, 540, 19, 81, "Subsubtitle",
+ Evaluatable->False],
+Cell[CellGroupData[{
+Cell[1209, 48, 317, 14, 104, "Title",
+ Evaluatable->False,
+ CellTags->"a:3.3"],
+Cell[CellGroupData[{
+Cell[1551, 66, 453, 18, 55, "Section",
+ Evaluatable->False,
+ CellTags->"a:2.3.2"],
+Cell[2007, 86, 752, 17, 109, "Text",
+ Evaluatable->False],
+Cell[2762, 105, 1295, 40, 109, "Text",
+ Evaluatable->False],
+Cell[4060, 147, 146, 3, 33, "Text",
+ Evaluatable->False],
+Cell[4209, 152, 578, 20, 90, "Text",
+ Evaluatable->False],
+Cell[4790, 174, 642, 24, 90, "Text",
+ Evaluatable->False],
+Cell[5435, 200, 302, 10, 67, "Text",
+ Evaluatable->False]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[5774, 215, 74, 2, 35, "Section",
+ Evaluatable->False],
+Cell[5851, 219, 743, 14, 148, "Text"],
+Cell[6597, 235, 316, 10, 67, "Question",
+ Evaluatable->False],
+Cell[6916, 247, 47, 1, 47, "Answer",
+ Evaluatable->False],
+Cell[6966, 250, 355, 11, 67, "Question",
+ Evaluatable->False],
+Cell[7324, 263, 47, 1, 47, "Answer",
+ Evaluatable->False],
+Cell[7374, 266, 466, 12, 86, "Question",
+ Evaluatable->False],
+Cell[7843, 280, 47, 1, 47, "Answer",
+ Evaluatable->False],
+Cell[7893, 283, 879, 27, 105, "Question",
+ Evaluatable->False],
+Cell[8775, 312, 47, 1, 47, "Answer",
+ Evaluatable->False],
+Cell[8825, 315, 472, 17, 67, "Question",
+ Evaluatable->False],
+Cell[9300, 334, 47, 1, 47, "Answer",
+ Evaluatable->False],
+Cell[9350, 337, 685, 24, 67, "Question",
+ Evaluatable->False],
+Cell[10038, 363, 47, 1, 47, "Answer",
+ Evaluatable->False],
+Cell[10088, 366, 1146, 42, 86, "Question",
+ Evaluatable->False],
+Cell[11237, 410, 47, 1, 47, "Answer",
+ Evaluatable->False],
+Cell[11287, 413, 1146, 42, 86, "Question",
+ Evaluatable->False],
+Cell[12436, 457, 47, 1, 47, "Answer",
+ Evaluatable->False],
+Cell[12486, 460, 241, 9, 48, "Question",
+ Evaluatable->False],
+Cell[12730, 471, 47, 1, 47, "Answer",
+ Evaluatable->False]
+}, Closed]]
+}, Closed]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

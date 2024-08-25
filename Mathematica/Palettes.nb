@@ -1,0 +1,1270 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     54548,       1262]
+NotebookOptionsPosition[     53055,       1230]
+NotebookOutlinePosition[     53423,       1246]
+CellTagsIndexPosition[     53380,       1243]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"Get", "[", "\"\<http://goo.gl/QPywk\>\"", "]"}]], "Input",
+ CellChangeTimes->{
+  3.744282067502206*^9, {3.761821556280147*^9, 
+   3.761821556291576*^9}},ExpressionUUID->"1ec50492-24cb-4635-842c-\
+a68ac016278a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"PaletteNotebook", "[", 
+  RowBox[{
+   RowBox[{"Tooltip", "[", 
+    RowBox[{
+     RowBox[{"Button", "[", 
+      RowBox[{"\"\<Copy for MSE\>\"", ",", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"MemberQ", "[", 
+          RowBox[{
+           RowBox[{"Hold", "[", 
+            RowBox[{
+             RowBox[{"{", "}"}], ",", "$Failed", ",", 
+             RowBox[{"NotebookRead", "[", "$Failed", "]"}]}], "]"}], ",", 
+           RowBox[{"NotebookRead", "[", 
+            RowBox[{"SelectedNotebook", "[", "]"}], "]"}]}], "]"}], ",", 
+         RowBox[{"Beep", "[", "]"}], ",", 
+         RowBox[{
+          RowBox[{"FrontEndTokenExecute", "[", 
+           RowBox[{
+            RowBox[{"SelectedNotebook", "[", "]"}], ",", 
+            "\"\<CopySpecial\>\"", ",", "\"\<InputText\>\""}], "]"}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"Map", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"CreateDocument", "[", 
+              RowBox[{
+               RowBox[{"Cell", "[", 
+                RowBox[{
+                 RowBox[{"BoxData", "[", "#", "]"}], ",", "\"\<Code\>\"", ",", 
+                 RowBox[{"Evaluatable", "\[Rule]", "False"}], ",", 
+                 RowBox[{"InitializationCell", "\[Rule]", "False"}], ",", 
+                 RowBox[{"Background", "\[Rule]", "White"}], ",", 
+                 RowBox[{"CellMargins", "\[Rule]", "10"}]}], "]"}], ",", 
+               RowBox[{"DockedCells", "\[Rule]", 
+                RowBox[{"Cell", "[", 
+                 RowBox[{
+                  RowBox[{"BoxData", "@", 
+                   RowBox[{"ToBoxes", "@", 
+                    RowBox[{"Button", "[", 
+                    RowBox[{"\"\<Copy all\>\"", ",", 
+                    RowBox[{
+                    RowBox[{"SelectionMove", "[", 
+                    RowBox[{
+                    RowBox[{"EvaluationNotebook", "[", "]"}], ",", "All", ",",
+                     "Notebook"}], "]"}], ";", "\[IndentingNewLine]", 
+                    RowBox[{"FrontEndTokenExecute", "[", 
+                    RowBox[{
+                    RowBox[{"SelectedNotebook", "[", "]"}], ",", 
+                    "\"\<Copy\>\""}], "]"}]}]}], "]"}]}]}], ",", 
+                  "\"\<DockedCell\>\""}], "]"}]}], ",", 
+               RowBox[{"WindowTitle", "\[Rule]", 
+                RowBox[{"\"\<Code to copy (from \>\"", "<>", 
+                 RowBox[{"NotebookTools`NotebookName", "@", 
+                  RowBox[{"SelectedNotebook", "[", "]"}]}], "<>", 
+                 "\"\<)\>\""}]}], ",", 
+               RowBox[{"Saveable", "\[Rule]", "False"}]}], "]"}], "&"}], ",", 
+            
+            RowBox[{"Cases", "[", 
+             RowBox[{
+              RowBox[{"NotebookGet", "@", 
+               RowBox[{"ClipboardNotebook", "[", "]"}]}], ",", 
+              RowBox[{
+               RowBox[{"Cell", "[", 
+                RowBox[{"c_String", ",", "___"}], "]"}], "\[RuleDelayed]", 
+               RowBox[{"\"\<    \>\"", "<>", 
+                RowBox[{"StringReplace", "[", 
+                 RowBox[{
+                  RowBox[{"StringJoin", "@", 
+                   RowBox[{"Riffle", "[", 
+                    RowBox[{
+                    RowBox[{"StringReplace", "[", 
+                    RowBox[{
+                    RowBox[{"StringTrim", "@", 
+                    RowBox[{"StringSplit", "[", 
+                    RowBox[{"c", ",", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"\"\<In\>\"", "|", "\"\<Out\>\""}], ")"}], "~~", 
+                    "\"\<[\>\"", "~~", 
+                    RowBox[{"DigitCharacter", ".."}], "~~", "\"\<]\>\""}]}], 
+                    "]"}]}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    "StartOfString", "~~", "\"\<:=\>\"", "~~", 
+                    "WhitespaceCharacter", "~~", "input__"}], 
+                    "\[RuleDelayed]", "input"}], ",", 
+                    RowBox[{
+                    RowBox[{
+                    "StartOfString", "~~", "\"\<=\>\"", "~~", 
+                    "WhitespaceCharacter", "~~", "output__"}], 
+                    "\[RuleDelayed]", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"StringFreeQ", "[", 
+                    RowBox[{"output", ",", "\"\<\\n\>\""}], "]"}], ",", 
+                    RowBox[{
+                    "\"\<(* ==> \>\"", "<>", "output", "<>", "\"\< *)\>\""}], 
+                    ",", 
+                    RowBox[{
+                    "\"\<(*\\n==> \>\"", "<>", "output", "<>", 
+                    "\"\<\\n*)\>\""}]}], "]"}]}]}], "}"}]}], "]"}], ",", 
+                    "\"\<\\n\\n\>\""}], "]"}]}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"\"\<\\n\>\"", "\[Rule]", "\"\<\\n    \>\""}], 
+                    ",", 
+                    RowBox[{"\"\<\[Pi]\>\"", "\[Rule]", "\"\<Pi\>\""}], ",", 
+                    RowBox[{
+                    "\"\<\[ExponentialE]\>\"", "\[Rule]", "\"\<E\>\""}], ",", 
+                    
+                    RowBox[{
+                    RowBox[{
+                    "\"\<\[ImaginaryI]\>\"", "|", "\"\<\[ImaginaryJ]\>\""}], 
+                    "\[Rule]", "\"\<I\>\""}], ",", 
+                    RowBox[{
+                    "\"\<\[UndirectedEdge]\>\"", "\[Rule]", "\"\<<->\>\""}], 
+                    ",", 
+                    RowBox[{
+                    "\"\<\[Infinity]\>\"", "\[Rule]", "\"\<Infinity\>\""}]}], 
+                   "}"}]}], "]"}]}]}], ",", "Infinity"}], "]"}]}], "]"}]}]}], 
+        "]"}], ",", 
+       RowBox[{"Appearance", "\[Rule]", "\"\<Palette\>\""}]}], "]"}], ",", 
+     "\"\<Copy formatted for use on Mathematica.SE\>\"", ",", 
+     RowBox[{"TooltipDelay", "\[Rule]", "Automatic"}]}], "]"}], ",", 
+   RowBox[{"WindowTitle", "\[Rule]", "\"\<Code Copy\>\""}], ",", 
+   RowBox[{"Saveable", "\[Rule]", "False"}]}], "]"}]], "Input",
+ CellChangeTimes->{
+  3.744282067502206*^9, {3.761819718383644*^9, 3.7618197183935423`*^9}},
+ CellLabel->"In[15]:=",ExpressionUUID->"a904f034-1b12-4a67-b75b-1190584d5a8f"],
+
+Cell[BoxData[
+ InterpretationBox[
+  PanelBox[GridBox[{
+     {
+      TooltipBox[
+       ButtonBox[
+        StyleBox[
+         DynamicBox[FEPrivate`FrontEndResource[
+          "FEBitmaps", "ManipulatePasteIcon"],
+          ImageSizeCache->{13., {4., 9.}}],
+         DynamicUpdating->True],
+        Appearance->{Automatic, None, "Normal", Automatic},
+        ButtonFunction:>FrontEndExecute[{
+           FrontEnd`NotebookPut[
+            Notebook[{
+              Cell[
+               BoxData[
+                TagBox[
+                 TooltipBox[
+                  ButtonBox["\"Copy for MSE\"", ButtonFunction :> If[
+                    MemberQ[
+                    Hold[{}, $Failed, 
+                    NotebookRead[$Failed]], 
+                    NotebookRead[
+                    SelectedNotebook[]]], 
+                    Beep[], FrontEndTokenExecute[
+                    SelectedNotebook[], "CopySpecial", "InputText"]; 
+                    Map[CreateDocument[
+                    Cell[
+                    BoxData[#], "Code", Evaluatable -> False, 
+                    InitializationCell -> False, Background -> White, 
+                    CellMargins -> 10], DockedCells -> Cell[
+                    BoxData[
+                    ToBoxes[
+                    Button["Copy all", SelectionMove[
+                    EvaluationNotebook[], All, Notebook]; FrontEndTokenExecute[
+                    SelectedNotebook[], "Copy"]]]], "DockedCell"], 
+                    WindowTitle -> StringJoin["Code to copy (from ", 
+                    NotebookTools`NotebookName[
+                    SelectedNotebook[]], ")"], Saveable -> False]& , 
+                    Cases[
+                    NotebookGet[
+                    ClipboardNotebook[]], Cell[
+                    Pattern[$CellContext`c, 
+                    Blank[String]], 
+                    BlankNullSequence[]] :> StringJoin["    ", 
+                    StringReplace[
+                    StringJoin[
+                    Riffle[
+                    StringReplace[
+                    StringTrim[
+                    StringSplit[$CellContext`c, 
+                    StringExpression[
+                    Alternatives["In", "Out"], "[", 
+                    Repeated[DigitCharacter], "]"]]], {
+                    StringExpression[StartOfString, ":=", WhitespaceCharacter, 
+                    Pattern[$CellContext`input, 
+                    BlankSequence[]]] :> $CellContext`input, 
+                    StringExpression[
+                    StartOfString, "=", WhitespaceCharacter, 
+                    Pattern[$CellContext`output, 
+                    BlankSequence[]]] :> If[
+                    StringFreeQ[$CellContext`output, "\n"], 
+                    StringJoin["(* ==> ", $CellContext`output, " *)"], 
+                    StringJoin["(*\n==> ", $CellContext`output, "\n*)"]]}], 
+                    "\n\n"]], {
+                    "\n" -> "\n    ", "\[Pi]" -> "Pi", "\[ExponentialE]" -> 
+                    "E", Alternatives["\[ImaginaryI]", "\[ImaginaryJ]"] -> 
+                    "I", "\[UndirectedEdge]" -> "<->", "\[Infinity]" -> 
+                    "Infinity"}]], Infinity]]], Appearance -> "Palette", 
+                   Evaluator -> Automatic, Method -> "Preemptive"], 
+                  "\"Copy formatted for use on Mathematica.SE\"", 
+                  TooltipDelay -> Automatic, LabelStyle -> "TextStyling"], 
+                 Annotation[#, "Copy formatted for use on Mathematica.SE", 
+                  "Tooltip"]& ]]]}, WindowTitle -> "Code Copy", Saveable -> 
+             False, WindowElements -> {}, 
+             WindowMargins -> {{Automatic, 0}, {Automatic, 0}}, WindowSize -> 
+             All, StyleDefinitions -> "Palette.nb"]]}],
+        DefaultBaseStyle->{},
+        Evaluator->None,
+        Method->"Queued"],
+       DynamicBox[
+        ToBoxes[
+         FEPrivate`FrontEndResource["FEStrings", "NotebookInNewWindow"]]]]},
+     {
+      ItemBox[GridBox[{
+         {Cell[BoxData[
+           TagBox[
+            TooltipBox[
+             ButtonBox["\<\"Copy for MSE\"\>",
+              Appearance->"Palette",
+              ButtonFunction:>If[
+                MemberQ[
+                 Hold[{}, $Failed, 
+                  NotebookRead[$Failed]], 
+                 NotebookRead[
+                  SelectedNotebook[]]], 
+                Beep[], FrontEndTokenExecute[
+                  SelectedNotebook[], "CopySpecial", "InputText"]; 
+                Map[CreateDocument[
+                   Cell[
+                    BoxData[#], "Code", Evaluatable -> False, 
+                    InitializationCell -> False, Background -> White, 
+                    CellMargins -> 10], DockedCells -> Cell[
+                    BoxData[
+                    ToBoxes[
+                    Button["Copy all", SelectionMove[
+                    EvaluationNotebook[], All, Notebook]; FrontEndTokenExecute[
+                    SelectedNotebook[], "Copy"]]]], "DockedCell"], 
+                   WindowTitle -> StringJoin["Code to copy (from ", 
+                    NotebookTools`NotebookName[
+                    SelectedNotebook[]], ")"], Saveable -> False]& , 
+                  Cases[
+                   NotebookGet[
+                    ClipboardNotebook[]], Cell[
+                    Pattern[$CellContext`c, 
+                    Blank[String]], 
+                    BlankNullSequence[]] :> StringJoin["    ", 
+                    StringReplace[
+                    StringJoin[
+                    Riffle[
+                    StringReplace[
+                    StringTrim[
+                    StringSplit[$CellContext`c, 
+                    StringExpression[
+                    Alternatives["In", "Out"], "[", 
+                    Repeated[DigitCharacter], "]"]]], {
+                    StringExpression[StartOfString, ":=", WhitespaceCharacter, 
+                    Pattern[$CellContext`input, 
+                    BlankSequence[]]] :> $CellContext`input, 
+                    StringExpression[
+                    StartOfString, "=", WhitespaceCharacter, 
+                    Pattern[$CellContext`output, 
+                    BlankSequence[]]] :> If[
+                    StringFreeQ[$CellContext`output, "\n"], 
+                    StringJoin["(* ==> ", $CellContext`output, " *)"], 
+                    StringJoin["(*\n==> ", $CellContext`output, "\n*)"]]}], 
+                    "\n\n"]], {
+                    "\n" -> "\n    ", "\[Pi]" -> "Pi", "\[ExponentialE]" -> 
+                    "E", Alternatives["\[ImaginaryI]", "\[ImaginaryJ]"] -> 
+                    "I", "\[UndirectedEdge]" -> "<->", "\[Infinity]" -> 
+                    "Infinity"}]], Infinity]]],
+              Evaluator->Automatic,
+              Method->"Preemptive"],
+             "\"Copy formatted for use on Mathematica.SE\"",
+             TooltipDelay->Automatic,
+             TooltipStyle->"TextStyling"],
+            
+            Annotation[#, "Copy formatted for use on Mathematica.SE", 
+             "Tooltip"]& ]],ExpressionUUID->
+           "bb6bd5dc-ed5d-4733-9e79-0192ed7c9ba8"]}
+        },
+        GridBoxAlignment->{
+         "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+          "Rows" -> {{Baseline}}, "RowsIndexed" -> {}}],
+       Background->GrayLevel[1],
+       Frame->True,
+       FrameStyle->GrayLevel[0, 0.2]]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}}],
+   BaseStyle->{FontFamily -> "CMU Typewriter Text"},
+   DefaultBaseStyle->{},
+   FrameMargins->5],
+  PaletteNotebook[
+   Tooltip[
+    Button["Copy for MSE", 
+     If[
+      MemberQ[
+       Hold[{}, $Failed, 
+        NotebookRead[$Failed]], 
+       NotebookRead[
+        SelectedNotebook[]]], 
+      Beep[], FrontEndTokenExecute[
+        SelectedNotebook[], "CopySpecial", "InputText"]; Map[CreateDocument[
+         Cell[
+          BoxData[#], "Code", Evaluatable -> False, InitializationCell -> 
+          False, Background -> White, CellMargins -> 10], DockedCells -> 
+         Cell[
+           BoxData[
+            ToBoxes[
+             Button["Copy all", SelectionMove[
+                EvaluationNotebook[], All, Notebook]; FrontEndTokenExecute[
+                SelectedNotebook[], "Copy"]]]], "DockedCell"], WindowTitle -> 
+         StringJoin["Code to copy (from ", 
+           NotebookTools`NotebookName[
+            SelectedNotebook[]], ")"], Saveable -> False]& , 
+        Cases[
+         NotebookGet[
+          ClipboardNotebook[]], Cell[
+           Pattern[$CellContext`c, 
+            Blank[String]], 
+           BlankNullSequence[]] :> StringJoin["    ", 
+           StringReplace[
+            StringJoin[
+             Riffle[
+              StringReplace[
+               StringTrim[
+                StringSplit[$CellContext`c, 
+                 StringExpression[
+                  Alternatives["In", "Out"], "[", 
+                  Repeated[DigitCharacter], "]"]]], {
+               StringExpression[StartOfString, ":=", WhitespaceCharacter, 
+                  Pattern[$CellContext`input, 
+                   BlankSequence[]]] :> $CellContext`input, 
+                StringExpression[StartOfString, "=", WhitespaceCharacter, 
+                  Pattern[$CellContext`output, 
+                   BlankSequence[]]] :> If[
+                  StringFreeQ[$CellContext`output, "\n"], 
+                  StringJoin["(* ==> ", $CellContext`output, " *)"], 
+                  StringJoin["(*\n==> ", $CellContext`output, "\n*)"]]}], 
+              "\n\n"]], {
+            "\n" -> "\n    ", "\[Pi]" -> "Pi", "\[ExponentialE]" -> "E", 
+             Alternatives["\[ImaginaryI]", "\[ImaginaryJ]"] -> "I", 
+             "\[UndirectedEdge]" -> "<->", "\[Infinity]" -> "Infinity"}]], 
+         Infinity]]], Appearance -> "Palette"], 
+    "Copy formatted for use on Mathematica.SE", TooltipDelay -> Automatic], 
+   WindowTitle -> "Code Copy", Saveable -> False]]], "Output",
+ CellChangeTimes->{3.744282067502206*^9, 3.7618197201118402`*^9},
+ CellLabel->"Out[15]=",ExpressionUUID->"3407cd39-ab30-42cf-91d1-b854bc2cb8cb"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"historyLengthButtons", ":=", 
+  RowBox[{"Grid", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Dynamic", "[", 
+        RowBox[{"Button", "[", 
+         RowBox[{"#", ",", 
+          RowBox[{"$HistoryLength", "=", "#"}], ",", 
+          RowBox[{"BaseStyle", "\[Rule]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"$HistoryLength", "\[Equal]", "#"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"\"\<GenericButton\>\"", ",", "Bold"}], "}"}], ",", 
+             RowBox[{"{", "\"\<GenericButton\>\"", "}"}]}], "]"}]}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"Enabled", "\[Rule]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"$HistoryLength", "\[Equal]", "#"}], ",", "False", ",", 
+             "True"}], "]"}]}]}], "]"}], "]"}], "&"}], "/@", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "1", ",", "5", ",", "Infinity"}], "}"}]}], "}"}], 
+    ",", 
+    RowBox[{"Spacings", "\[Rule]", "1"}]}], "]"}]}]], "Input",
+ CellGroupingRules->{"GroupTogetherGrouping", 10000.},
+ GeneratedCell->False,
+ CellAutoOverwrite->False,
+ CellChangeTimes->{
+  3.744282067502206*^9, {3.7618197731391087`*^9, 3.76181977315353*^9}, {
+   3.7618199969295464`*^9, 3.761820080327585*^9}, {3.7618201200977793`*^9, 
+   3.7618201343316174`*^9}, {3.761820427714162*^9, 3.761820433927232*^9}},
+ CellLabel->"In[95]:=",ExpressionUUID->"36736b72-0938-4489-bc3e-bd1c89eede2b"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"memoryInUse", "=", 
+   RowBox[{"ConstantArray", "[", 
+    RowBox[{
+     RowBox[{"MemoryInUse", "[", "]"}], ",", "60"}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"frontEndInUse", "=", 
+   RowBox[{"ConstantArray", "[", 
+    RowBox[{
+     RowBox[{"MemoryInUse", "[", "$FrontEnd", "]"}], ",", "60"}], "]"}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"RunScheduledTask", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"memoryInUse", "=", 
+       RowBox[{"Append", "[", 
+        RowBox[{
+         RowBox[{"Rest", "@", "memoryInUse"}], ",", 
+         RowBox[{"MemoryInUse", "[", "]"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"frontEndInUse", "=", 
+       RowBox[{"Append", "[", 
+        RowBox[{
+         RowBox[{"Rest", "@", "frontEndInUse"}], ",", 
+         RowBox[{"MemoryInUse", "[", "$FrontEnd", "]"}]}], "]"}]}], ";"}], 
+     ",", "5"}], "]"}], ";"}], "\n"}], "\[IndentingNewLine]", 
+ RowBox[{"memoryUsagePlot", ":=", 
+  RowBox[{"Dynamic", "[", 
+   RowBox[{"Grid", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Overlay", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"ListPlot", "[", 
+             RowBox[{"memoryInUse", ",", 
+              RowBox[{"PlotRange", "\[Rule]", "All"}], ",", 
+              RowBox[{"Joined", "\[Rule]", "True"}], ",", 
+              RowBox[{"AspectRatio", "\[Rule]", 
+               RowBox[{"1", "/", "5"}]}], ",", 
+              RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+              RowBox[{"Background", "\[Rule]", "Black"}], ",", 
+              RowBox[{"PlotStyle", "\[Rule]", "Green"}], ",", 
+              RowBox[{"ImageSize", "\[Rule]", "Small"}], ",", 
+              RowBox[{"GridLines", "\[Rule]", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"12", " ", 
+                  RowBox[{"(", 
+                   RowBox[{
+                    RowBox[{"Range", "[", "6", "]"}], "-", "1"}], ")"}]}], 
+                 ",", "None"}], "}"}]}], ",", 
+              RowBox[{"GridLinesStyle", "\[Rule]", 
+               RowBox[{"Darker", "@", "Gray"}]}]}], "]"}], ",", 
+            RowBox[{"ListPlot", "[", 
+             RowBox[{"frontEndInUse", ",", 
+              RowBox[{"PlotRange", "\[Rule]", "All"}], ",", 
+              RowBox[{"Joined", "\[Rule]", "True"}], ",", 
+              RowBox[{"AspectRatio", "\[Rule]", 
+               RowBox[{"1", "/", "5"}]}], ",", 
+              RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+              RowBox[{"Background", "\[Rule]", "None"}], ",", 
+              RowBox[{"PlotStyle", "\[Rule]", "Red"}], ",", 
+              RowBox[{"ImageSize", "\[Rule]", "Small"}]}], "]"}]}], "}"}], 
+          "]"}], ",", 
+         RowBox[{"Style", "[", 
+          RowBox[{"\"\<Kernel\>\"", ",", 
+           RowBox[{"Darker", "@", "Green"}]}], "]"}], ",", 
+         RowBox[{"NumberForm", "[", 
+          RowBox[{
+           RowBox[{"N", "[", 
+            RowBox[{
+             RowBox[{"Last", "[", "memoryInUse", "]"}], "/", 
+             RowBox[{"10", "^", "6"}]}], "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"9", ",", "2"}], "}"}]}], "]"}], ",", "\"\<MB\>\""}], 
+        "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"SpanFromAbove", ",", 
+         RowBox[{"Style", "[", 
+          RowBox[{"\"\<Front End\>\"", ",", 
+           RowBox[{"Darker", "@", "Red"}]}], "]"}], ",", 
+         RowBox[{"NumberForm", "[", 
+          RowBox[{
+           RowBox[{"N", "[", 
+            RowBox[{
+             RowBox[{"Last", "[", "frontEndInUse", "]"}], "/", 
+             RowBox[{"10", "^", "6"}]}], "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"9", ",", "2"}], "}"}]}], "]"}], ",", "\"\<MB\>\""}], 
+        "}"}]}], "}"}], ",", 
+     RowBox[{"Alignment", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"Center", ",", "Center"}], "}"}]}]}], "]"}], "]"}]}]}], "Input",\
+
+ CellGroupingRules->{"GroupTogetherGrouping", 10000.},
+ CellChangeTimes->{
+  3.744282067502206*^9, {3.76181977808284*^9, 3.761819778095468*^9}, 
+   3.761820064725696*^9},
+ CellLabel->"In[96]:=",ExpressionUUID->"9a7be571-0fdd-4e4e-8352-bf04bfc66c4d"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"ClearAll", "[", "myByteCount", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"myByteCount", "[", "symbolName_String", "]"}], ":=", 
+    RowBox[{"Quiet", "@", 
+     RowBox[{"Replace", "[", 
+      RowBox[{
+       RowBox[{"ToHeldExpression", "[", "symbolName", "]"}], ",", 
+       RowBox[{
+        RowBox[{"Hold", "[", "x__", "]"}], "\[RuleDelayed]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"MemberQ", "[", 
+           RowBox[{
+            RowBox[{"Attributes", "[", "x", "]"}], ",", 
+            RowBox[{"Protected", "|", "ReadProtected"}]}], "]"}], ",", 
+          RowBox[{"Sequence", "@@", 
+           RowBox[{"{", "}"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"ByteCount", "[", 
+             RowBox[{"Through", "[", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{
+                "OwnValues", ",", "DownValues", ",", "UpValues", ",", 
+                 "SubValues", ",", "DefaultValues", ",", "FormatValues", ",", 
+                 "NValues"}], "}"}], "[", 
+               RowBox[{
+                RowBox[{"Unevaluated", "@", "x"}], ",", 
+                RowBox[{"Sort", "\[Rule]", "False"}]}], "]"}], "]"}], "]"}], 
+            ",", "symbolName"}], "}"}]}], "]"}]}]}], "]"}]}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\n", 
+ RowBox[{"memoryProfileButton", ":=", 
+  RowBox[{"Button", "[", 
+   RowBox[{"\"\<Generate Profile\>\"", ",", 
+    RowBox[{"CreateDocument", "[", 
+     RowBox[{
+      RowBox[{"Style", "[", 
+       RowBox[{
+        RowBox[{"With", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"listing", "=", 
+            RowBox[{"myByteCount", "/@", 
+             RowBox[{"Names", "[", "]"}]}]}], "}"}], ",", 
+          RowBox[{"Labeled", "[", 
+           RowBox[{
+            RowBox[{"Grid", "[", 
+             RowBox[{
+              RowBox[{"Reverse", "@", 
+               RowBox[{"Take", "[", 
+                RowBox[{
+                 RowBox[{"Sort", "[", "listing", "]"}], ",", 
+                 RowBox[{"-", "100"}]}], "]"}]}], ",", 
+              RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+              RowBox[{"Alignment", "\[Rule]", "Left"}]}], "]"}], ",", 
+            RowBox[{"Column", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"Style", "[", 
+                 RowBox[{
+                  RowBox[{
+                  "\"\<ByteCount for symbols without attributes Protected and\
+\>\"", "<>", "\"\<ReadProtected in all contexts\>\""}], ",", "16", ",", 
+                  RowBox[{"FontFamily", "\[Rule]", "\"\<Times\>\""}]}], "]"}],
+                 ",", 
+                RowBox[{"Style", "[", 
+                 RowBox[{
+                  RowBox[{"Row", "@", 
+                   RowBox[{"{", 
+                    RowBox[{"\"\<Total: \>\"", ",", 
+                    RowBox[{"Total", "[", 
+                    RowBox[{"listing", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"All", ",", "1"}], "]"}], "]"}], "]"}], ",", 
+                    "\"\< bytes for \>\"", ",", 
+                    RowBox[{"Length", "[", "listing", "]"}], ",", 
+                    "\"\< symbols\>\""}], "}"}]}], ",", "Bold"}], "]"}]}], 
+               "}"}], ",", "Center", ",", "1.5"}], "]"}], ",", "Top"}], 
+           "]"}]}], "]"}], ",", 
+        RowBox[{"ShowStringCharacters", "\[Rule]", "False"}]}], "]"}], ",", 
+      RowBox[{"WindowSelected", "\[Rule]", "True"}], ",", 
+      RowBox[{"WindowTitle", "\[Rule]", "\"\<Memory profile\>\""}]}], "]"}], 
+    ",", 
+    RowBox[{"ImageSize", "\[Rule]", "Automatic"}]}], "]"}]}]}], "Input",
+ CellGroupingRules->{"GroupTogetherGrouping", 10000.},
+ GeneratedCell->False,
+ CellAutoOverwrite->False,
+ CellChangeTimes->{
+  3.744282067502206*^9, {3.7618197842692833`*^9, 3.7618197842821198`*^9}, 
+   3.7618200647261133`*^9, {3.761820270333177*^9, 3.7618202726034117`*^9}},
+ CellLabel->
+  "In[100]:=",ExpressionUUID->"03e0a37b-2cfc-41ff-b7c1-159f92d2d5b1"],
+
+Cell[BoxData[
+ RowBox[{"PaletteNotebook", "[", 
+  RowBox[{
+   RowBox[{"Column", "[", 
+    RowBox[{"{", 
+     RowBox[{
+     "historyLengthButtons", ",", "memoryProfileButton", ",", 
+      "memoryUsagePlot"}], "}"}], "]"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"WindowTitle", "\[Rule]", "\"\<Memory Profiler\>\""}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"WindowSize", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"350", ",", " ", "125"}], "}"}]}]}], "\[IndentingNewLine]", 
+  "]"}]], "Input",
+ CellGroupingRules->{"GroupTogetherGrouping", 10000.},
+ GeneratedCell->False,
+ CellAutoOverwrite->False,
+ CellChangeTimes->{
+  3.744282067502206*^9, {3.761819788716427*^9, 3.761819802116713*^9}, {
+   3.761819846842754*^9, 3.761819967096656*^9}, 3.761820064726336*^9, {
+   3.761820165556444*^9, 3.76182018199942*^9}, {3.7618202424389753`*^9, 
+   3.7618202452909603`*^9}, {3.761820289485552*^9, 3.761820396153043*^9}, {
+   3.761820461783283*^9, 3.7618204769617233`*^9}, {3.761984597179932*^9, 
+   3.7619846032976294`*^9}, {3.761984635450202*^9, 3.761984650868381*^9}, {
+   3.761996478215693*^9, 3.761996518196558*^9}},
+ CellLabel->
+  "In[106]:=",ExpressionUUID->"34af3814-6035-40e6-a9cc-917f792af555"],
+
+Cell[BoxData[
+ InterpretationBox[
+  PanelBox[GridBox[{
+     {
+      TooltipBox[
+       ButtonBox[
+        StyleBox[
+         DynamicBox[FEPrivate`FrontEndResource[
+          "FEBitmaps", "ManipulatePasteIcon"],
+          ImageSizeCache->{13., {4., 9.}}],
+         DynamicUpdating->True],
+        Appearance->{Automatic, None, "Normal", Automatic},
+        ButtonFunction:>FrontEndExecute[{
+           FrontEnd`NotebookPut[
+            Notebook[{
+              Cell[
+               BoxData[
+                TagBox[
+                 GridBox[{{
+                    TagBox[
+                    GridBox[{{
+                    DynamicBox[
+                    ToBoxes[
+                    Button[
+                    0, $HistoryLength = 0, BaseStyle -> 
+                    If[$HistoryLength == 0, {"GenericButton", Bold}, {
+                    "GenericButton"}], Enabled -> 
+                    If[$HistoryLength == 0, False, True]], StandardForm]], 
+                    DynamicBox[
+                    ToBoxes[
+                    Button[
+                    1, $HistoryLength = 1, BaseStyle -> 
+                    If[$HistoryLength == 1, {"GenericButton", Bold}, {
+                    "GenericButton"}], Enabled -> 
+                    If[$HistoryLength == 1, False, True]], StandardForm]], 
+                    DynamicBox[
+                    ToBoxes[
+                    Button[
+                    5, $HistoryLength = 5, BaseStyle -> 
+                    If[$HistoryLength == 5, {"GenericButton", Bold}, {
+                    "GenericButton"}], Enabled -> 
+                    If[$HistoryLength == 5, False, True]], StandardForm]], 
+                    DynamicBox[
+                    ToBoxes[
+                    Button[
+                    DirectedInfinity[1], $HistoryLength = DirectedInfinity[1],
+                     BaseStyle -> 
+                    If[$HistoryLength == DirectedInfinity[1], {
+                    "GenericButton", Bold}, {"GenericButton"}], Enabled -> 
+                    If[$HistoryLength == DirectedInfinity[1], False, True]], 
+                    StandardForm]]}}, AutoDelete -> False, 
+                    GridBoxItemSize -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                    GridBoxSpacings -> {"Columns" -> {{1}}}], "Grid"]}, {
+                    ButtonBox[
+                    "\"Generate Profile\"", ButtonFunction :> CreateDocument[
+                    Style[
+                    With[{$CellContext`listing = Map[$CellContext`myByteCount, 
+                    Names[]]}, 
+                    Labeled[
+                    Grid[
+                    Reverse[
+                    Take[
+                    Sort[$CellContext`listing], -100]], Frame -> True, 
+                    Alignment -> Left], 
+                    Column[{
+                    Style[
+                    StringJoin[
+                    "ByteCount for symbols without attributes Protected and", 
+                    "ReadProtected in all contexts"], 16, FontFamily -> 
+                    "Times"], 
+                    Style[
+                    Row[{"Total: ", 
+                    Total[
+                    Part[$CellContext`listing, All, 1]], " bytes for ", 
+                    Length[$CellContext`listing], " symbols"}], Bold]}, 
+                    Center, 1.5], Top]], ShowStringCharacters -> False], 
+                    WindowSelected -> True, WindowTitle -> "Memory profile"], 
+                    ImageSize -> Automatic, Appearance -> Automatic, 
+                    Evaluator -> Automatic, Method -> "Preemptive"]}, {
+                    DynamicBox[
+                    ToBoxes[
+                    Grid[{{
+                    Overlay[{
+                    
+                    ListPlot[$CellContext`memoryInUse, PlotRange -> All, 
+                    Joined -> True, AspectRatio -> 1/5, Axes -> False, 
+                    Background -> Black, PlotStyle -> Green, ImageSize -> 
+                    Small, GridLines -> {12 (Range[6] - 1), None}, 
+                    GridLinesStyle -> Darker[Gray]], 
+                    
+                    ListPlot[$CellContext`frontEndInUse, PlotRange -> All, 
+                    Joined -> True, AspectRatio -> 1/5, Axes -> False, 
+                    Background -> None, PlotStyle -> Red, ImageSize -> 
+                    Small]}], 
+                    Style["Kernel", 
+                    Darker[Green]], 
+                    NumberForm[
+                    N[Last[$CellContext`memoryInUse]/10^6], {9, 2}], "MB"}, {
+                    SpanFromAbove, 
+                    Style["Front End", 
+                    Darker[Red]], 
+                    NumberForm[
+                    N[Last[$CellContext`frontEndInUse]/10^6], {9, 2}], "MB"}},
+                     Alignment -> {Center, Center}], StandardForm]]}}, 
+                  GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+                  DefaultBaseStyle -> "Column", 
+                  GridBoxItemSize -> {
+                   "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
+                 "Column"]]]}, WindowTitle -> "Memory Profiler", 
+             WindowSize -> {350, 125}, WindowElements -> {}, 
+             WindowMargins -> {{Automatic, 0}, {Automatic, 0}}, WindowSize -> 
+             All, StyleDefinitions -> "Palette.nb"]]}],
+        DefaultBaseStyle->{},
+        Evaluator->None,
+        Method->"Queued"],
+       DynamicBox[
+        ToBoxes[
+         FEPrivate`FrontEndResource["FEStrings", "NotebookInNewWindow"]]]]},
+     {
+      ItemBox[GridBox[{
+         {Cell[BoxData[
+           TagBox[GridBox[{
+              {
+               TagBox[GridBox[{
+                  {
+                   DynamicBox[ToBoxes[
+                    Button[
+                    0, $HistoryLength = 0, BaseStyle -> 
+                    If[$HistoryLength == 0, {"GenericButton", Bold}, {
+                    "GenericButton"}], Enabled -> 
+                    If[$HistoryLength == 0, False, True]], StandardForm],
+                    ImageSizeCache->{70., {9.3, 16.7}}], 
+                   DynamicBox[ToBoxes[
+                    Button[
+                    1, $HistoryLength = 1, BaseStyle -> 
+                    If[$HistoryLength == 1, {"GenericButton", Bold}, {
+                    "GenericButton"}], Enabled -> 
+                    If[$HistoryLength == 1, False, True]], StandardForm],
+                    ImageSizeCache->{70., {9.3, 16.7}}], 
+                   DynamicBox[ToBoxes[
+                    Button[
+                    5, $HistoryLength = 5, BaseStyle -> 
+                    If[$HistoryLength == 5, {"GenericButton", Bold}, {
+                    "GenericButton"}], Enabled -> 
+                    If[$HistoryLength == 5, False, True]], StandardForm],
+                    ImageSizeCache->{70., {9.3, 16.7}}], 
+                   DynamicBox[ToBoxes[
+                    Button[
+                    DirectedInfinity[1], $HistoryLength = DirectedInfinity[1],
+                     BaseStyle -> 
+                    If[$HistoryLength == DirectedInfinity[1], {
+                    "GenericButton", Bold}, {"GenericButton"}], Enabled -> 
+                    If[$HistoryLength == DirectedInfinity[1], False, True]], 
+                    StandardForm],
+                    ImageSizeCache->{70., {9.3, 16.7}}]}
+                 },
+                 AutoDelete->False,
+                 
+                 GridBoxItemSize->{
+                  "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+                 GridBoxSpacings->{"Columns" -> {{1}}}],
+                "Grid"]},
+              {
+               ButtonBox["\<\"Generate Profile\"\>",
+                Appearance->Automatic,
+                ButtonFunction:>CreateDocument[
+                  Style[
+                   
+                   With[{$CellContext`listing = 
+                    Map[$CellContext`myByteCount, 
+                    Names[]]}, 
+                    Labeled[
+                    Grid[
+                    Reverse[
+                    Take[
+                    Sort[$CellContext`listing], -100]], Frame -> True, 
+                    Alignment -> Left], 
+                    Column[{
+                    Style[
+                    StringJoin[
+                    "ByteCount for symbols without attributes Protected and", 
+                    "ReadProtected in all contexts"], 16, FontFamily -> 
+                    "Times"], 
+                    Style[
+                    Row[{"Total: ", 
+                    Total[
+                    Part[$CellContext`listing, All, 1]], " bytes for ", 
+                    Length[$CellContext`listing], " symbols"}], Bold]}, 
+                    Center, 1.5], Top]], ShowStringCharacters -> False], 
+                  WindowSelected -> True, WindowTitle -> "Memory profile"],
+                Evaluator->Automatic,
+                ImageSize->Automatic,
+                Method->"Preemptive"]},
+              {
+               DynamicBox[ToBoxes[
+                 Grid[{{
+                    Overlay[{
+                    
+                    ListPlot[$CellContext`memoryInUse, PlotRange -> All, 
+                    Joined -> True, AspectRatio -> 1/5, Axes -> False, 
+                    Background -> Black, PlotStyle -> Green, ImageSize -> 
+                    Small, GridLines -> {12 (Range[6] - 1), None}, 
+                    GridLinesStyle -> Darker[Gray]], 
+                    
+                    ListPlot[$CellContext`frontEndInUse, PlotRange -> All, 
+                    Joined -> True, AspectRatio -> 1/5, Axes -> False, 
+                    Background -> None, PlotStyle -> Red, ImageSize -> 
+                    Small]}], 
+                    Style["Kernel", 
+                    Darker[Green]], 
+                    NumberForm[
+                    N[Last[$CellContext`memoryInUse]/10^6], {9, 2}], "MB"}, {
+                   SpanFromAbove, 
+                    Style["Front End", 
+                    Darker[Red]], 
+                    NumberForm[
+                    N[Last[$CellContext`frontEndInUse]/10^6], {9, 2}], "MB"}},
+                   Alignment -> {Center, Center}], StandardForm],
+                ImageSizeCache->{888., {43., 50.}}]}
+             },
+             DefaultBaseStyle->"Column",
+             GridBoxAlignment->{"Columns" -> {{Left}}},
+             
+             GridBoxItemSize->{
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+            "Column"]],ExpressionUUID->"d4ea201a-b20f-4c1f-874e-2f89cb4aa1d4"]}
+        },
+        GridBoxAlignment->{
+         "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+          "Rows" -> {{Baseline}}, "RowsIndexed" -> {}}],
+       Background->GrayLevel[1],
+       Frame->True,
+       FrameStyle->GrayLevel[0, 0.2]]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}}],
+   BaseStyle->{FontFamily -> "CMU Typewriter Text"},
+   DefaultBaseStyle->{},
+   FrameMargins->5],
+  PaletteNotebook[
+   Column[{
+     Grid[{{
+        Dynamic[
+         Button[
+         0, $HistoryLength = 0, BaseStyle -> 
+          If[$HistoryLength == 0, {"GenericButton", Bold}, {"GenericButton"}],
+           Enabled -> If[$HistoryLength == 0, False, True]]], 
+        Dynamic[
+         Button[
+         1, $HistoryLength = 1, BaseStyle -> 
+          If[$HistoryLength == 1, {"GenericButton", Bold}, {"GenericButton"}],
+           Enabled -> If[$HistoryLength == 1, False, True]]], 
+        Dynamic[
+         Button[
+         5, $HistoryLength = 5, BaseStyle -> 
+          If[$HistoryLength == 5, {"GenericButton", Bold}, {"GenericButton"}],
+           Enabled -> If[$HistoryLength == 5, False, True]]], 
+        Dynamic[
+         Button[
+          DirectedInfinity[1], $HistoryLength = DirectedInfinity[1], 
+          BaseStyle -> 
+          If[$HistoryLength == DirectedInfinity[1], {"GenericButton", Bold}, {
+            "GenericButton"}], Enabled -> 
+          If[$HistoryLength == DirectedInfinity[1], False, True]]]}}, 
+      Spacings -> 1], 
+     Button["Generate Profile", 
+      CreateDocument[
+       Style[
+        With[{$CellContext`listing = Map[$CellContext`myByteCount, 
+            Names[]]}, 
+         Labeled[
+          Grid[
+           Reverse[
+            Take[
+             Sort[$CellContext`listing], -100]], Frame -> True, Alignment -> 
+           Left], 
+          Column[{
+            Style[
+             StringJoin[
+             "ByteCount for symbols without attributes Protected and", 
+              "ReadProtected in all contexts"], 16, FontFamily -> "Times"], 
+            Style[
+             Row[{"Total: ", 
+               Total[
+                Part[$CellContext`listing, All, 1]], " bytes for ", 
+               Length[$CellContext`listing], " symbols"}], Bold]}, Center, 
+           1.5], Top]], ShowStringCharacters -> False], WindowSelected -> 
+       True, WindowTitle -> "Memory profile"], ImageSize -> Automatic], 
+     Dynamic[
+      Grid[{{
+         Overlay[{
+           
+           ListPlot[$CellContext`memoryInUse, PlotRange -> All, Joined -> 
+            True, AspectRatio -> 1/5, Axes -> False, Background -> Black, 
+            PlotStyle -> Green, ImageSize -> Small, 
+            GridLines -> {12 (Range[6] - 1), None}, GridLinesStyle -> 
+            Darker[Gray]], 
+           
+           ListPlot[$CellContext`frontEndInUse, PlotRange -> All, Joined -> 
+            True, AspectRatio -> 1/5, Axes -> False, Background -> None, 
+            PlotStyle -> Red, ImageSize -> Small]}], 
+         Style["Kernel", 
+          Darker[Green]], 
+         NumberForm[
+          N[Last[$CellContext`memoryInUse]/10^6], {9, 2}], "MB"}, {
+        SpanFromAbove, 
+         Style["Front End", 
+          Darker[Red]], 
+         NumberForm[
+          N[Last[$CellContext`frontEndInUse]/10^6], {9, 2}], "MB"}}, 
+       Alignment -> {Center, Center}]]}], WindowTitle -> "Memory Profiler", 
+   WindowSize -> {350, 125}]]], "Output",
+ CellGroupingRules->{"GroupTogetherGrouping", 10000.},
+ CellChangeTimes->{
+  3.744282067502206*^9, 3.76181980734085*^9, {3.761819891015555*^9, 
+   3.761819967563064*^9}, 3.761820003771899*^9, {3.7618200647264967`*^9, 
+   3.761820083429904*^9}, {3.761820137329246*^9, 3.761820182362836*^9}, 
+   3.761820246286199*^9, {3.761820279877095*^9, 3.761820290088756*^9}, {
+   3.761820389729888*^9, 3.761820396571183*^9}, {3.761820438095448*^9, 
+   3.7618204773602057`*^9}},
+ CellLabel->
+  "Out[106]=",ExpressionUUID->"eacfa0cc-05c4-4dda-a1e6-965704b0e2d3"],
+
+Cell[BoxData[
+ RowBox[{"PaletteNotebook", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"(", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"historyLengthButtons", ":=", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Grid", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"Dynamic", "[", 
+              RowBox[{"Button", "[", 
+               RowBox[{"#", ",", 
+                RowBox[{"$HistoryLength", "=", "#"}], ",", 
+                RowBox[{"BaseStyle", "\[Rule]", 
+                 RowBox[{"If", "[", 
+                  RowBox[{
+                   RowBox[{"$HistoryLength", "\[Equal]", "#"}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{"\"\<GenericButton\>\"", ",", "Bold"}], "}"}], 
+                   ",", 
+                   RowBox[{"{", "\"\<GenericButton\>\"", "}"}]}], "]"}]}], 
+                ",", "\[IndentingNewLine]", 
+                RowBox[{"Enabled", "\[Rule]", 
+                 RowBox[{"If", "[", 
+                  RowBox[{
+                   RowBox[{"$HistoryLength", "\[Equal]", "#"}], ",", "False", 
+                   ",", "True"}], "]"}]}]}], "]"}], "]"}], "&"}], "/@", 
+            RowBox[{"{", 
+             RowBox[{"0", ",", "1", ",", "5", ",", "Infinity"}], "}"}]}], 
+           "}"}], ",", 
+          RowBox[{"Spacings", "\[Rule]", "1"}]}], "]"}], "\n", 
+        "memoryInUse"}], "=", 
+       RowBox[{"ConstantArray", "[", 
+        RowBox[{
+         RowBox[{"MemoryInUse", "[", "]"}], ",", "60"}], "]"}]}]}], ";", "\n", 
+     RowBox[{"frontEndInUse", "=", 
+      RowBox[{"ConstantArray", "[", 
+       RowBox[{
+        RowBox[{"MemoryInUse", "[", "$FrontEnd", "]"}], ",", "60"}], "]"}]}], 
+     ";", "\n", 
+     RowBox[{"RunScheduledTask", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"memoryInUse", "=", 
+         RowBox[{"Append", "[", 
+          RowBox[{
+           RowBox[{"Rest", "@", "memoryInUse"}], ",", 
+           RowBox[{"MemoryInUse", "[", "]"}]}], "]"}]}], ";", 
+        RowBox[{"frontEndInUse", "=", 
+         RowBox[{"Append", "[", 
+          RowBox[{
+           RowBox[{"Rest", "@", "frontEndInUse"}], ",", 
+           RowBox[{"MemoryInUse", "[", "$FrontEnd", "]"}]}], "]"}]}], ";"}], 
+       ",", "5"}], "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"memoryUsagePlot", ":=", 
+      RowBox[{"Dynamic", "[", 
+       RowBox[{"Grid", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"Overlay", "[", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"ListPlot", "[", 
+                 RowBox[{"memoryInUse", ",", 
+                  RowBox[{"PlotRange", "\[Rule]", "All"}], ",", 
+                  RowBox[{"Joined", "\[Rule]", "True"}], ",", 
+                  RowBox[{"AspectRatio", "\[Rule]", 
+                   RowBox[{"1", "/", "5"}]}], ",", 
+                  RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+                  RowBox[{"Background", "\[Rule]", "Black"}], ",", 
+                  RowBox[{"PlotStyle", "\[Rule]", "Green"}], ",", 
+                  RowBox[{"ImageSize", "\[Rule]", "Small"}], ",", 
+                  RowBox[{"GridLines", "\[Rule]", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"12", " ", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"Range", "[", "6", "]"}], "-", "1"}], ")"}]}], 
+                    ",", "None"}], "}"}]}], ",", 
+                  RowBox[{"GridLinesStyle", "\[Rule]", 
+                   RowBox[{"Darker", "@", "Gray"}]}]}], "]"}], ",", 
+                RowBox[{"ListPlot", "[", 
+                 RowBox[{"frontEndInUse", ",", 
+                  RowBox[{"PlotRange", "\[Rule]", "All"}], ",", 
+                  RowBox[{"Joined", "\[Rule]", "True"}], ",", 
+                  RowBox[{"AspectRatio", "\[Rule]", 
+                   RowBox[{"1", "/", "5"}]}], ",", 
+                  RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+                  RowBox[{"Background", "\[Rule]", "None"}], ",", 
+                  RowBox[{"PlotStyle", "\[Rule]", "Red"}], ",", 
+                  RowBox[{"ImageSize", "\[Rule]", "Small"}]}], "]"}]}], "}"}],
+               "]"}], ",", 
+             RowBox[{"Style", "[", 
+              RowBox[{"\"\<Kernel\>\"", ",", 
+               RowBox[{"Darker", "@", "Green"}]}], "]"}], ",", 
+             RowBox[{"NumberForm", "[", 
+              RowBox[{
+               RowBox[{"N", "[", 
+                RowBox[{
+                 RowBox[{"Last", "[", "memoryInUse", "]"}], "/", 
+                 RowBox[{"10", "^", "6"}]}], "]"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"9", ",", "2"}], "}"}]}], "]"}], ",", "\"\<MB\>\""}], 
+            "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"SpanFromAbove", ",", 
+             RowBox[{"Style", "[", 
+              RowBox[{"\"\<Front End\>\"", ",", 
+               RowBox[{"Darker", "@", "Red"}]}], "]"}], ",", 
+             RowBox[{"NumberForm", "[", 
+              RowBox[{
+               RowBox[{"N", "[", 
+                RowBox[{
+                 RowBox[{"Last", "[", "frontEndInUse", "]"}], "/", 
+                 RowBox[{"10", "^", "6"}]}], "]"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"9", ",", "2"}], "}"}]}], "]"}], ",", "\"\<MB\>\""}], 
+            "}"}]}], "}"}], ",", 
+         RowBox[{"Alignment", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"Center", ",", "Center"}], "}"}]}]}], "]"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"ClearAll", "[", "myByteCount", "]"}], ";", "\n", 
+     RowBox[{
+      RowBox[{"myByteCount", "[", "symbolName_String", "]"}], ":=", 
+      RowBox[{"Quiet", "@", 
+       RowBox[{"Replace", "[", 
+        RowBox[{
+         RowBox[{"ToHeldExpression", "[", "symbolName", "]"}], ",", 
+         RowBox[{
+          RowBox[{"Hold", "[", "x__", "]"}], "\[RuleDelayed]", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"MemberQ", "[", 
+             RowBox[{
+              RowBox[{"Attributes", "[", "x", "]"}], ",", 
+              RowBox[{"Protected", "|", "ReadProtected"}]}], "]"}], ",", 
+            RowBox[{"Sequence", "@@", 
+             RowBox[{"{", "}"}]}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"ByteCount", "[", 
+               RowBox[{"Through", "[", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{
+                  "OwnValues", ",", "DownValues", ",", "UpValues", ",", 
+                   "SubValues", ",", "DefaultValues", ",", "FormatValues", 
+                   ",", "NValues"}], "}"}], "[", 
+                 RowBox[{
+                  RowBox[{"Unevaluated", "@", "x"}], ",", 
+                  RowBox[{"Sort", "\[Rule]", "False"}]}], "]"}], "]"}], "]"}],
+               ",", "symbolName"}], "}"}]}], "]"}]}]}], "]"}]}]}], ";", "\n", 
+     
+     RowBox[{"memoryProfileButton", ":=", 
+      RowBox[{"Button", "[", 
+       RowBox[{"\"\<Generate Profile\>\"", ",", 
+        RowBox[{"CreateDocument", "[", 
+         RowBox[{
+          RowBox[{"Style", "[", 
+           RowBox[{
+            RowBox[{"With", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"listing", "=", 
+                RowBox[{"myByteCount", "/@", 
+                 RowBox[{"Names", "[", "]"}]}]}], "}"}], ",", 
+              RowBox[{"Labeled", "[", 
+               RowBox[{
+                RowBox[{"Grid", "[", 
+                 RowBox[{
+                  RowBox[{"Reverse", "@", 
+                   RowBox[{"Take", "[", 
+                    RowBox[{
+                    RowBox[{"Sort", "[", "listing", "]"}], ",", 
+                    RowBox[{"-", "100"}]}], "]"}]}], ",", 
+                  RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+                  RowBox[{"Alignment", "\[Rule]", "Left"}]}], "]"}], ",", 
+                RowBox[{"Column", "[", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"Style", "[", 
+                    RowBox[{
+                    RowBox[{
+                    "\"\<ByteCount for symbols without attributes Protected \
+and\>\"", "<>", "\"\<ReadProtected in all contexts\>\""}], ",", "16", ",", 
+                    RowBox[{"FontFamily", "\[Rule]", "\"\<Times\>\""}]}], 
+                    "]"}], ",", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{
+                    RowBox[{"Row", "@", 
+                    RowBox[{"{", 
+                    RowBox[{"\"\<Total: \>\"", ",", 
+                    RowBox[{"Total", "[", 
+                    RowBox[{"listing", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"All", ",", "1"}], "]"}], "]"}], "]"}], ",", 
+                    "\"\< bytes for \>\"", ",", 
+                    RowBox[{"Length", "[", "listing", "]"}], ",", 
+                    "\"\< symbols\>\""}], "}"}]}], ",", "Bold"}], "]"}]}], 
+                   "}"}], ",", "Center", ",", "1.5"}], "]"}], ",", "Top"}], 
+               "]"}]}], "]"}], ",", 
+            RowBox[{"ShowStringCharacters", "\[Rule]", "False"}]}], "]"}], 
+          ",", 
+          RowBox[{"WindowSelected", "\[Rule]", "True"}], ",", 
+          RowBox[{"WindowTitle", "\[Rule]", "\"\<Memory profile\>\""}]}], 
+         "]"}], ",", 
+        RowBox[{"ImageSize", "\[Rule]", "Automatic"}]}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Column", "[", 
+      RowBox[{"{", 
+       RowBox[{
+       "historyLengthButtons", ",", "memoryProfileButton", ",", 
+        "memoryUsagePlot"}], "}"}], "]"}]}], "\[IndentingNewLine]", ")"}], 
+   ",", "\[IndentingNewLine]", 
+   RowBox[{"WindowTitle", "\[Rule]", "\"\<Memory Profiler\>\""}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"WindowSize", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"350", ",", " ", "125"}], "}"}]}]}], "\[IndentingNewLine]", 
+  "]"}]], "Input",
+ CellGroupingRules->{"GroupTogetherGrouping", 10000.},
+ GeneratedCell->False,
+ CellAutoOverwrite->False,
+ CellChangeTimes->{
+  3.744282067502206*^9, {3.761819788716427*^9, 3.761819802116713*^9}, {
+   3.761819846842754*^9, 3.761819967096656*^9}, 3.761820064726336*^9, {
+   3.761820165556444*^9, 3.76182018199942*^9}, {3.7618202424389753`*^9, 
+   3.7618202452909603`*^9}, {3.761820289485552*^9, 3.761820396153043*^9}, {
+   3.761820461783283*^9, 3.7618204769617233`*^9}, {3.761984597179932*^9, 
+   3.7619846032976294`*^9}, {3.761984635450202*^9, 3.761984650868381*^9}, {
+   3.761996478215693*^9, 3.761996518196558*^9}, {3.764067618727713*^9, 
+   3.7640676613560343`*^9}},ExpressionUUID->"dd70a6ce-9b03-43fb-8ca2-\
+bf6f07bd4346"]
+}, Open  ]]
+},
+WindowSize->{1047, 823},
+WindowMargins->{{Automatic, 87}, {Automatic, 0}},
+FrontEndVersion->"11.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (March 5, \
+2018)",
+StyleDefinitions->"Solarized (Fira Code).nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 234, 5, 31, "Input",ExpressionUUID->"1ec50492-24cb-4635-842c-a68ac016278a"],
+Cell[CellGroupData[{
+Cell[817, 29, 6167, 133, 387, "Input",ExpressionUUID->"a904f034-1b12-4a67-b75b-1190584d5a8f"],
+Cell[6987, 164, 10020, 220, 99, "Output",ExpressionUUID->"3407cd39-ab30-42cf-91d1-b854bc2cb8cb"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17044, 389, 1482, 35, 71, "Input",ExpressionUUID->"36736b72-0938-4489-bc3e-bd1c89eede2b",
+ CellGroupingRules->{"GroupTogetherGrouping", 10000.}],
+Cell[18529, 426, 4182, 105, 289, "Input",ExpressionUUID->"9a7be571-0fdd-4e4e-8352-bf04bfc66c4d",
+ CellGroupingRules->{"GroupTogetherGrouping", 10000.}],
+Cell[22714, 533, 4035, 97, 328, "Input",ExpressionUUID->"03e0a37b-2cfc-41ff-b7c1-159f92d2d5b1",
+ CellGroupingRules->{"GroupTogetherGrouping", 10000.}],
+Cell[26752, 632, 1197, 26, 88, "Input",ExpressionUUID->"34af3814-6035-40e6-a9cc-917f792af555",
+ CellGroupingRules->{"GroupTogetherGrouping", 10000.}],
+Cell[27952, 660, 14437, 323, 237, "Output",ExpressionUUID->"eacfa0cc-05c4-4dda-a1e6-965704b0e2d3",
+ CellGroupingRules->{"GroupTogetherGrouping", 10000.}],
+Cell[42392, 985, 10647, 242, 782, "Input",ExpressionUUID->"dd70a6ce-9b03-43fb-8ca2-bf6f07bd4346",
+ CellGroupingRules->{"GroupTogetherGrouping", 10000.}]
+}, Open  ]]
+}
+]
+*)
+

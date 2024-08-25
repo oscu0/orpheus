@@ -1,0 +1,61 @@
+{
+  "alfredtheme" : {
+    "result" : {
+      "textSpacing" : 4,
+      "subtext" : {
+        "size" : 11,
+        "colorSelected" : "#CCCCCCFF",
+        "font" : "System Light",
+        "color" : "#999999FF"
+      },
+      "shortcut" : {
+        "size" : 16,
+        "colorSelected" : "#8CB6E1FF",
+        "font" : "System Light",
+        "color" : "#8CB6E1FF"
+      },
+      "backgroundSelected" : "#2D2D2DFF",
+      "text" : {
+        "size" : 20,
+        "colorSelected" : "#F2777AFF",
+        "font" : "System Light",
+        "color" : "#6699CCFF"
+      },
+      "iconPaddingHorizontal" : 5,
+      "paddingVertical" : 0,
+      "iconSize" : 40
+    },
+    "search" : {
+      "paddingVertical" : 2,
+      "background" : "#3B3B3B00",
+      "spacing" : 10,
+      "text" : {
+        "size" : 24,
+        "colorSelected" : "#F92672FF",
+        "font" : "System",
+        "color" : "#FFFFFFFF"
+      },
+      "backgroundSelected" : "#23231DFF"
+    },
+    "window" : {
+      "color" : "#2D2D2DFF",
+      "paddingHorizontal" : 10,
+      "width" : 560,
+      "borderPadding" : 10,
+      "borderColor" : "#35342D00",
+      "blur" : 0,
+      "roundness" : 12,
+      "paddingVertical" : 10
+    },
+    "credit" : "mitnworb",
+    "separator" : {
+      "color" : "#F9915700",
+      "thickness" : 1
+    },
+    "scrollbar" : {
+      "color" : "#D5D5D5FF",
+      "thickness" : 2
+    },
+    "name" : "Tomorrow Night Eighties (v2)"
+  }
+}
